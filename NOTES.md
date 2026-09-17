@@ -340,3 +340,12 @@ All three transliterations (ZL, Takahashi VT, Zandbergen RF) give the same answe
 **Not a scribe change.** Lisa Fagin Davis assigns all the zodiac pages to one scribe, her Scribe 4. The ring text on the same wheels shows no switch. A new scribe would change both. So the same person wrote `a`-labels on one side of the leaf and `e`-labels on the other, and kept writing the ring text the same way throughout.
 
 **Status: I believe this is a new, documented fact about the script.** I searched Zandbergen's label and language pages, the voynich.ninja zodiac-label thread, the Cipher Mysteries "labelese" post, the 2026 arXiv work, the Voynichdecomp repository and the Zenodo zodiac paper. None reports a vowel switch in the labels, its location at the f72 recto/verso, or the contrast with the co-located ring text.
+
+## 27. Do the two label halves come from different parts of the book? (`zodiac_sources.py`, `data/zodiac_sources.out`)
+
+For each early (`a`) and late (`e`) zodiac label I checked whether the same word occurs in the text of other sections, excluding the zodiac pages themselves.
+
+- **Exact matches:** no section favours either half. Every difference is under 0.10, and all permutation p-values are 0.11 or higher. Herbal-A, herbal-B, bio, stars, pharma and astro text all look the same to both halves. So do the bio, pharma and astro label sets.
+- **Near matches:** allowing one deleted glyph, late labels match text more often in every section, by a similar margin: herbal-A 0.74 vs 0.51, stars 0.87 vs 0.67, bio 0.65 vs 0.50. The uplift is uniform, not tied to one section.
+- **Reading:** the `e`-labels are simply closer to ordinary running-text word shapes everywhere. The `a`-labels are a more distinctive "labelese" style. There is no sign that the two halves were copied from two sections of the book. Reading (3) of §24 is not supported. Readings (1), a category marker, and (2), a changed procedure, remain.
+- **Dark and light pairs:** Aries dark +0.49 vs light +0.24, Taurus light +0.91 vs dark +0.74. The darker or lighter drawing does not predict the vowel, so the split is not a day/night or colour code within those signs.

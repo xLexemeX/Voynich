@@ -1,0 +1,22 @@
+early labels n=194, late labels n=156
+target                 early hit  late hit   diff  perm p
+herbal text (A)            0.351     0.410 -0.060  0.2725
+herbal text (B)            0.376     0.468 -0.092  0.1055
+bio text                   0.325     0.314 +0.011  0.9035
+stars text                 0.464     0.538 -0.075  0.1898
+pharma text                0.294     0.359 -0.065  0.1968
+astro+cosmo text           0.381     0.468 -0.087  0.1207
+astro+cosmo labels         0.206     0.179 +0.027  0.5810
+bio labels                 0.113     0.154 -0.040  0.3493
+pharma labels              0.186     0.160 +0.025  0.5750
+
+with edit-distance-1 matching (deletion only):
+  herbal text (A)        early 0.505 late 0.744
+  herbal text (B)        early 0.526 late 0.750
+  bio text               early 0.500 late 0.654
+  stars text             early 0.665 late 0.865
+  pharma text            early 0.490 late 0.673
+  astro+cosmo text       early 0.588 late 0.769
+  astro+cosmo labels     early 0.335 late 0.449
+  bio labels             early 0.222 late 0.321
+  pharma labels          early 0.309 late 0.282
