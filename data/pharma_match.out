@@ -1,0 +1,25 @@
+f100r [['chosaroshol', 'sochorcfhy', 'otear', 'chofary', 'sar chardaiindy', 'oraro', 'chalsain', 'soity', 'sosam', 'dakocth', 'sofam'], ['okeeos', 'shockhey', 'orol', 'olcheom', 'oteol', 'okols']]
+f102r1 [['daarod', 'otodeeodor'], ['okolaly'], ['ddardsh']]
+f102r2 [['kodaiig'], ['okrolda'], ['loeekadag', 'osheal', 'sodch'], ['koldarod', 'odalydary']]
+f102v1 [['keoraiiin', 'okeody', 'okeody', 'daiisaly', 'ypary', 'opchyt'], ['dindy', 'ypcholdy', 'loralody', 'opchdard']]
+f89v1 [['okoraldy', 'otoy', 'otchar', 'darshody'], ['koeeorain', 'otorshos', 'opol olaiin', 'opaldaiin']]
+f89v2 [['choeesy', 'okam', 'darcheor', 'chokaro', 'sheol', 'chokam'], ['otory', 'otair chody', 'dykaran', 'opcheedey'], ['opaloiiry', 'otaram', 'chtchy', 'sada', 'daseky']]
+f95r2 []
+f99r [['okaradag', 'okar y', 'darar', 'oky', 'salo', 'aro', 'ain', 'okor', 'ralol', 'skeeal', 'okary', 'okolo', 'otalam', 'otoldy'], ['oparal', 'oaro', 'aloly', 'aora', 'choky', 'oky', 'okeoly', 'yteold', 'cheotchy'], ['tsholdy', 'okos', 'oekey', 'dar', 'chockhia', 'r cheyet', 'saiiny', 'sory', 'dam'], ['yteoldy', 'tolsasy']]
+
+pair | pharma label | exact in herbal page | 1-glyph variant | null rate (random herbal pages, exact / variant)
+f1v-f102r1[3,2] sure: no label at that position
+f18v-f102r2[3,1] tent: loeekadag    exact=False variant=False   null 0.00 / 0.00
+f19r-f102v1[2,2] tent: ypcholdy     exact=False variant=False   null 0.00 / 0.00
+f23r-f102r2[3,1] sure: loeekadag    exact=False variant=False   null 0.00 / 0.00
+f32v-f102r2[1,2] tent: no label at that position
+f37v-f102r1[3,1] tent: ddardsh      exact=False variant=False   null 0.00 / 0.00
+f39r-f95r2[None,None] tent: no label at that position
+f47v-f102r2[1,1] sure: kodaiig      exact=False variant=False   null 0.00 / 0.00
+f48r-f89v2[3,4] tent: sada         exact=False variant=False   null 0.00 / 0.00
+f48v-f89v1[1,4] tent: darshody     exact=False variant=False   null 0.00 / 0.00
+f90v2-f100r[1,3] tent: otear        exact=False variant=False   null 0.00 / 0.16
+f90v1-f100r[1,3] tent: otear        exact=False variant=False   null 0.00 / 0.16
+f96v-f99r[4,1] tent: yteoldy      exact=False variant=False   null 0.00 / 0.05
+
+labels tested 10: exact hits 0 (expected 0.00); variant hits 0 (expected 0.36)

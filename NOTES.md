@@ -465,3 +465,27 @@ In case languages A and B use different keys, the same word-to-letter search was
 - **Chance:** two exclusive shared words is ordinary for any pairing of wheels.
 
 With one miss and one weak hit from only two testable pairs, there is no evidence that the ring text or labels name the sign. If a sign name is written on these pages, it is not a repeated word form.
+
+## 35. Do pharmacy labels name the herbal plant they redraw? (`pharma_match.py`, `data/pharma_match.out`)
+
+**Ground truth.** The ZL transliteration file carries 13 notes that a herbal plant is redrawn in the pharmacy section, with row and column in the pharmacy page. They are credited to Petersen, Stolfi, FSG and GL, and 4 are marked certain. Zandbergen's illustrations page confirms one more directly: f37v is the same plant as item 203 at the lower left of f102r1.
+
+**Test.** For each match, I looked up the label written beside that pharmacy drawing. I then checked whether that word, or a variant one glyph shorter, appears in the paragraph text of the matching herbal page. The null is the rate for the same word on the other 127 herbal pages.
+
+| herbal page | pharmacy position | label | on herbal page | on random herbal pages, exact / variant |
+|---|---|---|---|---|
+| f18v, tentative | f102r2 row 3, col 1 | `loeekadag` | no | 0.00 / 0.00 |
+| f19r, tentative | f102v1 [2,2] | `ypcholdy` | no | 0.00 / 0.00 |
+| f23r, **certain** | f102r2 [3,1] | `loeekadag` | no | 0.00 / 0.00 |
+| f37v, confirmed by Zandbergen | f102r1 [3,1] | `ddardsh` | no | 0.00 / 0.00 |
+| f47v, **certain** | f102r2 [1,1] | `kodaiig` | no | 0.00 / 0.00 |
+| f48r, tentative | f89v2 [3,4] | `sada` | no | 0.00 / 0.00 |
+| f48v, tentative | f89v1 [1,4] | `darshody` | no | 0.00 / 0.00 |
+| f90v1 and f90v2, tentative | f100r [1,3] | `otear` | no | 0.00 / 0.16 |
+| f96v, tentative | f99r [4,1] | `yteoldy` | no | 0.00 / 0.05 |
+
+The pairs f1v (certain), f32v and f39r have no label at the given position.
+
+**Result: negative, 0 of 10.** Not one label appears on its matching herbal page, exactly or as a variant. These labels are also almost absent from the herbal text generally: the null rate is 0 for 8 of the 10. So the test is weak, because the words hardly occur in herbal paragraphs at all. What it does show is that **the name written beside a pharmacy copy of a plant is not repeated in the text of that plant's herbal page**, not even for the four certain matches.
+
+**Caveat.** I assumed labels run in the same order as the drawings in each row. That is how the ZL numbering reads, but I did not check each position against the scans. A wrong position would pair a plant with its neighbour's label.
