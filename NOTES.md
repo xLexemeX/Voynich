@@ -361,3 +361,7 @@ If a jar-section label named an ingredient, a plain-language recipe written righ
 | astro, cosmo, zodiac | 193 | 0.026 | 0.015 | 0.22 |
 
 Result: **negative**. A jar label is no more likely to appear in its own recipe than in another recipe on the page. Only 4 of 178 pharmacy labels do so at all: `okol`, `chol`, `sheol`, `doldam`. This fits a forum report of no textual overlap between matched herbal and pharmacy pictures. If the labels are names, the text beside them does not repeat those names in the same written form.
+
+## 29. Forum review and a correction to the novelty claim
+
+See `FORUM_REVIEW.md`. The closest prior work to §24 is a voynich.ninja thread, "Currier A/B split is not what we thought it was!" (5710). It proposes a per-folio switch between `o` and `e` after `ch`/`sh` in running text. My zodiac finding differs in three ways. It is in the labels. It is carried mainly by `a`/`e` after `k`/`t`. It is **absent** from the ring text on the same folios: `o` share after `ch`/`sh` in ring text is 0.32 early vs 0.28 late, and `a` share after gallows is 0.25 vs 0.22. That last point contradicts a single switch state per folio. I now describe the result as an extension of that thread, not an isolated discovery.

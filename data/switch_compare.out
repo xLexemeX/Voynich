@@ -1,0 +1,22 @@
+Forum "boolean switch" metric (vowel after ch/sh: o vs e) versus my metric (vowel after gallows k/t/p/f: a vs e)
+wheel    | labels ch/sh o:e  gallows a:e | ring text ch/sh o:e  gallows a:e
+Pisces   |   0:0             15:3     |  10:13                   9:37 
+AriesD   |   1:2              9:4     |   4:16                   2:23 
+AriesL   |   0:1              4:7     |   5:7                    3:33 
+TaurusL  |   2:0             10:0     |   4:17                  15:21 
+TaurusD  |   3:0              8:1     |  11:15                  16:23 
+Gemini   |   1:0             17:4     |   5:9                   17:20 
+Cancer   |   1:4             10:1     |  10:29                   6:42 
+Leo      |   1:5             10:5     |   8:17                   1:42 
+Virgo    |   0:7              4:12    |   7:18                   8:27 
+Libra    |   0:1              4:10    |   4:13                  17:16 
+Scorpio  |   1:4              7:16    |   5:25                   4:19 
+Sagitt   |   0:2              5:15    |   8:8                    6:23 
+
+totals (share of first vowel):
+  labels, after ch/sh: o share       early 0.53 (n=15)  late 0.10 (n=21)
+  labels, after gallows: a share     early 0.78 (n=93)  late 0.34 (n=88)
+  ring text, after ch/sh: o share    early 0.32 (n=155)  late 0.28 (n=113)
+  ring text, after gallows: a share  early 0.25 (n=267)  late 0.22 (n=163)
+
+Is the label switch carried by gallows+a/e, by ch/sh+o/e, or both? counts above answer it.
