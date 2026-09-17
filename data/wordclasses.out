@@ -1,0 +1,19 @@
+class 0 (19 words): or ar s r char sar sor d tar lor chos cheos ches os ytar qor ols ycheey
+   suffixes [('s', 6), ('ar', 5), ('or', 4), ('r', 1), ('-', 1)]  prefixes [('ch', 4), ('o', 3), ('y', 2), ('a', 1), ('s', 1)]
+class 1 (41 words): qokeedy qokeey qokain qokedy qokal okeey qoky qol otedy lchedy qokey okedy okeedy oteedy qotedy qotaiin qoteedy qotain
+   suffixes [('edy', 14), ('eey', 5), ('dy', 5), ('ol', 3), ('ey', 3)]  prefixes [('qo', 19), ('l', 9), ('ok', 4), ('ot', 3), ('ol', 1)]
+class 2 (1 words): qopchedy
+   suffixes [('edy', 1)]  prefixes [('qo', 1)]
+class 3 (100 words): daiin aiin chol y dy al dain chor shol chy cheol o sho cthy oty shy qokol shor
+   suffixes [('y', 24), ('ol', 17), ('aiin', 10), ('or', 9), ('-', 9)]  prefixes [('ch', 16), ('sh', 11), ('qo', 11), ('o', 8), ('c', 8)]
+class 4 (2 words): qotchy chocthy
+   suffixes [('y', 2)]  prefixes [('qo', 1), ('ch', 1)]
+class 5 (1 words): chkaiin
+   suffixes [('aiin', 1)]  prefixes [('ch', 1)]
+class 6 (68 words): ol dar qokaiin dal okaiin l qokar otaiin okain okal otar otal okar saiin ain dol otain dair
+   suffixes [('aiin', 13), ('ar', 12), ('al', 9), ('ain', 8), ('or', 7)]  prefixes [('qo', 9), ('ch', 9), ('ok', 8), ('ot', 6), ('ol', 4)]
+class 7 (68 words): chedy shedy chey shey cheey sheey chdy chckhy oteey sheol sheedy cheody chcthy kaiin keedy shckhy oly cheedy
+   suffixes [('edy', 22), ('y', 16), ('dy', 8), ('ey', 7), ('eey', 6)]  prefixes [('ch', 14), ('sh', 12), ('ol', 9), ('k', 6), ('qo', 6)]
+
+MI(class, suffix) = 0.75 bits; H(class) = 2.25
+MI(class, prefix) = 0.48 bits

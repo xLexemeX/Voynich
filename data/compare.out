@@ -1,0 +1,10 @@
+voynich EVA            tok  38000 types  7829 TTR 0.206 hapax 0.69 len 4.97±1.83 h1 3.89 h2 2.14 h2(nospace) 2.36 rep 0.0081 top1 0.022 alpha 38
+voynich A              tok  11604 types  3353 TTR 0.289 hapax 0.69 len 4.78±1.81 h1 3.86 h2 2.16 h2(nospace) 2.38 rep 0.0085 top1 0.043 alpha 36
+voynich B              tok  24055 types  5022 TTR 0.209 hapax 0.68 len 5.06±1.80 h1 3.88 h2 2.01 h2(nospace) 2.21 rep 0.0083 top1 0.021 alpha 36
+voynich merged-glyph   tok  38000 types  7829 TTR 0.206 hapax 0.69 len 3.90±1.41 h1 3.94 h2 2.46 h2(nospace) 2.81 rep 0.0081 top1 0.022 alpha 49
+latin pliny            tok  38000 types 10599 TTR 0.279 hapax 0.70 len 5.48±2.58 h1 4.07 h2 3.22 h2(nospace) 3.36 rep 0.1277 top1 0.191 alpha 26
+italian dante          tok  38000 types  6886 TTR 0.181 hapax 0.61 len 3.91±2.22 h1 3.93 h2 3.12 h2(nospace) 3.39 rep 0.0005 top1 0.047 alpha 26
+german faust           tok  36404 types  6583 TTR 0.181 hapax 0.59 len 4.47±2.44 h1 4.06 h2 3.26 h2(nospace) 3.49 rep 0.0017 top1 0.025 alpha 26
+english austen         tok  38000 types  4186 TTR 0.110 hapax 0.49 len 4.39±2.45 h1 4.10 h2 3.31 h2(nospace) 3.60 rep 0.0006 top1 0.040 alpha 26
+hebrew genesis         tok  10011 types  3931 TTR 0.393 hapax 0.66 len 4.37±1.36 h1 4.12 h2 3.52 h2(nospace) 3.85 rep 0.0014 top1 0.020 alpha 27
+voynich shuffled words tok  38000 types  7814 TTR 0.206 hapax 0.69 len 4.96±1.83 h1 3.89 h2 2.14 h2(nospace) 2.41 rep 0.0034 top1 0.022 alpha 38

@@ -1,0 +1,26 @@
+=== 1. Word-order syntax: H(word) and conditional H(next|current), restricted to words with freq>=20 as context
+  voynich  H(word)=10.36  H(next|cur)=4.44  MI=5.92   shuffled MI (finite-sample floor)=5.74   excess MI=0.18
+  latin    H(word)=11.76  H(next|cur)=3.03  MI=8.74   shuffled MI (finite-sample floor)=8.43   excess MI=0.31
+  italian  H(word)=9.73  H(next|cur)=4.39  MI=5.35   shuffled MI (finite-sample floor)=4.89   excess MI=0.46
+  english  H(word)=9.05  H(next|cur)=4.63  MI=4.42   shuffled MI (finite-sample floor)=3.70   excess MI=0.72
+
+=== 2. Similarity decay with line distance (mean Jaccard of word sets, lines i and i+k, same folio)
+  voynich : 0.031 0.030 0.027 0.027 0.027 0.027 0.026 0.027 0.026 0.026
+  latin   : 0.037 0.035 0.031 0.029 0.029 0.026 0.025 0.024 0.024 0.024
+  italian : 0.033 0.035 0.033 0.033 0.031 0.031 0.032 0.033 0.034 0.031
+
+=== 3. Zipf exponent (log-log slope, ranks 10-1000)
+  voynich  zipf slope -1.08
+  latin    zipf slope -0.81
+  italian  zipf slope -1.08
+  english  zipf slope -1.12
+
+=== 4. Are the top-50 words near-variants of each other? (# pairs at edit distance 1)
+  voynich  67 of 1225 pairs
+  latin    39 of 1225 pairs
+  italian  141 of 1225 pairs
+  english  41 of 1225 pairs
+
+=== 5. Currier A vs B on the SAME section (herbal): top words
+  herbal-A (8048 tokens): daiin chol s chor chy dy shol y sho cthy dain dar shor ol chey
+  herbal-B (3470 tokens): daiin aiin or chedy ar chdy dar s qokedy dy shedy ol chckhy okar y

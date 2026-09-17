@@ -1,0 +1,33 @@
+Most over-represented adjacent word pairs (count>=15), PMI bits:
+  o        l        n= 21 PMI=5.03
+  s        aiin     n= 58 PMI=3.98
+  r        aiin     n= 22 PMI=3.76
+  or       aiin     n= 55 PMI=3.68
+  shey     qokain   n= 17 PMI=3.16
+  ar       al       n= 16 PMI=3.12
+  qol      chedy    n= 15 PMI=3.09
+  qokedy   qokedy   n= 16 PMI=3.06
+  qokeedy  qokeedy  n= 18 PMI=2.92
+  shedy    qokedy   n= 21 PMI=2.83
+  qokedy   qokeedy  n= 15 PMI=2.81
+  chol     chol     n= 24 PMI=2.72
+  ar       aiin     n= 25 PMI=2.68
+  s        ar       n= 16 PMI=2.59
+  shedy    qokaiin  n= 17 PMI=2.58
+  chedy    qokain   n= 18 PMI=2.38
+  chedy    qokeey   n= 19 PMI=2.33
+  shedy    qokeedy  n= 15 PMI=2.19
+  chol     daiin    n= 33 PMI=2.08
+  ol       shedy    n= 24 PMI=2.07
+  ol       chedy    n= 22 PMI=1.73
+Most under-represented:
+  ol       chedy    n= 22 PMI=1.73
+  ol       shedy    n= 24 PMI=2.07
+  chol     daiin    n= 33 PMI=2.08
+  shedy    qokeedy  n= 15 PMI=2.19
+  chedy    qokeey   n= 19 PMI=2.33
+  chedy    qokain   n= 18 PMI=2.38
+  shedy    qokaiin  n= 17 PMI=2.58
+  s        ar       n= 16 PMI=2.59
+
+MI all pairs 5.551; without identical pairs 5.590

@@ -1,0 +1,27 @@
+tokens 38575 types 7890
+
+Top 40 words:
+daiin:844 ol:564 aiin:508 chedy:507 shedy:435 ar:400 chol:397 or:393 s:355 chey:354 y:331 dar:321 qokeey:307 qokeedy:307 shey:279 qokain:279 qokedy:276 dy:275 qokaiin:265 al:260 dal:240 okaiin:215 dain:214 chor:211 o:209 qokal:197 l:190 chy:188 shol:186 cheey:185 okeey:180 cheol:171 r:169 otedy:164 qokar:159 otaiin:153 okal:151 sheey:149 otar:148 qoky:146
+hapax legomena 5422 (68.7% of types)
+
+word length dist: 1:1449 2:2528 3:3598 4:6978 5:9467 6:7408 7:4341 8:1793 9:692 10:213 11:63 12:32 13:10 14:2 16:1
+mean len 4.960051847051199
+
+char freq: o:0.132 e:0.106 y:0.092 h:0.092 a:0.076 d:0.068 c:0.068 i:0.062 k:0.057 l:0.055 r:0.039 s:0.038 t:0.036 n:0.032 q:0.028 p:0.008 m:0.005 f:0.002 g:0.001 ;:0.001 1:0.001 x:0.000 2:0.000 7:0.000 6:0.000 ':0.000 4:0.000 0:0.000 5:0.000 3:0.000 9:0.000 8:0.000 v:0.000 b:0.000 j:0.000 u:0.000 z:0.000 I:0.000
+
+char entropy h1=3.888  conditional h2=2.142  (incl. space)
+
+Lang A: tokens 11604 types 3353; top20: daiin:499 chol:277 s:204 chor:179 dy:126 chy:120 shol:118 y:113 ol:109 or:106 sho:103 dar:100 dain:99 cthy:94 chey:89 aiin:87 dal:80 o:75 shor:69 cheol:66
+
+Lang B: tokens 24055 types 5022; top20: chedy:497 ol:439 shedy:425 aiin:376 daiin:312 qokeedy:307 ar:282 or:277 qokedy:275 qokain:275 qokeey:262 chey:248 qokaiin:243 shey:202 al:193 dar:190 y:180 qokal:174 okaiin:171 otedy:160
+
+line-initial words: [('daiin', 160), ('y', 74), ('saiin', 57), ('dain', 49), ('dar', 41), ('o', 38), ('sol', 37), ('sain', 36), ('or', 33), ('ol', 33), ('qokeey', 32), ('sar', 32), ('qokeedy', 32), ('sho', 31), ('sor', 31)]
+line-final words: [('daiin', 129), ('dy', 97), ('am', 62), ('dam', 56), ('dal', 49), ('y', 49), ('dar', 47), ('s', 44), ('aiin', 43), ('ol', 42), ('oly', 41), ('chedy', 36), ('ar', 29), ('qoky', 28), ('otam', 28)]
+line-initial chars: [('o', 1081), ('d', 745), ('s', 697), ('y', 676), ('q', 544), ('t', 406), ('p', 384), ('c', 190), ('k', 116), ('l', 82)]
+line-final chars: [('y', 1997), ('m', 692), ('n', 688), ('l', 582), ('r', 462), ('s', 179), ('d', 142), ('g', 105), ('o', 89), ('a', 29)]
+word-initial chars: o:0.225 c:0.179 q:0.140 s:0.119 d:0.095 a:0.055 y:0.051 l:0.038 k:0.033 t:0.027 p:0.014 r:0.014
+word-final chars: y:0.402 n:0.157 l:0.154 r:0.150 s:0.037 o:0.035 m:0.026 d:0.017 g:0.004 e:0.003 k:0.003 a:0.003
+
+adjacent identical word pairs: 302
+
+section tokens/types: {'text': (2360, 984), 'herbal': (11566, 3302), 'cosmo': (2214, 1091), 'stars': (11643, 3284), 'astro': (819, 572), 'zodiac': (999, 580), 'bio': (6385, 1454), 'pharma': (2589, 1136)}

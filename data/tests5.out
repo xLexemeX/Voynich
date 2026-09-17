@@ -1,0 +1,44 @@
+=== 1. A/B continuum: PCA of per-page glyph-bigram profiles
+  variance explained by PC1: 34.6%, PC2: 13.2%
+  lang A : n= 71 PC1 mean -0.0572 sd 0.0366 min -0.1118 max +0.0172
+  lang B : n= 78 PC1 mean +0.0505 sd 0.0280 min +0.0018 max +0.1071
+  lang ? : n= 18 PC1 mean +0.0067 sd 0.0155 min -0.0225 max +0.0364
+  PC1 histogram (all pages): [11, 14, 10, 11, 3, 11, 10, 14, 25, 19, 12, 7, 13, 7]
+  top bigrams driving PC1 (+): ['ed', 'dy', 'he', 'ke', 'ee', 'qo', 'ok', 'ka']  (-): ['ho', 'ch', 'or', 'hy', 'ii', 'ol', 'th', 'ct']
+  PC1 by section: {'herbal': -0.0343, 'cosmo': 0.0151, 'astro': 0.0015, 'zodiac': 0.0137, 'pharma': -0.0109, 'text': 0.0192, 'bio': 0.0816, 'stars': 0.039}
+
+=== 2. Agreement between neighbouring words: MI(ending_i, ending_i+1) vs shuffled
+  voynich: MI = 0.0527  shuffled 0.0098
+  latin (last 2 letters): MI = 0.7165  shuffled 0.3144
+  voynich word-initial glyph vs previous word-final glyph MI = 0.1954
+
+=== 3. Do prefix / core / suffix combine independently (category code) or with dependencies (morphology)?
+  decomposed 29507 tokens; distinct prefixes 8, cores 3172, suffixes 19
+  MI(prefix,suffix) = 0.083   MI(core,suffix) = 1.537   MI(prefix,core) = 1.375
+  shuffled baselines: MI(prefix,suffix) 0.003  MI(core,suffix) 0.576
+  latin: MI(prefix,suffix) 1.171  MI(core,suffix) 4.397  shuffled core,suffix 2.963
+  top cores: [('k', 3941), ('t', 2299), ('h', 1404), ('ke', 841), ('kch', 605), ('tch', 601), ('e', 568), ('cth', 497), ('l', 472), ('lk', 451), ('ckh', 426), ('o', 392), ('d', 371), ('te', 368), ('lch', 358), ('pch', 356), ('he', 342), ('ai', 341), ('ch', 331), ('a', 320), ('r', 284), ('eo', 239), ('ho', 222), ('al', 201), ('keo', 181)]
+
+=== 4. Zipf law of abbreviation: correlation(log freq, length) over types
+  voynich: r = -0.322
+  latin: r = -0.294
+
+=== 5. Fraction of -edy / qo- words by quire in manuscript order (folio order)
+  quire A  n= 1531 -edy 0.000  qo- 0.057  -ol/-or 0.231  cth/ckh 0.085  daiin 0.037
+  quire B  n= 1051 -edy 0.000  qo- 0.085  -ol/-or 0.227  cth/ckh 0.086  daiin 0.058
+  quire C  n= 1448 -edy 0.000  qo- 0.102  -ol/-or 0.278  cth/ckh 0.077  daiin 0.048
+  quire D  n= 1278 -edy 0.067  qo- 0.092  -ol/-or 0.169  cth/ckh 0.063  daiin 0.054
+  quire E  n= 1559 -edy 0.063  qo- 0.087  -ol/-or 0.136  cth/ckh 0.049  daiin 0.047
+  quire F  n= 1722 -edy 0.109  qo- 0.080  -ol/-or 0.146  cth/ckh 0.054  daiin 0.027
+  quire G  n= 1553 -edy 0.021  qo- 0.101  -ol/-or 0.200  cth/ckh 0.068  daiin 0.038
+  quire H  n= 1546 -edy 0.047  qo- 0.109  -ol/-or 0.095  cth/ckh 0.031  daiin 0.016
+  quire I  n= 1050 -edy 0.019  qo- 0.043  -ol/-or 0.124  cth/ckh 0.030  daiin 0.013
+  quire J  n=  786 -edy 0.017  qo- 0.019  -ol/-or 0.069  cth/ckh 0.015  daiin 0.011
+  quire K  n=  693 -edy 0.042  qo- 0.007  -ol/-or 0.108  cth/ckh 0.020  daiin 0.009
+  quire L  n=  140 -edy 0.064  qo- 0.050  -ol/-or 0.043  cth/ckh 0.000  daiin 0.007
+  quire M  n= 6955 -edy 0.252  qo- 0.235  -ol/-or 0.145  cth/ckh 0.045  daiin 0.012
+  quire N  n= 2393 -edy 0.097  qo- 0.108  -ol/-or 0.119  cth/ckh 0.020  daiin 0.013
+  quire O  n= 1479 -edy 0.007  qo- 0.117  -ol/-or 0.226  cth/ckh 0.068  daiin 0.041
+  quire Q  n=  915 -edy 0.052  qo- 0.107  -ol/-or 0.179  cth/ckh 0.080  daiin 0.017
+  quire S  n= 1584 -edy 0.002  qo- 0.103  -ol/-or 0.317  cth/ckh 0.071  daiin 0.029
+  quire T  n=10892 -edy 0.145  qo- 0.168  -ol/-or 0.090  cth/ckh 0.028  daiin 0.011

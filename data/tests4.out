@@ -1,0 +1,35 @@
+=== 1. Sukhotin vowel/consonant algorithm on EVA glyphs (and on merged glyphs)
+  EVA vowels found: ['o', 'h', 'a', 'y', 'n', 'g', 'b', 'u']
+  merged-glyph vowels found: ['o', 'a', 'y', 'e', 'E', 'c', 'u']
+  Latin control vowels found: ['i', 'e', 'a', 'u', 'o', 'y', 'w']
+
+=== 2. Line-final -m: is it a positional variant of -n / -in / -iin?
+  stems that take -m at least 3x; their other endings summed: [('l', 3292), ('iin', 3086), ('r', 3045), ('in', 1317), ('iiin', 129), ('y', 90), ('n', 82)]
+  examples: [('yka', {'l': 11, 'iin': 46, 'r': 35, 'm': 5, 'in': 12, 'n': 1}), ('a', {'r': 400, 'in': 117, 'm': 85, 'l': 260, 'n': 5, 'iin': 508, 'iiin': 47, 'y': 9}), ('sho', {'l': 186, 'y': 13, 'r': 96, 'm': 4, 'iin': 6, 'n': 1}), ('ko', {'r': 26, 'l': 38, 'm': 3, 'iin': 5}), ('ckha', {'r': 3, 'm': 3, 'iin': 3, 'l': 4, 'in': 1}), ('o', {'r': 393, 'iin': 38, 'l': 564, 'n': 1, 'y': 13, 'm': 22, 'iiin': 14, 'in': 9}), ('sha', {'r': 32, 'iin': 20, 'n': 6, 'in': 9, 'm': 6, 'l': 17, 'y': 3, 'iiin': 1}), ('da', {'n': 18, 'iin': 844, 'in': 214, 'r': 321, 'iiin': 21, 'l': 240, 'm': 88, 'y': 2})]
+
+=== 3. Tally-like runs: distribution of i-runs and e-runs
+  i-runs: Counter({2: 4365, 1: 2499, 3: 180, 4: 1})
+  e-runs: Counter({1: 10138, 2: 4407, 3: 405, 4: 9})
+  what precedes i-runs: [('a', 6686), ('o', 292), ('r', 14), ('k', 11), ('e', 9)]
+  what follows i-runs: [('n', 6007), ('r', 755), ('m', 56), ('l', 53), ('s', 43), ('d', 26)]
+
+=== 4. Section-by-section: does the word "language" drift smoothly (quire order) or jump? cosine similarity of glyph-bigram profiles per quire
+  quire: tokens, lang mix, similarity to quire A(1)
+   A     1531 {'A': 227} sim=1.000
+   B     1051 {'A': 150} sim=0.952
+   C     1448 {'A': 219} sim=0.979
+   D     1278 {'A': 128, 'B': 46} sim=0.958
+   E     1559 {'B': 104, 'A': 107} sim=0.886
+   F     1722 {'B': 97, 'A': 110} sim=0.888
+   G     1553 {'A': 208, 'B': 46} sim=0.965
+   H     1546 {'B': 106, '': 20, 'A': 80} sim=0.781
+   I     1050 {'': 241} sim=0.825
+   J      786 {'': 113} sim=0.768
+   K      693 {'': 43} sim=0.718
+   L      140 {'': 12} sim=0.712
+   M     6955 {'B': 917} sim=0.636
+   N     2393 {'B': 347} sim=0.786
+   O     1479 {'A': 239} sim=0.865
+   Q      915 {'A': 68, 'B': 61} sim=0.911
+   S     1584 {'A': 285} sim=0.798
+   T    10892 {'B': 1084, '': 1} sim=0.759
