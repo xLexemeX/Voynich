@@ -447,3 +447,21 @@ In case languages A and B use different keys, the same word-to-letter search was
 **Conclusion.** With pairs allowed, the search maps almost every word to a common Latin pair and assembles fluent-looking pseudo-Latin. It does this for real ciphertext, for meaningless text, and for shuffled text, and all of them score *better than the true key*. Shuffled Voynich text, which has no word order at all, scores best of the Voynich variants. So a letter-model decipherment of a letter-or-pair word cipher is **not falsifiable**. It will produce Latin-looking output from anything, and a better score means nothing. This explains why Naibbe-style parses of the Voynich text give "Latinish gibberish", and why any claimed decipherment of this form must be judged by something other than how Latin-like its output reads. The evidence would have to be dictionary words in context, agreement with pictures, or a key that holds up on held-out pages.
 
 **What this means for "a measurable translation".** Language-model scoring can refute the one-word-per-letter form (§30–32) but not the pair form. A measurable translation of the pair form, or of anything richer, needs an external anchor: a word tied to a picture or a known name, checked on pages the key was not fitted to.
+
+## 34. Do the zodiac wheels name their sign? A held-out test (`zodiac_names.py`, `data/zodiac_names.out`)
+
+**Logic.** Aries and Taurus are each drawn on two wheels. If a wheel's ring text or labels contain the sign's name, both wheels of a pair should share that word, and the other ten wheels should lack it. The other 64 wheel pairings, which show different signs, serve as the null.
+
+| measure | Aries pair | Taurus pair | 64 non-matching pairs |
+|---|---|---|---|
+| ring-text word overlap, Jaccard index | 0.064, rank 56 of 66 | 0.118, rank 8 of 66 | mean 0.085, max 0.155 |
+| label overlap, Jaccard index | 0.000, rank 39 of 66 | 0.077, **rank 1** of 66 | mean 0.020, max 0.074 |
+| ring-text words shared by the pair and on no other wheel | none | `chal`, `okeodaly` | mean 0.86 per pair, max 5 |
+| labels shared by the pair and on no other wheel | none | `char`, `otaiin` | mean 0.45 per pair, max 3 |
+
+**Result: negative.**
+- **Aries:** the two wheels share no exclusive word, and their overlap is below average.
+- **Taurus:** the labels of its two wheels overlap more than any other pairing. The shared exclusive words are `char`, used 84 times in the whole manuscript, and `otaiin`, used 155 times. Words that common cannot be the name of one sign.
+- **Chance:** two exclusive shared words is ordinary for any pairing of wheels.
+
+With one miss and one weak hit from only two testable pairs, there is no evidence that the ring text or labels name the sign. If a sign name is written on these pages, it is not a repeated word form.
