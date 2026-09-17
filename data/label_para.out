@@ -1,0 +1,6 @@
+pharma                 labels(len>=3) n= 178  in paragraph directly after: 0.022   in other paragraphs of same page (mean): 0.043   random-paragraph null mean 0.034  p=0.9393
+bio (nymph labels)     labels(len>=3) n=  49  in paragraph directly after: 0.102   in other paragraphs of same page (mean): 0.099   random-paragraph null mean 0.092  p=0.4833
+astro/cosmo/zodiac     labels(len>=3) n= 193  in paragraph directly after: 0.026   in other paragraphs of same page (mean): 0.015   random-paragraph null mean 0.017  p=0.2213
+
+pharma label hits in the paragraph right after them:
+[('f88r', 'okol'), ('f89r1', 'chol'), ('f89v2', 'sheol'), ('f99v', 'doldam')]

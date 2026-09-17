@@ -349,3 +349,15 @@ For each early (`a`) and late (`e`) zodiac label I checked whether the same word
 - **Near matches:** allowing one deleted glyph, late labels match text more often in every section, by a similar margin: herbal-A 0.74 vs 0.51, stars 0.87 vs 0.67, bio 0.65 vs 0.50. The uplift is uniform, not tied to one section.
 - **Reading:** the `e`-labels are simply closer to ordinary running-text word shapes everywhere. The `a`-labels are a more distinctive "labelese" style. There is no sign that the two halves were copied from two sections of the book. Reading (3) of §24 is not supported. Readings (1), a category marker, and (2), a changed procedure, remain.
 - **Dark and light pairs:** Aries dark +0.49 vs light +0.24, Taurus light +0.91 vs dark +0.74. The darker or lighter drawing does not predict the vowel, so the split is not a day/night or colour code within those signs.
+
+## 28. Do labels name things mentioned in the text next to them? (`label_para.py`, `data/label_para.out`)
+
+If a jar-section label named an ingredient, a plain-language recipe written right under it should mention it. I tested every label of three or more glyphs. For each one I compared how often it occurs in the paragraph directly after it with how often it occurs in the other paragraphs on the same page. Permutation null: a random paragraph from the same page.
+
+| label set | labels | in paragraph right after | in other paragraphs on page | p |
+|---|---|---|---|---|
+| pharmacy jars and simples | 178 | 0.022 | 0.043 | 0.94 |
+| bath nymphs | 49 | 0.102 | 0.099 | 0.48 |
+| astro, cosmo, zodiac | 193 | 0.026 | 0.015 | 0.22 |
+
+Result: **negative**. A jar label is no more likely to appear in its own recipe than in another recipe on the page. Only 4 of 178 pharmacy labels do so at all: `okol`, `chol`, `sheol`, `doldam`. This fits a forum report of no textual overlap between matched herbal and pharmacy pictures. If the labels are names, the text beside them does not repeat those names in the same written form.
