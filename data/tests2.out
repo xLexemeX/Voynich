@@ -1,24 +1,24 @@
 === A. Verbose-cipher ceiling: greedily merge most frequent bigrams into single symbols, track h2
-  step  0: h2=2.142 h1=3.888 alphabet=38 mean wordlen=4.96  -> merging "ch" (10979)
-  step  1: h2=2.233 h1=3.906 alphabet=39 mean wordlen=4.68  -> merging "dy" (6897)
-  step  2: h2=2.283 h1=3.966 alphabet=40 mean wordlen=4.50  -> merging "ai" (6686)
-  step  3: h2=2.338 h1=4.014 alphabet=41 mean wordlen=4.32  -> merging "ok" (6094)
-  step  4: h2=2.380 h1=4.093 alphabet=42 mean wordlen=4.17  -> merging "ol" (5591)
-  step  5: h2=2.445 h1=4.161 alphabet=43 mean wordlen=4.02  -> merging "ee" (5244)
-  step  6: h2=2.490 h1=4.253 alphabet=44 mean wordlen=3.90  -> merging "sh" (4508)
-  step  7: h2=2.536 h1=4.260 alphabet=45 mean wordlen=3.78  -> merging "in" (4316)
-  step  8: h2=2.592 h1=4.245 alphabet=46 mean wordlen=3.67  -> merging "Āe" (4294)
-  step  9: h2=2.653 h1=4.301 alphabet=47 mean wordlen=3.56  -> merging "Ăć" (3919)
-  step 10: h2=2.713 h1=4.291 alphabet=48 mean wordlen=3.45  -> merging "ot" (3865)
-  step 11: h2=2.746 h1=4.340 alphabet=49 mean wordlen=3.35  -> merging "ar" (3383)
+  step  0: h2=2.147 h1=3.888 alphabet=38 mean wordlen=4.96  -> merging "ch" (11049)
+  step  1: h2=2.238 h1=3.905 alphabet=39 mean wordlen=4.68  -> merging "dy" (6957)
+  step  2: h2=2.288 h1=3.966 alphabet=40 mean wordlen=4.50  -> merging "ai" (6744)
+  step  3: h2=2.343 h1=4.014 alphabet=41 mean wordlen=4.33  -> merging "ok" (6178)
+  step  4: h2=2.385 h1=4.093 alphabet=42 mean wordlen=4.17  -> merging "ol" (5635)
+  step  5: h2=2.450 h1=4.162 alphabet=43 mean wordlen=4.03  -> merging "ee" (5313)
+  step  6: h2=2.495 h1=4.253 alphabet=44 mean wordlen=3.90  -> merging "sh" (4534)
+  step  7: h2=2.541 h1=4.260 alphabet=45 mean wordlen=3.79  -> merging "in" (4349)
+  step  8: h2=2.597 h1=4.245 alphabet=46 mean wordlen=3.67  -> merging "Āe" (4317)
+  step  9: h2=2.657 h1=4.301 alphabet=47 mean wordlen=3.56  -> merging "Ăć" (3949)
+  step 10: h2=2.717 h1=4.291 alphabet=48 mean wordlen=3.46  -> merging "ot" (3944)
+  step 11: h2=2.751 h1=4.341 alphabet=49 mean wordlen=3.36  -> merging "ar" (3468)
 
 === B. Labels vs running text
-  label tokens 781, types 595, hapax 0.86, mean len 5.16
-  labels also appearing in paragraph text: 47.6% of label types
-  label-initial chars: [('o', 406), ('d', 93), ('s', 69), ('c', 47), ('y', 43), ('a', 30), ('l', 14), ('r', 13)]
+  label tokens 1198, types 861, hapax 0.83, mean len 5.23
+  labels also appearing in paragraph text: 46.2% of label types
+  label-initial chars: [('o', 642), ('d', 116), ('y', 93), ('s', 86), ('c', 80), ('a', 69), ('k', 16), ('l', 16)]
   para-initial chars : [('o', 7216), ('c', 6420), ('q', 5325), ('s', 4264), ('d', 3305), ('a', 1826), ('y', 1757), ('l', 1413)]
-  top labels: [('o', 14), ('y', 12), ('s', 11), ('otedy', 9), ('d', 8), ('l', 6), ('otchdy', 6), ('okol', 6), ('f', 5), ('r', 5), ('e', 5), ('am', 5), ('otol', 5), ('otaly', 5), ('okain', 4)]
-  labels starting with q: 0.014084507042253521  text words starting with q: 0.1519431604177367
+  top labels: [('o', 15), ('y', 14), ('s', 12), ('otedy', 10), ('otaly', 9), ('d', 8), ('otar', 8), ('oky', 8), ('ar', 8), ('okal', 7), ('okol', 7), ('otal', 7), ('l', 6), ('am', 6), ('dy', 6)]
+  labels starting with q: 0.01001669449081803  text words starting with q: 0.1519431604177367
 
 === C. Position within line: word length and glyph usage by position (paragraph lines with >=6 words)
   1st      mean len 5.42  q-initial 0.131  ends-y 0.332  ends-m/g 0.004  starts-gallows(t/p/k/f) 0.246
@@ -31,5 +31,5 @@
 === D. Topic test: vocabulary shared within a page vs across pages
   voynich within-page vs across-page Jaccard: 0.101 vs 0.051
   latin within vs across: 0.060 vs 0.029
-  italian within vs across: 0.119 vs 0.107
+  italian within vs across: 0.118 vs 0.107
   voynich, same test but within Currier language only (B pages):

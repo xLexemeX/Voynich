@@ -1,0 +1,20 @@
+Pisces       30: otalalg ykary otar oty oky.ody oty.ar okala otody otald otaldar okody opysam chy otaly otal.arar otaldy okeoly okydy okees otar.am otar.al otalar otalam dolaram okaram oteosal salols okaldal ykolaiin otolal
+Aries        30: otalchy.tar.am.dy opchey.sal otakaizan okalal otaly oalcheg otchodals okolshy otshshdy otal.ypsharal okoly otalaiin oteo.alals.araly oteoeey.otal.okealar otear.araydy oteos.arar okldam oteoaldy oteolar okeoaly otaleky otalsar cheary oteotey.rary otalaly otolchdy otoloaram oteeol otolchd otaldar
+Taurus       30: char.arom chfaly okolar otchody alcphy otaiin okaraiin otar.ar.aly opalar.am.dan opalor.ar ofaom otalody otalaiin otar.shar sholshdy oshodady chdaiirdainy oaiin.ar.ary okalam ytalshdy char.alif otaraldy otaiin.otain otalef.ys.ainam ochol.sharam ofaralar otchoshy otchdal okeey.ary otainy
+Gemini       29: ofchdamy oklairdy okaram okairy okealar otaraldy okalar okal okaly okal okeey.ary oteeary otair.dy okaircham okeal otar okaly orary okyd otolam otal ralal okam otalshy okaldy chosar otam ainaly okarcham
+Cancer       30: olkalaiin olalsy oraiinam osarsheeeo oto192;aiin opoiiinoin.al.ches ypaiin.alaly oteey.daiin oeeodaiin ofsholdy opoeey.okaiin ykolairol oralkam ytairal oeeesaiin ory ochey.fydy of.o.eeesaly ykaraiin.airal okalar orara olaiin.olay olfsheoral opalal yfary oraiiral ytoar.shar octho aral oletal
+Leo          30: ocham orchey okam okey otcheody okyeeshy ofaiin okaly otoly ofalals sheeos.oy daiin.chepy oteey.deeal chealpy okeeol okaly okaldy okeolyd choleey oky chy laly oeedy odairan okary oeesaiin oteesed opal otaly otaly.yty
+Virgo        30: oeedey oeeodaiin okeoram air.aim oshesy okeary cheoetey cheoldy sheoeky oteodar ofchdysd oteoyd yteody okeody okeoldy ykeeor opaiinam cheoldy okaiin ockhol oeedy opalg okeeom olkar oeedaly cheosy ofcheay yteedy onaiin okeorar
+Libra        30: oeeoty octhy oteoly okeoly oeees oy oees okeeoly odal aiinod oddy oteod yteod okody okal ytaly oeeeos oteofy cheoepy ykeedy oeeoly okydy okeey oiiny oeey okedy ypaim okalair oeeody okeol
+Scorpio      30: otaly chockhy otedy yteeody otaly okeody oteedyl ykeedy okeey okeedy ykeeory oteeosy shekal oteedyy okedal chdy dalshey opaiin okeos otey okary okeeody oyteedy oky chefy otal chek ar kar okeeos
+Sagittarius  30: okol oteody oteedy eeeody okeody sheol odees eery okeor ofals ykeody oteody ypaiin yfaiin.y ofcheesy oraiiny ykeeody okeos ykeear qokeoly otedy eeed oky oia okal ykey ykeee okeod ykey ypal
+
+repeated labels within the zodiac: [('otaly', 5), ('okal', 4), ('okaly', 4), ('oky', 3), ('okeody', 3), ('otar', 2), ('otaldar', 2), ('okody', 2), ('chy', 2), ('okeoly', 2), ('okydy', 2), ('okaram', 2), ('otalaiin', 2), ('otaraldy', 2), ('okeey.ary', 2), ('okalar', 2), ('otal', 2), ('okam', 2), ('okaldy', 2), ('oeeodaiin', 2), ('oeedy', 2), ('okary', 2), ('cheoldy', 2), ('ykeedy', 2), ('okeey', 2), ('otedy', 2), ('okeos', 2), ('oteody', 2), ('ykey', 2)]
+initial 2 glyphs: [('ot', 83), ('ok', 76), ('ch', 19), ('oe', 15), ('yk', 14), ('op', 11), ('of', 11), ('yt', 8), ('or', 8), ('oc', 6)]
+endings: [('y', 82), ('dy', 54), ('al', 29), ('m', 27), ('ar', 26), ('-', 20), ('aiin', 18), ('s', 13), ('ey', 12), ('ol', 7), ('g', 3), ('n', 3)]
+mean edit distance, same position across signs 5.94 vs random position 5.96
+pharma  labels  250 o-initial 0.50 ot/ok-initial 0.31
+herbal  labels   37 o-initial 0.19 ot/ok-initial 0.05
+bio     labels  127 o-initial 0.60 ot/ok-initial 0.40
+cosmo   labels  219 o-initial 0.54 ot/ok-initial 0.27
+astro   labels  150 o-initial 0.46 ot/ok-initial 0.27

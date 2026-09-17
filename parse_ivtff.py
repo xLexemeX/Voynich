@@ -17,7 +17,7 @@ for raw in open(src, encoding='utf-8', errors='replace'):
         vars_ = dict(re.findall(r'\$(\w)=(\w+)', m.group(2)))
         pagemeta[cur] = vars_
         continue
-    m = re.match(r'^<(f\w+)\.(\w+),([@+=*~])(\w+)>\s*(.*)$', line)
+    m = re.match(r'^<(f\w+)\.(\w+),([@+=*~&])(\w+)>\s*(.*)$', line)
     if not m: continue
     folio, lnum, prefix, ltype, text = m.groups()
     # strip inline markers
