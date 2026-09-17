@@ -1,0 +1,10 @@
+=== Is qo- a detachable particle? Compare X vs qoX
+  104 stems X (starting with o) that occur both bare and as qX; total bare 4771, total q-form 4205
+  top: [('ol', 534, 142), ('okaiin', 204, 265), ('okeey', 160, 303), ('okain', 136, 279), ('okeedy', 105, 307), ('or', 367, 21), ('okedy', 109, 276), ('okal', 134, 191), ('okar', 123, 157), ('oky', 93, 146), ('otedy', 140, 87), ('otaiin', 141, 79), ('o', 153, 50), ('oty', 103, 87), ('otar', 126, 63)]
+  q-words (freq>=5) whose bare form never occurs: 2 e.g. ['qokl', 'qotched']
+  bare : line-initial 0.066 medial 0.841 final 0.093
+  q    : line-initial 0.099 medial 0.844 final 0.057
+  final glyph of word BEFORE bare form: y:0.35 n:0.24 r:0.18 l:0.14 s:0.03 d:0.01
+  final glyph of word BEFORE q    form: y:0.75 l:0.08 n:0.08 r:0.05 d:0.02 o:0.01
+  lang A: q-words 0.096 of tokens
+  lang B: q-words 0.176 of tokens

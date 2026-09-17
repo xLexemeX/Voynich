@@ -1,0 +1,16 @@
+=== Line templates (prefix/suffix skeleton) in the stars section vs herbal, vs shuffled control
+  stars   real            lines  981: distinct full skeletons 981 (1.00); distinct suffix-only skeletons 981; first-3-word skeletons 974, top: [('y- cheey qoeey', 3), ('saiin -ar -aiin', 2), ('daiin sal qoedy', 2)]
+  stars   shuffled-words  lines  981: distinct full skeletons 981 (1.00); distinct suffix-only skeletons 981; first-3-word skeletons 981, top: [('chol -m sy', 1), ('-y oal dal', 1), ('y- ym dm', 1)]
+  herbal  real            lines 1278: distinct full skeletons 1278 (1.00); distinct suffix-only skeletons 1278; first-3-word skeletons 1270, top: [('-or oar oy', 2), ('qo- chol chol', 2), ('saiin chy chol', 2)]
+  herbal  shuffled-words  lines 1278: distinct full skeletons 1278 (1.00); distinct suffix-only skeletons 1278; first-3-word skeletons 1277, top: [('sor s- chy', 2), ('-l -ar -y', 1), ('d- char chdy', 1)]
+  bio     real            lines  671: distinct full skeletons 671 (1.00); distinct suffix-only skeletons 670; first-3-word skeletons 650, top: [('qoedy qoedy qoedy', 4), ('-edy -edy qoedy', 2), ('-edy -edy qoeey', 2)]
+  bio     shuffled-words  lines  671: distinct full skeletons 671 (1.00); distinct suffix-only skeletons 671; first-3-word skeletons 668, top: [('-edy qoedy sedy', 2), ('qoedy qoedy -edy', 2), ('sedy -edy qoey', 2)]
+
+=== Labels: do labels on the same page share prefixes more than labels across pages?
+  pages with >=6 labels: 30; P(same 2-glyph prefix) within page 0.174 vs across pages 0.080
+    140; 192; 140; 164; 192; 140;
+    rary rals qor dary ykeol saly salf fary qotesy ykaly doly saiin
+    ykshy aram dolchsody okal okain am opcholdy ofar oeoldan ytoaiin yfain qotoear
+    otchdy otararain soaiin dalam sary okoral oko okchos am
+    okodaly odchecthy otcheody okoaly chocfhy octhey otshey otydy okear cphocthy ytchody otys
+    o167;olchy cheorol odaiin ochory shdar dchol todaraiily olcheesey okchor oteool oydchy okeeeody

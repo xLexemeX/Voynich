@@ -1,0 +1,12 @@
+VOYNICH: K=5 log-lik/glyph=-2.172  mean transition entropy 1.08 bits  mean emission entropy 2.42 bits
+   state 4: start 0.68 emits ['ch', 'd', 'sh', 'q', 'k', 's'] -> most likely next state 0(0.63)
+   state 0: start 0.30 emits ['o', 'a', 'y', 'i', 'e', 'l'] -> most likely next state 2(0.99)
+   state 1: start 0.01 emits ['e', 'ch', 'o', 'sh', 'k', 'ckh'] -> most likely next state 3(0.51)
+   state 2: start 0.00 emits ['l', 'r', 'k', 't', 'iin', 'd'] -> most likely next state 0(0.41)
+   state 3: start 0.00 emits ['y', 'e', 'd', 's', 'ch', 'o'] -> most likely next state 3(0.83)
+LATIN: K=5 log-lik/glyph=-2.554  mean transition entropy 1.33 bits  mean emission entropy 2.93 bits
+   state 1: start 0.69 emits ['s', 'd', 'c', 'm', 'p', 't'] -> most likely next state 0(0.67)
+   state 0: start 0.22 emits ['e', 'a', 'o', 'i', 'u', 'y'] -> most likely next state 3(0.85)
+   state 4: start 0.05 emits ['s', 'a', 'o', 'm', 'i', 'e'] -> most likely next state 3(0.48)
+   state 3: start 0.04 emits ['n', 'r', 't', 'l', 'c', 's'] -> most likely next state 0(0.47)
+   state 2: start 0.00 emits ['i', 'u', 'r', 'e', 'h', 'a'] -> most likely next state 4(0.60)
