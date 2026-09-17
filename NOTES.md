@@ -320,3 +320,23 @@ Follow-up I ran: the 12 labels round the sun on f67r1 and the 28 on f69r are che
 ## 25. The calendar wheels before the zodiac (`data/calendar_labels.out`)
 
 Same a/e index on the label sets of the astronomical wheels: f67r2 (moon phases) +0.25, f67v1 +0.46, f67v2 +0.67, f68r1 (star names) −0.15, f68r2 (star names) −0.14, f68r3 +0.19, f69r (28 divisions) +0.31. So the two pages of *named stars* are `e`-leaning like the late zodiac labels, and the calendar-type wheels are `a`-leaning like the early zodiac labels. That is consistent with reading (1) in §24 (the vowel marks a class of item) but the sets are small and mixed; it does not settle it. What is settled is the zodiac contrast itself.
+
+## 26. Robustness of the zodiac label switch (`zodiac_robust.py`, `data/zodiac_robust.out`)
+
+All three transliterations (ZL, Takahashi VT, Zandbergen RF) give the same answer on every check:
+
+| check | ZL | VT | RF |
+|---|---|---|---|
+| best change point (searched over all 11 splits) | Cancer / Leo | Cancer / Leo | Cancer / Leo |
+| split statistic at best point | 10.8 | 10.9 | 11.0 |
+| 99.9th percentile of the same max-over-splits statistic under shuffling | 4.5 | 4.1 | 4.4 |
+| step with any one wheel left out | 0.84 to 0.97 | 0.83 to 0.93 | 0.86 to 0.98 |
+| bootstrap 95% interval for the step | 0.72 to 1.04 | 0.71 to 1.02 | 0.74 to 1.06 |
+| distinct label types, early vs late a/e mean | +0.56 vs −0.28 | +0.54 vs −0.29 | +0.55 vs −0.30 |
+| label types shared between the halves | 18 | 19 | 12 |
+
+**Where the break falls physically.** The best split is between Cancer (f72r3) and Leo (f72v3): the recto and verso of the same foldout leaf. Every wheel on the recto side of that leaf and before it has `a`-labels. Every wheel on its verso and after has `e`-labels. So the switch happens when the page was turned over, not somewhere in the middle of a writing surface.
+
+**Not a scribe change.** Lisa Fagin Davis assigns all the zodiac pages to one scribe, her Scribe 4. The ring text on the same wheels shows no switch. A new scribe would change both. So the same person wrote `a`-labels on one side of the leaf and `e`-labels on the other, and kept writing the ring text the same way throughout.
+
+**Status: I believe this is a new, documented fact about the script.** I searched Zandbergen's label and language pages, the voynich.ninja zodiac-label thread, the Cipher Mysteries "labelese" post, the 2026 arXiv work, the Voynichdecomp repository and the Zenodo zodiac paper. None reports a vowel switch in the labels, its location at the f72 recto/verso, or the contrast with the co-located ring text.
