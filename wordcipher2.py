@@ -6,7 +6,15 @@ ALPHA='abcdefghilmnopqrstuxyz'; A=len(ALPHA); aid={c:i for i,c in enumerate(ALPH
 def latin(path):
     s=open(path,encoding='utf-8',errors='replace').read().lower().replace('v','u').replace('j','i').replace('k','c').replace('w','u')
     return [w for w in re.findall(r'[a-z]+',s) if not re.fullmatch(r'[ivxlcdm]+',w)]
-pl=latin('data/ref/latin_pliny.txt'); half=len(pl)//2
+LANG=sys.argv[6] if len(sys.argv)>6 else 'latin'; DROP=float(sys.argv[7]) if len(sys.argv)>7 else 0.0
+pl=latin('data/ref/latin_pliny.txt' if LANG=='latin' else 'data/ref/italian_dante.txt')
+if LANG!='latin':
+    s0=open('data/ref/italian_dante.txt',encoding='utf-8',errors='replace').read()
+    s0=s0[s0.find('Nel mezzo'):] if 'Nel mezzo' in s0 else s0
+    import unicodedata
+    s0=unicodedata.normalize('NFKD',s0).encode('ascii','ignore').decode().lower().replace('v','u').replace('j','i').replace('k','c').replace('w','u')
+    pl=re.findall(r'[a-z]+',s0)
+half=len(pl)//2
 t=np.array([aid[c] for c in ''.join(pl[:half]) if c in aid],dtype=np.int64)
 cnt=np.bincount(((t[:-3]*A+t[1:-2])*A+t[2:-1])*A+t[3:],minlength=A**4).astype(float)
 # interpolated 4-gram / 3-gram / 2-gram / 1-gram for sharper scores on unseen contexts
@@ -33,7 +41,10 @@ elif target=='control':
     while alloc.sum()<K: alloc[np.argmax(lf/alloc)]+=1
     homo={}; k=0
     for i in range(A): homo[i]=types[k:k+alloc[i]]; k+=alloc[i]
-    seq=[random.choice(homo[c]) for c in plain]; truth={w:i for i in range(A) for w in homo[i]}
+    plain=[aid[c] for c in ''.join(pl[half:]) if c in aid][:int(len(voy)*cover/(1-DROP)) if DROP<1 else 0]
+    seq=[random.choice(homo[c]) for c in plain]
+    if DROP>0: seq=[w for w in seq if random.random()>=DROP]
+    truth={w:i for i in range(A) for w in homo[i]}
 tid={w:i for i,w in enumerate(top)}; S=np.array([tid[w] for w in seq],dtype=np.int64); N=len(S)
 pos=collections.defaultdict(list)
 for i,s in enumerate(S): pos[s].append(i)
@@ -64,6 +75,7 @@ for it in range(iters):
     else: M[ti]=old; lc[new]-=n; lc[old]+=n
     if cur>best: best=cur; bestM=M.copy()
     T=max(0.05,T0*(1-it/iters))
+    if it and it%1000000==0: print(f'  progress {it//1000000}M/{iters/1e6:.0f}M best/char {best/N:.3f}', flush=True)
 x=bestM[S]; txt=''.join(ALPHA[i] for i in x)
 lex=set(w for w in pl if len(w)>=4)
 def coverage(s):
@@ -74,7 +86,7 @@ def coverage(s):
         else: i+=1
     return cov/len(s)
 ref=np.array([aid[c] for c in ''.join(pl[half:]) if c in aid][:N],dtype=np.int64)
-res=f'[{target} seed={seed} K={K} tokcov={cover:.2f} N={N}] LM/char={full(bestM)/N:.3f} dict-cov={coverage(txt[:8000]):.3f} | real latin LM/char={lp[((ref[:-3]*A+ref[1:-2])*A+ref[2:-1])*A+ref[3:]].sum()/len(ref):.3f} dict-cov={coverage("".join(ALPHA[i] for i in ref[:8000])):.3f}'
+res=f'[{target} lang={LANG} drop={DROP} seed={seed} K={K} tokcov={cover:.2f} N={N}] LM/char={full(bestM)/N:.3f} dict-cov={coverage(txt[:8000]):.3f} | real latin LM/char={lp[((ref[:-3]*A+ref[1:-2])*A+ref[2:-1])*A+ref[3:]].sum()/len(ref):.3f} dict-cov={coverage("".join(ALPHA[i] for i in ref[:8000])):.3f}'
 if truth is not None:
     res+=f' | type-acc={np.mean([bestM[tid[w]]==truth[w] for w in top]):.3f} token-acc={np.mean([bestM[s]==truth[top[s]] for s in S]):.3f}'
 print(res); print('  sample:', txt[:260])

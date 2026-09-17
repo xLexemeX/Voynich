@@ -390,3 +390,26 @@ See `FORUM_REVIEW.md`. The closest prior work to §24 is a voynich.ninja thread,
 - Only the 300 commonest types were used. The other 38% of tokens were dropped, which also breaks letter adjacency in the Voynich input. The control had no dropped tokens, which may flatter it.
 
 Next versions should add Italian and German targets, allow bigram mappings, and drop the same fraction of tokens from the control.
+
+## 31. Correction to §30, with matched controls (`runs2/`, `data/wordcipher_bands.out`)
+
+§30 compared the Voynich score with a Latin control that had **no** missing tokens. That was the wrong benchmark. Restricting to the top 300 word types removes 38% of Voynich tokens, and gaps lower the score of even a correct solution. I reran with controls that drop 38% of tokens at random, and added Italian (Dante) as a second target. Best score per character, grouped:
+
+| target language | input | runs | best | worst |
+|---|---|---|---|---|
+| Latin | control, 38% dropped, **key recovered** (89–90% of tokens) | 3 | −2.741 | −2.748 |
+| Latin | control, 38% dropped, search failed | 3 | −2.760 | −2.774 |
+| Latin | meaningless Markov text | 8 | −2.774 | −2.809 |
+| Latin | **Voynich** | 8 | **−2.771** | −2.818 |
+| Italian | control, 38% dropped, **key recovered** (94–95% of tokens) | 3 | −2.735 | −2.741 |
+| Italian | control, 38% dropped, search failed | 3 | −2.791 | −2.798 |
+| Italian | meaningless Markov text | 6 | −2.844 | −2.888 |
+| Italian | **Voynich** | 6 | **−2.872** | −2.899 |
+
+**What changes.** The claim in §30 that the Voynich score was "far below a real decipherment" was overstated for Latin: the true gap is small (−2.771 vs −2.741). The corrected statement is:
+
+- **Latin:** no Voynich restart reached the band of recovered keys. The best Voynich restart sits among the failed searches and the meaningless text. The margin is narrow, 0.02 to 0.03 per character.
+- **Italian:** the Voynich text scores below even the failed Italian searches, and no better than meaningless text. The margin to a recovered key is wide, 0.13 per character.
+- **Restart odds:** each control restart found the key half the time. If the Voynich text were solvable to the same degree, the chance that all 8 Latin restarts miss is about 1 in 256, and that all 6 Italian restarts miss is about 1 in 64. This assumes the Voynich problem is no harder than the control.
+
+**Still untested:** one key per Currier language, since A and B could use different keys; words standing for letter pairs, as in the Naibbe cipher; and other target languages.

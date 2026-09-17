@@ -1,0 +1,10 @@
+italian  drop=-    markov          n=6  best -2.844  worst -2.888
+italian  drop=-    voynich         n=6  best -2.872  worst -2.899
+italian  drop=0.38 control failed  n=3  best -2.791  worst -2.798
+italian  drop=0.38 control solved  n=3  best -2.735  worst -2.741
+latin    drop=-    markov          n=8  best -2.774  worst -2.809
+latin    drop=-    voynich         n=8  best -2.771  worst -2.818
+latin    drop=0.0  control failed  n=4  best -2.606  worst -2.622
+latin    drop=0.0  control solved  n=4  best -2.160  worst -2.160
+latin    drop=0.38 control failed  n=3  best -2.760  worst -2.774
+latin    drop=0.38 control solved  n=3  best -2.741  worst -2.748

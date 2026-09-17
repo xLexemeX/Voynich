@@ -1,0 +1,11 @@
+  progress 1M/10M best/char -3.005
+  progress 2M/10M best/char -2.987
+  progress 3M/10M best/char -2.973
+  progress 4M/10M best/char -2.959
+  progress 5M/10M best/char -2.951
+  progress 6M/10M best/char -2.936
+  progress 7M/10M best/char -2.929
+  progress 8M/10M best/char -2.924
+  progress 9M/10M best/char -2.923
+[voynich lang=italian drop=0.0 seed=2 K=300 tokcov=0.62 N=21755] LM/char=-2.872 dict-cov=0.193 | real latin LM/char=-2.026 dict-cov=0.770
+  sample: leiaaiieemaausuruaeiieeraueaatetrueaicrfaaaemtrciereasettalattaamarreeqelestsefatttseteenneseeunartrnolrtouesmmotaauiradgaaaraeouageaesottieiiteoaduauetuttatrtatuueetueuoamrateeaitttaaletieaearetrttaeaepoteemraeiotpatteipiapsrruiitataeetrtttarralmeatasetrettte

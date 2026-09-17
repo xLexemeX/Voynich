@@ -1,0 +1,12 @@
+  true-mapping LM/char -2.768; init LM/char -3.242
+  progress 1M/10M best/char -2.911
+  progress 2M/10M best/char -2.901
+  progress 3M/10M best/char -2.886
+  progress 4M/10M best/char -2.871
+  progress 5M/10M best/char -2.862
+  progress 6M/10M best/char -2.855
+  progress 7M/10M best/char -2.850
+  progress 8M/10M best/char -2.849
+  progress 9M/10M best/char -2.849
+[control lang=italian drop=0.38 seed=6 K=300 tokcov=0.62 N=21754] LM/char=-2.791 dict-cov=0.228 | real latin LM/char=-2.026 dict-cov=0.770 | type-acc=0.000 token-acc=0.000
+  sample: onesiatlocoepaltrettaieopinaelnnicarineianciaseuitansaaloeriaatardileiionterrioauntoiloaeanontiuauiirlesnduouasaliunosoaeuortuglalresirantamleaddnsioiemitirolereeianemreilsafasaietetcsmaledomanntieciouinaeaalnediotuieticesiuettenreiaprtirmntoercaruiasiloiacead

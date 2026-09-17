@@ -1,0 +1,11 @@
+  progress 1M/10M best/char -2.983
+  progress 2M/10M best/char -2.974
+  progress 3M/10M best/char -2.964
+  progress 4M/10M best/char -2.952
+  progress 5M/10M best/char -2.940
+  progress 6M/10M best/char -2.929
+  progress 7M/10M best/char -2.921
+  progress 8M/10M best/char -2.917
+  progress 9M/10M best/char -2.915
+[markov lang=italian drop=0.0 seed=4 K=300 tokcov=0.62 N=21824] LM/char=-2.868 dict-cov=0.178 | real latin LM/char=-2.026 dict-cov=0.770
+  sample: sdattcoiinneuieuiiaeiterirndeimonniueeirdestiipielosaarlinlbnperiueouiuroecmrouiuioloraeirresseitosigruosensptaeioiaindraailiaarruuonanenaeioaaagtaonrretraasinrsieliipaoiiosataperarlapralaainnnolsolooeunaloablpercsiinacurialuntroqrlllmmisemsettouelliousaoeiitu
