@@ -1,0 +1,7 @@
+First word of the first paragraph for pages sharing a root motif:
+  faces/heads in root      {'f33r': 'tshdar', 'f55v': 'kcheedchdy', 'f25v': 'poeeaiin', 'f101v': 'tolchor'}
+  chain/bead root          {'f45v': 'korary', 'f53r': 'kodam', 'f54v': 'pcheodar', 'f65r': '?', 'f3v': 'koaiin'}
+  animal leg/claw root     {'f90v': '?', 'f46v': 'pody', 'f45r': 'pykydal'}
+  serpent root             {'f43v': 'pdsairy', 'f49r': 'pychol', 'f22v': 'pysaiinor'}
+  garden bed               {'f39r': 'tedo', 'f43r': 'tarodaiin', 'f46r': 'pcheocphy', 'f95r1': 'kshdor'}
+most common page-initial words overall: [('tchedy', 4), ('pchor', 3), ('kooiin', 2), ('tshor', 2), ('pol', 2), ('pchedar', 2), ('sain', 2), ('pcheody', 2)]
