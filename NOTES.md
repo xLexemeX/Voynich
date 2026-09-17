@@ -429,3 +429,21 @@ In case languages A and B use different keys, the same word-to-letter search was
 **Result.** Language B on its own scores below even the failed control searches, in both languages. For Latin, the gap to a recovered key is 0.075 per character, wider than on the mixed A+B text in §31. Only 2 restarts per condition were run, so this rests on few runs. It agrees with §31.
 
 **Summary of the word-level cipher tests (§30–32).** A one-word-per-letter homophonic encoding of Latin or Italian, using the 300 commonest word types, is not supported for the whole text or for language B alone. The search demonstrably finds such keys when they exist. Still open are words standing for letter pairs, as in the Naibbe cipher, and other target languages.
+
+## 33. Letter-or-pair word cipher (Naibbe form): the test cannot tell a cipher from gibberish (`pairchipher.py`, `runs3/pair_smoke_*`)
+
+**Setup.** Each of language B's 300 commonest word types may stand for a single letter or for one of the 60 commonest Latin letter pairs. A Latin control was enciphered that way, with 40% of plaintext positions taken as pairs, and with 33.6% of tokens dropped to match the Voynich input. The score is a Latin 4-gram model per decoded letter, plus a letter-frequency penalty. Scoring the total instead of per letter was tried first and rejected: it prefers keys that emit fewer letters, and scored a wrong key above the true one.
+
+**Result.**
+
+| input | best per-letter score | share of words mapped to pairs | decoded sample |
+|---|---|---|---|
+| Latin control, **true key** | −2.626 | 40% by construction | real Latin with gaps |
+| Latin control, search result | **−2.151** | 97% | "eterinisera…", key 1% correct |
+| Voynich language B | −2.209 | 98% | "tulireresisiuemeuenilitares…" |
+| meaningless Markov text | −2.188 | 98% | "denomaturenisidetatasinis…" |
+| Voynich B with word order **shuffled** | **−2.156** | 97% | "erumeritonisinumesumones…" |
+
+**Conclusion.** With pairs allowed, the search maps almost every word to a common Latin pair and assembles fluent-looking pseudo-Latin. It does this for real ciphertext, for meaningless text, and for shuffled text, and all of them score *better than the true key*. Shuffled Voynich text, which has no word order at all, scores best of the Voynich variants. So a letter-model decipherment of a letter-or-pair word cipher is **not falsifiable**. It will produce Latin-looking output from anything, and a better score means nothing. This explains why Naibbe-style parses of the Voynich text give "Latinish gibberish", and why any claimed decipherment of this form must be judged by something other than how Latin-like its output reads. The evidence would have to be dictionary words in context, agreement with pictures, or a key that holds up on held-out pages.
+
+**What this means for "a measurable translation".** Language-model scoring can refute the one-word-per-letter form (§30–32) but not the pair form. A measurable translation of the pair form, or of anything richer, needs an external anchor: a word tied to a picture or a known name, checked on pages the key was not fitted to.
