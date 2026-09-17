@@ -1,0 +1,15 @@
+stars
+  real continuing lines        n= 580 glyphs/line  56.6± 6.6 (cv 0.117)  words/line 11.2±1.7  corr(nwords, mean wordlen) -0.644  corr(nwords, glyphs) +0.520
+  shuffled words, same counts  n= 580 glyphs/line  56.9±10.3 (cv 0.181)  words/line 11.2±1.7  corr(nwords, mean wordlen) -0.006  corr(nwords, glyphs) +0.820
+  greedy wrap to 58 glyphs     n= 713 glyphs/line  46.0± 2.0 (cv 0.044)  words/line  9.1±1.1  corr(nwords, mean wordlen) -0.941  corr(nwords, glyphs) -0.201
+  wrap with 7% width jitter    n= 720 glyphs/line  45.6± 3.8 (cv 0.084)  words/line  9.1±1.3  corr(nwords, mean wordlen) -0.811  corr(nwords, glyphs) +0.359
+bio
+  real continuing lines        n= 558 glyphs/line  43.9± 9.9 (cv 0.225)  words/line  8.9±2.1  corr(nwords, mean wordlen) -0.382  corr(nwords, glyphs) +0.817
+  shuffled words, same counts  n= 558 glyphs/line  44.0±11.6 (cv 0.264)  words/line  8.9±2.1  corr(nwords, mean wordlen) -0.039  corr(nwords, glyphs) +0.890
+  greedy wrap to 45 glyphs     n= 696 glyphs/line  35.2± 1.9 (cv 0.054)  words/line  7.1±1.0  corr(nwords, mean wordlen) -0.923  corr(nwords, glyphs) -0.154
+  wrap with 7% width jitter    n= 705 glyphs/line  34.7± 3.2 (cv 0.093)  words/line  7.0±1.1  corr(nwords, mean wordlen) -0.801  corr(nwords, glyphs) +0.312
+herbal
+  real continuing lines        n=1108 glyphs/line  35.0±11.2 (cv 0.319)  words/line  7.5±2.5  corr(nwords, mean wordlen) -0.368  corr(nwords, glyphs) +0.885
+  shuffled words, same counts  n=1108 glyphs/line  34.9±13.1 (cv 0.374)  words/line  7.5±2.5  corr(nwords, mean wordlen) +0.068  corr(nwords, glyphs) +0.927
+  greedy wrap to 36 glyphs     n=1412 glyphs/line  27.5± 1.8 (cv 0.066)  words/line  5.9±0.9  corr(nwords, mean wordlen) -0.907  corr(nwords, glyphs) -0.039
+  wrap with 7% width jitter    n=1430 glyphs/line  27.1± 2.8 (cv 0.105)  words/line  5.8±1.1  corr(nwords, mean wordlen) -0.815  corr(nwords, glyphs) +0.325

@@ -1,0 +1,25 @@
+== data/corpus.tsv
+  labels    a-e index per sign: +0.63 +0.49 +0.24 +0.91 +0.74 +0.77 +0.44 +0.04 -0.28 -0.40 -0.33 -0.43 | trend rho=-0.77 p=0.0049 | step (f70v-f72r minus f72v-f73v)=+0.88 p=0.0000
+  ring text a-e index per sign: +0.03 -0.17 -0.24 -0.01 +0.09 +0.16 -0.32 -0.48 -0.16 +0.23 -0.13 -0.11 | trend rho=+0.03 p=0.9367 | step (f70v-f72r minus f72v-f73v)=+0.07 p=0.2181
+  labels len 4-7 only: step=+0.92 p=0.0000 (n=267)
+  labels: %a-only / %e-only / %both / %neither per sign
+    Pisces   n=35  a-only 0.69  e-only 0.06  both 0.03  neither 0.23
+    AriesD   n=25  a-only 0.60  e-only 0.12  both 0.12  neither 0.16
+    AriesL   n=17  a-only 0.41  e-only 0.18  both 0.29  neither 0.12
+    TaurusL  n=22  a-only 0.91  e-only 0.00  both 0.00  neither 0.09
+    TaurusD  n=23  a-only 0.78  e-only 0.04  both 0.04  neither 0.13
+    Gemini   n=31  a-only 0.81  e-only 0.03  both 0.10  neither 0.06
+    Cancer   n=41  a-only 0.59  e-only 0.10  both 0.15  neither 0.17
+    Leo      n=34  a-only 0.41  e-only 0.35  both 0.09  neither 0.15
+    Virgo    n=31  a-only 0.23  e-only 0.48  both 0.23  neither 0.06
+    Libra    n=30  a-only 0.20  e-only 0.60  both 0.00  neither 0.20
+    Scorpio  n=30  a-only 0.23  e-only 0.57  both 0.10  neither 0.10
+    Sagitt   n=31  a-only 0.23  e-only 0.65  both 0.03  neither 0.10
+== data/corpus_VT.tsv
+  labels    a-e index per sign: +0.57 +0.42 +0.32 +0.77 +0.75 +0.77 +0.43 -0.08 -0.34 -0.43 -0.23 -0.43 | trend rho=-0.71 p=0.0137 | step (f70v-f72r minus f72v-f73v)=+0.87 p=0.0000
+  ring text a-e index per sign: +0.09 -0.14 -0.19 -0.00 +0.06 +0.12 -0.30 -0.42 -0.16 +0.26 -0.13 -0.10 | trend rho=-0.05 p=0.8906 | step (f70v-f72r minus f72v-f73v)=+0.06 p=0.2941
+  labels len 4-7 only: step=+0.87 p=0.0000 (n=284)
+== data/corpus_RF.tsv
+  labels    a-e index per sign: +0.62 +0.45 +0.28 +0.81 +0.67 +0.81 +0.46 -0.04 -0.39 -0.43 -0.33 -0.41 | trend rho=-0.71 p=0.0127 | step (f70v-f72r minus f72v-f73v)=+0.90 p=0.0000
+  ring text a-e index per sign: +0.02 -0.19 -0.22 -0.01 +0.07 +0.19 -0.28 -0.42 -0.17 +0.21 -0.17 -0.12 | trend rho=+0.03 p=0.9407 | step (f70v-f72r minus f72v-f73v)=+0.09 p=0.1307
+  labels len 4-7 only: step=+0.81 p=0.0000 (n=236)

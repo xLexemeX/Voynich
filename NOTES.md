@@ -282,3 +282,41 @@ Checked against the literature as I went (Currier 1976; Feaster's positional gra
 | vertical neighbours more similar than horizontal | min edit distance to word above/below 3.18 vs random 3.66 | Timm & Schinner |
 
 **Geometric test (`layout_dp.py`, `data/layout_stats.out`).** I tried to test two physical hypotheses on the scans of Quire 20: (a) if `s`/`d`/`y` are *added* at line start, such lines should begin further left; (b) if `-m` is a space-saving form, `-m` lines should end closer to the right margin and be more compressed. Row detection plus dynamic-programming alignment to the transcription worked (the overlay `crops/overlay_f104v.png` shows paragraph-final lines correctly identified), but edge measurement is too noisy: the left-edge spread is ±45 px (a glyph is ~33 px), and only 63% of continuing lines were measured as reaching the margin when nearly all do by eye. Within that noise: no left shift for s/d/y lines (medians 0 px), and `-m` lines are no closer to the margin than `-y` lines (P within 40 px: 0.47 vs 0.48) and no denser (33.4 vs 33.5 px per glyph). I record this as **inconclusive, leaning against the crowding explanation for `-m`**, and not as a result. Word-level segmentation would be needed to do it properly.
+
+## 24. A new fact about the zodiac labels (2026-09-16): the labels switch from `a`-built to `e`-built words halfway through the zodiac, and the ring text on the same wheels does not
+
+Scripts: `zodiac_drift.py` (feature rates), `zodiac_bness.py`, `zodiac_ae.py`, `data/zodiac_ae.out`, `data/zodiac_ae2.out`.
+
+**Statistic.** For each word, an a/e index = (#a − #e)/(#a + #e), from +1 (only `a`) to −1 (only `e`). Averaged per wheel, wheels in binding order (which is also zodiacal order). Permutation tests shuffle words across wheels.
+
+| wheel | folio | nymph labels (a/e index) | ring text on the same wheel |
+|---|---|---|---|
+| Pisces | f70v2 | +0.63 | +0.03 |
+| Aries dark | f70v1 | +0.49 | −0.17 |
+| Aries light | f71r | +0.24 | −0.24 |
+| Taurus light | f71v | +0.91 | −0.01 |
+| Taurus dark | f72r1 | +0.74 | +0.09 |
+| Gemini | f72r2 | +0.77 | +0.16 |
+| Cancer | f72r3 | +0.44 | −0.32 |
+| Leo | f72v3 | +0.04 | −0.48 |
+| Virgo | f72v2 | −0.28 | −0.16 |
+| Libra | f72v1 | −0.40 | +0.23 |
+| Scorpio | f73r | −0.33 | −0.13 |
+| Sagittarius | f73v | −0.43 | −0.11 |
+
+- Labels: step between the first seven wheels (f70v–f72r) and the last five (f72v–f73v) = +0.88, permutation p < 0.0001 (0 of 10,000); Spearman trend with order ρ = −0.77, p = 0.005. The same on the Takahashi (VT) and Zandbergen (RF) transliterations: step +0.87 and +0.90, both p < 0.0001. Restricting to labels of 4–7 glyphs (length control): step +0.92, p < 0.0001.
+- Ring text on the very same pages: step +0.07 (p = 0.22), trend ρ = +0.03 (p = 0.94). VT and RF agree. Correlation between the label mean and the ring-text mean across the 12 wheels: 0.18. The two vocabularies on one page are not coupled.
+- Within each wheel, all rings agree (e.g. Taurus light rings +0.94/+0.83; Libra rings −0.40/−0.40), so it is not a ring effect.
+- Composition: `a`-only labels are 60–91% of the labels on Pisces–Gemini and 20–23% on Virgo–Sagittarius; `e`-only labels 0–18% early and 48–65% late. What actually changes is the vowel after the gallows and the ending: early labels are `ot`/`ok` + `a` + `-l/-r/-m/-iin` (`otal, otar, okaram, otalaiin`), late labels are `ok`/`ot` + `e(e)` + `-dy/-ey/-y` (`okeody, oteedy, okeey, ykeedy`). `ot-` falls from 62 to 23, `ok-` rises from 36 to 42 (of ~190 and ~156 labels).
+- This is *not* a general property of labels: the same page-blocking test on the bio nymph labels (8 pages, p = 0.16), the pharma jar labels (14 pages, p = 0.64) and the cosmological labels (p = 0.14) finds nothing. Running text on all pages shows page-to-page variation in a/e (p < 0.0001 everywhere) but it is small (variance of page means 0.01–0.04, versus 0.23 for the zodiac labels).
+- It is also not the Currier A→B drift: scored with a glyph-bigram A/B discriminant trained on the running text, the labels show no trend at all (ρ ≈ 0), while the ring text does drift toward B across the same wheels (ρ = +0.71 to +0.78, p ≤ 0.016). So the labels and the ring text change in *different* directions along the same sequence of pages: the text becomes more B-like, the labels swap their vowel.
+
+**Why I think this is new.** Zandbergen's label page and his language-classification page treat the zodiac labels as one group ("Ce-" dialect) and give one hapax figure for all 299; the recent voynich.ninja thread on zodiac labels noticed only that `o`-initial labels decline and that Cancer and Sagittarius are outliers; the 2026 arXiv papers and the Voynichdecomp repository do not analyse labels per wheel; nothing I found mentions the `a`/`e` composition of labels or contrasts labels with the ring text of the same wheel. Some earlier readers must have seen `otal…` in Pisces and `okeedy…` in Sagittarius, but I find no statement of the switch, its location, its strength, or the fact that the co-located text does not share it.
+
+**What it means (carefully).** The labels are not a random draw from "labelese": a property of a label (its vowel) is set by which wheel it is on, in a way that changes once, around the turn of folio 72, and that the scribe did not apply to the running text on the same page. Three readings: (1) the labels encode something that differs between the first half of the zodiac year and the second (a per-sign or per-season class marker, as a real astrological table of degrees, terms or faces would carry); (2) the labels were produced by a procedure with a "setting" that was changed between two sittings, while the text was produced continuously; (3) the labels were copied from two different source lists. I cannot choose between these from the text alone, but each is testable: (1) predicts the missing Capricorn and Aquarius wheels would have been `e`-labels and that other label systems tied to the calendar (f67r1 twelve labels, f69r twenty-eight) show the same partition; (2) predicts the change point sits at a physical break (it does: f72r → f72v); (3) predicts vocabulary overlap between the `a`-half labels and one text section and between the `e`-half labels and another.
+
+Follow-up I ran: the 12 labels round the sun on f67r1 and the 28 on f69r are checked in §25.
+
+## 25. The calendar wheels before the zodiac (`data/calendar_labels.out`)
+
+Same a/e index on the label sets of the astronomical wheels: f67r2 (moon phases) +0.25, f67v1 +0.46, f67v2 +0.67, f68r1 (star names) −0.15, f68r2 (star names) −0.14, f68r3 +0.19, f69r (28 divisions) +0.31. So the two pages of *named stars* are `e`-leaning like the late zodiac labels, and the calendar-type wheels are `a`-leaning like the early zodiac labels. That is consistent with reading (1) in §24 (the vowel marks a class of item) but the sets are small and mixed; it does not settle it. What is settled is the zodiac contrast itself.

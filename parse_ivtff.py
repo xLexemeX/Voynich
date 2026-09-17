@@ -44,7 +44,8 @@ for raw in open(src, encoding='utf-8', errors='replace'):
                      section=sect_names.get(pm.get('I',''), pm.get('I','')),
                      para=str(para_counter[0]) if ltype.startswith('P') else '', lip=str(line_in_para[0]), pstart='1' if pstart else '0', pend='1' if pend else '0',
                      text=t))
-with open('data/corpus.tsv','w') as f:
+out = sys.argv[2] if len(sys.argv)>2 else 'data/corpus.tsv'
+with open(out,'w') as f:
     f.write('folio\tline\tltype\tquire\tlang\thand\tsection\tpara\tlip\tpstart\tpend\ttext\n')
     for r in rows:
         f.write('\t'.join(r[k] for k in ['folio','line','ltype','quire','lang','hand','section','para','lip','pstart','pend','text'])+'\n')

@@ -1,0 +1,19 @@
+== data/corpus.tsv
+B-ness scorer trained on A=65225 / B=137809 bigrams; sanity: mean score of A text words -0.25, B text words +0.27
+signs: Pisce Aries Aries Tauru Tauru Gemin Cance   Leo Virgo Libra Scorp Sagit
+  LABELS (all)                       per-sign mean B-ness: +0.14 +0.15 +0.19 +0.07 +0.10 +0.23 +0.03 +0.11 +0.14 +0.08 +0.35 +0.12   rho=-0.09  p=0.7792  (n=350)
+  RING TEXT (all)                    per-sign mean B-ness: +0.07 -0.04 +0.04 +0.06 +0.04 +0.02 +0.04 +0.14 +0.12 +0.13 +0.10 +0.15   rho=+0.71  p=0.0160  (n=964)
+  LABELS (outer ring only)           per-sign mean B-ness: +0.14 +0.12 +0.20 +0.07 +0.09 +0.34 +0.04 +0.05 +0.10 +0.01 +0.24 +0.31   rho=-0.01  p=0.9910  (n=172)
+  label minus ring mean per sign: +0.07 +0.19 +0.16 +0.02 +0.06 +0.21 -0.01 -0.03 +0.02 -0.06 +0.25 -0.03
+== data/corpus_VT.tsv
+B-ness scorer trained on A=65387 / B=137834 bigrams; sanity: mean score of A text words -0.25, B text words +0.27
+signs: Pisce Aries Aries Tauru Tauru Gemin Cance   Leo Virgo Libra Scorp Sagit
+  LABELS (all)                       per-sign mean B-ness: +0.12 +0.09 +0.14 +0.03 +0.11 +0.22 -0.01 +0.01 +0.11 +0.09 +0.29 +0.10   rho=-0.04  p=0.9110  (n=367)
+  RING TEXT (all)                    per-sign mean B-ness: +0.03 -0.01 +0.08 +0.03 +0.03 +0.06 +0.03 +0.05 +0.04 +0.13 +0.10 +0.15   rho=+0.71  p=0.0136  (n=962)
+  label minus ring mean per sign: +0.09 +0.11 +0.07 -0.00 +0.07 +0.16 -0.04 -0.04 +0.07 -0.04 +0.19 -0.04
+== data/corpus_RF.tsv
+B-ness scorer trained on A=66691 / B=145606 bigrams; sanity: mean score of A text words -0.27, B text words +0.26
+signs: Pisce Aries Aries Tauru Tauru Gemin Cance   Leo Virgo Libra Scorp Sagit
+  LABELS (all)                       per-sign mean B-ness: +0.17 +0.12 +0.15 +0.10 +0.08 +0.19 -0.00 +0.04 +0.12 +0.10 +0.37 +0.26   rho=+0.11  p=0.7390  (n=343)
+  RING TEXT (all)                    per-sign mean B-ness: +0.05 -0.00 +0.05 +0.05 +0.04 +0.06 +0.03 +0.10 +0.07 +0.13 +0.13 +0.21   rho=+0.78  p=0.0050  (n=922)
+  label minus ring mean per sign: +0.12 +0.13 +0.11 +0.06 +0.04 +0.13 -0.03 -0.05 +0.05 -0.03 +0.24 +0.05

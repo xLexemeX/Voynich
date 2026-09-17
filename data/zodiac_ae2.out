@@ -1,0 +1,32 @@
+=== within each wheel: a-e index by ring (0 = outer/first listed)
+  Pisces   ring0: +0.45 (n=22)  ring1: +0.92 (n=12)  ring2: +1.00 (n=1)
+  AriesD   ring0: +0.60 (n=15)  ring1: +0.33 (n=10)
+  AriesL   ring0: +0.25 (n=12)  ring1: +0.20 (n=5)
+  TaurusL  ring0: +0.94 (n=16)  ring1: +0.83 (n=6)
+  TaurusD  ring0: +0.82 (n=17)  ring1: +0.50 (n=6)
+  Gemini   ring0: +0.87 (n=5)  ring1: +0.63 (n=17)  ring2: +1.00 (n=9)
+  Cancer   ring0: +0.36 (n=17)  ring1: +0.38 (n=16)  ring2: +0.75 (n=8)
+  Leo      ring0: -0.06 (n=21)  ring1: +0.21 (n=13)
+  Virgo    ring0: -0.44 (n=19)  ring1: -0.03 (n=12)
+  Libra    ring0: -0.40 (n=20)  ring1: -0.40 (n=10)
+  Scorpio  ring0: -0.25 (n=4)  ring1: -0.50 (n=16)  ring2: -0.10 (n=10)
+  Sagitt   ring0: -0.75 (n=4)  ring1: -0.43 (n=17)  ring2: -0.30 (n=10)
+
+=== what changes: most common label forms, early wheels (f70v-f72r) vs late (f72v-f73v)
+  early: n=194; endings [('y', 40), ('ar', 32), ('al', 24), ('dy', 22), ('am', 20), ('aiin', 16), ('-', 14), ('ey', 8)]
+         first 2: [('ot', 62), ('ok', 36), ('ar', 13), ('ch', 8), ('op', 7), ('al', 7)]  vowel after gallows: [('a', 72), ('e', 19), ('o', 16), ('y', 7), ('ch', 6)]
+  late: n=156; endings [('y', 46), ('dy', 32), ('ey', 13), ('-', 13), ('s', 10), ('aiin', 9), ('al', 9), ('ar', 6)]
+         first 2: [('ok', 42), ('ot', 23), ('ch', 13), ('oe', 13), ('yk', 10), ('of', 6)]  vowel after gallows: [('e', 58), ('a', 30), ('y', 12), ('ch', 4), ('o', 3)]
+
+=== is page-level a/e blocking general for labels? per-section: variance of page means vs permutation (labels shuffled across pages within section)
+  zodiac  labels pages=12 tokens= 350 var(page means) obs 0.228 vs null 0.024 p=0.0000   page means: [0.63, 0.49, 0.24, 0.91, 0.74, 0.77, 0.44, 0.04, -0.28, -0.4, -0.33, -0.43]
+  zodiac  text   pages=12 tokens= 964 var(page means) obs 0.038 vs null 0.009 p=0.0000   page means: [0.03, -0.17, -0.24, -0.01, 0.09, 0.16, -0.32, -0.48, -0.16, 0.23, -0.13, -0.11]
+  bio     labels pages= 8 tokens= 117 var(page means) obs 0.054 vs null 0.036 p=0.1610   page means: [0.17, 0.09, 0.15, 0.5, 0.4, 0.51, -0.14, -0.07]
+  bio     text   pages=19 tokens=6258 var(page means) obs 0.010 vs null 0.002 p=0.0000   page means: [-0.11, -0.2, -0.38, -0.22, -0.14, -0.15, -0.24, -0.16, -0.23, -0.02, -0.0, -0.29, -0.14, -0.34]
+  pharma  labels pages=14 tokens= 246 var(page means) obs 0.025 vs null 0.031 p=0.6363   page means: [0.62, 0.43, 0.4, 0.27, 0.31, 0.52, 0.32, 0.36, 0.32, 0.07, 0.54, 0.57, 0.12, 0.2]
+  pharma  text   pages=16 tokens=2339 var(page means) obs 0.027 vs null 0.004 p=0.0000   page means: [-0.19, -0.22, 0.11, -0.19, 0.11, 0.14, -0.28, -0.16, -0.33, -0.28, -0.23, -0.19, -0.21, -0.34]
+  cosmo   labels pages= 3 tokens= 212 var(page means) obs 0.034 vs null 0.016 p=0.1440   page means: [0.67, 0.31, 0.24]
+  cosmo   text   pages=11 tokens=2033 var(page means) obs 0.026 vs null 0.004 p=0.0000   page means: [0.07, 0.4, -0.24, 0.11, -0.04, 0.02, 0.13, 0.05, 0.2, -0.12, 0.0]
+  astro   labels pages= 5 tokens= 150 var(page means) obs 0.055 vs null 0.018 p=0.0143   page means: [0.25, 0.46, -0.15, -0.14, 0.19]
+  astro   text   pages= 8 tokens= 733 var(page means) obs 0.040 vs null 0.008 p=0.0000   page means: [-0.05, 0.23, -0.4, -0.2, -0.33, -0.34, -0.32, -0.37]
+  herbal  text   pages=128 tokens=11529 var(page means) obs 0.040 vs null 0.006 p=0.0000   page means: [0.1, 0.28, 0.02, 0.01, 0.19, 0.22, -0.06, -0.07, 0.19, 0.28, 0.14, -0.12, -0.07, 0.1]
