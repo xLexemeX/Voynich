@@ -22,10 +22,13 @@ c3=np.bincount((t[:-2]*A+t[1:-1])*A+t[2:],minlength=A**3).astype(float); c2=np.b
 p1=(c1+1)/(c1.sum()+A); p2=(c2+0.1)/(np.repeat(c1,A)+0.1*A); p3=(c3+0.1)/(np.repeat(c2,A)+0.1*A); p4=(cnt+0.1)/(np.repeat(c3,A)+0.1*A)
 lp=np.log(0.6*p4+0.25*np.tile(p3,A)+0.1*np.tile(p2,A**2)+0.05*np.tile(p1,A**3)).astype(np.float64)
 lf=c1/c1.sum()
-rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P')]
+import os
+SUBSET=os.environ.get('SUBSET','')
+rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P') and (not SUBSET or r['lang']==SUBSET)]
 voy=[w for r in rows for w in r['text'].split('.') if w]
 vc=collections.Counter(voy); top=[w for w,_ in vc.most_common(K)]; topset=set(top)
 cover=sum(vc[w] for w in top)/len(voy)
+if DROP<0: DROP=round(1-cover,3)
 truth=None
 if target=='voynich': seq=[w for w in voy if w in topset]
 elif target=='markov':
@@ -86,7 +89,7 @@ def coverage(s):
         else: i+=1
     return cov/len(s)
 ref=np.array([aid[c] for c in ''.join(pl[half:]) if c in aid][:N],dtype=np.int64)
-res=f'[{target} lang={LANG} drop={DROP} seed={seed} K={K} tokcov={cover:.2f} N={N}] LM/char={full(bestM)/N:.3f} dict-cov={coverage(txt[:8000]):.3f} | real latin LM/char={lp[((ref[:-3]*A+ref[1:-2])*A+ref[2:-1])*A+ref[3:]].sum()/len(ref):.3f} dict-cov={coverage("".join(ALPHA[i] for i in ref[:8000])):.3f}'
+res=f'[{target} subset={SUBSET or "all"} lang={LANG} drop={DROP} seed={seed} K={K} tokcov={cover:.2f} N={N}] LM/char={full(bestM)/N:.3f} dict-cov={coverage(txt[:8000]):.3f} | real latin LM/char={lp[((ref[:-3]*A+ref[1:-2])*A+ref[2:-1])*A+ref[3:]].sum()/len(ref):.3f} dict-cov={coverage("".join(ALPHA[i] for i in ref[:8000])):.3f}'
 if truth is not None:
     res+=f' | type-acc={np.mean([bestM[tid[w]]==truth[w] for w in top]):.3f} token-acc={np.mean([bestM[s]==truth[top[s]] for s in S]):.3f}'
 print(res); print('  sample:', txt[:260])

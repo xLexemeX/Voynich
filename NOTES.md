@@ -413,3 +413,19 @@ Next versions should add Italian and German targets, allow bigram mappings, and 
 - **Restart odds:** each control restart found the key half the time. If the Voynich text were solvable to the same degree, the chance that all 8 Latin restarts miss is about 1 in 256, and that all 6 Italian restarts miss is about 1 in 64. This assumes the Voynich problem is no harder than the control.
 
 **Still untested:** one key per Currier language, since A and B could use different keys; words standing for letter pairs, as in the Naibbe cipher; and other target languages.
+
+## 32. Currier language B alone (`runs3/`)
+
+In case languages A and B use different keys, the same word-to-letter search was run on B paragraph text only. Language B has 15,382 tokens after keeping its own top 300 word types, which cover 66% of its tokens. The controls drop 33.6% of tokens to match.
+
+| target | input | best score per character | key recovered |
+|---|---|---|---|
+| Latin | control, seed 2 | −2.693 | 90% of tokens |
+| Latin | control, seed 1 | −2.719 | failed |
+| Latin | **Voynich B**, 2 restarts | **−2.768**, −2.785 | |
+| Italian | control, seeds 1 and 2 | −2.736, −2.748 | both failed |
+| Italian | **Voynich B**, 2 restarts | **−2.833**, −2.834 | |
+
+**Result.** Language B on its own scores below even the failed control searches, in both languages. For Latin, the gap to a recovered key is 0.075 per character, wider than on the mixed A+B text in §31. Only 2 restarts per condition were run, so this rests on few runs. It agrees with §31.
+
+**Summary of the word-level cipher tests (§30–32).** A one-word-per-letter homophonic encoding of Latin or Italian, using the 300 commonest word types, is not supported for the whole text or for language B alone. The search demonstrably finds such keys when they exist. Still open are words standing for letter pairs, as in the Naibbe cipher, and other target languages.

@@ -1,0 +1,11 @@
+  progress 1M/10M best/char -2.965
+  progress 2M/10M best/char -2.958
+  progress 3M/10M best/char -2.929
+  progress 4M/10M best/char -2.913
+  progress 5M/10M best/char -2.901
+  progress 6M/10M best/char -2.885
+  progress 7M/10M best/char -2.868
+  progress 8M/10M best/char -2.859
+  progress 9M/10M best/char -2.855
+[voynich subset=B lang=latin drop=0.0 seed=2 K=300 tokcov=0.66 N=15382] LM/char=-2.785 dict-cov=0.165 | real latin LM/char=-2.140 dict-cov=0.898
+  sample: yossqluriutansioiirqiquiutiruiiiiiietioeutiisqiiimillsporaictyliseniiseslesqaiiruruiirnatesiterpnheropsmaioleiousioiruioiosremintsuusiiioauriusitiiiiteuiiiieaardurisaeseisusrptstinnucircuruutisllonleiieetsiomitnntmermentnitisoetironeounscusuapisnanpitmaneitaua
