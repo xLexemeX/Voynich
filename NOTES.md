@@ -489,3 +489,13 @@ The pairs f1v (certain), f32v and f39r have no label at the given position.
 **Result: negative, 0 of 10.** Not one label appears on its matching herbal page, exactly or as a variant. These labels are also almost absent from the herbal text generally: the null rate is 0 for 8 of the 10. So the test is weak, because the words hardly occur in herbal paragraphs at all. What it does show is that **the name written beside a pharmacy copy of a plant is not repeated in the text of that plant's herbal page**, not even for the four certain matches.
 
 **Caveat.** I assumed labels run in the same order as the drawings in each row. That is how the ZL numbering reads, but I did not check each position against the scans. A wrong position would pair a plant with its neighbour's label.
+
+## 36. Does a pharmacy recipe share vocabulary with the herbal page of the plant it shows? (`pharma_text_match.py`)
+
+For 11 of the attested herbal–pharmacy picture matches, I compared the herbal page's words with the pharmacy paragraph under the matching drawing row. Similarity weights shared rare words more. The null pairs each herbal page with a random pharmacy paragraph, from 36 with at least 10 words.
+
+- **Mean similarity:** matched pairs 0.457, unmatched 0.574. Matched pairs are *less* similar than random.
+- **Rank among 36 paragraphs:** only f48v (rank 4) and f32v (rank 11) place their match in the top third. f19r ranks its match last.
+- **Permutation p:** 0.96.
+
+**Result: negative.** A recipe beside a copy of a plant uses no more of that plant's herbal-page vocabulary than any other recipe does. Together with §35, there is no detectable textual link between the two drawings of the same plant, in labels or in running text.

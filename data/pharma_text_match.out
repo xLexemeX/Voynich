@@ -1,0 +1,15 @@
+f1v    vs f102r1[row 3]: sim 0.371; mean vs all other pharma paragraphs 0.656; rank 30 of 36; shared ['chol', 'daiin', 'okol', 'or']
+f18v   vs f102r2[row 3]: sim 0.311; mean vs all other pharma paragraphs 0.460; rank 29 of 36; shared ['daiin', 'qokol', 'qotchy']
+f19r   vs f102v1[row 2]: sim 0.098; mean vs all other pharma paragraphs 0.473; rank 36 of 36; shared ['or']
+f23r   vs f102r2[row 3]: sim 0.489; mean vs all other pharma paragraphs 0.650; rank 26 of 36; shared ['daiin', 'dol', 'ol', 'qokeey', 'qokol', 'y']
+f32v   vs f102r2[row 1]: sim 0.715; mean vs all other pharma paragraphs 0.548; rank 11 of 36; shared ['chckhy', 'chey', 'chol', 'daiin', 'dor', 'or', 's']
+f37v   vs f102r1[row 3]: sim 0.484; mean vs all other pharma paragraphs 0.518; rank 21 of 36; shared ['chol', 'daiin', 'dor', 'dy', 's']
+f47v   vs f102r2[row 1]: sim 0.391; mean vs all other pharma paragraphs 0.608; rank 28 of 36; shared ['chey', 'chol', 'daiin', 'dor']
+skip f48r f89v2 3
+f48v   vs f89v1[row 1]: sim 0.682; mean vs all other pharma paragraphs 0.434; rank 4 of 36; shared ['aiin', 'ain', 'chdy', 'chey', 'chody', 'cthey', 'dain', 'dy', 'okal', 'ol', 'or', 'otar']
+f90v2  vs f100r[row 1]: sim 0.693; mean vs all other pharma paragraphs 0.802; rank 22 of 36; shared ['daiin', 'oteey', 'qokeey', 'qokeol', 's', 'sheey']
+f90v1  vs f100r[row 1]: sim 0.568; mean vs all other pharma paragraphs 0.797; rank 32 of 36; shared ['chol', 'chor', 'cthey', 'daiin', 's', 'shol']
+f96v   vs f99r[row 4]: sim 0.223; mean vs all other pharma paragraphs 0.364; rank 30 of 36; shared ['daiin', 'sar']
+
+mean matched 0.457 vs mean unmatched 0.574
+permutation p (random pharma paragraph per herbal page) = 0.9610
