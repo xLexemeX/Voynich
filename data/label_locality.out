@@ -1,0 +1,8 @@
+label tokens that occur anywhere in paragraph text: 736; on their OWN page: 0.232; on a random other labelled page: 0.152
+  herbal  n=  21 own-page 0.190 other-page 0.381
+  cosmo   n= 140 own-page 0.336 other-page 0.164
+  text    n=  53 own-page 0.283 other-page 0.377
+  astro   n=  89 own-page 0.146 other-page 0.157
+  zodiac  n= 215 own-page 0.195 other-page 0.153
+  bio     n=  95 own-page 0.326 other-page 0.147
+  pharma  n= 123 own-page 0.154 other-page 0.065

@@ -1,0 +1,39 @@
+base rate line-initial = 0.118
+=== s-X vs d-X: fraction line-initial, for stems X with both forms (>=10 each)
+  s        n= 316 init=0.06   d        n=  49 init=0.06
+  saiin    n= 122 init=0.46   daiin    n= 816 init=0.19
+  sar      n=  69 init=0.43   dar      n= 286 init=0.13
+  sain     n=  65 init=0.55   dain     n= 211 init=0.23
+  sol      n=  64 init=0.56   dol      n= 105 init=0.13
+  sor      n=  50 init=0.62   dor      n=  66 init=0.29
+  sal      n=  42 init=0.29   dal      n= 214 init=0.02
+  sy       n=  35 init=0.03   dy       n= 248 init=0.01
+  sair     n=  26 init=0.46   dair     n=  93 init=0.28
+  soiin    n=  19 init=0.74   doiin    n=  12 init=0.42
+  pooled: s-forms 0.30 line-initial (n=808), d-forms 0.15 (n=2100)
+
+=== all words by initial glyph: fraction line-initial
+  o   n=  7216 line-initial 0.078
+  ch  n=  5627 line-initial 0.024
+  qo  n=  5201 line-initial 0.099
+  d   n=  3305 line-initial 0.194
+  sh  n=  3064 line-initial 0.062
+  a   n=  1826 line-initial 0.007
+  y   n=  1757 line-initial 0.346
+  l   n=  1413 line-initial 0.049
+  k   n=  1211 line-initial 0.086
+  s   n=  1200 line-initial 0.357
+  t   n=   964 line-initial 0.408
+  p   n=   531 line-initial 0.710
+  r   n=   486 line-initial 0.025
+  ct  n=   465 line-initial 0.019
+
+=== y-X vs o-X vs X (bare): line-initial fraction
+  y+X (X also exists bare): line-initial 0.324 (n=898)
+  o+X (X also exists bare): line-initial 0.064 (n=4206)
+  s+X (X also exists bare): line-initial 0.506 (n=522)
+  d+X (X also exists bare): line-initial 0.210 (n=2315)
+
+=== do line-initial words absorb an extra glyph? compare word W at line start vs same W elsewhere: length
+  mean len first word 5.43, others 4.91
+  first glyph of line-initial words whose remainder is itself a frequent word: [('d', 518), ('q', 341), ('s', 312), ('y', 311), ('o', 230), ('t', 212), ('p', 169), ('l', 53)] of 4130 lines

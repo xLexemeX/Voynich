@@ -264,3 +264,21 @@ Result of the zodiac-label test (`data/zodiac_labels.out`):
 - Comparison with other label sets: bio (nymph) labels 60% `o`-initial, 40% `ot/ok`; pharma jar labels 50% / 31%; cosmo 54% / 27%; astro 46% / 27%; **herbal plant labels only 19% / 5%**. The `ot-/ok-` shape is the shape of "things beside figures, stars and jars", not of plant names.
 
 Interpretation: 300 mostly-unique strings, one per degree, nearly all built from `o + gallows + (a/e-vowel run) + (l/r/m/dy/y)`, with no repeating structure across signs. That is *exactly* what a list of 300 different star or degree names would look like in a scheme where every name is spelled in a fixed template. It is also what a random 300-draw from the slot grammar would look like. What separates the two is whether the same label means the same thing when it recurs elsewhere: `otaly` appears in Pisces, Aries, Leo (×2) and Scorpio, and also as a pharma-jar label on f88r and f99v. I'll follow that thread in the pharma section.
+
+## 23. Second pass in search of something new (2026-09-16, later)
+
+Checked against the literature as I went (Currier 1976; Feaster's positional gradients; the "linestart transformation" post of 2016; the two 2026 arXiv papers on positional constraints and on units; the Voynichdecomp repository). Results, and their status:
+
+| finding | my numbers | status |
+|---|---|---|
+| `y` → `qo` junction | P(qo | prev ends y) 0.27 vs 0.07 otherwise, ratio 3.9 | Currier 1976 |
+| junction vanishes at line breaks | ratio 1.13 across line breaks, 1.35 across paragraphs; glyph MI 0.195 within line vs 0.046 across (random 0.039) | described (cross-line MI = 0 in Voynichdecomp; Feaster) |
+| s/d/y added at line start | `saiin` 46% line-initial vs `daiin` 19%; s-X vs d-X pooled 0.30 vs 0.15; y-X vs o-X 0.21 vs 0.05 | described 2016 |
+| ch-words displaced to 2nd position | ch-initial 3.2% at position 1, 22.3% at position 2, 17% mid-line | corollary of the above |
+| -m avoided on paragraph-final lines | 9.2% vs 16.7% (stars section 8.6% vs 28.6%) | consistent with the known "m where space is tight" idea |
+| labels on a page repeat more than chance | zodiac 15 duplicate pairs vs 4.9 expected | minor |
+| zodiac labels not aligned by degree across signs | same-position edit distance 5.94 vs random 5.96 | negative |
+| starred-paragraph first words are not star labels | 17 of 292 (chance 39) | negative |
+| vertical neighbours more similar than horizontal | min edit distance to word above/below 3.18 vs random 3.66 | Timm & Schinner |
+
+**Geometric test (`layout_dp.py`, `data/layout_stats.out`).** I tried to test two physical hypotheses on the scans of Quire 20: (a) if `s`/`d`/`y` are *added* at line start, such lines should begin further left; (b) if `-m` is a space-saving form, `-m` lines should end closer to the right margin and be more compressed. Row detection plus dynamic-programming alignment to the transcription worked (the overlay `crops/overlay_f104v.png` shows paragraph-final lines correctly identified), but edge measurement is too noisy: the left-edge spread is ±45 px (a glyph is ~33 px), and only 63% of continuing lines were measured as reaching the margin when nearly all do by eye. Within that noise: no left shift for s/d/y lines (medians 0 px), and `-m` lines are no closer to the margin than `-y` lines (P within 40 px: 0.47 vs 0.48) and no denser (33.4 vs 33.5 px per glyph). I record this as **inconclusive, leaning against the crowding explanation for `-m`**, and not as a result. Word-level segmentation would be needed to do it properly.

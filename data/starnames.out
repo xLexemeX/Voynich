@@ -1,0 +1,7 @@
+starred-paragraph initial words in Quire 20: 23 distinct 22
+  most common: [('pchedal', 2), ('pol', 1), ('pchdar', 1), ('pchdoiin', 1), ('@199;aiin', 1), ('polairy', 1), ('pshdar', 1), ('fsheda', 1), ('pchdlar', 1), ('kaisar', 1)]
+  initial glyph: [('p', 10), ('k', 5), ('f', 4), ('t', 3), ('@', 1)]
+  astro star labels: 142; zodiac labels: 281
+  paragraph-initial words in astro labels: raw 0, gallows-stripped 2; random text words 3.0
+  paragraph-initial words in zodiac labels: raw 0, gallows-stripped 0; random text words 3.9
+  examples stripped: ['chedal', 'ol', 'chdar', 'chdoiin', '@199;aiin', 'olairy', 'shdar', 'sheda', 'chdlar', 'aisar', 'eodeeor', 'chedal', 'cholchdar', 'oshey', 'olchey', 'eeoal', 'ches@186;chy', 'olorarom', 'chedol', 'chdol', 'dar', 'chedor', 'chdpy']

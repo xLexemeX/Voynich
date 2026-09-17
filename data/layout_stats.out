@@ -1,0 +1,22 @@
+validated lines 754 ; continuing lines within 80px of page right: 0.631 ; paragraph-final: 0.5
+left-edge sd for non-initial lines: 91.8  IQR: [-40.  53.]
+
+=== LEFT edge minus page median (px), non-paragraph-initial lines, by first glyph
+  y   n=127 mean  +13.7 median   +0.0 sd  92.7  P(<-20px) 0.37
+  d   n=120 mean  +20.9 median   +0.0 sd 107.2  P(<-20px) 0.34
+  o   n= 92 mean  +14.0 median   +0.0 sd  82.8  P(<-20px) 0.37
+  s   n= 76 mean   +4.4 median   -0.5 sd  88.0  P(<-20px) 0.38
+  qo  n= 43 mean   +3.6 median   +0.0 sd  74.6  P(<-20px) 0.42
+  sh  n= 28 mean   +3.6 median   +0.0 sd 106.5  P(<-20px) 0.32
+  ch  n= 17 mean  +41.9 median  +26.0 sd  93.6  P(<-20px) 0.24
+  t   n= 17 mean  +13.9 median   +5.5 sd  52.7  P(<-20px) 0.24
+  l   n= 11 mean  +30.6 median   +3.0 sd  56.1  P(<-20px) 0.09
+
+=== RIGHT shortfall (px), continuing lines, by last glyph
+  -y n=198 mean  111.8 median   41.8  P(<40px) 0.48  P(>200px) 0.19
+  -m n=161 mean   96.6 median   51.0  P(<40px) 0.47  P(>200px) 0.18
+  -l n= 66 mean   78.5 median   32.0  P(<40px) 0.59  P(>200px) 0.09
+  -r n= 39 mean  115.6 median   49.5  P(<40px) 0.44  P(>200px) 0.21
+  -n n= 36 mean  135.3 median  113.2  P(<40px) 0.28  P(>200px) 0.19
+  -d n= 17 mean  103.1 median   49.6  P(<40px) 0.47  P(>200px) 0.24
+  -s n= 12 mean  150.9 median   88.1  P(<40px) 0.25  P(>200px) 0.33

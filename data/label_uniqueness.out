@@ -1,0 +1,10 @@
+=== within-page duplicate labels: observed vs expected if labels were drawn i.i.d. from the global label frequency distribution
+  text    pages  1 labels   26 observed dups   1  expected    0.3
+  astro   pages  5 labels  143 observed dups   2  expected    2.4
+  cosmo   pages  3 labels  204 observed dups  19  expected   10.3
+  zodiac  pages 12 labels  348 observed dups  15  expected    4.9
+  bio     pages  8 labels  109 observed dups   2  expected    0.8
+  pharma  pages 13 labels  237 observed dups   2  expected    2.2
+  ALL     pages 42 labels 1067 observed dups  41  expected   20.9
+  control, running text lines (>=8 words): observed within-line dups 1141 expected 447.9
+  control, running text per page: observed dups 11117 expected 8218

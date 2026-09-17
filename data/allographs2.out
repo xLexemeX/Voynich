@@ -1,0 +1,23 @@
+base line-initial 0.118, line-final 0.118
+  s vs d       s-X    init 0.304 final 0.118 (n=  808, 10 stems)   d-X    init 0.151 final 0.172 (n= 2100)  ratio init 2.01
+  sh vs ch     sh-X   init 0.059 final 0.040 (n= 2217, 38 stems)   ch-X   init 0.022 final 0.060 (n= 3462)  ratio init 2.67
+  y vs o       y-X    init 0.211 final 0.098 (n=  867, 31 stems)   o-X    init 0.054 final 0.080 (n= 2728)  ratio init 3.89
+  s vs o       s-X    init 0.232 final 0.132 (n=  607, 5 stems)   o-X    init 0.217 final 0.038 (n=  212)  ratio init 1.07
+  y vs d       y-X    init 0.360 final 0.109 (n=  367, 7 stems)   d-X    init 0.425 final 0.087 (n=  160)  ratio init 0.85
+  so vs do     so-X   init 0.609 final 0.030 (n=  133, 3 stems)   do-X   init 0.208 final 0.066 (n=  183)  ratio init 2.93
+  sa vs da     sa-X   init 0.451 final 0.120 (n=  324, 5 stems)   da-X   init 0.170 final 0.155 (n= 1620)  ratio init 2.65
+  she vs che   she-X  init 0.025 final 0.036 (n= 1370, 20 stems)   che-X  init 0.018 final 0.057 (n= 1845)  ratio init 1.39
+  sho vs cho   sho-X  init 0.165 final 0.042 (n=  503, 8 stems)   cho-X  init 0.043 final 0.039 (n=  866)  ratio init 3.86
+
+=== first word of non-gallows-initial lines vs 2nd words
+  starts s  : first word (non-gallows lines) 0.192   2nd words 0.182
+  starts d  : first word (non-gallows lines) 0.199   2nd words 0.052
+  starts y  : first word (non-gallows lines) 0.189   2nd words 0.031
+  starts o  : first word (non-gallows lines) 0.176   2nd words 0.182
+  starts sh : first word (non-gallows lines) 0.059   2nd words 0.167
+  starts ch : first word (non-gallows lines) 0.042   2nd words 0.223
+  starts qo : first word (non-gallows lines) 0.160   2nd words 0.131
+
+=== A vs B
+  lang A: s-X init 0.140 vs d-X 0.107   y-X 0.167 vs o-X 0.115
+  lang B: s-X init 0.454 vs d-X 0.231   y-X 0.263 vs o-X 0.038

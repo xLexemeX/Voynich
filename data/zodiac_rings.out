@@ -1,0 +1,37 @@
+299 labels
+  Pisces   [19, 10, 1]
+  AriesD   [10, 5]
+  AriesL   [10, 5]
+  TaurusL  [10, 5]
+  TaurusD  [10, 5]
+  Gemini   [5, 15, 9]
+  Cancer   [12, 11, 7]
+  Leo      [18, 12]
+  Virgo    [18, 12]
+  Libra    [20, 10]
+  Scorpio  [4, 16, 10]
+  Sagitt   [4, 16, 10]
+
+=== by ring (0=outer/first listed) pooled over signs
+  ring 0: n=140 gallows t 0.35 k 0.28  ee 21  has-a 0.54  mean len 6.16  endings [('y', 39), ('dy', 27), ('ar', 11), ('aiin', 11)]
+  ring 1: n=122 gallows t 0.30 k 0.34  ee 30  has-a 0.56  mean len 5.89  endings [('y', 27), ('dy', 18), ('ar', 13), ('aiin', 12)]
+  ring 2: n= 37 gallows t 0.24 k 0.38  ee 5  has-a 0.62  mean len 4.92  endings [('al', 10), ('y', 7), ('-', 6), ('dy', 4)]
+
+=== first label of each ring vs others
+  first n= 29 t 0.38 k 0.21 init [('ot', 11), ('ok', 5), ('of', 3), ('oe', 3)] end [('y', 8), ('dy', 5), ('ar', 3), ('al', 3)]
+  rest  n=270 t 0.31 k 0.33 init [('ot', 72), ('ok', 71), ('ch', 17), ('yk', 14)] end [('y', 65), ('dy', 44), ('ar', 25), ('al', 23)]
+
+=== gallows t/k alternation along a ring: P(next same gallows) vs shuffled
+  observed P(same)=0.569; shuffled mean 0.569 sd 0.032
+
+=== Aries/Taurus dark vs light halves
+  AriesD   n=15 t 0.67 k 0.20 init [('ot', 10), ('ok', 3), ('op', 1)] end [('y', 4), ('ey', 2), ('al', 2)]
+  AriesL   n=15 t 0.80 k 0.13 init [('ot', 12), ('ok', 2), ('ch', 1)] end [('y', 4), ('ar', 3), ('m', 2)]
+  TaurusD  n=15 t 0.47 k 0.13 init [('ot', 6), ('ch', 2), ('ok', 2)] end [('dy', 3), ('y', 3), ('aiin', 2)]
+  TaurusL  n=15 t 0.40 k 0.13 init [('ot', 6), ('ch', 2), ('ok', 2)] end [('ar', 5), ('dy', 3), ('aiin', 3)]
+
+=== angular position: features vs clock sector (4 quadrants), pooled
+  quadrant 0 (from 0 o'clock): n= 85 t 0.32 k 0.33 -y 0.25 -dy 0.22 -al/ar 0.14
+  quadrant 1 (from 3 o'clock): n= 66 t 0.39 k 0.23 -y 0.24 -dy 0.09 -al/ar 0.18
+  quadrant 2 (from 6 o'clock): n= 68 t 0.29 k 0.31 -y 0.24 -dy 0.19 -al/ar 0.21
+  quadrant 3 (from 9 o'clock): n= 79 t 0.25 k 0.39 -y 0.25 -dy 0.14 -al/ar 0.19

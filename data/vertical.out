@@ -1,0 +1,8 @@
+=== similarity of a word to (a) its horizontal neighbours, (b) the word directly above/below (same index, adjacent line in same paragraph), (c) random words
+  mean min edit distance: horizontal 3.59   vertical 3.18   random (best of 3) 3.66
+  identical-word rate: horizontal 0.023  vertical 0.03383333333333333  random 0.01
+
+=== word-level MI: word above/below (same index) vs random; and Dante verse controls
+  vertical pairs MI 5.557  random 5.745  (n=25755)
+  Dante: across-verse-line glyph MI 0.0210 vs line-end->random-line-start control 0.0137
+  Dante: within-line glyph MI 0.1459; random within control 0.0083

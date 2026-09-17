@@ -1,0 +1,22 @@
+=== does the last glyph of a line predict the first glyph of the next line? (MI, with shuffled control)
+  MI=0.0513  shuffled=0.0460  n=3388
+  P(next line starts with X | this line ends in m / y / n):
+    -m (n=567): y:0.20 d:0.20 o:0.16 s:0.14 qo:0.08 t:0.08
+    -y (n=1272): d:0.19 y:0.17 qo:0.16 o:0.14 s:0.12 t:0.07
+    -n (n=476): d:0.17 y:0.17 o:0.16 qo:0.16 s:0.12 sh:0.08
+
+=== does the last WORD of a line predict the first word of the next line better than chance? top over-represented pairs
+  ol       | daiin    n=6 obs/exp=3.16
+
+=== length of next line's first word vs this line's final glyph
+  after -m: mean first-word length 5.23 (n=567)
+  after -y: mean first-word length 5.34 (n=1272)
+  after -n: mean first-word length 5.16 (n=476)
+  after -l: mean first-word length 5.17 (n=394)
+  after -r: mean first-word length 5.11 (n=285)
+
+=== does a line ending in m tend to be followed by a line starting with a word that "continues" it? i.e. is  last+first  a known word?
+  -m: P(last+first is a word seen >=3x) = 0.000 (n=567)
+  -y: P(last+first is a word seen >=3x) = 0.006 (n=1272)
+  -n: P(last+first is a word seen >=3x) = 0.002 (n=476)
+  -m with m removed: 0.021

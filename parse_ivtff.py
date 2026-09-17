@@ -6,6 +6,7 @@ import re, sys, json
 src = sys.argv[1] if len(sys.argv)>1 else 'data/ZL3b-n.txt'
 pagemeta = {}
 rows = []
+para_counter=[0]; line_in_para=[0]
 cur = None
 sect_names = {'H':'herbal','A':'astro','Z':'zodiac','B':'bio','C':'cosmo','P':'pharma','S':'stars','T':'text'}
 for raw in open(src, encoding='utf-8', errors='replace'):
@@ -20,6 +21,9 @@ for raw in open(src, encoding='utf-8', errors='replace'):
     m = re.match(r'^<(f\w+)\.(\w+),([@+=*~&])(\w+)>\s*(.*)$', line)
     if not m: continue
     folio, lnum, prefix, ltype, text = m.groups()
+    pstart = '<%>' in text; pend = '<$>' in text
+    if pstart: para_counter[0]+=1; line_in_para[0]=0
+    else: line_in_para[0]+=1
     # strip inline markers
     t = text
     t = re.sub(r'<!.*?>', '', t)          # comments
@@ -38,10 +42,11 @@ for raw in open(src, encoding='utf-8', errors='replace'):
     rows.append(dict(folio=folio, line=lnum, ltype=ltype, quire=pm.get('Q',''),
                      lang=pm.get('L',''), hand=pm.get('H',''),
                      section=sect_names.get(pm.get('I',''), pm.get('I','')),
+                     para=str(para_counter[0]) if ltype.startswith('P') else '', lip=str(line_in_para[0]), pstart='1' if pstart else '0', pend='1' if pend else '0',
                      text=t))
 with open('data/corpus.tsv','w') as f:
-    f.write('folio\tline\tltype\tquire\tlang\thand\tsection\ttext\n')
+    f.write('folio\tline\tltype\tquire\tlang\thand\tsection\tpara\tlip\tpstart\tpend\ttext\n')
     for r in rows:
-        f.write('\t'.join(r[k] for k in ['folio','line','ltype','quire','lang','hand','section','text'])+'\n')
+        f.write('\t'.join(r[k] for k in ['folio','line','ltype','quire','lang','hand','section','para','lip','pstart','pend','text'])+'\n')
 json.dump(pagemeta, open('data/pagemeta.json','w'), indent=1)
 print(len(rows),'lines;', len(pagemeta),'pages')

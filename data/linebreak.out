@@ -1,0 +1,22 @@
+=== y|qo ratio within line vs across line break, by section and language
+  section=bio     within 5.90 (ny=2945) across 0.90 (ny=339)
+  section=herbal  within 2.29 (ny=3592) across 0.91 (ny=453)
+  section=pharma  within 2.49 (ny=667) across 1.52 (ny=63)
+  section=stars   within 3.82 (ny=4235) across 1.06 (ny=300)
+  section=text    within 3.95 (ny=861) across 1.49 (ny=75)
+  lang=A       within 2.19 (ny=3064) across 0.97 (ny=439)
+  lang=B       within 4.30 (ny=9394) across 1.21 (ny=807)
+
+=== glyph-level MI between final glyph of word i and initial glyph of word i+1
+  within-line adjacent   MI=0.1954 (n=30916)
+  across line break      MI=0.0455 (n=3388)
+  line end -> random line start (control) MI=0.0385 (n=3390)
+  random within pairs (control) MI=0.0071
+
+=== word-level: excess MI(word_i, word_i+1) minus shuffled baseline
+  within-line (subsampled to n=3388): 0.040   across line break: 0.004   line end->random line start: 0.002
+
+=== the same test on Latin and Italian with artificial lines of 8 words (dependencies should survive line breaks)
+  latin: glyph MI within 0.0485 across 0.0838;  word excess MI within(sub) 0.103 across 0.093
+  italian: glyph MI within 0.1352 across 0.1680;  word excess MI within(sub) 0.176 across 0.175
+  dante REAL verse lines: glyph MI within 0.1459 across 0.0210; word excess MI within(sub) 0.264 across 0.009
