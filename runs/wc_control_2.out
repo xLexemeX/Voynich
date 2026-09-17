@@ -1,0 +1,3 @@
+  true-mapping LM/char -2.160; init LM/char -3.244
+[control seed=2 K=300 tokcov=0.62 N=21755] LM/char=-2.160 dict-cov=0.898 | real latin LM/char=-2.160 dict-cov=0.898 | type-acc=0.997 token-acc=1.000
+  sample: contrariaaccedenteinundanteshincdoneciterumexoriaturseresorbentesnecumquameodemtemporequopridierefluiuelutanhelantessidereauidotrahentesecumhaustumariaetadsiduealiundequampridieexorienteparibustameninteruallisreciprocisenisquesemperhorisnoncuiusquedieiautnocti

@@ -365,3 +365,28 @@ Result: **negative**. A jar label is no more likely to appear in its own recipe 
 ## 29. Forum review and a correction to the novelty claim
 
 See `FORUM_REVIEW.md`. The closest prior work to §24 is a voynich.ninja thread, "Currier A/B split is not what we thought it was!" (5710). It proposes a per-folio switch between `o` and `e` after `ch`/`sh` in running text. My zodiac finding differs in three ways. It is in the labels. It is carried mainly by `a`/`e` after `k`/`t`. It is **absent** from the ring text on the same folios: `o` share after `ch`/`sh` in ring text is 0.32 early vs 0.28 late, and `a` share after gallows is 0.25 vs 0.22. That last point contradicts a single switch state per folio. I now describe the result as an extension of that thread, not an isolated discovery.
+
+## 30. Word-to-letter homophonic decipherment with a working control (`wordcipher2.py`, `runs/`)
+
+**Hypothesis.** Each of the 300 most frequent Voynich word types stands for one Latin letter, with many word types per letter, as in a homophonic or Naibbe-style cipher. These 300 types cover 62% of paragraph tokens, 21,755 tokens in all. The search is simulated annealing over the type-to-letter key: 10 million steps, 8 restarts each. It is scored by a Latin letter 4-gram model, trained on half of Pliny, plus a penalty for drifting from Latin letter frequencies.
+
+**Controls.**
+- **Positive:** the other half of Pliny, enciphered by me into the same 300 Voynich word types with a random homophonic key. Same length, same method.
+- **Negative:** meaningless text from a word-level Markov chain trained on the Voynich text.
+
+| input | best score per character, 8 restarts | Latin dictionary coverage | key recovered |
+|---|---|---|---|
+| real Latin, reference | −2.160 | 0.898 | |
+| Latin control, 4 restarts | **−2.160** | **0.898** | **100% of tokens** |
+| Latin control, other 4 restarts | −2.61 to −2.62 | 0.22 to 0.24 | 9 to 10% |
+| meaningless Markov text | −2.77 to −2.81 | 0.15 to 0.17 | |
+| **Voynich** | **−2.77 to −2.82** | **0.15 to 0.20** | |
+
+**Result: negative, and a clean one.** The search recovers a hidden Latin key exactly, token for token, in half of its restarts. On the Voynich text, no restart gets anywhere near a Latin solution. Its best is −2.77 per character, the same as meaningless text and far below the −2.16 a real decipherment reaches. If the 300 commonest Voynich words were a homophonic encoding of Latin letters, this search would have found it.
+
+**Limits.**
+- Only Latin was tested.
+- Only one letter per word was allowed. The Naibbe cipher also maps words to letter *pairs*.
+- Only the 300 commonest types were used. The other 38% of tokens were dropped, which also breaks letter adjacency in the Voynich input. The control had no dropped tokens, which may flatter it.
+
+Next versions should add Italian and German targets, allow bigram mappings, and drop the same fraction of tokens from the control.

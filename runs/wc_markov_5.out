@@ -1,0 +1,2 @@
+[markov seed=5 K=300 tokcov=0.62 N=21751] LM/char=-2.792 dict-cov=0.158 | real latin LM/char=-2.160 dict-cov=0.898
+  sample: nodiaecsnaeanteiariiceibisnsriiurosiceetecasuctttetsuemmsioeucomosanitrrastaerecaustsstdesscstecretteruaoeiiatsdetcuuerineinioariusorteaacatrnnirasuseositainadistaosreetriiiaroioipidiaamancaiuilunatesumenemedidunmtepennrstnsiursacdeiinaeaaacecesiiliaeiilitiita

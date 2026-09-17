@@ -1,0 +1,3 @@
+  true-mapping LM/char -2.160; init LM/char -3.248
+[control seed=7 K=300 tokcov=0.62 N=21755] LM/char=-2.622 dict-cov=0.215 | real latin LM/char=-2.160 dict-cov=0.898 | type-acc=0.077 token-acc=0.086
+  sample: osiaetesttiironialniueotiosieteoosenomoseuitisestoueitenigeatioriiliuitumelsaliatiatenturaenorteraeundseuociereciasiicoresmtcodaetesiodinouieduiauecermrasoisaurcenueortutesenomrmidenrianadesaueatenesiareuteerielacaesenisisequlireateerenieriadsuitusonrntuaigaar
