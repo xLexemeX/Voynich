@@ -1,0 +1,9 @@
+  progress 0.5M/4.0M best -18037 (64s)
+  progress 1.0M/4.0M best -17750 (127s)
+  progress 1.5M/4.0M best -17565 (177s)
+  progress 2.0M/4.0M best -17257 (236s)
+  progress 2.5M/4.0M best -16995 (300s)
+  progress 3.0M/4.0M best -16577 (367s)
+[voynich subset=B lang=german seed=3 N=7691 drop=0.336] LM/char=-1.985 total=-15960 bigram-share=0.96
+  sample: elstdidiebengenzuebeienerauersterstuoebstebenerenauerauenzuerstchststensterstebenauerereneberstendierenenstenststererzuauelausterebersterdienerenundiebebsteruoenstchenenlienerauendierliendiendistenauchenauauererstgererstenstersterdienercher
+  heldout fitted key: in-order -2.2427 shuffled -2.2765 sd 0.0073 gain +0.0339 z 4.7

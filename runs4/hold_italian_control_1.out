@@ -1,0 +1,12 @@
+  true key: LM/char -2.564 total -19835; init total -25528
+  progress 0.5M/4.0M best -18752 (60s)
+  progress 1.0M/4.0M best -18418 (109s)
+  progress 1.5M/4.0M best -18148 (161s)
+  progress 2.0M/4.0M best -17892 (212s)
+  progress 2.5M/4.0M best -17674 (270s)
+  progress 3.0M/4.0M best -17327 (323s)
+  progress 3.5M/4.0M best -16826 (370s)
+[control subset=B lang=italian seed=1 N=7729 drop=0.336] LM/char=-2.068 total=-16625 bigram-share=0.91 | token-acc=0.003 decoded-letter-match=0.052
+  sample: uiuiralaperlateladinorauecoralauemecocosiratecoralasisitanuedilanmedecomepelarlauetediradintelatarcolarsicoraditalacontecosinnocoladiratarcolalauegralauenoraperagrasiraterasiconsipedisilasiuenuenocordinocolauemesisiconomecouedisisisitentesi
+  heldout fitted key: in-order -2.2117 shuffled -2.2587 sd 0.0049 gain +0.0470 z 9.6
+  heldout true key: in-order -2.5553 shuffled -3.1134 sd 0.0100 gain +0.5581 z 55.7

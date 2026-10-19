@@ -517,3 +517,15 @@ For 11 of the attested herbal–pharmacy picture matches, I compared the herbal 
 **What this adds.** The fitted key on the control, which is 99% wrong, still scores better on the training half than the true key (−2.07 to −2.09 vs −2.62). The held-out order gain ranks them correctly, by a factor of 15. So this gain is a working pass/fail test for any claimed word-to-chunk key: a proposed decipherment should gain about 0.4 per letter from word order on pages it was not fitted to. None of the 3 Voynich searches comes close.
 
 **Limits.** This uses Latin only, one search length, and 3 seeds. The search never found the true key on the control in this form, so the test checks whether a *found* key is real. It does not show that a real key would be found.
+
+## 38. §37 repeated with Italian and German targets (`runs4/batch2.sh`, `runs4/summary2.out`)
+
+Same setup as §37: Language B, 4 million annealing steps, 3 seeds. Italian is Dante; German is Goethe's *Faust*, with the Project Gutenberg header left in. Held-out gain from word order, per decoded letter:
+
+| target | true key on control | key fitted to control (98–99% wrong) | **key fitted to Voynich B** |
+|---|---|---|---|
+| Latin (§37) | +0.43 to +0.47 | +0.02 to +0.04 | **+0.03** |
+| Italian | +0.55 to +0.56 | +0.04 to +0.06 | **+0.05 to +0.08** |
+| German | +0.58 to +0.61 | +0.05 to +0.08 | **+0.03 to +0.05** |
+
+**Result: negative in all three languages.** The Voynich keys fall in the range of wrong keys. Italian is slightly above that range, at +0.08 at best, but a true key gains about seven times as much. For German the Voynich keys gain less than the wrong control keys. No letter-or-pair key found for Latin, Italian or German turns Voynich word order into that language's letter order on held-out text.

@@ -1,0 +1,12 @@
+  true key: LM/char -2.544 total -19744; init total -25921
+  progress 0.5M/4.0M best -18763 (61s)
+  progress 1.0M/4.0M best -18495 (118s)
+  progress 1.5M/4.0M best -17994 (181s)
+  progress 2.0M/4.0M best -17330 (229s)
+  progress 2.5M/4.0M best -16855 (298s)
+  progress 3.0M/4.0M best -16439 (357s)
+  progress 3.5M/4.0M best -16081 (426s)
+[control subset=B lang=german seed=1 N=7745 drop=0.336] LM/char=-1.974 total=-15972 bigram-share=0.96 | token-acc=0.015 decoded-letter-match=0.054
+  sample: erdichenerlichderauerdchenfaudiererersteierereraustdichenstdichausterauersterststerauaustergeerauenausichstenlichstenstereraustenerauststmierlichdierststerenauerflicheichenstauaustchensterchenerstenmistencherchauchenzustendisterstenerchchdi
+  heldout fitted key: in-order -2.1375 shuffled -2.2158 sd 0.0055 gain +0.0783 z 14.3
+  heldout true key: in-order -2.5312 shuffled -3.1447 sd 0.0059 gain +0.6134 z 103.8
