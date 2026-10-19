@@ -1,0 +1,30 @@
+real                                     edge MI 0.205 bits; within-line shuffles 0.018; excess +0.188
+rule model (§72), junction rule on       edge MI 0.146 bits; within-line shuffles 0.011; excess +0.134
+rule model, junction rule off            edge MI 0.009 bits; within-line shuffles 0.010; excess -0.001
+
+largest real-minus-model contributions (last glyph | first glyph): count, observed/expected in real, contribution real vs model
+      r | a    n=  876  obs/exp  3.09   +0.0462 vs +0.0001
+      l | o    n=  947  obs/exp  0.88   -0.0055 vs +0.0310
+      y | ch   n= 1602  obs/exp  0.71   -0.0252 vs -0.0012
+      s | a    n=  286  obs/exp  4.90   +0.0213 vs -0.0002
+      n | ch   n= 1282  obs/exp  1.41   +0.0206 vs +0.0007
+      y | q    n= 3479  obs/exp  1.78   +0.0937 vs +0.1117
+      y | sh   n=  737  obs/exp  0.63   -0.0160 vs +0.0010
+      r | o    n= 1262  obs/exp  1.21   +0.0115 vs +0.0274
+      y | l    n=  801  obs/exp  1.46   +0.0142 vs +0.0010
+      o | l    n=  196  obs/exp  4.06   +0.0129 vs -0.0002
+      l | d    n=  617  obs/exp  1.44   +0.0105 vs -0.0002
+      n | sh   n=  659  obs/exp  1.39   +0.0101 vs -0.0003
+      y | a    n=  118  obs/exp  0.16   -0.0101 vs -0.0001
+      l | ch   n= 1093  obs/exp  1.23   +0.0108 vs +0.0007
+      o | o    n=   87  obs/exp  0.36   -0.0041 vs +0.0056
+      l | k    n=  341  obs/exp  1.91   +0.0104 vs +0.0007
+
+by separator in ZL3b-n:
+   certain spaces (.)     n= 28177  edge MI 0.173; permuted 0.010; excess +0.163
+   uncertain spaces (,)   n=  2430  edge MI 0.598; permuted 0.081; excess +0.517
+   both                   n= 30607  edge MI 0.207; permuted 0.010; excess +0.197
+   r|a: 627 across certain spaces, 246 across uncertain
+   s|a: 188 across certain spaces, 96 across uncertain
+   o|l: 107 across certain spaces, 88 across uncertain
+   y|q: 3431 across certain spaces, 35 across uncertain

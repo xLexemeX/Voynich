@@ -1310,3 +1310,23 @@ This is §51 with the page profile of §75 in place of shared words. If each pag
 | matched different-genus pairs | 5.705 (sd 0.229) |
 
 p = 0.30. **Result: negative, and weakly powered.** Adjacent folios of the same language are much closer than folios 10 or more apart (5.420 against 5.820, a difference of 0.40). With 24 pairs, only an effect of about that size, roughly 0.45, would reach p < 0.05. The same-plant pairs come out 0.12 closer, inside the null. So the page profile tracks position in the book, through drift or a shared exemplar, far more than the plant identifications do. As in §51, wrong identifications would dilute a real effect.
+
+## 77. Two outside leads checked: the f17r marginal line, and edge-glyph coupling (`edgemi.py`, `data/edgemi.out`)
+
+**f17r.** N. Pelling (Cipher Mysteries, 22 January 2026) reads the line at the top of f17r as Occitan, "meilhor aller lucent ben balsamina [...]". He reports that UV and multispectral images show Voynichese-like text at its end. A Voynichese word written after a plant name would be a crib. In the Beinecke color scan (`beinecke/033_17r.jpg`), enhanced by background subtraction and channel stretching, the end of the line shows only a faint group beginning with something like "g", followed by stains. No Voynichese glyph can be read from it. Using this lead needs the multispectral images. ZL does not transcribe the line; its page comment gives "mull*av alhor lucz hev vellome o ***".
+
+**Edge-glyph coupling.** A 2026 preprint (arXiv 2608.17096) reports about 0.2 bits of mutual information between the last glyph of a word and the first glyph of the next. That is above every prose control, and published imitators fail to reproduce it. Here the excess is over within-line shuffles, or over permutations for the separator split:
+
+| | edge MI | excess |
+|---|---|---|
+| real text, corpus as used throughout (ZL `.` and `,` both treated as spaces) | 0.205 | +0.188 |
+| rule model of §72 (`y→qo` junction rule) | 0.146 | +0.134 |
+| rule model with the junction rule off | 0.009 | −0.001 |
+| ZL certain spaces (`.`) only | 0.173 | +0.163 |
+| ZL uncertain spaces (`,`) only | 0.598 | +0.517 |
+
+**Meaning.** The 0.2-bit figure has two sources:
+- **Uncertain spaces.** These are 8% of junctions, but they behave like word-internal glyph pairs: `r|a`, `s|a` and `o|l` are 3–5 times over-represented, with 28–45% of their cases across a comma. The preprint makes the same point.
+- **Certain spaces.** The one scribal rule already in the §72 model (`y` followed by `qo`) reproduces most of the remaining 0.163 bits.
+
+So edge coupling is not a separate mystery. It comes from one known junction rule plus transcription spaces that are not real word breaks. A generator that includes the junction rule passes this test, and the generators that fail it lack the rule. The residual (0.03 bits) sits mostly in `r|a`, `n|ch`, `n|sh`, `l|d` and `l|k`, together with an avoidance of `y|ch` and `y|sh`. That last pattern is the other side of `y|qo`.
