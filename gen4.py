@@ -12,8 +12,16 @@ def index(words):
         for d in dels(w): ix[d].add(w)
     return ix
 IXH=index(G.HAPAX); IXL=index(G.LEX); FREQ=dict(zip(G.LEX,G.FR))
+def _big():
+    from scorecard import G as GL
+    c=collections.defaultdict(collections.Counter)
+    for w,n in G.cnt.items():
+        g=[' ']+GL.findall(w)
+        for a,b in zip(g,g[1:]): c[a][b]+=n
+    return {a:(list(v),list(v.values())) for a,v in c.items()}
+BIG=_big()
 def near(ix, s): return set().union(*(ix.get(d,()) for d in dels(s)))-{s}
-def gen(seed, group_lex=False, n_sec=60, n_page=6, p_sec=0.8, p_nh=0.5, p_nl=0.2, topic_p=0.08, topic_n=26, p_q=0.92, p_unq=0.39, p_alt=0.62, p_new=0.22, p_rep=0.006, k_h=1, k_l=1, recent=0, p_kl=1.0, p_recent=1.0, norm=False, p_mut=0.0):
+def gen(seed, group_lex=False, n_sec=60, n_page=6, p_sec=0.8, p_nh=0.5, p_nl=0.2, topic_p=0.08, topic_n=26, p_q=0.92, p_unq=0.39, p_alt=0.62, p_new=0.22, p_rep=0.006, k_h=1, k_l=1, recent=0, p_kl=1.0, p_recent=1.0, norm=False, p_mut=0.0, mut='cross', n_edit=1, mut_src='stems'):
     rng=random.Random(seed); pool=G.HAPAX[:]; rng.shuffle(pool); used=set()
     cum=list(__import__('itertools').accumulate(G.FR)); tot=cum[-1]
     gl={}
@@ -35,6 +43,15 @@ def gen(seed, group_lex=False, n_sec=60, n_page=6, p_sec=0.8, p_nh=0.5, p_nl=0.2
         if rng.random()<p_mut:                    # variation: the head of a page stem joined to the tail of a real one-shot word
             pl=gl[cur[0]][2] if group_lex else pool
             if pl:
+                if mut=='edit':                   # change n_edit glyphs of the stem, each drawn given the glyph before it
+                    src=[x for l2 in cur[1] for x in l2] if mut_src=='page' else stems
+                    a=glyphs(rng.choice(src or stems))
+                    for _ in range(n_edit):
+                        i=rng.randrange(len(a)); prev=a[i-1] if i else ' '
+                        nx=BIG.get(prev)
+                        if nx: a[i]=rng.choices(nx[0],weights=nx[1])[0]
+                    w=''.join(a)
+                    if w not in G.cnt: return w
                 a=glyphs(rng.choice(stems)); b=glyphs(pl.pop())
                 if len(a)>1 and len(b)>1:
                     return ''.join(a[:rng.randrange(1,len(a))]+b[rng.randrange(1,len(b)):])
@@ -65,7 +82,7 @@ def gen(seed, group_lex=False, n_sec=60, n_page=6, p_sec=0.8, p_nh=0.5, p_nl=0.2
         if not secstems[m]: secstems[m]=[glob() for _ in range(n_sec)]
         stems=[rng.choice(secstems[m]) if rng.random()<p_sec else glob() for _ in range(n_page)]
         fav=[lex(stems) for _ in range(topic_n)]
-        page=[]; prev=None
+        page=[]; prev=None; cur[1:]=[page]
         for l in p:
             line=[]
             for j in range(len(l)):

@@ -1,4 +1,4 @@
-# What would it take to decode it? A plan after NOTES.md §1–74
+# What would it take to decode it? A plan after NOTES.md §1–75
 
 ## Where the evidence points
 
@@ -25,7 +25,7 @@
 - 30 labels per zodiac sign with no shared sequence (§22, §63)
 - labels that never reappear in the nearby text (§28, §56)
 - herbal pages that keep no repeated page-specific name (§55)
-- word forms that cluster by page and by section more strongly than in Latin, Italian or Catalan prose, while exact page-specific repetition stays low (§73)
+- word forms that cluster by page and by section (§73–74), from a per-page spelling profile about as strong as Pliny's topical variation (§75)
 
 ## What could still move it forward
 
@@ -36,7 +36,7 @@
 2. **Better language models for the codebook and syllable tests.** The word-level searches (§62, §69) were underpowered because word-bigram models are sparse. A class-based or small neural model of 15th-century Latin, Italian and Catalan would sharpen them. So would lemmatized Latin.
 3. **Unit discovery not driven by frequency.** All syllabary tests used BPE merges chosen by frequency. A joint search over unit segmentation and key, with a held-out cross-word criterion, would test the syllabary family properly. It is computationally heavy, but feasible on a GPU.
 4. **More reference texts of the right kind.** A Latin *prose* herbal (*Circa instans*, *Tractatus de herbis*) for §54–55. Occitan prose of the 15th century, which was not obtainable here. Medieval Hebrew and Judaeo-Romance.
-5. **A generator that passes every statistic.** The rule model of §72 already matches the six scorecard statistics. Its ingredients are the real lexicon, one-shot words, a weak page preference, the `y→qo` junction rule and line-initial alternation. Exact local copying is not needed. What it lacks is the page-scale and section-scale clustering of word *forms* (§73): words on one page are closer in spelling than words on other pages of the same section, by about twice Pliny's margin relative to word length. The next model should generate its one-shot words as variants of a page- or section-level stem set. If it then matches §73 as well, the meaningless-text hypothesis is concrete. If no such model fits, that counts against it. A first, crude version (§74) selects forms close to page stems from the real lexicon. It reproduces the page clustering only by distorting the one-shot share and h2. A crossover variation step (stem head joined to a real tail) keeps h2 and the one-shot share but gives almost no clustering. A variation that changes only one or two glyphs of a stem is the next thing to try.
+5. **A generator that passes every statistic.** The rule model of §72 already matches the six scorecard statistics. Its ingredients are the real lexicon, one-shot words, a weak page preference, the `y→qo` junction rule and line-initial alternation. Exact local copying is not needed. What it lacks is the page-scale and section-scale clustering of word *forms* (§73): words on one page are closer in spelling than words on other pages of the same section, by about twice Pliny's margin relative to word length. The next model should generate its one-shot words as variants of a page- or section-level stem set. If it then matches §73 as well, the meaningless-text hypothesis is concrete. If no such model fits, that counts against it. A first, crude version (§74) selects forms close to page stems from the real lexicon. It reproduces the page clustering only by distorting the one-shot share and h2. A crossover variation step (stem head joined to a real tail) keeps h2 and the one-shot share but gives almost no clustering. Variations that change one or two glyphs of a stem, or of a word already on the page, give no clustering either (§75). What the real text has is a page-level spelling profile: per-page rates of prefixes, suffixes and glyphs vary 1.2–2.9× more than chance, about as much as in Pliny. A generator needs a per-page bias over glyph choices to match it.
 
 ## Honest expectation
 

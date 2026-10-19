@@ -1276,3 +1276,26 @@ A random search over all parameters (4 × 40 draws, `data/gen4_fit_*.out`) found
 **A variation step** (`gen4_mut.py`, `data/gen4_mut.out`). One-shot words are made by joining the head of a page stem to the tail of a real one-shot word, cut at random glyph boundaries. This keeps h2 at the real value (2.09) and, with half the one-shot words made this way, the one-shot share as well (0.66). But it yields almost no page clustering: −0.01 to +0.05 across `p_mut` 0–1 and two seeds. Crossover with a random tail destroys most of the resemblance to the stem.
 
 **Meaning.** The real text has two page-level properties at once. Exact repeats concentrate on pages, and so do similar-but-different forms, with 75–85% of the page part remaining when identical words are ignored. Selecting forms that resemble page stems reproduces the second only by distorting the vocabulary statistics. The model draws on the real lexicon at random and then selects, so it is too crude to rule the copy-and-vary family out. It is not a fit either, and the meaningless-text hypothesis still lacks a generator that passes every test. Topical text in a language whose related words share stems, such as inflections or compounds, would produce both properties naturally. That does not show the Voynich text is such a text. It means this statistic does not separate the two hypotheses yet.
+
+## 75. Pages have their own spelling profile, of the size topical text has (`gen4_mut.py edit [page]`, `pageprofile.py`, `data/gen4_mut_*.out`, `data/pageprofile.out`)
+
+**Edit-based variation fails too.** One-shot words were made by changing 1 or 2 glyphs of a page stem, each new glyph drawn given the glyph before it. Page part: −0.015 to +0.039 (`data/gen4_mut_edit.out`). With the stem taken from the words already written on the same page, in self-citation style, it is −0.039 to +0.008 (`data/gen4_mut_page.out`). The real value is +0.15. At `p_mut`=1 with one edit, the second version also pushes page-exclusive to 0.63–0.65. The reason is that each variant resembles one source word. A random line elsewhere on the page rarely contains that word, so the gradient hardly moves. The real page part, which survives when identical words are ignored (§74), must be diffuse: a word is closer to many words on its page, not to one source.
+
+**Direct test.** For a set of word features, I took the variance of the per-page rate across the 186 pages with 60 or more words. The ratio is that variance over the mean variance of 20 within-group shuffles (§74), where 1 means no page profile beyond the section, language and hand group. In the Voynich every feature lies far outside the shuffles:
+
+- starts ch 2.89, ends n 2.62, starts sh 2.43, starts o 2.37
+- ends r 1.93, has t 1.92, starts d 1.78, has a 1.73, has k 1.72, length 6+ 1.72, has ckh/cth 1.70
+- ends y 1.65, ends l 1.64, has ee 1.63, has p/f 1.44, starts qo 1.34, ends dy 1.19
+
+The largest shuffle for any feature was 1.16.
+
+**Against reference texts.** Language-neutral features were used: the 6 commonest first letters, last letters and contained letters of each text. Each text was laid out in order on the Voynich pages, with the same group labels.
+
+| text | median ratio | range over 18 features |
+|---|---|---|
+| Voynich | 1.78 | 1.18–2.62 |
+| Pliny (Latin) | 1.98 | 1.30–4.42 |
+| Dante (Italian) | 1.42 | 0.95–2.39 |
+| *Tirant* (Catalan) | 1.37 | 0.96–3.42 |
+
+**Meaning.** Each Voynich page has its own spelling profile, beyond its section, language and hand. It is about as strong as the page-to-page variation that changing subject produces in Pliny, and stronger than in Dante or *Tirant*. Together with §73–74, this accounts for the page clustering of word forms. It is the size a topical text has, so it does not single out the Voynich. None of the generators tried here produces it: rule model, stem selection, crossover, glyph edits, or copy-with-variation from the page. A meaningless-text procedure would need a page-level bias over glyph choices, such as a per-page preference for certain prefixes and suffixes. Something of that kind could be built and would match by design. So this statistic constrains generators but does not decide between meaning and its absence.

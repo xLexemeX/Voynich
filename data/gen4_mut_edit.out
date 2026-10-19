@@ -1,0 +1,13 @@
+real            page-exclusive 0.302 hapax share of 0.674 types/tokens 0.197 h2 2.102 mean word leng 4.961 | page +0.150 section +0.170
+edit p_mut 0.0 edits 1 s7 page-exclusive 0.385 hapax share of 0.707 types/tokens 0.193 h2 2.091 mean word leng 4.994 | page +0.001 section +0.144
+edit p_mut 0.0 edits 1 s8 page-exclusive 0.324 hapax share of 0.712 types/tokens 0.193 h2 2.087 mean word leng 4.991 | page +0.013 section +0.151
+edit p_mut 0.0 edits 2 s7 page-exclusive 0.385 hapax share of 0.707 types/tokens 0.193 h2 2.091 mean word leng 4.994 | page +0.001 section +0.144
+edit p_mut 0.0 edits 2 s8 page-exclusive 0.324 hapax share of 0.712 types/tokens 0.193 h2 2.087 mean word leng 4.991 | page +0.013 section +0.151
+edit p_mut 0.5 edits 1 s7 page-exclusive 0.381 hapax share of 0.673 types/tokens 0.195 h2 2.126 mean word leng 4.969 | page -0.015 section +0.167
+edit p_mut 0.5 edits 1 s8 page-exclusive 0.386 hapax share of 0.678 types/tokens 0.193 h2 2.118 mean word leng 4.950 | page +0.008 section +0.141
+edit p_mut 0.5 edits 2 s7 page-exclusive 0.335 hapax share of 0.702 types/tokens 0.210 h2 2.154 mean word leng 4.962 | page +0.014 section +0.129
+edit p_mut 0.5 edits 2 s8 page-exclusive 0.420 hapax share of 0.708 types/tokens 0.210 h2 2.149 mean word leng 4.962 | page -0.002 section +0.174
+edit p_mut 1.0 edits 1 s7 page-exclusive 0.483 hapax share of 0.601 types/tokens 0.180 h2 2.147 mean word leng 4.912 | page +0.010 section +0.163
+edit p_mut 1.0 edits 1 s8 page-exclusive 0.529 hapax share of 0.601 types/tokens 0.179 h2 2.150 mean word leng 4.899 | page +0.039 section +0.109
+edit p_mut 1.0 edits 2 s7 page-exclusive 0.475 hapax share of 0.646 types/tokens 0.202 h2 2.188 mean word leng 4.888 | page +0.026 section +0.118
+edit p_mut 1.0 edits 2 s8 page-exclusive 0.450 hapax share of 0.644 types/tokens 0.204 h2 2.198 mean word leng 4.876 | page -0.014 section +0.166
