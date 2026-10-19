@@ -5,8 +5,11 @@ usage: python3 syllabary.py voynich|control|generator seed iters"""
 import sys, re, csv, math, random, collections, unicodedata
 import numpy as np
 target, seed, iters = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]); random.seed(seed); rng=np.random.default_rng(seed)
-t=unicodedata.normalize('NFKD',open('data/ref/italian_dante.txt',encoding='utf-8').read().lower()).encode('ascii','ignore').decode()
-iw=re.findall(r'[a-z]+',t)
+LANG=sys.argv[4] if len(sys.argv)>4 else 'italian'; KS=int(sys.argv[5]) if len(sys.argv)>5 else 60
+if LANG=='italian':
+    t=unicodedata.normalize('NFKD',open('data/ref/italian_dante.txt',encoding='utf-8').read().lower()).encode('ascii','ignore').decode(); iw=re.findall(r'[a-z]+',t)
+else:
+    t=open('data/ref/latin_pliny.txt',encoding='utf-8',errors='replace').read().lower().replace('j','i').replace('v','u'); iw=[w for w in re.findall(r'[a-z]+',t) if not re.fullmatch(r'[ivxlcdm]+',w)]
 V='aeiou'
 def signs(w):
     out=[]
@@ -16,7 +19,7 @@ def signs(w):
     return out or None
 half=len(iw)//2
 A=[s for s in (signs(w) for w in iw[:half]) if s]; B=[s for s in (signs(w) for w in iw[half:]) if s]
-cnt=collections.Counter(u for w in A for u in w); SIG=[u for u,_ in cnt.most_common(60)]; K=len(SIG); sid={u:i for i,u in enumerate(SIG)}
+cnt=collections.Counter(u for w in A for u in w); SIG=[u for u,_ in cnt.most_common(KS)]; K=len(SIG); sid={u:i for i,u in enumerate(SIG)}
 def enc(words): return [[sid[u] for u in w] for w in words if all(u in sid for u in w)]
 EA=enc(A); EB=enc(B)
 # bigram LM over signs + boundary (index K)
@@ -79,6 +82,6 @@ for it in range(iters):
     if cur>best: best=cur; bestM=M.copy()
 dec=' '.join(''.join(SIG[bestM[x]] for x in w) for w in words[:25])
 ref=sum(LP[[K]+w,w+[K]].sum() for w in EB[:N])/sum(len(w)+1 for w in EB[:N])
-res=f'[{target} seed={seed} units={U} signs={K}] score/token {best:.4f} (true Italian with true signs {ref:.4f})'
+res=f'[{target} {LANG} seed={seed} units={U} signs={K}] score/token {best:.4f} (true text with true signs {ref:.4f})'
 if truth: res+=f' | units correctly mapped {np.mean([bestM[u]==truth[u] for u in range(U)]):.2f}'
 print(res); print('  sample:',dec[:200])

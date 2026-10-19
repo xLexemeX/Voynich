@@ -967,3 +967,18 @@ Tests the family left open by §58–59: a small syllabary for a European langua
 **Result: negative.** The one-to-one search recovers a hidden Italian syllabary key exactly. On the Voynich text it ends 1.1 nats per token below a real decipherment. That is much closer to gibberish than to Italian, though the Voynich does fit better than the generator. A 60-sign onset+vowel syllabary of Italian, one sign per Voynich unit, does not fit.
 
 **Limits.** The Voynich units are BPE merges chosen by frequency, and the true units of a syllabary could be cut differently. Only Italian was tested, with one syllable model. A homophonic syllabary, several Voynich units per sign, was not tested, because the many-to-one form is degenerate under this score (§33).
+
+**Extension: Latin, and 40 / 60 / 80 signs (`runs5/batch2.sh`, `runs5/summary2.out`).** Same one-to-one search, 2 seeds per cell. The Latin model is trained on the first half of Pliny; the control uses the second half.
+
+| target, signs | control: best (true) | key recovered | Voynich best | gap to true |
+|---|---|---|---|---|
+| Italian, 40 | −1.987 (−1.987) | 100%, 100% | −3.38 | 1.39 |
+| Italian, 60 | −2.277 (−2.277) | 100% ×3 | −3.38 to −3.42 | 1.10 |
+| Italian, 80 | −2.42 / −2.44 (−2.42) | 100%, 97% | −3.45 to −3.48 | 1.03 |
+| Latin, 40 | −2.423 (−2.423) | 100%, 100% | −3.06 to −3.08 | 0.65 |
+| Latin, 60 | −2.777 (−2.777) | 100%, 100% | −3.26 to −3.29 | 0.50 |
+| Latin, 80 | −2.93 / −2.95 (−2.93) | 97%, 93% | −3.37 to −3.39 | 0.45 |
+
+Scores are per token.
+
+**Result: negative throughout.** The control key is recovered at 93–100% in every cell, so the search works at all three sizes and in both languages. Voynich ends 0.45–1.39 nats per token below the true-key score in every cell. The Latin gaps are smaller than the Italian ones because Latin signs are less predictable to begin with, so the true score is lower. A one-sign-per-unit syllabary of Italian or Latin, at 40–80 signs, does not fit the Voynich units.

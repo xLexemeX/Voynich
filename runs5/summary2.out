@@ -1,0 +1,20 @@
+[control italian seed=1 units=40 signs=40] score/token -1.9871 (true text with true signs -1.9871) | units correctly mapped 1.00
+[control italian seed=1 units=80 signs=80] score/token -2.4214 (true text with true signs -2.4214) | units correctly mapped 1.00
+[control italian seed=2 units=40 signs=40] score/token -1.9871 (true text with true signs -1.9871) | units correctly mapped 1.00
+[control italian seed=2 units=80 signs=80] score/token -2.4419 (true text with true signs -2.4214) | units correctly mapped 0.97
+[control latin seed=1 units=40 signs=40] score/token -2.4232 (true text with true signs -2.4232) | units correctly mapped 1.00
+[control latin seed=1 units=60 signs=60] score/token -2.7767 (true text with true signs -2.7767) | units correctly mapped 1.00
+[control latin seed=1 units=80 signs=80] score/token -2.9334 (true text with true signs -2.9266) | units correctly mapped 0.97
+[control latin seed=2 units=40 signs=40] score/token -2.4232 (true text with true signs -2.4232) | units correctly mapped 1.00
+[control latin seed=2 units=60 signs=60] score/token -2.7767 (true text with true signs -2.7767) | units correctly mapped 1.00
+[control latin seed=2 units=80 signs=80] score/token -2.9531 (true text with true signs -2.9266) | units correctly mapped 0.93
+[voynich italian seed=1 units=40 signs=40] score/token -3.3806 (true text with true signs -1.9871)
+[voynich italian seed=1 units=80 signs=80] score/token -3.4751 (true text with true signs -2.4214)
+[voynich italian seed=2 units=40 signs=40] score/token -3.3830 (true text with true signs -1.9871)
+[voynich italian seed=2 units=80 signs=80] score/token -3.4461 (true text with true signs -2.4214)
+[voynich latin seed=1 units=40 signs=40] score/token -3.0848 (true text with true signs -2.4232)
+[voynich latin seed=1 units=60 signs=60] score/token -3.2881 (true text with true signs -2.7767)
+[voynich latin seed=1 units=80 signs=80] score/token -3.3688 (true text with true signs -2.9266)
+[voynich latin seed=2 units=40 signs=40] score/token -3.0629 (true text with true signs -2.4232)
+[voynich latin seed=2 units=60 signs=60] score/token -3.2588 (true text with true signs -2.7767)
+[voynich latin seed=2 units=80 signs=80] score/token -3.3850 (true text with true signs -2.9266)
