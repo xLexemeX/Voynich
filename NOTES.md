@@ -837,3 +837,25 @@ On the whole text, Voynich clusters more than the generator at large scales. But
 What the word-clustering measure does show is that Montemurro & Zanette's "keywords" do not need meaning to arise. The text's section- and language-level drift produces them, and within a stretch its clustering is matched or exceeded by a meaningless generator.
 
 **Limits.** The generator was tuned on the whole text, so its local copying may be too strong for one stretch. Macer is verse and Latin is inflected, which spreads word forms. A prose herbal, or a lemmatized comparison, would be a fairer reference.
+
+## 55. Herbal pages have no page-exclusive repeated words, unlike a real herbal (`namewords.py`, `data/namewords.out`)
+
+**Idea.** A herbal names its plant, and often a few other page-specific things, more than once on that plant's page and nowhere else. Call a word *name-like* on a page if it occurs there two or more times and on no other page of the same text. The test needs no decipherment. Reference: Macer Floridus (§54). Its chapter title, the plant's name, occurs inside its own chapter in 73 of 77 chapters.
+
+| text, pages of about 84 words | pages with a name-like word | words repeated within a page, per page | share of those found on no other page |
+|---|---|---|---|
+| Macer, chapters cut to 84 words (66) | **0.27** (stems: 0.44) | 6.4 | 0.043 |
+| Dante, arbitrary 84-word pages (95) | 0.15 | 9.4 | 0.025 |
+| **Voynich herbal A (95 pages)** | **0.06** | **9.6** | **0.007** |
+| Voynich herbal A, opening gallows stripped | 0.05 | | |
+| Voynich herbal A, loose key (prefix and final glyph removed) | 0.00 | | |
+| self-citation generator, same page lengths | 0.96 | 10.7 | 0.350 |
+
+**Result.**
+- **Few name-like words.** At Macer's rate of 0.27, 6 or fewer of 95 pages has probability 3 × 10⁻⁷. Herbal A pages repeat as many words as Dante does, 9.6 per page. But the words a herbal page repeats are, 99.3% of the time, words that also occur on other herbal pages. That is five to six times less page-exclusive repetition than a Latin herbal, and less than arbitrary chunks of Dante.
+- **The page-specific vocabulary is written once.** Words found only on one page do exist; 69% of types are hapax. But they occur only once on that page. Whatever is particular to a page is not repeated in the same written form.
+- **The generator fails too.** The slot self-citation generator (§17), the best meaningless model so far, gets this badly wrong: it repeats its own fresh variants, so 35% of its within-page repeats are page-exclusive. This is a new constraint on generative models. A copy-and-vary procedure must almost never re-copy its own new variants, only words already established elsewhere.
+
+**Interpretation.** If herbal A is a herbal, it does not refer to its plant by a repeated written name. The name could be written once and referred to by pronouns afterward, or spelled differently each time, or the text could be about something other than the plant. This agrees with §40 and §51. It is the clearest statistical difference so far between the Voynich herbal pages and a real herbal of the same page length.
+
+**Limits.** Macer is verse in inflected Latin. Inflection *lowers* its exact-form repetition, which favors the Voynich side of this comparison, so the gap is if anything underestimated. Pages are matched on length, not on line structure.

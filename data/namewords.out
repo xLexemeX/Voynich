@@ -1,0 +1,17 @@
+Macer chapters, word forms                   pages  77, words/page   181; pages with >=1 name-like word 0.48; mean per page 0.88
+Macer chapters, 5-letter stems               pages  77, words/page   181; pages with >=1 name-like word 0.51; mean per page 0.75
+   Macer: chapter title (plant name) occurs in its own chapter: 73/77
+Voynich herbal A pages, word forms           pages  95, words/page    84; pages with >=1 name-like word 0.06; mean per page 0.06
+generator, same page lengths, word forms     pages  95, words/page    84; pages with >=1 name-like word 0.96; mean per page 3.75
+Macer chapters cut to 84 words, word forms   pages  66, words/page    84; pages with >=1 name-like word 0.27; mean per page 0.27
+Macer chapters cut to 84 words, stems        pages  66, words/page    84; pages with >=1 name-like word 0.44; mean per page 0.52
+Voynich herbal A, opening gallows stripped   pages  95, words/page    84; pages with >=1 name-like word 0.05; mean per page 0.05
+Dante, 95 pages of 84 words                  pages  95, words/page    84; pages with >=1 name-like word 0.15; mean per page 0.23
+Voynich herbal A, loose key (prefix q/o/y/s/d/gallows and final y/m/g/n removed) pages  95, words/page    84; pages with >=1 name-like word 0.00; mean per page 0.00
+generator, same loose key                    pages  95, words/page    84; pages with >=1 name-like word 0.80; mean per page 1.79
+Macer cut to 84, 4-letter stems              pages  66, words/page    84; pages with >=1 name-like word 0.41; mean per page 0.45
+binomial P(<= 6 of 95 | rate 0.27) = 2.8e-07
+Macer cut to 84 words              words repeated within a page: 6.41 per page; of these, found on no other page: 0.043
+Dante, 84-word pages               words repeated within a page: 9.41 per page; of these, found on no other page: 0.025
+Voynich herbal A                   words repeated within a page: 9.63 per page; of these, found on no other page: 0.007
+generator                          words repeated within a page: 10.69 per page; of these, found on no other page: 0.350
