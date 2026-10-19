@@ -543,3 +543,18 @@ Genesis, consonantal, with the five final forms merged into their ordinary lette
 **Result: negative.** The Voynich keys gain a tenth of what a true key gains. They do a little better than the wrong control keys, by about 0.02. That is the same small surplus seen in Italian (§38), and the shuffled-Voynich run in §37 traces it to the text's own word-order structure (the `y | qo` junctions and split words of §18), not to a key.
 
 **§37–39 together.** Across Latin, Italian, German and Hebrew, no letter-or-pair key found by search turns Voynich B word order into the target language's letter order on held-out text. True keys gain 0.28 to 0.61 per letter. Voynich keys gain 0.015 to 0.08.
+
+## 40. Is the first word of a herbal page the plant's name? (`firstword.py`, `data/firstword.out`)
+
+A common proposal is that each herbal page opens with the plant's name. If so, that word, or the same word without its opening gallows, should come back later on its own page more than other words do. I used 124 herbal pages with at least 4 paragraph lines. For each word I compared how often it recurs on its own page with how often it would by chance, given its frequency on the other herbal pages. The gallows-stripped match counts `kchol`, `pchol`, `tchol` and `fchol` as one form, because nearly every page opens with a gallows letter (§6).
+
+| word position | recurs on own page, exact | obs/exp, exact | recurs, gallows stripped | obs/exp, gallows stripped |
+|---|---|---|---|---|
+| **first word of page** | **0.02** | 2.06, from 2 cases | **0.14** | **1.48** |
+| second word of page | 0.16 | 1.55 | 0.16 | 1.56 |
+| first word of later lines | 0.19 | 1.43 | 0.24 | 1.57 |
+| mid-line words | 0.30 | 1.81 | 0.33 | 1.81 |
+
+**Result: negative.** The first word of a page is the *least* likely word on the page to come back on it. Only 2 of 124 recur exactly, and 17 recur once the gallows is stripped. It does recur more on its own page than on a random herbal page (17 vs 4.7 in 1,000 shuffles, p < 0.001). But that holds for every word in this text, because pages reuse their own vocabulary (§5). Its own-page excess, 1.48, is below that of an ordinary mid-line word, 1.81. Nothing marks the page-opening word as the page's topic.
+
+**Limit.** There is no plaintext control. A real herbal could name its plant once and then use pronouns. So this does not rule out a name in first position. It shows only that the text does not repeat the opening word the way a topic word would be repeated.

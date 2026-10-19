@@ -1,0 +1,13 @@
+match exact word
+  page-first word              n=  124 recurs on own page 0.02  obs/exp 2.06 (2 vs 1.0)
+  second word of page          n=  116 recurs on own page 0.16  obs/exp 1.55 (41 vs 26.4)
+  first word of later lines    n= 1399 recurs on own page 0.19  obs/exp 1.43 (549 vs 384.2)
+  mid-line words               n= 8768 recurs on own page 0.30  obs/exp 1.81 (6419 vs 3541.1)
+  page-first words on own page: 2 recur; on shuffled pages mean 0.1, p=0.001
+match gallows-stripped stem, any gallows
+  page-first word              n=  124 recurs on own page 0.14  obs/exp 1.48 (30 vs 20.3)
+  second word of page          n=  116 recurs on own page 0.16  obs/exp 1.56 (47 vs 30.2)
+  first word of later lines    n= 1399 recurs on own page 0.24  obs/exp 1.57 (746 vs 475.5)
+  mid-line words               n= 8768 recurs on own page 0.33  obs/exp 1.81 (7512 vs 4156.6)
+  page-first words on own page: 17 recur; on shuffled pages mean 4.7, p=0.000
+page-first words: kchsy kydainy kooiin tsheos koaiin kodalchy pchooiin kchody foar koary fchodaiin polyshy pshol tydlo fochor pchocthy paiin tshol poldchody torshor koair pcho pdychoiin tshor poror pocheody pchroiin fshody pchodol pdrairdy told pchor pochaiin kdchody faiis pchor toldshy pol pysaiinor pydchdom podairol por tchodar fcholdy poeeaiin psheoky pchedar ksor pochof pchodar kshol posaiin kooiin okeeesy sain keedey podair fchaiin kcheodaiin tshdar tar pcheoepchy ke'chdy parchor pcha151;dan pchar tocphol tshody tolor okchop tedo pdair pchey pchedain pshey pcheody 156;cho tarodaiin pdsairy tshodpy tsho pykydal korary pcheocphy pody 159;chair psheot pshdaiin pcheodchy pychol kshor psheor tchy tsholdchy poshody tdokchcfhy pchor kodam tshor podaiin pcheodar podaiin kcheedchdy o167;chal kcheat poeeockhey cphy okeodof poalshsal 180;cheey poleeol toealchs day pcheor kodshol possheody tchedy tshedy kshdor kshedy tchody olteedy tor psheessheeor
