@@ -1167,3 +1167,37 @@ This is §64–65's homophonic form with Catalan as target (§67): sign trigram 
 Random-key means and sds differ slightly between seeds.
 
 **Result: unchanged.** No subset comes near the control. The best case, B with one-to-one keys, gains about 2 sd over random keys, a seventh of the true key's +0.14. Its training fit is 2.1 nats per token below a real Catalan key. Random keys on B gain nothing, so the excess appears only for fitted keys. It may come from a fitted key exploiting B's own cross-word habits (the `y | qo` junction), but I have not tested that. Either way it is nothing like a decipherment. Splitting A from B does not rescue the syllabary readings.
+
+## 72. A rule-based model of the text: how far simple scribal rules go (`scorecard.py`, `gen3.py`, `gen3_fit.py`, `gen3_check.py`, `data/scorecard_*.out`, `data/gen3_*.out`)
+
+**Scorecard.** `scorecard.py` measures any text laid out on the real page and line structure (34,950 paragraph tokens) on: type/token ratio, hapax share, word length, h2, adjacent repeats, line-initial repeat ratio (§44), page-exclusive repeat rate at 40 pages (§55), and the `y | qo` junction ratio (§20).
+
+**The §17 generator fails five of these.** Types/tokens 0.36 vs 0.20, h2 2.47 vs 2.10, line-initial ratio 1.30 vs 0.50 (no alternation), page-exclusive rate 0.99 vs 0.30, junction ratio 1.01 vs 3.88.
+
+**A rule model.** To separate the *sequence* question from word formation, the lexicon is the real set of word types, so word-internal statistics match by construction. The writing process then has five parameters:
+- **One-shot words.** With probability `p_new`, write a new word that is never reused, drawn from the real hapaxes.
+- **Local copying.** With `p_local`, copy a non-one-shot word from earlier on the page.
+- **Page topic.** With `topic_p`, use one of `topic_n` page-favoured words.
+- **Junction rule.** After a `y`-final word, prefix `q` to an `o`-word (`p_q`); otherwise strip `q` from a `qo`-word (`p_unq`).
+- **Line rule.** With `p_alt`, redraw a line's first word if it starts like the previous line.
+
+These were fitted by random and local search. Best: `p_new 0.22, p_local 0.03, topic_p 0.08, topic_n 26, p_q 0.92, p_unq 0.39, p_alt 0.62`, and `p_rep 0.006` for immediate repeats.
+
+| statistic | real | model, 3 independent samples |
+|---|---|---|
+| types/tokens | 0.197 | 0.192–0.193 |
+| hapax share | 0.674 | 0.712–0.718 |
+| h2 | 2.102 | 2.085–2.090 |
+| adjacent repeats | 0.008 | 0.007–0.009 |
+| line-initial repeat ratio | 0.504 | 0.474–0.517 |
+| y→qo junction ratio | 3.875 | 3.56–3.92 |
+| **page-exclusive rate** | **0.302** | **0.436–0.460** |
+
+**Result.**
+- **Most statistics are matched.** Two scribal rules (prefix `q` after `y`; do not start a line like the line above), one-shot words for 22% of tokens, and a little page-topic reuse reproduce all the sequence statistics except one. Copying is rare (3%), much rarer than in Timm & Schinner-type self-citation.
+- **The remaining mismatch.** Page-exclusive repetition stays about 50% too high. The real text keeps even *less* page-specific repetition than this model: its page-favoured words recur elsewhere more.
+- **What the parameters say.** 22% of tokens are single-use, which is the page-specific vocabulary written once (§55). Junction and line rules are near-deterministic (0.92 and 0.62).
+
+**What this does and does not show.** It does not show the text is meaningless: the lexicon is the real one, so the model inherits whatever the words encode. It shows that the *sequence-level* oddities can be described as a few explicit scribal rules applied on top of a word stream. The word stream itself has almost no topic structure, and the page-specific words appear once. A meaningful text written under such rules would look the same, so this does not decide between meaning and procedure. It does say where meaning would have to live, if anywhere: in the choice of words, not in their arrangement.
+
+A plug-in word-pair MI check was tried and dropped. At this sparsity it gave the real text a *negative* excess over its own within-line shuffle, so it is bias-dominated and unlike the class-level measure of §17.

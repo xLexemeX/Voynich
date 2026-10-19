@@ -1,0 +1,16 @@
+  0 dist  10.71 {"p_local": 0.15, "topic_p": 0.15, "topic_n": 61, "p_q": 0.89, "p_unq": 0.26, "p_alt": 0.61, "p_new": 0.15, "p_rep": 0}
+  1 dist   8.06 {"p_local": 0.09, "topic_p": 0.1, "topic_n": 56, "p_q": 0.87, "p_unq": 0.21, "p_alt": 0.63, "p_new": 0.11, "p_rep": 0}
+  4 dist   4.36 {"p_local": 0, "topic_p": 0.09, "topic_n": 53, "p_q": 0.84, "p_unq": 0.29, "p_alt": 0.56, "p_new": 0.1, "p_rep": 0}
+  5 dist   3.58 {"p_local": 0.01, "topic_p": 0, "topic_n": 39, "p_q": 0.97, "p_unq": 0.32, "p_alt": 0.56, "p_new": 0.1, "p_rep": 0}
+ 48 dist   3.01 {"p_local": 0.03, "topic_p": 0, "topic_n": 30, "p_q": 0.89, "p_unq": 0.29, "p_alt": 0.51, "p_new": 0.12, "p_rep": 0}
+135 dist   2.62 {"p_local": 0.03, "topic_p": 0.08, "topic_n": 26, "p_q": 0.92, "p_unq": 0.39, "p_alt": 0.62, "p_new": 0.22, "p_rep": 0}
+
+best fit vs real:
+   types/tokens                     real   0.197  model   0.193
+   hapax share of types             real   0.674  model   0.719
+   adjacent repeats                 real   0.008  model   0.003
+   line-initial repeat ratio        real   0.504  model   0.453
+   page-exclusive rate (40 pages)   real   0.302  model   0.356
+   y|qo junction ratio              real   3.875  model   3.634
+   h2                               real   2.102  model   2.087
+   mean word length                 real   4.961  model   4.996

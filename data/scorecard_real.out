@@ -1,0 +1,20 @@
+all paragraph text
+   tokens                           34950
+   types/tokens                     0.197
+   hapax share of types             0.674
+   mean word length                 4.961
+   h2                               2.102
+   adjacent repeats                 0.008
+   line-initial repeat ratio        0.504
+   page-exclusive rate (40 pages)   0.302
+   y|qo junction ratio              3.875
+herbal A
+   tokens                           7970
+   types/tokens                     0.298
+   hapax share of types             0.688
+   mean word length                 4.702
+   h2                               2.098
+   adjacent repeats                 0.009
+   line-initial repeat ratio        0.364
+   page-exclusive rate (40 pages)   0.138
+   y|qo junction ratio              2.077

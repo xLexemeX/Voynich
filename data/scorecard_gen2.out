@@ -1,0 +1,10 @@
+statistic                            real     gen2
+tokens                           34950.000 27936.000
+types/tokens                        0.197    0.360
+hapax share of types                0.674    0.614
+mean word length                    4.961    5.631
+h2                                  2.102    2.469
+adjacent repeats                    0.008    0.009
+line-initial repeat ratio           0.504    1.297
+page-exclusive rate (40 pages)      0.302    0.994
+y|qo junction ratio                 3.875    1.009
