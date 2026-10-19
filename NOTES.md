@@ -1154,3 +1154,16 @@ This is §64–65's homophonic form with Catalan as target (§67): sign trigram 
 | generator (meaningless) | −3.12 to −3.26 | | −0.000 to +0.000 | 0.004–0.007 |
 
 **Result: negative, with a working control.** Partly correct homophonic keys on the Catalan control gain 4–10 sd from cross-word order. The Voynich keys gain nothing, sitting exactly at random-key level, and end about 0.9 nat per token below the control's fit. This is the first homophonic-syllabary test whose control finds most of the key. The homophonic Catalan syllabary at 100 units is excluded on both measures.
+
+**Currier A and B separately (`SUBSET=A|B`, `runs5/summary8.out`).** All syllabary runs above mix A and B, which would hide a real key if the two used different keys. Rerun on each language alone, against Catalan, 2 seeds, 20 random keys per run. A has only about 11,300 words, so its fitting half is about 5,600 words, smaller than the controls'.
+
+| subset, units | train score per token (true Catalan −1.83) | cross-word gain | random keys: mean ± sd |
+|---|---|---|---|
+| A, 60 one-to-one | −3.84, −3.85 | +0.007, +0.013 | about −0.004 to +0.002 ± 0.009 |
+| A, 100 homophonic | −2.71, −2.75 | +0.003, +0.005 | about −0.003 ± 0.008 |
+| B, 60 one-to-one | −3.91, −3.92 | +0.018, +0.023 | about −0.003 to +0.005 ± 0.009–0.010 |
+| B, 100 homophonic | −2.69, −2.74 | +0.000, +0.004 | about −0.002 ± 0.008 |
+
+Random-key means and sds differ slightly between seeds.
+
+**Result: unchanged.** No subset comes near the control. The best case, B with one-to-one keys, gains about 2 sd over random keys, a seventh of the true key's +0.14. Its training fit is 2.1 nats per token below a real Catalan key. That small excess is the size the B text's own cross-word habits (the `y | qo` junction) give any key, and nothing like a decipherment. Splitting A from B does not rescue the syllabary readings.

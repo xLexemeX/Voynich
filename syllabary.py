@@ -2,7 +2,7 @@
 same inventory size. Search unit->sign (one-to-one when inventories are equal; many-to-one collapses, see NOTES 61) maximising an Italian sign-bigram model (with word boundaries).
 Controls: Italian (held-out half) under a random relabelling of signs (positive); slot self-citation generator (negative).
 usage: python3 syllabary.py voynich|control|generator seed iters"""
-import sys, re, csv, math, random, collections, unicodedata
+import sys, re, csv, math, random, collections, unicodedata, os
 import numpy as np
 target, seed, iters = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]); random.seed(seed); rng=np.random.default_rng(seed)
 LANG=sys.argv[4] if len(sys.argv)>4 else 'italian'; KS=int(sys.argv[5]) if len(sys.argv)>5 else 60; NU=int(sys.argv[6]) if len(sys.argv)>6 else KS
@@ -65,7 +65,7 @@ if target=='control':
     words=[[random.choice(homo[x]) for x in w] for w in EB][:N]; U=NU
 else:
     if target=='voynich':
-        rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P')]
+        rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P') and (not os.environ.get('SUBSET') or r['lang']==os.environ['SUBSET'])]
         src=[w for r in rows for w in r['text'].split('.') if re.fullmatch(r'[a-z]+',w)]
     else:
         exec(open('generators2.py').read().rsplit("stats('VOYNICH',lines)",1)[0], exec_ns); exec_ns['random'].seed(1000+seed); src=[w for l in exec_ns['gen'](len(exec_ns['lines'])) for w in l]
@@ -130,6 +130,6 @@ if NK:   # gain of random keys of the same form on the same input
     print(f'  random-key held-out gain: mean {np.mean(ng):+.4f} sd {np.std(ng):.4f} max {max(ng):+.4f} (n={NK})')
 dec=' '.join(''.join(SIG[bestM[x]] for x in w) for w in words[:25])
 ref=sum(LP[[K]+w,w+[K]].sum() for w in EB[:N])/sum(len(w)+1 for w in EB[:N])
-res=f'[{target} {LANG} seed={seed} units={U} signs={K}] train score/token {best:.4f}; held-out {'cross-word' if TRI else 'within-word'} order gain {G:+.4f} (true text with true signs {ref:.4f})'
+res=f'[{target} {LANG} subset={os.environ.get("SUBSET","all")} seed={seed} units={U} signs={K}] train score/token {best:.4f}; held-out {'cross-word' if TRI else 'within-word'} order gain {G:+.4f} (true text with true signs {ref:.4f})'
 if truth: TM=np.array([truth[u] for u in range(U)]); res+=f' | units correctly mapped {np.mean([bestM[u]==truth[u] for u in range(U)]):.2f}; true key: train {score(TM):.4f}, held-out gain {gain(TM):+.4f}'
 print(res); print('  sample:',dec[:200])
