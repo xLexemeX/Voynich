@@ -776,3 +776,30 @@ If f69v and f68r1 both listed the mansions, by name or by their stars, they shou
 | **f68r1 star labels (28)** | **0** | **0.17** | **25** |
 
 **Result: negative.** The star labels of f68r1 share no word with f69v's 28 entries, and fewer near-matches than most other sets. f69v's words (`okeody`, `okeey`, `oteol`, `ytody`, `sar`…) are closest to the large fRos label set and the zodiac labels, which is just the common `o + gallows + ending` label family (§6, §22). The 28 and 29 counts may still reflect a lunar-mansion scheme, but the two diagrams do not name the same 28 things in the same written form.
+
+## 53. Where things stand after §30–52
+
+**Ruled out, with controls that pass:**
+- **Word stands for a letter (homophonic), Latin and Italian.** §30–32.
+- **Word stands for a letter or letter pair (Naibbe form), held-out word-order test.** Latin, Italian, German and Hebrew, both Currier languages. §37–39, §43.
+- **Published sign tables.** Bax 2014 and Cheshire 2017 score like reshuffled versions of themselves. §45–47, §49.
+- **Hebrew identification by decomposition patterns** (Hauer & Kondrak). It also picks Hebrew for gibberish. §48.
+- **Bax's page-opening /k/** against plant identifications made from the drawings. Not supported by three identifiers. §46.
+
+**No link found between text and picture:**
+- labels vs the paragraph beside them (§28)
+- pharmacy labels and recipes vs the herbal page of the same plant (§35–36)
+- zodiac sign names (§34)
+- page-opening words as plant names (§40)
+- same-plant herbal pages (§51)
+- the two 28/29-entry astronomical diagrams (§52)
+
+**Structure confirmed or quantified:**
+- line-initial alternation between consecutive lines (§44, confirming Tavi's observation)
+- the f49v margin column is a sequence of its own, not a line index (§41)
+- the single-glyph sequences share no ordering (§42)
+- the stars section has about 323 starred entries, not ZL's 285 paragraphs; a 365-day reading is possible only if the lost bifolio was sparse (§50)
+
+**Tools for testing future claims:** `validate_mapping.py` (§49), and the held-out word-order test in `pairchipher.py` (`HOLD=1`, §37).
+
+**Honest summary.** No word or glyph has a meaning that survives a control. Every test that could have tied the text to the pictures came back at chance. That is what meaningless text would give. It is also what a text would give if it named things in a form unrelated to the pictures, or if it were not about the pictures at all. The tests here cannot separate those three.
