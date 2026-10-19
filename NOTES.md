@@ -935,3 +935,18 @@ The Māori New Testament (ebible.org `mri`, not committed) was cut to the same t
 **Prior work.** Bennett (1976) found Hawaiian to be the language closest to Voynich in entropy (voynich.nu, "a2_char"). Lindemann & Bowern (2020), over 294 Wikipedia languages, found that glyph manipulations do not bring Voynich into the natural range. The Māori figures here confirm the Polynesian point with a measured second case. Whether Lindemann & Bowern's 294 languages include Māori or Hawaiian I have not checked, so I do not claim agreement or disagreement with them.
 
 **Meaning.** This does not suggest the text is Polynesian. Its date and place exclude that historically. What it shows is that the low entropy, the strongest statistical argument against a natural language (§7, H1), is matched by natural languages with a small CV syllable structure. Strictly, the entropy argument excludes a European alphabetic plaintext written one glyph per letter, not natural language as such. Correct §7's H1 verdict accordingly: *dead for European alphabetic plaintext; open for a language with a small, simple syllable inventory under some notation.*
+
+## 60. A Kober/Ventris-style syllabic grid cannot be recovered from context alone, even in Māori (`grid.py`, `data/grid.out`)
+
+If the units of §58 were a consonant×vowel syllabary, the next step would be the Linear B method: arrange signs in a grid where rows share a consonant and columns share a vowel. Before trying that on Voynich, I tested whether the grid can be recovered from distributional context, on Māori syllables (§59), where the true grid is known. Each sign is described by the distribution of signs to its left, or to its right. The signs are clustered by k-means on Hellinger-transformed distributions, 10 seeds. Agreement with the true classes is normalized mutual information (NMI). The baseline is random labels with the same number of classes.
+
+| clustering | vs vowel (5 classes) | random 5-way | vs consonant (10 classes) | random 10-way |
+|---|---|---|---|---|
+| left context | 0.19 | 0.12 | 0.41 | 0.31 |
+| right context | 0.21 | 0.13 | 0.40 | 0.36 |
+
+All values are means over seeds.
+
+**Result: the positive control nearly fails.** In a real CV syllabary, context clusters recover the consonant classes only slightly better than random labels, 0.40 vs 0.31–0.36. They recover the vowels a little better, 0.20 vs 0.12. Context alone does not reveal the grid. Ventris needed inflectional alternations, Kober's "triplets": the same stem with different endings, where the alternating signs share a consonant. He also needed place names as anchors. So I do not apply this method to the Voynich units: a null result there would mean nothing.
+
+The Kober-triplet version is possible in principle, since the Voynich slot grammar has stem + ending alternations (§8). But it assumes the endings are inflections spelled syllabically, which §8 (prefix and suffix independent, no agreement) argues against.

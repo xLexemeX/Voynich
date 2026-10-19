@@ -1,0 +1,8 @@
+Maori, L-context clusters vs vowel               : NMI best 0.28 mean 0.19 (49 signs)
+Maori, L-context clusters vs consonant           : NMI best 0.45 mean 0.41 (49 signs)
+Maori, L-context clusters vs random 5-way labels : NMI best 0.16 mean 0.12 (49 signs)
+Maori, L-context clusters vs random 10-way labels: NMI best 0.34 mean 0.31 (49 signs)
+Maori, R-context clusters vs vowel               : NMI best 0.25 mean 0.21 (49 signs)
+Maori, R-context clusters vs consonant           : NMI best 0.44 mean 0.40 (49 signs)
+Maori, R-context clusters vs random 5-way labels : NMI best 0.20 mean 0.13 (49 signs)
+Maori, R-context clusters vs random 10-way labels: NMI best 0.40 mean 0.36 (49 signs)
