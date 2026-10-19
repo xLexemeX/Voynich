@@ -10,7 +10,11 @@ def words(path, italian=False):
         import unicodedata; s=unicodedata.normalize('NFKD',s).encode('ascii','ignore').decode()
     s=s.lower().replace('v','u').replace('j','i').replace('k','c').replace('w','u')
     return [w for w in re.findall(r'[a-z]+',s) if not re.fullmatch(r'[ivxlcdm]+',w)]
-pl=words('data/ref/latin_pliny.txt') if LANG=='latin' else words('data/ref/italian_dante.txt' if LANG=='italian' else 'data/ref/german_faust.txt',True)
+def hebrew(path):
+    H='אבגדהוזחטיכלמנסעפצקרשת'; F={'ך':'כ','ם':'מ','ן':'נ','ף':'פ','ץ':'צ'}; tr={h:ALPHA[i] for i,h in enumerate(H)}
+    s=re.sub(r'&[a-z]+;',' ',open(path,encoding='utf-8').read())
+    return [w for w in (''.join(tr.get(F.get(c,c),'') for c in tok) for tok in s.split()) if w]
+pl=hebrew('data/ref/hebrew_genesis.txt') if LANG=='hebrew' else words('data/ref/latin_pliny.txt') if LANG=='latin' else words('data/ref/italian_dante.txt' if LANG=='italian' else 'data/ref/german_faust.txt',True)
 half=len(pl)//2
 t=np.array([aid[c] for c in ''.join(pl[:half]) if c in aid],dtype=np.int64)
 c1=np.bincount(t,minlength=A).astype(float); c2=np.bincount(t[:-1]*A+t[1:],minlength=A*A).astype(float)

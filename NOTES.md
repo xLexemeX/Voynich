@@ -529,3 +529,17 @@ Same setup as §37: Language B, 4 million annealing steps, 3 seeds. Italian is D
 | German | +0.58 to +0.61 | +0.05 to +0.08 | **+0.03 to +0.05** |
 
 **Result: negative in all three languages.** The Voynich keys fall in the range of wrong keys. Italian is slightly above that range, at +0.08 at best, but a true key gains about seven times as much. For German the Voynich keys gain less than the wrong control keys. No letter-or-pair key found for Latin, Italian or German turns Voynich word order into that language's letter order on held-out text.
+
+## 39. §37 repeated with consonantal Hebrew (`runs4/batch3.sh`, `runs4/summary3.out`)
+
+Genesis, consonantal, with the five final forms merged into their ordinary letters and the 22 letters mapped onto 22 Latin placeholders. Half of it trains the 4-gram model; the other half is the control plaintext. Genesis is short, so the control has about 6,070 tokens against Voynich B's 7,691. The language model is also weaker, trained on only about 5,000 words, which is why the true key's gain is lower than in the European languages.
+
+| input | key | held-out gain from word order, per letter |
+|---|---|---|
+| Hebrew control | true key | +0.275, +0.280, +0.282 |
+| Hebrew control | fitted, 99% wrong | −0.005 to −0.002 |
+| **Voynich B** | fitted | **+0.015, +0.025, +0.026** |
+
+**Result: negative.** The Voynich keys gain a tenth of what a true key gains. They do a little better than the wrong control keys, by about 0.02. That is the same small surplus seen in Italian (§38), and the shuffled-Voynich run in §37 traces it to the text's own word-order structure (the `y | qo` junctions and split words of §18), not to a key.
+
+**§37–39 together.** Across Latin, Italian, German and Hebrew, no letter-or-pair key found by search turns Voynich B word order into the target language's letter order on held-out text. True keys gain 0.28 to 0.61 per letter. Voynich keys gain 0.015 to 0.08.

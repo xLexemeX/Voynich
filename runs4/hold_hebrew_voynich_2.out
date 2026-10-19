@@ -1,0 +1,10 @@
+  progress 0.5M/4.0M best -18815 (53s)
+  progress 1.0M/4.0M best -18536 (104s)
+  progress 1.5M/4.0M best -18189 (148s)
+  progress 2.0M/4.0M best -17985 (194s)
+  progress 2.5M/4.0M best -17609 (243s)
+  progress 3.0M/4.0M best -17191 (293s)
+  progress 3.5M/4.0M best -16719 (342s)
+[voynich subset=B lang=hebrew seed=2 N=7691 drop=0.336] LM/char=-1.983 total=-16522 bigram-share=0.99
+  sample: rnefefefmnloglobxrnloazloefmnlomnloefmnlomnlomnypefmnlolobxazloyplolomnomnlomnloefazmnypmnazloloefmnloloefloloefazmnhlefrnefloefmnlololoefmnefloypefmntloloefazefazlolobxloflefmnefloefmnlolomnefmnlornazefmnflmnloeflomnloloefmnlololololornmnl
+  heldout fitted key: in-order -2.1833 shuffled -2.2095 sd 0.0045 gain +0.0262 z 5.8

@@ -1,0 +1,15 @@
+[control subset=B lang=hebrew seed=1 N=6106 drop=0.336] LM/char=-1.960 total=-12988 bigram-share=0.99 | token-acc=0.005 decoded-letter-match=0.044
+  heldout fitted key: in-order -2.1941 shuffled -2.1894 sd 0.0057 gain -0.0047 z -0.8
+  heldout true key: in-order -2.8489 shuffled -3.1287 sd 0.0067 gain +0.2798 z 41.7
+[control subset=B lang=hebrew seed=2 N=6089 drop=0.336] LM/char=-1.967 total=-12977 bigram-share=0.99 | token-acc=0.008 decoded-letter-match=0.053
+  heldout fitted key: in-order -2.1717 shuffled -2.1687 sd 0.0056 gain -0.0030 z -0.5
+  heldout true key: in-order -2.8485 shuffled -3.1305 sd 0.0069 gain +0.2820 z 40.7
+[control subset=B lang=hebrew seed=3 N=6023 drop=0.336] LM/char=-1.973 total=-12866 bigram-share=0.99 | token-acc=0.009 decoded-letter-match=0.049
+  heldout fitted key: in-order -2.1734 shuffled -2.1713 sd 0.0064 gain -0.0020 z -0.3
+  heldout true key: in-order -2.8527 shuffled -3.1276 sd 0.0095 gain +0.2750 z 29.1
+[voynich subset=B lang=hebrew seed=1 N=7691 drop=0.336] LM/char=-1.991 total=-16583 bigram-share=0.98
+  heldout fitted key: in-order -2.2631 shuffled -2.2777 sd 0.0054 gain +0.0147 z 2.7
+[voynich subset=B lang=hebrew seed=2 N=7691 drop=0.336] LM/char=-1.983 total=-16522 bigram-share=0.99
+  heldout fitted key: in-order -2.1833 shuffled -2.2095 sd 0.0045 gain +0.0262 z 5.8
+[voynich subset=B lang=hebrew seed=3 N=7691 drop=0.336] LM/char=-1.978 total=-16505 bigram-share=0.99
+  heldout fitted key: in-order -2.1715 shuffled -2.1969 sd 0.0046 gain +0.0253 z 5.5
