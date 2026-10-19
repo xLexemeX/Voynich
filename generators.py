@@ -1,7 +1,7 @@
 """Do the two leading 'meaningless text' generators reproduce ALL the Voynich statistics?
 (1) Rugg-style table+grille: word = prefix + mid + suffix drawn from small weighted tables.
 (2) Timm-style self-citation: copy an earlier word (mostly from the same/previous line) and mutate it.
-Compare: types, hapax, word length, h2, neighbour density, same-line similarity, adjacent repeats, word-order MI."""
+Compare: types, hapax, word length, h2, neighbor density, same-line similarity, adjacent repeats, word-order MI."""
 import collections, math, re, random, csv
 random.seed(8)
 rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text']]

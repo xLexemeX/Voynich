@@ -1,4 +1,4 @@
-"""Splits the vertical-neighbour effect (gen3_vertical.py) into its parts. For a word, the minimum edit distance to the
+"""Splits the vertical-neighbor effect (gen3_vertical.py) into its parts. For a word, the minimum edit distance to the
 words at positions j-1..j+1 of: (a) the line directly above; (b) a line on the same page at least 3 lines away;
 (c) a line on another page of the same section, Currier language and hand; (d) a line on any other page."""
 import csv, re, random, collections, statistics

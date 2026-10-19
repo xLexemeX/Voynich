@@ -69,7 +69,7 @@ What this means:
 - **Glyphs have fixed positions.** `q` is word-initial 99% of the time (and followed by `o` 98%). `n`, `m` are word-final 95–99%. `e`, `h`, `i` are never initial or final. `y` is final 86%. This is nothing like an alphabet used for a language, where most letters can appear anywhere; it looks like a *slot system*.
 - A hand-written slot regex `(q)(o)(gallows/ch/sh/d/s/l/r)(e/o/a)(gallows/ch/sh/d/s)(e/ai/aii/o)(n/m/l/r/y/dy/s/g)` matches 86% of all tokens. Stolfi's "crust–mantle–core" paradigm is essentially this.
 - Within a word, the next glyph is highly predictable: `c`→`h` 84%, `q`→`o` 98%, `n`→end 99%, `i`→`n`/`i` 91%, `d`→`y` 53%.
-- **Neighbourhood density.** Among word types seen at least twice, a Voynich word has on average **8.9** other words at edit distance 1. Latin: 1.3. Italian: 3.3. German: 3.5. The Voynich lexicon is a dense cloud of near-identical strings (`chedy/shedy/chey/shey/qokedy/qokeedy/okedy...`).
+- **Neighborhood density.** Among word types seen at least twice, a Voynich word has on average **8.9** other words at edit distance 1. Latin: 1.3. Italian: 3.3. German: 3.5. The Voynich lexicon is a dense cloud of near-identical strings (`chedy/shedy/chey/shey/qokedy/qokeedy/okedy...`).
 - **Self-citation (Timm & Schinner).** Minimum edit distance from a word to the other words on its own line is 2.57, versus 3.16 to words on a random line. Latin shows a much smaller effect (4.17 vs 4.54), Italian none. Words on a line look like variations of each other. Reproduced.
 
 ## 6. More tests (`tests2.py`, `tests3.py`)
@@ -85,7 +85,7 @@ What this means:
 
 | Hypothesis | Status | Evidence |
 |---|---|---|
-| H1 Natural language, simple substitution | **dead** | h2 2.1 vs ≥3.1; positional glyph rules; neighbourhood density |
+| H1 Natural language, simple substitution | **dead** | h2 2.1 vs ≥3.1; positional glyph rules; neighborhood density |
 | H2 Natural language, verbose cipher (1 letter → 2+ glyphs) | weak | merging bigrams doesn't reach natural entropy; word length too uniform |
 | H3 Abbreviated / shorthand Latin | open | hapax & Zipf are Latin-like; but a shorthand should show long-word tails |
 | H4 Meaningless text from a generative procedure (Rugg grille / Timm self-citation) | fits all stats | but "fits" ≠ "proven"; a real language passed through an unusual encoding could also fit |
@@ -98,7 +98,7 @@ What this means:
 - **Line-final `m`.** Stems that take `-am` at line end take `-al`, `-aiin`, `-ar`, `-ain` elsewhere in roughly equal measure. So `m` is a line-end allograph for the whole ending class, not for one specific ending. (Reproduces the "line as functional unit" observation.)
 - **`i` runs are not tallies.** Counts: one `i` 2,499, two 4,365, three 180, four 1. A tally system would be geometric; this looks like three distinct glyphs (`in`, `iin`, `iiin`) with `iin` the default. The runs are preceded by `a` 95% of the time and followed by `n` 80%.
 - **A/B is a gradient, not a switch.** Per-page glyph-bigram profiles projected on their first principal component: A pages mean −0.057, B pages +0.051, but the ranges overlap (A up to +0.017, B down to +0.002) and the histogram has mass all along the axis. In quire order, the share of `-edy` words goes 0% (quires A–C) → 7–11% (D–F) → 25% (quire M, the bio section) → 15% (quire T, stars). `daiin` falls from 5% to 1% across the same span. This looks like a system that drifted as it was written (or one scribe's habits changing), not two languages.
-- **No agreement between neighbours.** In Latin, the ending of a word predicts the ending of the next (adjective–noun agreement): excess MI 0.40 bits. In Voynichese: 0.04 bits. There is no inflectional agreement.
+- **No agreement between neighbors.** In Latin, the ending of a word predicts the ending of the next (adjective–noun agreement): excess MI 0.40 bits. In Voynichese: 0.04 bits. There is no inflectional agreement.
 - **But the word boundary is not neutral.** A word ending in `y` is followed by a `q`-word 1.8× more often than chance and by an `a`-word 6× *less* often; `r|a` 3×; `o|r` 6×; `s|a` 5×. Whatever produces the text "sees across" the space.
 - **Prefix and suffix are independent.** Decomposing 29.5k tokens into prefix (`qo/o/q/y/s/d/ch/sh`) + core + suffix (`aiin/ain/dy/edy/ey/y/ol/al/or/ar/…`): MI(prefix, suffix) = 0.08 bits (shuffled baseline 0.003) versus Latin 1.17. The core does constrain the suffix (excess MI ≈ 0.96 bits, Latin ≈ 1.4). Prefix and suffix are chosen essentially independently of each other, which is how a *combinatorial code* behaves and not how morphology behaves.
 - Zipf's law of abbreviation (frequent words are short) holds: r = −0.32 (Latin −0.29).
@@ -106,7 +106,7 @@ What this means:
 
 ## 9. Controlled decipherment experiment (`decipher.py`, `data/decipher.out`)
 
-Question: if Voynich glyph-units (26 units: `ch sh cth ckh cph cfh iin in ee` plus single glyphs) map onto Latin letters, with up to 4 units allowed to be nulls and many-to-one allowed, can a search find the mapping? Objective = Latin character 4-gram log-likelihood (trained on Pliny, Roman numerals removed), optimised by simulated annealing (25k steps). Judge by % of decoded words found in a Latin dictionary.
+Question: if Voynich glyph-units (26 units: `ch sh cth ckh cph cfh iin in ee` plus single glyphs) map onto Latin letters, with up to 4 units allowed to be nulls and many-to-one allowed, can a search find the mapping? Objective = Latin character 4-gram log-likelihood (trained on Pliny, Roman numerals removed), optimized by simulated annealing (25k steps). Judge by % of decoded words found in a Latin dictionary.
 
 | input | LM score / char | decoded words in Latin dictionary (≥4 letters) |
 |---|---|---|
@@ -126,7 +126,7 @@ If each plaintext letter were written as k glyphs, word length sd would be k × 
 
 Took real Latin (Pliny) and applied scribal-abbreviation-style transforms, then measured the same statistics.
 
-| transform of Latin | types | hapax | word len | h2 | edit-1 neighbours |
+| transform of Latin | types | hapax | word len | h2 | edit-1 neighbors |
 |---|---|---|---|---|---|
 | plain | 13,684 | 0.71 | 6.07 ± 2.71 | 3.40 | 0.9 |
 | vowels removed (except initial) | 9,567 | 0.62 | 3.60 ± 1.63 | 3.30 | 8.5 |
@@ -137,7 +137,7 @@ Took real Latin (Pliny) and applied scribal-abbreviation-style transforms, then 
 | verbose 2-glyph cipher, 6-symbol alphabet | 13,684 | 0.71 | 12.1 ± 5.4 | 2.48 | 0.1 |
 | **Voynich** | 7,829 | 0.69 | 4.97 ± 1.83 | **2.14** | 8.9 |
 
-Abbreviation can reproduce the short, regular words and the dense neighbourhoods, but *never* the low glyph entropy: every abbreviated Latin stays at h2 ≥ 3.27. The only transform that lowers h2 is a verbose cipher, which blows up word length. No single transform reproduces the whole profile. Whatever Voynichese is, it has *both* a small effective alphabet with rigid ordering *and* a vocabulary with Latin-like richness.
+Abbreviation can reproduce the short, regular words and the dense neighborhoods, but *never* the low glyph entropy: every abbreviated Latin stays at h2 ≥ 3.27. The only transform that lowers h2 is a verbose cipher, which blows up word length. No single transform reproduces the whole profile. Whatever Voynichese is, it has *both* a small effective alphabet with rigid ordering *and* a vocabulary with Latin-like richness.
 
 ## 12. Do the "meaningless text" generators reproduce everything? (`generators.py`)
 
@@ -151,7 +151,7 @@ A naive grille gets the entropy nearly right but produces no line-locality, no r
 
 ## 13. What is actually readable on the pages
 
-- The zodiac wheels (PDF pages ~124–131; f70v2 Pisces, f71r Aries, …) carry month names in a *later* hand in Latin script (`mars`, `abril`, `may`, `yony`, `jollet`, `augst`, `septembre`, `octembre`, `novembre`, `decembre`), in a Franco-Occitan spelling. This is literature knowledge; in this PDF the foldouts are shrunk to ~770 px and the names are not legible. They tell us an early owner labelled the signs, and nothing about the Voynich script.
+- The zodiac wheels (PDF pages ~124–131; f70v2 Pisces, f71r Aries, …) carry month names in a *later* hand in Latin script (`mars`, `abril`, `may`, `yony`, `jollet`, `augst`, `septembre`, `octembre`, `novembre`, `decembre`), in a Franco-Occitan spelling. This is literature knowledge; in this PDF the foldouts are shrunk to ~770 px and the names are not legible. They tell us an early owner labeled the signs, and nothing about the Voynich script.
 - f1r right margin: a later hand wrote `a b c d e f g h i k … o p q r` beside the first lines, as if trying a key (noted in the ZL transcription's comments). It doesn't align with the text and is not a key.
 - Last page f116v has the "michiton oladabas" line in Latin letters mixed with Voynich glyphs. Unsolved; probably a charm.
 - I generated annotated per-word readings for sample folios in `readings/` (`f1r`, `f2r`, `f26r`, `f78r`, `f103r`, `f70v2`, `f67r1`). Each word is shown with its manuscript-wide count, A/B split, sections, slot decomposition and nearest spelling variants. Run `python3 reading.py <folio>` for any other page.
@@ -165,7 +165,7 @@ Clustering the 300 most frequent words by what appears to their left and right (
 - a class of very short `-r/-s` words (`or ar s r sar sor tar lor …`)
 - a big residual class of A-language words (`daiin chol chor shol cthy …`)
 
-Mutual information between class and suffix is 0.75 bits of the 2.25 bits of class entropy; with prefix 0.48 bits. So a word's *behaviour in context* is largely readable off its ending. In an inflected language that is partly true too (case endings signal role), so this is consistent with both a language and a code, but it says the endings are functional, not decorative.
+Mutual information between class and suffix is 0.75 bits of the 2.25 bits of class entropy; with prefix 0.48 bits. So a word's *behavior in context* is largely readable off its ending. In an inflected language that is partly true too (case endings signal role), so this is consistent with both a language and a code, but it says the endings are functional, not decorative.
 
 ## 15. Is there syntax between ending-classes along a line? (`linegrammar.py`)
 
@@ -186,7 +186,7 @@ Self-citation constrained to the slot grammar (copy a word from the current or p
 | Voynich | 6,983 | 0.68 | 4.97±1.80 | 2.11 | 6.8 | 2.52 vs 3.16 | 0.82% | **0.18** |
 | slot-constrained self-citation | 11,191 | 0.58 | 5.54±1.93 | 2.46 | 7.4 | 2.75 vs 3.57 | 0.86% | **0.01** |
 
-Everything is now in the right neighbourhood except the excess adjacent-word mutual information. The real text has a specific *sequential* preference that copying cannot produce.
+Everything is now in the right neighborhood except the excess adjacent-word mutual information. The real text has a specific *sequential* preference that copying cannot produce.
 
 ## 18. What the sequential preference is (`data/pmi.out`)
 
@@ -201,8 +201,8 @@ Removing identical-word pairs does not change the MI (5.55 → 5.59), so repeats
 **What I can say with evidence in hand:**
 1. The text is not a natural language under any substitution (simple, homophonic, or into Latin/Italian specifically). §4, §9, §16.
 2. It is not an abbreviation of Latin, and not a simple verbose cipher of a language with real word spaces. §10, §11.
-3. Its words are built from a rigid slot system (prefix · core · suffix) in which prefix and suffix are chosen independently, endings determine a word's context behaviour, and glyph shapes change with line position. §5, §8, §14.
-4. Word order within a line carries very little information: the sequence of ending classes is indistinguishable from a within-line shuffle. §15. Neighbouring words do not agree. §8.
+3. Its words are built from a rigid slot system (prefix · core · suffix) in which prefix and suffix are chosen independently, endings determine a word's context behavior, and glyph shapes change with line position. §5, §8, §14.
+4. Word order within a line carries very little information: the sequence of ending classes is indistinguishable from a within-line shuffle. §15. Neighboring words do not agree. §8.
 5. Words are strongly local: they resemble the other words on their line, and pages are more self-similar than Latin prose. §5, §6.
 6. Simple "meaningless generator" models do not reproduce the whole statistical profile either; a tuned self-citation model reproduces all of it except a sequential `…y → qo…` preference. §12, §17, §18.
 
@@ -217,7 +217,7 @@ Removing identical-word pairs does not change the MI (5.55 → 5.59), so repeats
 
 ## Appendix: EVA glyph key (so you can read the readings)
 
-| EVA | what the glyph looks like | behaviour |
+| EVA | what the glyph looks like | behavior |
 |---|---|---|
 | `o` | small circle | most common; word-initial or medial |
 | `a` | like a Latin a | medial; almost always followed by `i`, `r`, `l` |
@@ -279,7 +279,7 @@ Checked against the literature as I went (Currier 1976; Feaster's positional gra
 | labels on a page repeat more than chance | zodiac 15 duplicate pairs vs 4.9 expected | minor |
 | zodiac labels not aligned by degree across signs | same-position edit distance 5.94 vs random 5.96 | negative |
 | starred-paragraph first words are not star labels | 17 of 292 (chance 39) | negative |
-| vertical neighbours more similar than horizontal | min edit distance to word above/below 3.18 vs random 3.66 | Timm & Schinner |
+| vertical neighbors more similar than horizontal | min edit distance to word above/below 3.18 vs random 3.66 | Timm & Schinner |
 
 **Geometric test (`layout_dp.py`, `data/layout_stats.out`).** I tried to test two physical hypotheses on the scans of Quire 20: (a) if `s`/`d`/`y` are *added* at line start, such lines should begin further left; (b) if `-m` is a space-saving form, `-m` lines should end closer to the right margin and be more compressed. Row detection plus dynamic-programming alignment to the transcription worked (the overlay `crops/overlay_f104v.png` shows paragraph-final lines correctly identified), but edge measurement is too noisy: the left-edge spread is ±45 px (a glyph is ~33 px), and only 63% of continuing lines were measured as reaching the margin when nearly all do by eye. Within that noise: no left shift for s/d/y lines (medians 0 px), and `-m` lines are no closer to the margin than `-y` lines (P within 40 px: 0.47 vs 0.48) and no denser (33.4 vs 33.5 px per glyph). I record this as **inconclusive, leaning against the crowding explanation for `-m`**, and not as a result. Word-level segmentation would be needed to do it properly.
 
@@ -311,7 +311,7 @@ Scripts: `zodiac_drift.py` (feature rates), `zodiac_bness.py`, `zodiac_ae.py`, `
 - This is *not* a general property of labels: the same page-blocking test on the bio nymph labels (8 pages, p = 0.16), the pharma jar labels (14 pages, p = 0.64) and the cosmological labels (p = 0.14) finds nothing. Running text on all pages shows page-to-page variation in a/e (p < 0.0001 everywhere) but it is small (variance of page means 0.01–0.04, versus 0.23 for the zodiac labels).
 - It is also not the Currier A→B drift: scored with a glyph-bigram A/B discriminant trained on the running text, the labels show no trend at all (ρ ≈ 0), while the ring text does drift toward B across the same wheels (ρ = +0.71 to +0.78, p ≤ 0.016). So the labels and the ring text change in *different* directions along the same sequence of pages: the text becomes more B-like, the labels swap their vowel.
 
-**Why I think this is new.** Zandbergen's label page and his language-classification page treat the zodiac labels as one group ("Ce-" dialect) and give one hapax figure for all 299; the recent voynich.ninja thread on zodiac labels noticed only that `o`-initial labels decline and that Cancer and Sagittarius are outliers; the 2026 arXiv papers and the Voynichdecomp repository do not analyse labels per wheel; nothing I found mentions the `a`/`e` composition of labels or contrasts labels with the ring text of the same wheel. Some earlier readers must have seen `otal…` in Pisces and `okeedy…` in Sagittarius, but I find no statement of the switch, its location, its strength, or the fact that the co-located text does not share it.
+**Why I think this is new.** Zandbergen's label page and his language-classification page treat the zodiac labels as one group ("Ce-" dialect) and give one hapax figure for all 299; the recent voynich.ninja thread on zodiac labels noticed only that `o`-initial labels decline and that Cancer and Sagittarius are outliers; the 2026 arXiv papers and the Voynichdecomp repository do not analyze labels per wheel; nothing I found mentions the `a`/`e` composition of labels or contrasts labels with the ring text of the same wheel. Some earlier readers must have seen `otal…` in Pisces and `okeedy…` in Sagittarius, but I find no statement of the switch, its location, its strength, or the fact that the co-located text does not share it.
 
 **What it means (carefully).** The labels are not a random draw from "labelese": a property of a label (its vowel) is set by which wheel it is on, in a way that changes once, around the turn of folio 72, and that the scribe did not apply to the running text on the same page. Three readings: (1) the labels encode something that differs between the first half of the zodiac year and the second (a per-sign or per-season class marker, as a real astrological table of degrees, terms or faces would carry); (2) the labels were produced by a procedure with a "setting" that was changed between two sittings, while the text was produced continuously; (3) the labels were copied from two different source lists. I cannot choose between these from the text alone, but each is testable: (1) predicts the missing Capricorn and Aquarius wheels would have been `e`-labels and that other label systems tied to the calendar (f67r1 twelve labels, f69r twenty-eight) show the same partition; (2) predicts the change point sits at a physical break (it does: f72r → f72v); (3) predicts vocabulary overlap between the `a`-half labels and one text section and between the `e`-half labels and another.
 
@@ -345,10 +345,10 @@ All three transliterations (ZL, Takahashi VT, Zandbergen RF) give the same answe
 
 For each early (`a`) and late (`e`) zodiac label I checked whether the same word occurs in the text of other sections, excluding the zodiac pages themselves.
 
-- **Exact matches:** no section favours either half. Every difference is under 0.10, and all permutation p-values are 0.11 or higher. Herbal-A, herbal-B, bio, stars, pharma and astro text all look the same to both halves. So do the bio, pharma and astro label sets.
+- **Exact matches:** no section favors either half. Every difference is under 0.10, and all permutation p-values are 0.11 or higher. Herbal-A, herbal-B, bio, stars, pharma and astro text all look the same to both halves. So do the bio, pharma and astro label sets.
 - **Near matches:** allowing one deleted glyph, late labels match text more often in every section, by a similar margin: herbal-A 0.74 vs 0.51, stars 0.87 vs 0.67, bio 0.65 vs 0.50. The uplift is uniform, not tied to one section.
 - **Reading:** the `e`-labels are simply closer to ordinary running-text word shapes everywhere. The `a`-labels are a more distinctive "labelese" style. There is no sign that the two halves were copied from two sections of the book. Reading (3) of §24 is not supported. Readings (1), a category marker, and (2), a changed procedure, remain.
-- **Dark and light pairs:** Aries dark +0.49 vs light +0.24, Taurus light +0.91 vs dark +0.74. The darker or lighter drawing does not predict the vowel, so the split is not a day/night or colour code within those signs.
+- **Dark and light pairs:** Aries dark +0.49 vs light +0.24, Taurus light +0.91 vs dark +0.74. The darker or lighter drawing does not predict the vowel, so the split is not a day/night or color code within those signs.
 
 ## 28. Do labels name things mentioned in the text next to them? (`label_para.py`, `data/label_para.out`)
 
@@ -488,7 +488,7 @@ The pairs f1v (certain), f32v and f39r have no label at the given position.
 
 **Result: negative, 0 of 10.** Not one label appears on its matching herbal page, exactly or as a variant. These labels are also almost absent from the herbal text generally: the null rate is 0 for 8 of the 10. So the test is weak, because the words hardly occur in herbal paragraphs at all. What it does show is that **the name written beside a pharmacy copy of a plant is not repeated in the text of that plant's herbal page**, not even for the four certain matches.
 
-**Caveat.** I assumed labels run in the same order as the drawings in each row. That is how the ZL numbering reads, but I did not check each position against the scans. A wrong position would pair a plant with its neighbour's label.
+**Caveat.** I assumed labels run in the same order as the drawings in each row. That is how the ZL numbering reads, but I did not check each position against the scans. A wrong position would pair a plant with its neighbor's label.
 
 ## 36. Does a pharmacy recipe share vocabulary with the herbal page of the plant it shows? (`pharma_text_match.py`)
 
@@ -959,7 +959,7 @@ Tests the family left open by §58–59: a small syllabary for a European langua
 
 | input | best score per token, 3 seeds | key recovered |
 |---|---|---|
-| Italian (held-out half), signs randomly relabelled | **−2.277** in all three | **100%** of units in all three |
+| Italian (held-out half), signs randomly relabeled | **−2.277** in all three | **100%** of units in all three |
 | true Italian with true signs (reference) | −2.277 | |
 | **Voynich, 60 BPE units** | **−3.375 to −3.421** | |
 | slot self-citation generator, 60 BPE units | −3.866 | |
@@ -989,7 +989,7 @@ H5 (codebook / nomenclator) was judged "poor" in §7 from the hapax rate, but ne
 
 | input | OOV share | best score per token | key recovered |
 |---|---|---|---|
-| Italian held-out half, top-300 types relabelled | 0.40 | −3.379, −3.388 (true key −3.283) | 33% and 28% of types; 36% and 18% of the top 50 |
+| Italian held-out half, top-300 types relabeled | 0.40 | −3.379, −3.388 (true key −3.283) | 33% and 28% of types; 36% and 18% of the top 50 |
 | **Voynich** | 0.37 | **−4.369, −4.372** | |
 
 **Result: negative for Italian.** With a similar OOV share, the Voynich input ends about 1.0 nat per token below even the partly recovered control, and 1.1 below the true key. The control's own recovery is incomplete: the word-bigram model is sparse, and many swaps of rare words do not change the score. So this test is less sharp than the syllabary test of §61. But a gap of 1 nat per token is far outside the control's range. The best Voynich decoding reads `_ _ mi _ lor _ _ da quelle _ _ _ si da _ _ fia _ tuoi tuoi _ _ valle…`: Italian function words strung together without syntax.
@@ -1123,7 +1123,7 @@ Same as §62 with *Tirant lo Blanch*. Catalan is less inflected than Latin: its 
 
 | input | OOV share | best score per token | key recovered |
 |---|---|---|---|
-| Catalan control (held-out half, relabelled) | 0.31 | −3.542, −3.531 (true key −3.373) | **38%, 39%** of types; 40%, 38% of the top 50 |
+| Catalan control (held-out half, relabeled) | 0.31 | −3.542, −3.531 (true key −3.373) | **38%, 39%** of types; 40%, 38% of the top 50 |
 | **Voynich** | 0.37 | **−4.450, −4.470** | |
 
 **Result: negative.** This is the best-powered codebook control so far, recovering 38–39% of the key, better than Italian's 28–33%. The Voynich falls 0.9 nat per token below it, with a slightly higher OOV share. That difference favors the Voynich, because OOV transitions score high (§62). Its best decoding is Catalan words in no syntax: `_ _ en _ feu _ _ mes feren _ _ _ a mes _ _ hon _ voluntat voluntat _ _ hagues a sera…`. A word-for-word codebook into Catalan is excluded at this level of power, as for Italian.
@@ -1177,7 +1177,7 @@ Random-key means and sds differ slightly between seeds.
 **A rule model.** To separate the *sequence* question from word formation, the lexicon is the real set of word types, so word-internal statistics match by construction. The writing process then has five parameters:
 - **One-shot words.** With probability `p_new`, write a new word that is never reused, drawn from the real hapaxes.
 - **Local copying.** With `p_local`, copy a non-one-shot word from earlier on the page.
-- **Page topic.** With `topic_p`, use one of `topic_n` page-favoured words.
+- **Page topic.** With `topic_p`, use one of `topic_n` page-favored words.
 - **Junction rule.** After a `y`-final word, prefix `q` to an `o`-word (`p_q`); otherwise strip `q` from a `qo`-word (`p_unq`).
 - **Line rule.** With `p_alt`, redraw a line's first word if it starts like the previous line.
 
@@ -1195,14 +1195,14 @@ These were fitted by random and local search. Best: `p_new 0.22, p_local 0.03, t
 
 **Result.**
 - **Most statistics are matched.** Two scribal rules (prefix `q` after `y`; do not start a line like the line above), one-shot words for 22% of tokens, and a little page-topic reuse reproduce all the sequence statistics except one. Copying is rare (3%), much rarer than in Timm & Schinner-type self-citation.
-- **The remaining mismatch.** Page-exclusive repetition stays about 50% too high. The real text keeps even *less* page-specific repetition than this model: its page-favoured words recur elsewhere more.
+- **The remaining mismatch.** Page-exclusive repetition stays about 50% too high. The real text keeps even *less* page-specific repetition than this model: its page-favored words recur elsewhere more.
 - **What the parameters say.** 22% of tokens are single-use, which is the page-specific vocabulary written once (§55). Junction and line rules are near-deterministic (0.92 and 0.62).
 
 **What this does and does not show.** It does not show the text is meaningless: the lexicon is the real one, so the model inherits whatever the words encode. It shows that the *sequence-level* oddities can be described as a few explicit scribal rules applied on top of a word stream. The word stream itself has almost no topic structure, and the page-specific words appear once. A meaningful text written under such rules would look the same, so this does not decide between meaning and procedure. It does say where meaning would have to live, if anywhere: in the choice of words, not in their arrangement.
 
 A plug-in word-pair MI check was tried and dropped. At this sparsity it gave the real text a *negative* excess over its own within-line shuffle, so it is bias-dominated and unlike the class-level measure of §17.
 
-**Follow-up: the mismatch is local copying (`data/gen3_favmin.out`, `data/gen3_check_nocopy.out`).** Restricting page-favoured words to common words lowers the page-exclusive rate only slightly (0.35–0.47). Switching mechanisms off shows the source. With no local copying, a light page topic alone (`topic_p 0.08`) gives 0.26–0.29, matching the real 0.30. Adding even 3% copying from earlier on the page raises it to 0.43–0.46. With `p_local = 0`, every statistic on the scorecard is matched:
+**Follow-up: the mismatch is local copying (`data/gen3_favmin.out`, `data/gen3_check_nocopy.out`).** Restricting page-favored words to common words lowers the page-exclusive rate only slightly (0.35–0.47). Switching mechanisms off shows the source. With no local copying, a light page topic alone (`topic_p 0.08`) gives 0.26–0.29, matching the real 0.30. Adding even 3% copying from earlier on the page raises it to 0.43–0.46. With `p_local = 0`, every statistic on the scorecard is matched:
 
 | statistic | real | model, no copying, 3 samples |
 |---|---|---|
@@ -1214,11 +1214,11 @@ A plug-in word-pair MI check was tried and dropped. At this sparsity it gave the
 | page-exclusive rate | 0.302 | 0.258–0.291 |
 | y→qo junction ratio | 3.875 | 3.65–3.82 |
 
-**Meaning, corrected after a further check (`gen3_vertical.py`, `data/gen3_vertical.out`; refined again in §73, which supersedes the near-copy reading below).** The real text is matched best with no *exact* copying from earlier on the page. I first wrote that this cuts against self-citation. It does not. Timm & Schinner's vertical-neighbour effect (§23) is not on the scorecard. A word's minimum edit distance to the words near the same position in the line above is 3.46, against 3.81 for the same positions on another page, a difference of 0.35. Every rule model shows no such effect: −0.01 with no copying, −0.01 with 3% copying, +0.03 with 15% exact copying.
+**Meaning, corrected after a further check (`gen3_vertical.py`, `data/gen3_vertical.out`; refined again in §73, which supersedes the near-copy reading below).** The real text is matched best with no *exact* copying from earlier on the page. I first wrote that this cuts against self-citation. It does not. Timm & Schinner's vertical-neighbor effect (§23) is not on the scorecard. A word's minimum edit distance to the words near the same position in the line above is 3.46, against 3.81 for the same positions on another page, a difference of 0.35. Every rule model shows no such effect: −0.01 with no copying, −0.01 with 3% copying, +0.03 with 15% exact copying.
 
 So the real text contains **near-copies**, words resembling those just above them, while exact page-specific repetition stays low. That is what copy-*and-modify* predicts, and what neither exact copying nor a plain word stream produces. The two observations fit together if most "new" words are modified versions of nearby ones. That would also explain why the page-specific vocabulary is written only once (§55). A complete model needs a modification step that turns a nearby word into a similar new form. The rule model here borrows its forms from the real lexicon, so it cannot show that. What this section does establish: the junction and line rules are near-deterministic scribal rules, and exact local copying is rare.
 
-## 73. The vertical-neighbour effect, split into its parts (`vertical2.py`, `data/vertical2.out`)
+## 73. The vertical-neighbor effect, split into its parts (`vertical2.py`, `data/vertical2.out`)
 
 The 0.35 difference in §72 compared the line above with *any other page*, so page and section similarity were counted as "vertical". Here the same measure (minimum edit distance from a word to the words at positions j−1..j+1) is taken against four kinds of line. Each figure is the mean of 5 runs of 4,000 words.
 
@@ -1243,4 +1243,4 @@ The gradient splits into a nearby-line part (b−a) of +0.09 (sd 0.025), a page 
 
 **Meaning.** The nearby-line part is the same size in the Voynich (+0.09, about 2.3% of the any-page distance) as in Pliny's topical prose (+0.11, about 2.1%). It needs no copying mechanism. A text that stays on one subject for a few lines produces it. The Voynich differs in the page and section parts. Its total gradient is about 10% of the any-page distance, against 5% for Pliny and 1–2% for Dante and *Tirant*. The section part includes the Currier A/B and hand differences, which are differences of spelling or dialect, not of subject. So the Voynich word forms cluster strongly by page and by section, while exact repetition of page-specific words stays low (§55).
 
-This replaces the conclusion added to §72. The vertical-neighbour effect does not by itself show copy-and-modify. Its line-scale part is ordinary, and nothing in it is tied to position. What remains to explain is the page-scale and section-scale clustering of *forms* (similar, not identical, words). Both a meaningful text, whose spelling of related words or inflections varies by topic, and a page-wise copy-and-modify procedure could produce it. The rule model of §72 produces none of it, because its page favourites are drawn from the global lexicon.
+This replaces the conclusion added to §72. The vertical-neighbor effect does not by itself show copy-and-modify. Its line-scale part is ordinary, and nothing in it is tied to position. What remains to explain is the page-scale and section-scale clustering of *forms* (similar, not identical, words). Both a meaningful text, whose spelling of related words or inflections varies by topic, and a page-wise copy-and-modify procedure could produce it. The rule model of §72 produces none of it, because its page favorites are drawn from the global lexicon.

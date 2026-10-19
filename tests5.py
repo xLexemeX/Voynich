@@ -30,7 +30,7 @@ print('  PC1 histogram (all pages):', hist[0].tolist())
 print('  top bigrams driving PC1 (+):', [bg[i] for i in np.argsort(Vt[0])[-8:][::-1]], ' (-):', [bg[i] for i in np.argsort(Vt[0])[:8]])
 print('  PC1 by section:', {s: round(float(np.mean([pc1[i] for i,k in enumerate(keys) if meta[k][1]==s])),4) for s in set(m[1] for m in meta.values())})
 
-print('\n=== 2. Agreement between neighbouring words: MI(ending_i, ending_i+1) vs shuffled')
+print('\n=== 2. Agreement between neighboring words: MI(ending_i, ending_i+1) vs shuffled')
 def ending(w): 
     m=re.search(r'(iin|in|dy|ey|y|l|r|n|m|s|o|d)$',w); return m.group(1) if m else w[-1]
 lines=[[w for w in r['text'].split('.') if w] for r in rows if r['ltype'].startswith('P')]

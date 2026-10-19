@@ -1,4 +1,4 @@
-"""Distributional word classes: cluster frequent words by their left/right neighbour profiles.
+"""Distributional word classes: cluster frequent words by their left/right neighbor profiles.
 If classes are driven by suffix/prefix (i.e. syntax == spelling), that points to a code; if classes cut across spelling, that points to grammar."""
 import collections, csv, re, random, numpy as np
 random.seed(9); np.random.seed(9)

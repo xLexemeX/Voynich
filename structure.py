@@ -26,7 +26,7 @@ for a,c in sorted(nxt.items(), key=lambda x:-sum(x[1].values())):
     n=sum(c.values())
     if n>200: print(f'  {a}-> {" ".join(f"{b}:{v/n:.2f}" for b,v in c.most_common(4))}')
 
-print('\n=== 4. Edit-distance-1 neighbourhood density (types with freq>=2)')
+print('\n=== 4. Edit-distance-1 neighborhood density (types with freq>=2)')
 def neigh(wordset):
     ws=set(wordset); cnt=0; tot=0
     alpha=set(''.join(ws))
@@ -45,7 +45,7 @@ def clean(path):
     s=open(path,encoding='utf-8',errors='replace').read().lower(); return re.findall(r'[a-z]+',s)
 for name,toks in [('voynich',voy),('latin',clean('data/ref/latin_pliny.txt')[:38000]),('italian',clean('data/ref/italian_dante.txt')[:38000]),('german',clean('data/ref/german_faust.txt')[:38000])]:
     c=collections.Counter(toks); ws=[w for w,v in c.items() if v>=2]
-    print(f'  {name:8s} types(f>=2)={len(ws):5d} mean #neighbours at edit-dist 1 = {neigh(ws):.2f}')
+    print(f'  {name:8s} types(f>=2)={len(ws):5d} mean #neighbors at edit-dist 1 = {neigh(ws):.2f}')
 
 print('\n=== 5. Timm self-citation test: similarity of a word to words on the SAME line vs a random line')
 def lev(a,b):

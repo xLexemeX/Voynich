@@ -27,7 +27,7 @@ def g3(seed, NLEX=9000, zipf=1.05, p_local=0.35, topic=60, p_q=0.65, p_unq=0.7, 
     wt=[1/(i+1)**zipf for i in range(NLEX)]
     out=[]
     for p in REAL:
-        page=[]; fav=rng.sample(range(NLEX),topic)                     # page topic: a few lexicon items favoured on this page
+        page=[]; fav=rng.sample(range(NLEX),topic)                     # page topic: a few lexicon items favored on this page
         prev_init=None
         for l in p:
             line=[]

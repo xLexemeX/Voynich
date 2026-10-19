@@ -1,5 +1,5 @@
 """Produce an annotated 'reading' of a folio: for each word, its corpus frequency, Currier A/B split,
-structural decomposition, where else it occurs, and nearest neighbours. Usage: python3 reading.py f1r"""
+structural decomposition, where else it occurs, and nearest neighbors. Usage: python3 reading.py f1r"""
 import collections, csv, re, sys
 folio=sys.argv[1]
 rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text']]
