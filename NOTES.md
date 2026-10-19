@@ -1330,3 +1330,19 @@ p = 0.30. **Result: negative, and weakly powered.** Adjacent folios of the same 
 - **Certain spaces.** The one scribal rule already in the §72 model (`y` followed by `qo`) reproduces most of the remaining 0.163 bits.
 
 So edge coupling is not a separate mystery. It comes from one known junction rule plus transcription spaces that are not real word breaks. A generator that includes the junction rule passes this test, and the generators that fail it lack the rule. The residual (0.03 bits) sits mostly in `r|a`, `n|ch`, `n|sh`, `l|d` and `l|k`, together with an avoidance of `y|ch` and `y|sh`. That last pattern is the other side of `y|qo`.
+
+## 78. The f17r marginal line in the 2014 multispectral images (`crops/f17r_msi_line.png`, `crops/f17r_msi_end.png`)
+
+The Lazarus Project images of ten pages, f17r among them, are public. They are linked from L. F. Davis, "Multispectral imaging and the Voynich Manuscript", Manuscript Road Trip, 8 September 2024, in a Google Drive folder. I downloaded the two processed f17r images (true-color MNF and ink-1 SAM rule) to `data/ext_msi/`, which is not committed.
+
+The images make the whole line visible. The Latin-script part reads roughly as Pelling has it (§77): "maſhor aſtor lucz hev valſamina" or similar. After it come two more groups, which the color scan does not show:
+
+1. A group of about 6–7 glyphs. It begins with a clear round "o". Next comes a tall stroke with a looped head rising well above the line, and a looped ornament sits above it. Then come minim-like strokes, a closed loop, and a c- or s-like glyph with a dot. In shape it resembles EVA `ot…` or `op…` followed by `ii`/`ee` strokes and a final `s`. That is the pattern of real words like `oteos` and `otees` (26 and 12 occurrences), but the middle glyphs are not certain enough to transcribe.
+2. A three-letter group, perhaps "ard", "aud" or "ord", ending in a letter whose ascender curves back to the left. It looks like the same cursive as the Latin-script words. None of `ard`, `ord`, `aid`, `ad` occurs as a Voynich word.
+
+**What this gives.** The first group may be Voynichese written in the same ink and line as a plant name, which supports Pelling's observation. It is still not a usable crib, for three reasons:
+- its glyphs cannot be fixed with confidence;
+- nothing shows it is a gloss of "balsamina" rather than a pen trial or a copied word;
+- the reading "balsamina" itself is unconfirmed, and the identification lists used in §46 and §51 give no plant for f17r to check it against.
+
+This is a job for a palaeographer working on the full-resolution multiband files, not for statistics.
