@@ -24,14 +24,15 @@ def fnum(f): return int(re.match(r'f(\d+)',f).group(1))
 F=[f for f in pw if genera(f)]
 pairs=[(a,b) for a,b in itertools.combinations(F,2) if lang[a]==lang[b]]
 same=[(a,b) for a,b in pairs if genera(a)&genera(b) and abs(fnum(a)-fnum(b))>1]
-print(f'{len(F)} herbal pages with an identification; {len(pairs)} same-language pairs; {len(same)} share a proposed genus (non-adjacent folios):')
-for a,b in same: print(f'   {a:6s} {b:6s} {sorted(genera(a)&genera(b))}  cos {cos(V[a],V[b]):.3f}')
-# null: for each same pair, compare with pairs of the same language and similar folio distance (+-10)
-obs=sum(cos(V[a],V[b]) for a,b in same)/len(same)
-pool=collections.defaultdict(list)
-for a,b in pairs:
-    if not genera(a)&genera(b): pool[(lang[a],min(abs(fnum(a)-fnum(b))//10,6))].append((a,b))
-random.seed(0); null=[]
-for _ in range(5000):
-    null.append(sum(cos(V[x],V[y]) for x,y in (random.choice(pool[(lang[a],min(abs(fnum(a)-fnum(b))//10,6))]) for a,b in same))/len(same))
-print(f'mean cosine, same-genus pairs {obs:.4f}; matched different-genus pairs {sum(null)/len(null):.4f}; p = {sum(x>=obs for x in null)/len(null):.3f}')
+if __name__=='__main__':
+    print(f'{len(F)} herbal pages with an identification; {len(pairs)} same-language pairs; {len(same)} share a proposed genus (non-adjacent folios):')
+    for a,b in same: print(f'   {a:6s} {b:6s} {sorted(genera(a)&genera(b))}  cos {cos(V[a],V[b]):.3f}')
+    # null: for each same pair, compare with pairs of the same language and similar folio distance (+-10)
+    obs=sum(cos(V[a],V[b]) for a,b in same)/len(same)
+    pool=collections.defaultdict(list)
+    for a,b in pairs:
+        if not genera(a)&genera(b): pool[(lang[a],min(abs(fnum(a)-fnum(b))//10,6))].append((a,b))
+    random.seed(0); null=[]
+    for _ in range(5000):
+        null.append(sum(cos(V[x],V[y]) for x,y in (random.choice(pool[(lang[a],min(abs(fnum(a)-fnum(b))//10,6))]) for a,b in same))/len(same))
+    print(f'mean cosine, same-genus pairs {obs:.4f}; matched different-genus pairs {sum(null)/len(null):.4f}; p = {sum(x>=obs for x in null)/len(null):.3f}')

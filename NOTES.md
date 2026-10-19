@@ -1299,3 +1299,14 @@ The largest shuffle for any feature was 1.16.
 | *Tirant* (Catalan) | 1.37 | 0.96–3.42 |
 
 **Meaning.** Each Voynich page has its own spelling profile, beyond its section, language and hand. It is about as strong as the page-to-page variation that changing subject produces in Pliny, and stronger than in Dante or *Tirant*. Together with §73–74, this accounts for the page clustering of word forms. It is the size a topical text has, so it does not single out the Voynich. None of the generators tried here produces it: rule model, stem selection, crossover, glyph edits, or copy-with-variation from the page. A meaningless-text procedure would need a page-level bias over glyph choices, such as a per-page preference for certain prefixes and suffixes. Something of that kind could be built and would match by design. So this statistic constrains generators but does not decide between meaning and its absence.
+
+## 76. Do same-plant herbal pages share a spelling profile? (`sameplant_profile.py`, `data/sameplant_profile.out`)
+
+This is §51 with the page profile of §75 in place of shared words. If each page's profile comes from its subject, pages drawn with the same plant should be closer in profile. A random per-page bias would not produce that. The profile is 17 word-feature rates, z-scored within Currier language, and the distance is Euclidean. The pairs and the null are those of §51: same language, similar folio distance, 5,000 draws. Only pages with 60 or more words are used, which leaves 24 same-genus pairs.
+
+| pairs | mean profile distance |
+|---|---|
+| same proposed genus (24) | 5.585 |
+| matched different-genus pairs | 5.705 (sd 0.229) |
+
+p = 0.30. **Result: negative, and weakly powered.** Adjacent folios of the same language are much closer than folios 10 or more apart (5.420 against 5.820, a difference of 0.40). With 24 pairs, only an effect of about that size, roughly 0.45, would reach p < 0.05. The same-plant pairs come out 0.12 closer, inside the null. So the page profile tracks position in the book, through drift or a shared exemplar, far more than the plant identifications do. As in §51, wrong identifications would dilute a real effect.
