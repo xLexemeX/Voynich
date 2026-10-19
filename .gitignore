@@ -12,3 +12,5 @@ data/ext_herbal/
 data/ext_poly/
 data/ext_cat/
 data/ext_msi/
+data/ext_gc/
+__pycache__/
