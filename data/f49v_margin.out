@@ -1,0 +1,5 @@
+pairs 26 margin column: f o r y e 140; k s p o 192; y e 140; 164; p o 192; y e 140; d y e k y
+  first glyph of line        obs  1/26  shuffled mean 1.0  p=0.684
+  first glyph of any word    obs  3/26  shuffled mean 3.2  p=0.682
+  last glyph of line         obs  0/26  shuffled mean 2.1  p=1.000
+  glyph occurs in line       obs 12/26  shuffled mean 13.6  p=0.903

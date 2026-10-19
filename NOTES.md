@@ -558,3 +558,16 @@ A common proposal is that each herbal page opens with the plant's name. If so, t
 **Result: negative.** The first word of a page is the *least* likely word on the page to come back on it. Only 2 of 124 recur exactly, and 17 recur once the gallows is stripped. It does recur more on its own page than on a random herbal page (17 vs 4.7 in 1,000 shuffles, p < 0.001). But that holds for every word in this text, because pages reuse their own vocabulary (§5). Its own-page excess, 1.48, is below that of an ordinary mid-line word, 1.81. Nothing marks the page-opening word as the page's topic.
 
 **Limit.** There is no plaintext control. A real herbal could name its plant once and then use pronouns. So this does not rule out a name in first position. It shows only that the text does not repeat the opening word the way a topic word would be repeated.
+
+## 41. Does the f49v margin glyph index its line? (`f49v_margin.py`, `data/f49v_margin.out`)
+
+Each of the 26 text lines on f49v has a single glyph beside it in the left margin. In ZL order the column reads `f o r y e 140 k s p o 192 y e 140 164 p o 192 y e 140 d y e k y`, where the numbers are ZL codes for rare glyphs. If the column indexed its lines, each margin glyph should match something in its own line. The null shuffles the column against the lines, 10,000 times.
+
+| relation | observed | shuffled mean | p |
+|---|---|---|---|
+| equals first glyph of the line | 1 of 26 | 1.0 | 0.68 |
+| starts some word in the line | 3 | 3.2 | 0.68 |
+| equals last glyph of the line | 0 | 2.1 | 1.00 |
+| occurs anywhere in the line | 12 | 13.6 | 0.90 |
+
+**Result: negative.** The margin glyph has nothing to do with the line beside it. The column has a structure of its own instead. The block `p o 192 y e 140` comes twice, at lines 9–14 and 16–21, and the opening `f o r y e 140` shares its last three glyphs with it. So the column is a sequence written for its own sake, a drill or an ordering, and not a line index. That agrees with the reading in `VISUAL_SURVEY.md`.
