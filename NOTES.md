@@ -1116,3 +1116,14 @@ Same as §37–39 with *Tirant lo Blanch* as plaintext and language model (§67)
 | **Voynich B** | fitted | **+0.032 to +0.048** |
 
 **Result: negative.** The Voynich keys gain no more from word order than wrong keys fitted to real Catalan ciphertext, and about a fifteenth of a true key. With §37–39, the letter-or-pair word cipher is now excluded by the held-out test for Latin, Italian, German, Hebrew and Catalan.
+
+## 69. One-to-one codebook, Voynich word → Catalan word (`codebook.py catalan`, `runs6/summary4.out`)
+
+Same as §62 with *Tirant lo Blanch*. Catalan is less inflected than Latin: its top 300 word types leave an OOV share of 0.31, against Voynich's 0.37. Word-bigram model, swap annealing, 1.5 million steps, 2 seeds.
+
+| input | OOV share | best score per token | key recovered |
+|---|---|---|---|
+| Catalan control (held-out half, relabelled) | 0.31 | −3.542, −3.531 (true key −3.373) | **38%, 39%** of types; 40%, 38% of the top 50 |
+| **Voynich** | 0.37 | **−4.450, −4.470** | |
+
+**Result: negative.** This is the best-powered codebook control so far, recovering 38–39% of the key, better than Italian's 28–33%. The Voynich falls 0.9 nat per token below it, with a slightly higher OOV share. That difference favors the Voynich, because OOV transitions score high (§62). Its best decoding is Catalan words in no syntax: `_ _ en _ feu _ _ mes feren _ _ _ a mes _ _ hon _ voluntat voluntat _ _ hagues a sera…`. A word-for-word codebook into Catalan is excluded at this level of power, as for Italian.

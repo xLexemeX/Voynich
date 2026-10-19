@@ -1,0 +1,1 @@
+[control catalan K=300 seed=1 inv-only=False] score/token -3.5421 (true held-out text -3.3726); OOV share 0.31 | top-50 types correct 0.40, all 0.38
