@@ -624,3 +624,25 @@ All Voynich lag-1 deficits and lag-2 excesses have p < 0.003 against 300 shuffle
 **Meaning for decipherment.** A line's first glyph depends on the previous line's first glyph, in an ABAB pattern found in neither Latin prose nor Italian verse. That is a layout rule working at the level of the line, like the other line-position effects (§2, §23). It makes an acrostic reading of line initials impossible: an acrostic's letters would follow plaintext letter order, not an alternation. It is also one more piece of evidence that lines were composed as units, with their openings chosen in relation to the line above.
 
 **Follow-up (`couplet.py`, `data/couplet.out`).** The alternation is not tied to fixed couplets. Counting from the paragraph start, the repeat deficit is the same at both phases: lines 2→3, 4→5 … 0.084 against 0.148, and lines 3→4, 5→6 … 0.074 against 0.149. So it works as a free-running rule, "do not start a line the way the line above started", not as a pairing of lines. It is also specific to line starts. Inside a line, consecutive words share their initial glyph at the shuffle rate (0.156 vs 0.151).
+
+## 45. Bax (2014): the "plant names" are page-opening words (`bax_test.py`, `data/bax_test.out`)
+
+Stephen Bax's "A proposed partial decoding of the Voynich script" (2014) reads ten words as proper names and derives 14 sound values from them (Appendix 1, p. 56). It is the best known bottom-up proposal. I took its EVA forms, reconstructing each from his sound table and the page he cites:
+
+| page, Bax's plant | EVA word | Bax's reading | where it stands | tokens in the manuscript |
+|---|---|---|---|---|
+| f2r, Centaurea | `kydainy` | KNTəIRN, "kantairon" | first word of the page | 1 |
+| f3v, hellebore | `koaiin` | KAUR | first word of the page | 1 |
+| f29v, Nigella | `kooiin` (+ `shor`) | KAUR CHAR | first word of the page | 2 (also opens f2v) |
+| f31r, cotton | `keedey` | KOOTON | first word of the page | 1 |
+| f27r, crocus | `ksor` | KSAR | first word of the page | 1 |
+| f41v, coriander | `keeredal` | KOORATU | marginal label | 1 |
+| f16r, juniper | `oror` | ARAR | inside longer words on f16r | 8, none on a herbal page |
+
+**What this shows.**
+- **The names are page openings.** Five of the six plant names are the first word of their herbal page, the slot where nearly every page starts with a gallows letter (§6) and where words almost never recur (§40). Being unique to the page, which makes a word look like a name, is therefore automatic for these words and carries no evidence.
+- **The /k/ is the opening gallows.** Bax's sound /k/, which appears in six of his ten names, rests on that gallows. `k` opens 24 of 128 herbal pages; the other openers are `p` 57, `t` 26 and `f` 7. It is 4 times commoner there than inside a line (0.19 vs 0.048). Choosing plants whose names begin with K, from pages that open with `k`, would give his matches whatever the opening glyph means.
+- **Stripped, two names are ordinary words.** Without the gallows, `koaiin` becomes `oaiin`, 25 tokens elsewhere, and `ksor` becomes `sor`, 50 tokens and a common line opener (§2). On f3v itself, `ykoaiin` follows a few words after `koaiin`, so the "name" also appears with a `y` prefix inside the line.
+- **The juniper word is not a word.** `oror` never stands alone on the juniper page. Its 8 free-standing occurrences are on bio, pharma and stars pages and on f116v, not on any plant page.
+
+**Verdict.** These readings are not refuted letter by letter, because most glyphs in them are hapax. But their supporting evidence, a K-initial word unique to its plant's page, is a positional artifact of the page-opening slot and would arise without any decoding. A held-out check is possible: if `k` = /k/ and `o` = /a/, the 24 `k`-opened herbal pages should depict plants with K-names more often than the `p`- and `t`-opened pages. That needs plant identifications made blind to the text, which I do not have.

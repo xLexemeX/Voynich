@@ -1,0 +1,23 @@
+kydainy   (Centaurea, KNTəIRN     on f2r):   1 tokens on  1 folios,  1 herbal; own page 1; opens herbal pages ['f2r']
+           other folios: 
+koaiin    (hellebore, KAUR        on f3v):   1 tokens on  1 folios,  1 herbal; own page 1; opens herbal pages ['f3v']
+           other folios: 
+kooiin    (Nigella, KAUR (CHAR)   on f29v):   2 tokens on  2 folios,  2 herbal; own page 1; opens herbal pages ['f2v', 'f29v']
+           other folios: f2v
+keedey    (cotton, KOOTON         on f31r):   1 tokens on  1 folios,  1 herbal; own page 1; opens herbal pages ['f31r']
+           other folios: 
+keeredal  (coriander, KOORATU     on f41v):   1 tokens on  1 folios,  1 herbal; own page 1; opens herbal pages []
+           other folios: 
+ksor      (crocus, KSAR           on f27r):   1 tokens on  1 folios,  1 herbal; own page 1; opens herbal pages ['f27r']
+           other folios: 
+oror      (juniper, ARAR          on f16r):   8 tokens on  8 folios,  0 herbal; own page 0; opens herbal pages []
+           other folios: f102v2 f112v f113v f116v f81r f84r f84v fRos
+herbal page-first word initial glyph: {'p': 57, 't': 26, 'k': 24, 'o': 8, 'f': 7, '1': 3} of 128
+k-initial share: herbal page-first words 0.19; herbal non-line-initial words 0.048
+stripped of the opening gallows:
+  kydainy   -> ydainy      0 tokens; same core after p/t/f: 
+  koaiin    -> oaiin      25 tokens; same core after p/t/f: poaiin:1, toaiin:3
+  kooiin    -> ooiin       0 tokens; same core after p/t/f: 
+  keedey    -> eedey       0 tokens; same core after p/t/f: 
+  keeredal  -> eeredal     0 tokens; same core after p/t/f: 
+  ksor      -> sor        50 tokens; same core after p/t/f: 
