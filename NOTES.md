@@ -867,3 +867,19 @@ All sections at n = 15 pages: bio B 0.31, herbal A 0.52, herbal B 0.31, pharma A
 **Interpretation.** Herbal A pages do not keep a repeated, page-specific name the way a real herbal does. The name could be written once, spelled differently each time, or the text could not be about the plant. This agrees with §40 and §51, but it is a quantitative difference, not an absence.
 
 **Limits.** Macer is verse in inflected Latin. Inflection lowers its exact-form repetition, so the gap may be underestimated. There is only one reference herbal.
+
+## 56. Are labels repeated in their own page's text? Only as much as any word is (`label_page.py`, `data/label_page.out`)
+
+§28 compared a label with the paragraph beside it against other paragraphs *on the same page*. This compares the label with the whole running text of its own page (paragraphs, circular and radial text) against the running text of another page of the same section. The null reassigns labels to random pages of the section, 5,000 draws. The baseline is general page locality (§5): an ordinary running-text word of 3+ glyphs, checked against the rest of its own page versus a random page.
+
+| section | labels | in own page's text | random page | p | label ratio | ordinary-word ratio (locality) |
+|---|---|---|---|---|---|---|
+| cosmo | 198 | 37 | 18.2 | < 0.001 | 2.04× | 1.86× |
+| zodiac | 331 | 32 | 26.0 | 0.09 | 1.23× | 1.17× |
+| bio | 117 | 24 | 23.8 | 0.54 | 1.01× | 1.14× |
+| pharma | 244 | 16 | 16.0 | 0.55 | 0.99× | 1.20× |
+| astro | 137 | 5 | 7.3 | 0.92 | 0.69× | 1.50× |
+
+**Result: negative.** The one significant section, cosmo, is explained by locality: its labels recur in their own page's text 2.04 times as often as on another page, but so does an ordinary word, 1.86 times. Everywhere else labels are tied to their page *less* than ordinary words are. Pharmacy labels match their own page's recipes exactly as often as a random page's recipes. The two striking pharmacy cases, `opcheor` on f89r2 and `doldam` on f99v, occur on their own page as a label and in the text and nowhere else in the book. They are the kind of coincidence 244 labels produce.
+
+Together with §28, §35 and §52: a label is not a word the nearby text uses, at any scale from the adjacent paragraph to the page.

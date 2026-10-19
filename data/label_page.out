@@ -1,0 +1,15 @@
+section  labels  in own page text  random page      p   matches
+astro       137                 5          7.3  0.918   air, daiin, dal, ofar, otor
+bio         117                24         23.8  0.537   dal, dar, dshedy, lol, okaiin, okain, okal, okaly, okchdy, okedy, olkeedy, olkol, olky, olol, otain, otedy, oteedy, otee
+cosmo       198                37         18.2  0.000   cheky, chey, daiin, dair, dal, dar, odal, okar, okary, okchdy, okchy, okedy, okeey, okody, okor, opar, otdar, otedaiin, 
+pharma      244                16         16.0  0.554   cheody, cheor, chody, chol, chor, dar, doldam, okeody, okeoly, okol, okor, oldy, opcheor, sheol
+text         21                 3          2.8  0.670   daiin, dary, qokal
+zodiac      331                32         26.0  0.090   air, aly, arar, ches, daiin, ody, okal, okaly, okeeol, okeey, olaiin, opaiin, otaiin, otal, otar, otedy, oteeol, oteey, 
+  astro    text words own/random 0.161/0.107 = 1.50x   labels 5/7.2 = 0.69x
+  bio      text words own/random 0.597/0.523 = 1.14x   labels 24/23.8 = 1.01x
+  cosmo    text words own/random 0.319/0.172 = 1.86x   labels 37/18.1 = 2.04x
+  herbal   text words own/random 0.289/0.177 = 1.64x   labels 0/0.0 = 0.00x
+  pharma   text words own/random 0.344/0.286 = 1.20x   labels 16/16.2 = 0.99x
+  stars    text words own/random 0.494/0.388 = 1.27x   labels 0/0.0 = 0.00x
+  text     text words own/random 0.505/0.328 = 1.54x   labels 3/2.8 = 1.06x
+  zodiac   text words own/random 0.193/0.164 = 1.17x   labels 32/26.1 = 1.23x
