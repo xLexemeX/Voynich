@@ -1,0 +1,19 @@
+bio     B:  19 pages; pages with a name-like word 0.21; repeated words found on no other page 0.022
+herbal  A:  49 pages; pages with a name-like word 0.10; repeated words found on no other page 0.011
+herbal  B:  27 pages; pages with a name-like word 0.15; repeated words found on no other page 0.017
+pharma  A:  15 pages; pages with a name-like word 0.67; repeated words found on no other page 0.095
+stars   B:  23 pages; pages with a name-like word 0.26; repeated words found on no other page 0.045
+Macer reference: 66 chapters; 0.27; 0.043
+--- every group subsampled to 15 pages (500 draws): mean share of pages with a name-like word, and of repeats that are page-exclusive
+  bio B     0.31  0.034
+  herbal A  0.52  0.076
+  herbal B  0.31  0.041
+  pharma A  0.67  0.095
+  stars B   0.41  0.074
+  Macer     0.54  0.129
+--- equal page counts and lengths (84 words): herbal A vs Macer, 300 draws each
+  n=10: herbal A 0.70/0.125   Macer 0.66/0.178   herbal B 0.52/0.079
+  n=20: herbal A 0.40/0.054   Macer 0.48/0.107   herbal B 0.23/0.028
+  n=30: herbal A 0.24/0.029   Macer 0.39/0.078   herbal B -
+  n=45: herbal A 0.12/0.013   Macer 0.33/0.058   herbal B -
+  n=45 spread: herbal A 5-95% 0.09-0.16; Macer 5-95% 0.27-0.42; herbal A full 49 pages 0.10

@@ -838,24 +838,32 @@ What the word-clustering measure does show is that Montemurro & Zanette's "keywo
 
 **Limits.** The generator was tuned on the whole text, so its local copying may be too strong for one stretch. Macer is verse and Latin is inflected, which spreads word forms. A prose herbal, or a lemmatized comparison, would be a fairer reference.
 
-## 55. Herbal pages have no page-exclusive repeated words, unlike a real herbal (`namewords.py`, `data/namewords.out`)
+## 55. Herbal pages have fewer page-exclusive repeated words than a real herbal (`namewords.py`, `namewords2.py`, `data/namewords*.out`)
 
-**Idea.** A herbal names its plant, and often a few other page-specific things, more than once on that plant's page and nowhere else. Call a word *name-like* on a page if it occurs there two or more times and on no other page of the same text. The test needs no decipherment. Reference: Macer Floridus (§54). Its chapter title, the plant's name, occurs inside its own chapter in 73 of 77 chapters.
+**Idea.** A herbal names its plant, and often a few other page-specific things, more than once on that plant's page and nowhere else. Call a word *name-like* on a page if it occurs there two or more times and on no other page of the same set. Reference: Macer Floridus (§54). Its chapter title, the plant's name, occurs inside its own chapter in 73 of 77 chapters.
 
-| text, pages of about 84 words | pages with a name-like word | words repeated within a page, per page | share of those found on no other page |
+**Correction to the first version.** The first version of this section compared 95 Voynich herbal-A pages with 66 Macer chapters and reported 6% vs 27%, p = 3 × 10⁻⁷. That comparison was confounded. Whether a word is exclusive to one page depends on how many other pages there are, and the Voynich side had more. With page *counts* matched as well as page lengths, the gap shrinks, though it does not vanish.
+
+**Matched comparison.** Pages are cut to 84 words, keeping only pages that have at least that many. Random subsets of n pages, 300 draws. Each cell gives the share of pages with a name-like word / the share of within-page repeated words that are found on no other page.
+
+| n pages | herbal A | Macer | herbal B |
 |---|---|---|---|
-| Macer, chapters cut to 84 words (66) | **0.27** (stems: 0.44) | 6.4 | 0.043 |
-| Dante, arbitrary 84-word pages (95) | 0.15 | 9.4 | 0.025 |
-| **Voynich herbal A (95 pages)** | **0.06** | **9.6** | **0.007** |
-| Voynich herbal A, opening gallows stripped | 0.05 | | |
-| Voynich herbal A, loose key (prefix and final glyph removed) | 0.00 | | |
-| self-citation generator, same page lengths | 0.96 | 10.7 | 0.350 |
+| 10 | 0.70 / 0.125 | 0.66 / 0.178 | 0.52 / 0.079 |
+| 20 | 0.40 / 0.054 | 0.48 / 0.107 | 0.23 / 0.028 |
+| 30 | 0.24 / 0.029 | 0.39 / 0.078 | |
+| 45 | **0.12** / 0.013 (5–95%: 0.09–0.16) | **0.33** / 0.058 (0.27–0.42) | |
+
+Herbal A has only 49 pages of 84+ words, so its n = 45 draws overlap heavily and its range is narrow by construction.
+
+All sections at n = 15 pages: bio B 0.31, herbal A 0.52, herbal B 0.31, pharma A 0.67, stars B 0.41; Macer 0.54. The self-citation generator, on all 95 herbal-A page lengths, gives 0.96, against 0.06 for the real herbal-A pages.
 
 **Result.**
-- **Few name-like words.** At Macer's rate of 0.27, 6 or fewer of 95 pages has probability 3 × 10⁻⁷. Herbal A pages repeat as many words as Dante does, 9.6 per page. But the words a herbal page repeats are, 99.3% of the time, words that also occur on other herbal pages. That is five to six times less page-exclusive repetition than a Latin herbal, and less than arbitrary chunks of Dante.
-- **The page-specific vocabulary is written once.** Words found only on one page do exist; 69% of types are hapax. But they occur only once on that page. Whatever is particular to a page is not repeated in the same written form.
-- **The generator fails too.** The slot self-citation generator (§17), the best meaningless model so far, gets this badly wrong: it repeats its own fresh variants, so 35% of its within-page repeats are page-exclusive. This is a new constraint on generative models. A copy-and-vary procedure must almost never re-copy its own new variants, only words already established elsewhere.
+- **Small sets look alike.** With 10–15 pages, herbal A looks like Macer.
+- **The difference grows with the set.** As more pages are included, the words a Voynich herbal page repeats turn up on other pages, and the rate falls fast: 0.70 → 0.12 from 10 to 45 pages. In Macer it falls slowly: 0.66 → 0.33. A herbal's page-repeated names stay exclusive however many chapters are added. Herbal A's page-repeated words are moderately rare words that recur elsewhere in the book.
+- **Size of the gap.** At 45 pages it is about threefold, outside the sampling ranges. It is smaller than the fivefold of the first version.
+- **Not all sections.** Pharmacy pages (0.67 at n = 15) have more page-exclusive repeats than Macer. Bio and herbal B have fewer.
+- **The generator fails.** The slot self-citation generator (§17) repeats its own fresh variants and overshoots badly (0.96). A copy-and-vary procedure would have to re-copy established words, not its own new ones.
 
-**Interpretation.** If herbal A is a herbal, it does not refer to its plant by a repeated written name. The name could be written once and referred to by pronouns afterward, or spelled differently each time, or the text could be about something other than the plant. This agrees with §40 and §51. It is the clearest statistical difference so far between the Voynich herbal pages and a real herbal of the same page length.
+**Interpretation.** Herbal A pages do not keep a repeated, page-specific name the way a real herbal does. The name could be written once, spelled differently each time, or the text could not be about the plant. This agrees with §40 and §51, but it is a quantitative difference, not an absence.
 
-**Limits.** Macer is verse in inflected Latin. Inflection *lowers* its exact-form repetition, which favors the Voynich side of this comparison, so the gap is if anything underestimated. Pages are matched on length, not on line structure.
+**Limits.** Macer is verse in inflected Latin. Inflection lowers its exact-form repetition, so the gap may be underestimated. There is only one reference herbal.
