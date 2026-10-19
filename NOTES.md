@@ -915,3 +915,23 @@ The dominant late-medieval herbals, *Circa instans* and the illustrated *Tractat
 - **Units as syllables almost fit.** About 60 units at 2.4 per word is the profile of a small syllabary, a few dozen signs and two or three per word, like the Japanese kana. The fit is only in size: Latin syllables number about 1,600 types (top 60 cover 63% of tokens) and are far less predictable (h2 4.4). So the Voynich units cannot be one sign per Latin syllable either. A syllabic reading needs a language with a small syllable inventory, or a script that writes only part of each syllable.
 
 This is a constraint, not a reading. It narrows the scripts the Voynich could be, if it is a script at all: not an alphabet with real word spaces; possibly a small syllabary or an abbreviating system.
+
+## 59. A Polynesian comparison: Māori is close to Voynich on entropy (`bpe_units.py`, `data/bpe_units.out`)
+
+The Māori New Testament (ebible.org `mri`, not committed) was cut to the same token count as the Voynich paragraph text. Māori writes only (C)V syllables (consonants h k m n p r t w ng wh; five vowels), so every word splits uniquely into syllables.
+
+| text | units | h1 | h2 | units per word |
+|---|---|---|---|---|
+| Voynich, raw EVA | 25 | 3.87 | 2.10 | 4.96 |
+| **Māori, letters** | 15 | 3.44 | **2.49** | 3.34 |
+| Latin, letters | 24 | 4.01 | 3.40 | 6.01 |
+| Voynich, merged to 50 units (§58) | 50 | 4.57 | 3.17 | 2.64 |
+| **Māori, syllables** | 52 | 4.12 | **3.10** | 1.93 |
+
+**Result.**
+- **Raw glyphs.** Voynich's conditional entropy (2.10) sits between Māori letters (2.49) and nothing European. Notes §2, §4 and §19 said that h2 of about 2.1 is lower than any natural language. That claim was tested only on Latin, Italian, German, English and Hebrew. A Polynesian language closes most of the gap.
+- **Merged units.** With glyphs merged to about 50 units, Voynich resembles the Māori syllabary closely: inventory 50 vs 52, h2 3.17 vs 3.10. The difference is word length, 2.6 vs 1.9 units.
+
+**Prior work.** Bennett (1976) found Hawaiian to be the language closest to Voynich in entropy (voynich.nu, "a2_char"). Lindemann & Bowern (2020), over 294 Wikipedia languages, found that glyph manipulations do not bring Voynich into the natural range. The Māori figures here confirm the Polynesian point with a measured second case. They do not contradict Lindemann & Bowern, whose range includes Polynesian languages.
+
+**Meaning.** This does not suggest the text is Polynesian. Its date and place exclude that historically. What it shows is that the low entropy, the strongest statistical argument against a natural language (§7, H1), is matched by natural languages with a small CV syllable structure. Strictly, the entropy argument excludes a European alphabetic plaintext written one glyph per letter, not natural language as such. Correct §7's H1 verdict accordingly: *dead for European alphabetic plaintext; open for a language with a small, simple syllable inventory under some notation.*

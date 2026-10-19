@@ -52,3 +52,13 @@ def syl(w):
 ls=[syl(w) for w in lat]
 h1,h2=H(ls); inv=len({u for w in ls for u in w}); c=collections.Counter(u for w in ls for u in w); top=sum(v for _,v in c.most_common(60))/sum(c.values())
 print(f'Latin syllables: inventory {inv}, top-60 cover {top:.2f} of tokens; h1 {h1:.2f} h2 {h2:.2f}; syllables/word {sum(map(len,ls))/len(ls):.2f}')
+# reference: Maori (NT, ebible.org mri) split into its (C)V syllables
+import glob, unicodedata
+mt=' '.join(open(f,encoding='utf-8').read() for f in sorted(glob.glob('data/ext_poly/mri/mri_*_read.txt')) if '_000_' not in f).lower()
+mt=unicodedata.normalize('NFKD',mt).encode('ascii','ignore').decode()
+mw=[w for w in re.findall(r'[a-z]+',mt)][:len(voy)]
+def msyl(w): return re.findall(r'(?:ng|wh|[hkmnprtw])?[aeiou]',w) if re.fullmatch(r'(?:(?:ng|wh|[hkmnprtw])?[aeiou])+',w) else None
+ms=[s for s in (msyl(w) for w in mw) if s]
+h1,h2=H(ms); c=collections.Counter(u for w in ms for u in w)
+print(f'Maori syllables ({len(ms)} of {len(mw)} words parse as CV): inventory {len(c)}; h1 {h1:.2f} h2 {h2:.2f}; syllables/word {sum(map(len,ms))/len(ms):.2f}')
+h1,h2=H([list(w) for w in mw]); print(f'Maori letters: h1 {h1:.2f} h2 {h2:.2f}; letters/word {sum(map(len,mw))/len(mw):.2f}')
