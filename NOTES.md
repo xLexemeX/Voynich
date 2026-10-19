@@ -1346,3 +1346,9 @@ The images make the whole line visible. The Latin-script part reads roughly as P
 - the reading "balsamina" itself is unconfirmed, and the identification lists used in §46 and §51 give no plant for f17r to check it against.
 
 This is a job for a palaeographer working on the full-resolution multiband files, not for statistics.
+
+## 79. The faint full-page text on f116v in the multispectral images is offset from f116r (`crops/f116v_msi_offset_mirrored.png`)
+
+The f116v "faded text" processing in the Lazarus set (`Voynich_116v_…_faded_text_…_as_L_RGB.jpg`) shows faint lines of script across the whole page below the known marginalia. Unmirrored, the glyph shapes look reversed. Mirrored, they read as ordinary Voynichese in the style of f116r: repeated `okeey`- and `qok`-type words and gallows. The lowest clear line reads roughly "…ol cheey qor ar… ol…". That matches f116r line 49, `sysor,shey.qokey.okeolan.chey.qol.or.cheey.qor.arom.ol.lkan`. The text is therefore ink offset from the facing page, f116r, and not lost writing on f116v, so it adds nothing to the transcription.
+
+The other processed images in the set (f8r, f26r, f47r, f70v1, f71r, f93r) were downloaded to `data/ext_msi/`. The f102v1 download returned an HTML page instead of an image. I looked at those six only at overview resolution, about 900 pixels high. They show no marginal writing beyond what the color scans show. f47r shows a second set of leaf outlines overlapping the plant, either offset or underdrawing, but no text. A full-resolution search of their margins was not done. Of the imaged pages, f1r (Davis 2024: Roman alphabets beside Voynich glyphs, an owner's attempt at decipherment) and f17r (§78) are the ones with marginal writing of interest.
