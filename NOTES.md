@@ -646,3 +646,18 @@ Stephen Bax's "A proposed partial decoding of the Voynich script" (2014) reads t
 - **The juniper word is not a word.** `oror` never stands alone on the juniper page. Its 8 free-standing occurrences are on bio, pharma and stars pages and on f116v, not on any plant page.
 
 **Verdict.** These readings are not refuted letter by letter, because most glyphs in them are hapax. But their supporting evidence, a K-initial word unique to its plant's page, is a positional artifact of the page-opening slot and would arise without any decoding. A held-out check is possible: if `k` = /k/ and `o` = /a/, the 24 `k`-opened herbal pages should depict plants with K-names more often than the `p`- and `t`-opened pages. That needs plant identifications made blind to the text, which I do not have.
+
+## 46. Held-out test of Bax's /k/ against independent plant identifications (`plantids.py`, `bax_heldout.py`, `data/bax_heldout*.out`)
+
+**Data.** voynich.nu lists "tentative identifications" per folio from two people who worked from the drawings: Ellie Velinska (ELV) and Th. Petersen (ThP). `plantids.py` extracts them into `data/plantids.json`, 138 folios, of which 62–74 are herbal pages that open with a gallows. The first proposed name in each entry is used.
+
+**Prediction.** If Bax is right that the page-opening `k` is the sound /k/ (§45), `k`-opened pages should show plants whose names begin with a /k/ sound (`k`, `q`, or `c` not before `e`/`i`) more often than `p`-, `t`- and `f`-opened pages do. A broader version: the opening gallows matches the name's initial (`k`~C/K, `p`~P, `t`~T, `f`~F). The null shuffles names across pages, 10,000 times. The main run excludes Bax's own anchor pages (f2r, f3v, f16r, f27r, f29v, f31r, f41v).
+
+| identifier | /k/ names on `k`-opened pages | on `p`/`t`/`f` pages | p | gallows matches initial | shuffled | p |
+|---|---|---|---|---|---|---|
+| ELV | 0 of 12 | 7 of 50 | 1.00 | 6 | 6.3 | 0.65 |
+| ThP | 4 of 13 | 5 of 57 | 0.052 | 10 | 6.4 | 0.069 |
+
+**Result: not supported.** With ELV's identifications the prediction fails outright: none of the 12 `k`-opened pages has a /k/-name. With ThP's there is a weak trend, 4 of 13 against 5 of 57. Its hits are *crossolatea*, *campanula*, *contellaria* and "like coxcomb?". It does not reach p < 0.05 even before correcting for two identifiers and two statistics. It also depends on a rule I loosened after a first run: counting `cy` as /k/ added one hit to each identifier. Two independent identifiers disagree, and the one that agrees does so weakly. The page-opening gallows does not carry the first sound of the plant's name.
+
+**Caveat.** These identifications are themselves uncertain, often marked "?", and the two sources agree on only a minority of pages. A real signal would have to show through that noise. A 31% vs 9% rate on 13 pages could be such a signal, or could be chance. A third set of identifications made without seeing the text, such as Sherwood's or Janick & Tucker's, would settle it. I did not find a folio-level list of either.

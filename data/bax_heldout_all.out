@@ -1,0 +1,8 @@
+ELV: 66 herbal pages with a name and a gallows opening {'k': 14, 't': 13, 'p': 34, 'f': 5}
+   C/K-initial names: k-opened pages 1/14 = 0.07; p/t/f-opened pages 7/52 = 0.13; permutation p = 0.867
+   k-opened pages: f1v kchsy = atropa; f2r kydainy = cyanus; f4r kodalchy = hypericum; f5r kchody = paris; f5v k = geranium; f20r kdchody = arctostaphylis; f28v kshol = arnica; f31r keedey = hyoscyamus; f32v kcheodaiin = malva; f34v ke'chdy = eryngium; f45v korary = teucrium; f49v kshor = lunaria; f53r kodam = inula; f56v kcheat = aristolochia
+   opening gallows matches name initial (k~C/K, p~P, t~T, f~F): 7 vs shuffled 6.6, p = 0.509
+ThP: 74 herbal pages with a name and a gallows opening {'k': 15, 't': 19, 'p': 35, 'f': 5}
+   C/K-initial names: k-opened pages 5/15 = 0.33; p/t/f-opened pages 6/59 = 0.10; permutation p = 0.040
+   k-opened pages: f1v kchsy = solanum; f2r kydainy = cyanus; f4r kodalchy = hypericum; f5r kchody = paris; f5v k = parietaria; f13v koair = crossolatea; f20r kdchody = moss; f31r keedey = hyrciacum; f32v kcheodaiin = campanula; f34v ke'chdy = libanotis; f45v korary = contellaria; f49v kshor = lunaria; f53r kodam = elecampane; f55v kcheedchdy = elephants; f93r kodshol = coxcomb
+   opening gallows matches name initial (k~C/K, p~P, t~T, f~F): 11 vs shuffled 6.8, p = 0.046

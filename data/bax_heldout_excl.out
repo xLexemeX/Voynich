@@ -1,0 +1,6 @@
+ELV: 62 herbal pages with a name and a gallows opening {'k': 12, 't': 13, 'p': 32, 'f': 5}
+   C/K-initial names: k-opened pages 0/12 = 0.00; p/t/f-opened pages 7/50 = 0.14; permutation p = 1.000
+   opening gallows matches name initial (k~C/K, p~P, t~T, f~F): 6 vs shuffled 6.3, p = 0.653
+ThP: 70 herbal pages with a name and a gallows opening {'k': 13, 't': 19, 'p': 33, 'f': 5}
+   C/K-initial names: k-opened pages 4/13 = 0.31; p/t/f-opened pages 5/57 = 0.09; permutation p = 0.052
+   opening gallows matches name initial (k~C/K, p~P, t~T, f~F): 10 vs shuffled 6.4, p = 0.069
