@@ -883,3 +883,15 @@ All sections at n = 15 pages: bio B 0.31, herbal A 0.52, herbal B 0.31, pharma A
 **Result: negative.** The one significant section, cosmo, is explained by locality: its labels recur in their own page's text 2.04 times as often as on another page, but so does an ordinary word, 1.86 times. Everywhere else labels are tied to their page *less* than ordinary words are. Pharmacy labels match their own page's recipes exactly as often as a random page's recipes. The two striking pharmacy cases, `opcheor` on f89r2 and `doldam` on f99v, occur on their own page as a label and in the text and nowhere else in the book. They are the kind of coincidence 244 labels produce.
 
 Together with §28, §35 and §52: a label is not a word the nearby text uses, at any scale from the adjacent paragraph to the page.
+
+## 57. Do the herbal plants run in alphabetical order, as in *Circa instans*? (`alphaorder.py`, `data/alphaorder.out`)
+
+The dominant late-medieval herbals, *Circa instans* and the illustrated *Tractatus de herbis*, arrange plants alphabetically by Latin name. If the Voynich herbal copied such a model, the plants identified from the drawings should run roughly alphabetically through the folios. The bifolios are known to be bound out of order, so the test is also run within quires. Statistic: Spearman correlation between folio order and the alphabetical rank of the first proposed name. 5,000 shuffles.
+
+| identifier | pages | rho, all herbal | p | mean rho within quires |
+|---|---|---|---|---|
+| ELV | 76 | −0.20 | 0.08 | −0.18 (8 quires) |
+| ThP | 86 | −0.01 | 0.91 | +0.04 (9 quires) |
+| Sherwood | 27 | −0.20 | 0.31 | −0.42 (4 quires, few pages) |
+
+**Result: negative.** No identifier shows any alphabetical trend, overall or within quires. The weak negative values are not significant and do not agree across identifiers. Either the herbal does not follow an alphabetical model, or the identifications, or the leaf order, are too unreliable to show it. A Latin-alphabetical source would have shown a clear positive rho if most identifications were right.
