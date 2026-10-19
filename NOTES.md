@@ -1061,3 +1061,29 @@ This closes the gap §61 and §64 left. The homophonic Italian syllabary is now 
 - **Homophonic Latin (100 units).** The search collapses again: its training score beats the true key's (−1.64 vs −2.67) with zero gain, on the control and on the Voynich alike.
 
 So §65's conclusion holds for **Italian only**. Latin syllabaries remain covered only by the training-score test of §61.
+
+## 66. Where things stand after §54–65
+
+**New exclusions, each with a control that passes:**
+- **Italian or Latin syllabary, one sign per merged unit, 40–80 signs.** The control key is recovered at 93–100%, and Voynich falls 0.45–1.39 nats per token short (§61).
+- **Italian syllabary, one-to-one or homophonic, by the cross-word held-out test.** The true key gains 7 sd over random keys, and the Voynich keys sit at random-key level (§65).
+- **Codebook, Voynich word → Italian word.** Voynich falls 1 nat per token short of a partly recovered control (§62).
+- **A fixed 30-name sequence on the zodiac wheels,** under any start point or direction (§63).
+
+**Untested, because the controls fail, recorded so they are not mistaken for exclusions:**
+- Latin codebook (§62)
+- Latin syllabary by cross-word gain (§65)
+- homophonic syllabary by within-word gain (§64)
+- syllabic grid from context (§60)
+
+**Structural results:**
+- **Entropy.** The low-entropy argument rules out a European *alphabetic* plaintext, not natural language as such: Māori comes close (§59). Merged to about 50–60 units, Voynich has the size profile of a small syllabary (§58).
+- **Topic clustering.** It does not separate meaning from a copying procedure (§54).
+- **Page-exclusive repeated words.** Herbal-A pages have about three times fewer than a real Latin herbal at matched size (§55). Labels are tied to their page no more than any word is (§56). The identified plants run in no alphabetical order (§57).
+
+**Method lessons**, now applied throughout:
+1. Every search needs a positive control run under the same conditions.
+2. Many-to-one keys collapse under language-model scores, so use one-to-one keys or held-out tests.
+3. Held-out gains need a random-key null.
+4. Compare at matched page counts, not only matched page lengths (§55).
+5. Check reference files (the empty Vulgate, §49) and generator seeds (§64).
