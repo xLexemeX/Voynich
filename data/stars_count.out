@@ -1,0 +1,4 @@
+quire 20 paragraphs present: 285 on 23 pages; per full page mean 12.6 sd 2.9 max 18
+missing bifolio f109-f110 = 4 pages: expected 50 +/- 6; total 335 +/- 6
+  to reach 360: missing pages would need 75 paragraphs, 18.8 per page (observed max 18)
+  to reach 365: missing pages would need 80 paragraphs, 20.0 per page (observed max 18)

@@ -729,3 +729,9 @@ Each Voynich row uses 200 reshuffled tables; the control uses 100.
 **Scale of the word-order gain.** Shuffling whole words changes only the letter 4-grams that span word boundaries. So the gain is small even for a true table (+0.019 here). It is much smaller than the 0.4–0.6 in §37, where the shuffled units were single letters or letter pairs. What matters is how the gain ranks within the reshuffled family, not its size. The Voynich gain is larger in absolute terms (+0.07) for *every* table, reshuffled ones included. It comes from the text's own repeated word sequences, not from any table.
 
 Future claims can be added to `mappings/` and checked the same way. A table that deserves attention has to beat its reshuffled family on the Voynich text the way the true table does on the control.
+
+## 50. Are the starred paragraphs one per day? (`data/stars_count.out`)
+
+The stars section (quire 20) is a run of short paragraphs, each marked with a star in the margin. A calendar of one entry per day would give about 360 or 365 of them. ZL has 285 paragraphs on the 23 surviving pages of quire 20, not counting f58. The bifolio f109–f110, 4 pages, is lost. Full pages carry 12.7 paragraphs on average (sd 2.6, max 18), so the lost pages held about 51, plus or minus 5. That gives about **336 ± 5** in total. Reaching 360 would need 19 per lost page, and 365 would need 20. Both are more than any surviving page holds.
+
+**Result: a 360- or 365-entry calendar is unlikely.** The count falls short by about 25–30 entries even with dense lost pages. It also does not land on another obvious calendar number: 336 is 12 × 28, a lunar-month reckoning, but that fit is a post-hoc coincidence and I do not count it as evidence. **Caveat:** ZL paragraph boundaries are a transcriber's judgment. A count of the stars themselves, made from the scans, would be the right figure.
