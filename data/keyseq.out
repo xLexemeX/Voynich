@@ -1,0 +1,3 @@
+f57v ring 5 (single glyphs before the first word): n=18 LCS with ring-3 cycle 10; shuffled mean 9.62, p=0.5350
+f66r margin single glyphs: n=34 LCS with ring-3 cycle 12; shuffled mean 11.09, p=0.3205
+f49v margin column: n=26 LCS with ring-3 cycle 8; shuffled mean 7.05, p=0.2535

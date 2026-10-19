@@ -571,3 +571,21 @@ Each of the 26 text lines on f49v has a single glyph beside it in the left margi
 | occurs anywhere in the line | 12 | 13.6 | 0.90 |
 
 **Result: negative.** The margin glyph has nothing to do with the line beside it. The column has a structure of its own instead. The block `p o 192 y e 140` comes twice, at lines 9–14 and 16–21, and the opening `f o r y e 140` shares its last three glyphs with it. So the column is a sequence written for its own sake, a drill or an ordering, and not a line index. That agrees with the reading in `VISUAL_SURVEY.md`.
+
+## 42. Do the single-glyph sequences share one ordering? (`keyseq.py`, `data/keyseq.out`)
+
+The manuscript has four runs of isolated glyphs:
+- the third ring of f57v, a 17-glyph cycle written four times: `o l d r v x k m f 169 v t r 170 171 y c 172`
+- the start of the fifth ring of f57v: `o v l r m aiin d 170 c f s y l k x l r 171`
+- the single glyphs in the left margin of f66r (34)
+- the margin column of f49v (26, §41)
+
+If they were copies of one reference order, such as an alphabet, a cipher wheel or a table index, each should share a long ordered run with the f57v cycle. I measured the longest common subsequence with the cycle, allowing any rotation and two passes round it. The null is the same glyphs shuffled, 2,000 times.
+
+| sequence | length | LCS with the f57v cycle | shuffled mean | p |
+|---|---|---|---|---|
+| f57v ring 5 head | 18 | 10 | 9.6 | 0.54 |
+| f66r margin glyphs | 34 | 12 | 11.1 | 0.32 |
+| f49v margin column | 26 | 8 | 7.1 | 0.25 |
+
+**Result: negative.** They share glyphs but not their order. Not even the fifth ring on the same page follows the ring-3 order more than a shuffle does. The f57v cycle is the only one of these that repeats exactly, and it is not reused as an ordering anywhere else.
