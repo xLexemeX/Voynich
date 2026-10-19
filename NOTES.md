@@ -950,3 +950,20 @@ All values are means over seeds.
 **Result: the positive control nearly fails.** In a real CV syllabary, context clusters recover the consonant classes only slightly better than random labels, 0.40 vs 0.31–0.36. They recover the vowels a little better, 0.20 vs 0.12. Context alone does not reveal the grid. Ventris needed inflectional alternations, Kober's "triplets": the same stem with different endings, where the alternating signs share a consonant. He also needed place names as anchors. So I do not apply this method to the Voynich units: a null result there would mean nothing.
 
 The Kober-triplet version is possible in principle, since the Voynich slot grammar has stem + ending alternations (§8). But it assumes the endings are inflections spelled syllabically, which §8 (prefix and suffix independent, no agreement) argues against.
+
+## 61. Lossy Italian syllabary, one sign per unit: control recovered exactly, Voynich far off (`syllabary.py`, `runs5/`)
+
+Tests the family left open by §58–59: a small syllabary for a European language. Target: Italian (Dante). Each syllable is reduced to a *sign* made of its onset (at most two consonants) and vowel, dropping codas as Linear B does, and the 60 commonest signs are kept. Sign-bigram model, with word boundaries, trained on the first half of Dante. Voynich paragraph glyphs (12,000 words) are BPE-merged to exactly 60 units (§58). The search looks for the unit→sign mapping that maximizes the model's score per token, by annealing, 400,000 steps, 3 seeds.
+
+**Many-to-one search is degenerate.** With many-to-one mappings allowed, the search on the positive control finds keys that score *better* than the true key (−2.08 vs −2.28) while mapping only 5–10% of units correctly. This is the collapse of §33. Since both inventories have 60 items, the search was restricted to one-to-one mappings (swap moves).
+
+| input | best score per token, 3 seeds | key recovered |
+|---|---|---|
+| Italian (held-out half), signs randomly relabelled | **−2.277** in all three | **100%** of units in all three |
+| true Italian with true signs (reference) | −2.277 | |
+| **Voynich, 60 BPE units** | **−3.375 to −3.421** | |
+| slot self-citation generator, 60 BPE units | −3.866 | |
+
+**Result: negative.** The one-to-one search recovers a hidden Italian syllabary key exactly. On the Voynich text it ends 1.1 nats per token below a real decipherment. That is much closer to gibberish than to Italian, though the Voynich does fit better than the generator. A 60-sign onset+vowel syllabary of Italian, one sign per Voynich unit, does not fit.
+
+**Limits.** The Voynich units are BPE merges chosen by frequency, and the true units of a syllabary could be cut differently. Only Italian was tested, with one syllable model. A homophonic syllabary, several Voynich units per sign, was not tested, because the many-to-one form is degenerate under this score (§33).

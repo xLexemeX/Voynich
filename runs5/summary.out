@@ -1,0 +1,9 @@
+[control seed=1 units=60 signs=60] score/token -2.0802 (true Italian with true signs -2.2770) | units correctly mapped 0.05
+[control seed=2 units=60 signs=60] score/token -2.0945 (true Italian with true signs -2.2770) | units correctly mapped 0.10
+[control seed=3 units=60 signs=60] score/token -2.0878 (true Italian with true signs -2.2770) | units correctly mapped 0.07
+[generator seed=1 units=60 signs=60] score/token -2.8111 (true Italian with true signs -2.2770)
+[generator seed=2 units=60 signs=60] score/token -2.8111 (true Italian with true signs -2.2770)
+[generator seed=3 units=60 signs=60] score/token -2.8111 (true Italian with true signs -2.2770)
+[voynich seed=1 units=60 signs=60] score/token -2.3969 (true Italian with true signs -2.2770)
+[voynich seed=2 units=60 signs=60] score/token -2.3917 (true Italian with true signs -2.2770)
+[voynich seed=3 units=60 signs=60] score/token -2.3890 (true Italian with true signs -2.2770)
