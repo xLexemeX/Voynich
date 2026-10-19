@@ -1,0 +1,15 @@
+fav_min=1    types/tokens                     real    0.197  model    0.192 to    0.193
+fav_min=1    line-initial repeat ratio        real    0.504  model    0.474 to    0.517
+fav_min=1    page-exclusive rate (40 pages)   real    0.302  model    0.436 to    0.460
+fav_min=5    types/tokens                     real    0.197  model    0.192 to    0.192
+fav_min=5    line-initial repeat ratio        real    0.504  model    0.467 to    0.504
+fav_min=5    page-exclusive rate (40 pages)   real    0.302  model    0.390 to    0.472
+fav_min=20    types/tokens                     real    0.197  model    0.192 to    0.193
+fav_min=20    line-initial repeat ratio        real    0.504  model    0.425 to    0.500
+fav_min=20    page-exclusive rate (40 pages)   real    0.302  model    0.353 to    0.421
+fav_min=50    types/tokens                     real    0.197  model    0.191 to    0.192
+fav_min=50    line-initial repeat ratio        real    0.504  model    0.456 to    0.496
+fav_min=50    page-exclusive rate (40 pages)   real    0.302  model    0.398 to    0.415
+{"p_local": 0.0, "topic_p": 0.0}    page-exclusive rate (40 pages)   real    0.302  model    0.175 to    0.254
+{"p_local": 0.03, "topic_p": 0.0}    page-exclusive rate (40 pages)   real    0.302  model    0.425 to    0.455
+{"p_local": 0.0, "topic_p": 0.08}    page-exclusive rate (40 pages)   real    0.302  model    0.258 to    0.291

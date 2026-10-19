@@ -1,0 +1,9 @@
+   tokens                           real 34950.000  model 34950.000 to 34950.000
+   types/tokens                     real    0.197  model    0.193 to    0.193
+   hapax share of types             real    0.674  model    0.713 to    0.717
+   mean word length                 real    4.961  model    4.994 to    5.009
+   h2                               real    2.102  model    2.088 to    2.091
+   adjacent repeats                 real    0.008  model    0.008 to    0.009
+   line-initial repeat ratio        real    0.504  model    0.455 to    0.482
+   page-exclusive rate (40 pages)   real    0.302  model    0.258 to    0.291
+   y|qo junction ratio              real    3.875  model    3.647 to    3.820

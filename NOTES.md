@@ -1201,3 +1201,17 @@ These were fitted by random and local search. Best: `p_new 0.22, p_local 0.03, t
 **What this does and does not show.** It does not show the text is meaningless: the lexicon is the real one, so the model inherits whatever the words encode. It shows that the *sequence-level* oddities can be described as a few explicit scribal rules applied on top of a word stream. The word stream itself has almost no topic structure, and the page-specific words appear once. A meaningful text written under such rules would look the same, so this does not decide between meaning and procedure. It does say where meaning would have to live, if anywhere: in the choice of words, not in their arrangement.
 
 A plug-in word-pair MI check was tried and dropped. At this sparsity it gave the real text a *negative* excess over its own within-line shuffle, so it is bias-dominated and unlike the class-level measure of §17.
+
+**Follow-up: the mismatch is local copying (`data/gen3_favmin.out`, `data/gen3_check_nocopy.out`).** Restricting page-favoured words to common words lowers the page-exclusive rate only slightly (0.35–0.47). Switching mechanisms off shows the source. With no local copying, a light page topic alone (`topic_p 0.08`) gives 0.26–0.29, matching the real 0.30. Adding even 3% copying from earlier on the page raises it to 0.43–0.46. With `p_local = 0`, every statistic on the scorecard is matched:
+
+| statistic | real | model, no copying, 3 samples |
+|---|---|---|
+| types/tokens | 0.197 | 0.193 |
+| hapax share | 0.674 | 0.713–0.717 |
+| h2 | 2.102 | 2.088–2.091 |
+| adjacent repeats | 0.008 | 0.008–0.009 |
+| line-initial repeat ratio | 0.504 | 0.455–0.482 |
+| page-exclusive rate | 0.302 | 0.258–0.291 |
+| y→qo junction ratio | 3.875 | 3.65–3.82 |
+
+**Meaning.** The real text is matched best with *no* copying from earlier on the page. That cuts against self-citation models, in which copying the words just written is the main mechanism (Timm & Schinner). What the data call for is the word stream of a fixed vocabulary, a weak page preference, one-shot words for about 22% of tokens, and two near-automatic scribal rules at word and line junctions. This is equally the profile of a text whose words are chosen by content and whose writing system has these two habits.

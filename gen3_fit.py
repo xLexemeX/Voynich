@@ -6,14 +6,18 @@ REAL=real_pages(); R=card(REAL)
 W=[w for p in REAL for l in p for w in l]; cnt=collections.Counter(W)
 HAPAX=[w for w,c in cnt.items() if c==1]                     # one-shot words: emitted once, never re-copied
 LEX=[w for w,c in cnt.most_common() if c>1]; FR=[cnt[w] for w in LEX]
-def gen(seed, p_local, topic_p, topic_n, p_q, p_unq, p_alt, p_new, p_rep=0.0):
+def gen(seed, p_local, topic_p, topic_n, p_q, p_unq, p_alt, p_new, p_rep=0.0, fav_min=1):
     rng=random.Random(seed); out=[]; pool=HAPAX[:]; rng.shuffle(pool); used=set()
     cum=[];s=0
     for f in FR: s+=f; cum.append(s)
     import bisect
     def glob(): return LEX[bisect.bisect(cum, rng.random()*s)]
     for p in REAL:
-        fav=[glob() for _ in range(topic_n)]; page=[]; prev=None
+        fav=[];
+        while len(fav)<topic_n:
+            w=glob()
+            if cnt[w]>=fav_min: fav.append(w)
+        page=[]; prev=None
         for l in p:
             line=[]
             for j in range(len(l)):
