@@ -1141,3 +1141,16 @@ Same as §32: 300 commonest B word types (66% of tokens), with controls dropping
 | **Voynich B** | **−2.793 to −2.807** | |
 
 **Result: negative.** The search recovers the Catalan key in 2 of 3 restarts. All three Voynich restarts end below even the failed control search, 0.19 per letter short of a recovered key. Together with §30–32, a one-word-per-letter homophonic cipher of the 300 commonest words is excluded for Latin, Italian and Catalan.
+
+## 71. Homophonic Catalan syllabary (100 units → 60 signs): the control is found for the first time, and Voynich is negative (`runs5/summary7.out`)
+
+This is §64–65's homophonic form with Catalan as target (§67): sign trigram across words, 400,000 steps, 3 seeds, 30 random many-to-one keys as the null. Unlike Italian (13–19%) and Latin (collapse), the Catalan homophonic control is *partly found*.
+
+| input | train score per token | units correctly mapped | held-out cross-word gain | random keys: sd |
+|---|---|---|---|---|
+| Catalan control, true key | −1.826 | | +0.145 to +0.147 | |
+| Catalan control, fitted | −1.905 to −1.937 | **56–68%** | **+0.029 to +0.077** | 0.005–0.009 |
+| **Voynich** | **−2.781 to −2.844** | | **−0.001 to +0.001** | 0.008 |
+| generator (meaningless) | −3.12 to −3.26 | | −0.000 to +0.000 | 0.004–0.007 |
+
+**Result: negative, with a working control.** Partly correct homophonic keys on the Catalan control gain 4–10 sd from cross-word order. The Voynich keys gain nothing, sitting exactly at random-key level, and end about 0.9 nat per token below the control's fit. This is the first homophonic-syllabary test whose control finds most of the key. The homophonic Catalan syllabary at 100 units is excluded on both measures.

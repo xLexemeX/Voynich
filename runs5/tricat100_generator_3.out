@@ -1,0 +1,3 @@
+  random-key held-out gain: mean +0.0004 sd 0.0053 max +0.0083 (n=30)
+[generator catalan seed=3 units=100 signs=60] train score/token -3.1241; held-out cross-word order gain -0.0003 (true text with true signs -2.0163)
+  sample: feteu feu feu feu feu feu feteu feu feu feu feu feteu feteu feu feu fete teteteu feu feteu feu feu fete remeu teteteu teteteu

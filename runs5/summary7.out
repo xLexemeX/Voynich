@@ -1,0 +1,18 @@
+  random-key held-out gain: mean +0.0023 sd 0.0074 max +0.0183 (n=30)
+[control catalan seed=1 units=100 signs=60] train score/token -1.9230; held-out cross-word order gain +0.0287 (true text with true signs -2.0163) | units correctly mapped 0.56; true key: train -1.8259, held-out gain +0.1454
+  random-key held-out gain: mean +0.0001 sd 0.0080 max +0.0136 (n=30)
+[control catalan seed=2 units=100 signs=60] train score/token -1.9372; held-out cross-word order gain +0.0355 (true text with true signs -2.0163) | units correctly mapped 0.57; true key: train -1.8259, held-out gain +0.1466
+  random-key held-out gain: mean -0.0006 sd 0.0093 max +0.0192 (n=30)
+[control catalan seed=3 units=100 signs=60] train score/token -1.9050; held-out cross-word order gain +0.0766 (true text with true signs -2.0163) | units correctly mapped 0.68; true key: train -1.8259, held-out gain +0.1464
+  random-key held-out gain: mean +0.0004 sd 0.0050 max +0.0092 (n=30)
+[generator catalan seed=1 units=100 signs=60] train score/token -3.2630; held-out cross-word order gain +0.0000 (true text with true signs -2.0163)
+  random-key held-out gain: mean +0.0008 sd 0.0035 max +0.0083 (n=30)
+[generator catalan seed=2 units=100 signs=60] train score/token -3.2461; held-out cross-word order gain +0.0002 (true text with true signs -2.0163)
+  random-key held-out gain: mean +0.0004 sd 0.0053 max +0.0083 (n=30)
+[generator catalan seed=3 units=100 signs=60] train score/token -3.1241; held-out cross-word order gain -0.0003 (true text with true signs -2.0163)
+  random-key held-out gain: mean -0.0001 sd 0.0074 max +0.0177 (n=30)
+[voynich catalan seed=1 units=100 signs=60] train score/token -2.7941; held-out cross-word order gain -0.0010 (true text with true signs -2.0163)
+  random-key held-out gain: mean -0.0016 sd 0.0079 max +0.0110 (n=30)
+[voynich catalan seed=2 units=100 signs=60] train score/token -2.7809; held-out cross-word order gain -0.0002 (true text with true signs -2.0163)
+  random-key held-out gain: mean -0.0008 sd 0.0082 max +0.0157 (n=30)
+[voynich catalan seed=3 units=100 signs=60] train score/token -2.8440; held-out cross-word order gain +0.0006 (true text with true signs -2.0163)
