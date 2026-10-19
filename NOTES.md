@@ -822,6 +822,18 @@ On the whole text, Voynich clusters more than the generator at large scales. But
 | herbal, language A (8,015 words) | 500 / 1000 / 2000 | **0.094 / 0.078 / 0.054** | 0.324 / 0.279 / 0.191 |
 | language B, all sections (23,175 words) | 500 / 1000 / 2000 | 0.235 / 0.221 / 0.193 | 0.306 / 0.274 / 0.231 |
 
-**Result.** The large-scale clustering of the whole text comes from the differences between sections and between A and B. Inside one stretch, the Voynich text is *less* clustered than a meaningless copying generator. Within herbal A it is nearly uniform: 0.05–0.09 bits per word, against 0.4–0.5 for Pliny. A herbal that describes a different plant on every page should be strongly clustered page by page, because each plant's name, parts and uses recur on its own page and nowhere else. Herbal A does not behave like that. This agrees with §40 and §51, where the herbal text did not vary with the plant drawn.
+**Reference: a real Latin herbal.** Macer Floridus, *De viribus herbarum*, has 77 plant chapters averaging 184 words; the text is from Latin Wikisource (`data/ext_herbal/`, not committed). Cut to herbal A's length, 8,015 words:
 
-**Limits.** The generator was tuned on the whole text, so its local copying may be too strong for a single stretch. Its higher values do not show that the real text is less meaningful than gibberish. The informative comparison is with Pliny, which is itself an encyclopedia that changes topic. A Latin herbal of matching length would be a better reference, and I do not have one in `data/ref/`.
+| s | 100 | 200 | 500 | 1000 | 2000 |
+|---|---|---|---|---|---|
+| Macer | 0.035 | 0.046 | 0.055 | 0.058 | 0.051 |
+| Voynich herbal A | 0.102 | 0.113 | 0.091 | 0.079 | 0.054 |
+
+**Result.**
+- **Whole text.** Its large-scale clustering comes from the differences between sections and between A and B. Inside one stretch, the Voynich text is less clustered than the copying generator.
+- **Herbal A vs a real herbal.** Herbal A is *more* clustered than Macer at page scale (100–200 words: 0.10–0.11 vs 0.035–0.046) and about equal at 2,000 words. My first reading, that a real herbal should be much more clustered than herbal A, was wrong. A verse herbal in inflected Latin names each plant only a few times, so its words spread almost evenly.
+- **Ranking.** At page scale herbal A falls between a real herbal and a meaningless copying generator, and does not settle which it resembles.
+
+What the word-clustering measure does show is that Montemurro & Zanette's "keywords" do not need meaning to arise. The text's section- and language-level drift produces them, and within a stretch its clustering is matched or exceeded by a meaningless generator.
+
+**Limits.** The generator was tuned on the whole text, so its local copying may be too strong for one stretch. Macer is verse and Latin is inflected, which spreads word forms. A prose herbal, or a lemmatized comparison, would be a fairer reference.

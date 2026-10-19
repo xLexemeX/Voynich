@@ -32,3 +32,9 @@ for name,cond in [('herbal, language A',lambda r:r['section']=='herbal' and r['l
     v=[w for l in sub for w in l]; gg=[w for l in gen(len(sub)) for w in l]
     for s in (500,1000,2000):
         print(f'{name:26s} s={s:5d}  Voynich {info(v,s):.3f}  generator {info(gg,s):.3f}  ({len(v)} vs {len(gg)} words)')
+# reference: a real Latin herbal (Macer Floridus, De viribus herbarum, one chapter per plant), cut to the length of herbal A
+mac=re.findall(r'[a-z]+',open('data/ext_herbal/macer.txt',encoding='utf-8').read().lower())
+hA=[w for r in rows if r['section']=='herbal' and r['lang']=='A' for w in r['text'].split('.') if w]
+mac=mac[:len(hA)]
+for s in (100,200,500,1000,2000):
+    print(f'Latin herbal (Macer) vs Voynich herbal A, {len(mac)} words, s={s:5d}: Macer {info(mac,s):.3f}  Voynich herbal A {info(hA,s):.3f}')
