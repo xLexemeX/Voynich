@@ -1,0 +1,9 @@
+[control italian seed=1 units=100 signs=60] train score/token -2.0975; held-out within-word order gain +0.3269 (true text with true signs -2.2770) | units correctly mapped 0.10; true key: train -2.2776, held-out gain +0.7000
+[control italian seed=2 units=100 signs=60] train score/token -2.0955; held-out within-word order gain +0.3249 (true text with true signs -2.2770) | units correctly mapped 0.12; true key: train -2.2776, held-out gain +0.6930
+[control italian seed=3 units=100 signs=60] train score/token -2.0872; held-out within-word order gain +0.3483 (true text with true signs -2.2770) | units correctly mapped 0.13; true key: train -2.2776, held-out gain +0.6930
+[generator italian seed=1 units=100 signs=60] train score/token -2.5804; held-out within-word order gain +0.6042 (true text with true signs -2.2770)
+[generator italian seed=2 units=100 signs=60] train score/token -2.5804; held-out within-word order gain +0.6042 (true text with true signs -2.2770)
+[generator italian seed=3 units=100 signs=60] train score/token -2.5804; held-out within-word order gain +0.6042 (true text with true signs -2.2770)
+[voynich italian seed=1 units=100 signs=60] train score/token -2.2331; held-out within-word order gain +0.5034 (true text with true signs -2.2770)
+[voynich italian seed=2 units=100 signs=60] train score/token -2.2338; held-out within-word order gain +0.5142 (true text with true signs -2.2770)
+[voynich italian seed=3 units=100 signs=60] train score/token -2.2244; held-out within-word order gain +0.5142 (true text with true signs -2.2770)

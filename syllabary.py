@@ -5,7 +5,7 @@ usage: python3 syllabary.py voynich|control|generator seed iters"""
 import sys, re, csv, math, random, collections, unicodedata
 import numpy as np
 target, seed, iters = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]); random.seed(seed); rng=np.random.default_rng(seed)
-LANG=sys.argv[4] if len(sys.argv)>4 else 'italian'; KS=int(sys.argv[5]) if len(sys.argv)>5 else 60
+LANG=sys.argv[4] if len(sys.argv)>4 else 'italian'; KS=int(sys.argv[5]) if len(sys.argv)>5 else 60; NU=int(sys.argv[6]) if len(sys.argv)>6 else KS
 if LANG=='italian':
     t=unicodedata.normalize('NFKD',open('data/ref/italian_dante.txt',encoding='utf-8').read().lower()).encode('ascii','ignore').decode(); iw=re.findall(r'[a-z]+',t)
 else:
@@ -45,14 +45,22 @@ def bpe(words,n_units):
     return words
 N=12000
 if target=='control':
-    perm=list(range(K)); random.shuffle(perm); words=[[perm[x] for x in w] for w in EB][:N]; truth={perm[x]:x for x in range(K)}; U=K
+    # homophonic: each sign gets 1+ unit labels in proportion to frequency, NU labels in all
+    fs=collections.Counter(x for w in EB for x in w); alloc={x:1 for x in range(K)}
+    while sum(alloc.values())<NU: x=max(range(K),key=lambda x:fs[x]/alloc[x]); alloc[x]+=1
+    labs=list(range(NU)); random.shuffle(labs); homo={}; k=0
+    for x in range(K): homo[x]=labs[k:k+alloc[x]]; k+=alloc[x]
+    truth={u:x for x in range(K) for u in homo[x]}
+    words=[[random.choice(homo[x]) for x in w] for w in EB][:N]; U=NU
 else:
     if target=='voynich':
         rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P')]
         src=[w for r in rows for w in r['text'].split('.') if re.fullmatch(r'[a-z]+',w)]
     else:
         exec(open('generators2.py').read().rsplit("stats('VOYNICH',lines)",1)[0], exec_ns); src=[w for l in exec_ns['gen'](len(exec_ns['lines'])) for w in l]
-    bw=bpe(src[:N], K); units=sorted({u for w in bw for u in w}); ui={u:i for i,u in enumerate(units)}; words=[[ui[u] for u in w] for w in bw]; U=len(units); truth=None
+    bw=bpe(src[:N], NU); units=sorted({u for w in bw for u in w}); ui={u:i for i,u in enumerate(units)}; words=[[ui[u] for u in w] for w in bw]; U=len(units); truth=None
+# fit on the first half of the words, keep the second half for the held-out order test
+TEST=words[len(words)//2:]; words=words[:len(words)//2]
 # sequence of (prev,next) pairs as unit indices, boundary = -1
 pairs=collections.Counter()
 for w in words:
@@ -80,8 +88,18 @@ for it in range(iters):
         if d>=0 or random.random()<math.exp(d/max(1e-4,T0*(1-it/iters))): cur=s
         else: M[u]=old
     if cur>best: best=cur; bestM=M.copy()
+def seqscore(M,W):
+    Mx=np.append(M,K); tot=n=0
+    for w in W:
+        s_=[-1]+w+[-1]; a=Mx[np.array(s_[:-1])]; b=Mx[np.array(s_[1:])]; tot+=LP[a,b].sum(); n+=len(s_)-1
+    return tot/n
+def gain(M):
+    o=seqscore(M,TEST); sh=[]
+    for _ in range(5): sh.append(seqscore(M,[random.sample(w,len(w)) for w in TEST]))
+    return o-sum(sh)/len(sh)
+G=gain(bestM)
 dec=' '.join(''.join(SIG[bestM[x]] for x in w) for w in words[:25])
 ref=sum(LP[[K]+w,w+[K]].sum() for w in EB[:N])/sum(len(w)+1 for w in EB[:N])
-res=f'[{target} {LANG} seed={seed} units={U} signs={K}] score/token {best:.4f} (true text with true signs {ref:.4f})'
-if truth: res+=f' | units correctly mapped {np.mean([bestM[u]==truth[u] for u in range(U)]):.2f}'
+res=f'[{target} {LANG} seed={seed} units={U} signs={K}] train score/token {best:.4f}; held-out within-word order gain {G:+.4f} (true text with true signs {ref:.4f})'
+if truth: TM=np.array([truth[u] for u in range(U)]); res+=f' | units correctly mapped {np.mean([bestM[u]==truth[u] for u in range(U)]):.2f}; true key: train {score(TM):.4f}, held-out gain {gain(TM):+.4f}'
 print(res); print('  sample:',dec[:200])

@@ -1,0 +1,2 @@
+[control italian seed=2 units=100 signs=60] train score/token -2.0955; held-out within-word order gain +0.3249 (true text with true signs -2.2770) | units correctly mapped 0.12; true key: train -2.2776, held-out gain +0.6930
+  sample: i i ei queii que e nooii i noi emai ioi e ii i mai e e imaii e quii i noe ioi ii e

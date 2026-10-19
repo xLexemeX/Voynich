@@ -1,0 +1,2 @@
+[voynich italian seed=2 units=100 signs=60] train score/token -2.2338; held-out within-word order gain +0.5142 (true text with true signs -2.2770)
+  sample: noiio noi i inoi i ii nooio i noi io oii noi i i noi manoi mai ioi noi noi mae oiio mai i noi

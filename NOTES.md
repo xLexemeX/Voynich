@@ -1012,3 +1012,18 @@ So at this scale, 300 types and about 22,000 tokens, the word-bigram codebook se
 - That pair, Virgo–Scorpio (similarity 0.410 vs 0.367 for shuffled), has p = 0.011 with 5,000 shuffles, above the Bonferroni threshold of 0.0024 for 21 pairs. Its best alignment has **no** exact label match. The similarity comes from shared `ok-/ot- … -eedy` shapes (`ykeeor/ykeeory`, `yteedy/oyteedy`, `okeody/okeey`). Virgo and Scorpio are both on the `e`-side of the f72 label switch (§24), so they share label style.
 
 **Result: negative.** Under no rotation or direction do the 30 labels of one sign correspond to those of another. A fixed 30-name sequence, the same degree or day names on every wheel, is excluded. It is also excluded for any start point or reading direction.
+
+## 64. Homophonic syllabary: the held-out order test cannot separate a cipher from gibberish here (`syllabary.py` with 100 units, `runs5/summary3.out`)
+
+This tests the many-to-one form left open in §61. 100 units map onto 60 Italian onset+vowel signs. The control is Italian with each sign split into 1+ homophones (100 labels in all). The Voynich and generator inputs are BPE-merged to 100 units. The key is fitted on the first half of the words, by annealing, 400,000 steps, 3 seeds. On the second half, the gain is the score in true order minus the score with the units shuffled *within each word*. (A bigram model with word boundaries is blind to whole-word shuffles, so §37's token shuffle has no direct analogue here.)
+
+| input | train score per token | held-out within-word order gain | key recovered |
+|---|---|---|---|
+| Italian control, true key | −2.278 | **+0.69 to +0.70** | |
+| Italian control, fitted key | −2.087 to −2.098 (beats true) | +0.32 to +0.35 | 10–13% |
+| **Voynich** | −2.224 to −2.234 | **+0.50 to +0.51** | |
+| self-citation generator (meaningless) | −2.580 | **+0.60** | |
+
+**Result: the test fails.** Meaningless generator text gains almost as much from within-word order as a true key does, and more than the Voynich. Its words follow the rigid slot grammar (§5), so any key that maps word-initial units to word-initial syllables and word-final units to word-final syllables gains from that order. The search also never finds the true homophonic key (10–13% correct), while its wrong keys again beat the true key on the training score (§33). So the homophonic syllabary stays **untested**: neither the training score nor this held-out gain can tell a real key from a fitted one on text with Voynich-like word structure. A usable test would have to measure dependencies *across* words, and a bigram model with boundary tokens has none.
+
+**Bookkeeping.** The three generator runs are identical because `generators2.py` calls `random.seed(11)` when executed, which overrides the run's seed. The same applies to the generator runs in §61 and §62. The generator text is therefore a single sample in all of them.
