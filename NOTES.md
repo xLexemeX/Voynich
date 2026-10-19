@@ -688,3 +688,18 @@ By type, the class-preserving p values are 0.23, 0.28 and 0.21.
 **Result: negative.** His table beats a fully random one only because it puts vowels on the vowel-like glyphs, which Sukhotin's algorithm finds without any decipherment (§8). Once that skeleton is kept, his particular choice of letters is unremarkable. A third of the reshuffled tables find more Latin words than his does, and the best find almost twice as many. His commonest readings, `daiin`=*naus*, `chedy`=*eena*, `qokeedy`=*doleena*, `ol`=*or*, are not words in either lexicon, apart from chance hits like *or* and *as*.
 
 **Note on falsifiability.** Cheshire writes that a mechanical rendering is "naive" and that translation requires choosing among Latin, Italian, Portuguese, Catalan and other cognates. That freedom is what lets any table, including the reshuffled ones, yield words. This test removes it. Under fixed rules his values do no better than their own permutations.
+
+## 48. Hauer & Kondrak's Hebrew identification also picks Hebrew for gibberish (`langid.py`, `data/langid.out`)
+
+Hauer & Kondrak (TACL 2016) identified the source language of the Voynich text as Hebrew. One of their measures compares *decomposition patterns*: the pattern of repeated letters within each word, such as `abca` for a four-letter word whose first and last letters match. They then decoded with anagrammed Hebrew. I reimplemented two of their measures: the sorted letter-frequency profile and the decomposition-pattern distribution (L1 distance). I ran them on the Voynich text, in EVA units with the `ch`, `sh` and bench-gallows ligatures as single glyphs, and on three meaningless inputs. The references are my five languages, not their 380 translations of the Universal Declaration of Human Rights.
+
+| input | nearest by letter-frequency profile | nearest by decomposition patterns | pattern distance: Hebrew / next |
+|---|---|---|---|
+| Voynich | Latin | **Hebrew** | 0.643 / 0.699 |
+| slot self-citation generator, meaningless (§17) | Latin | **Hebrew** | 0.661 / 0.826 |
+| word Markov chain, meaningless | Latin | **Hebrew** | 0.646 / 0.702 |
+| Voynich glyphs shuffled at random across words | Latin | **Hebrew** | **0.629** / 0.690 |
+
+**Result.** The decomposition-pattern measure calls every one of these inputs Hebrew. It gives the shuffled version, which has no word-internal order at all, an even closer match than the real text. So, on this measure, "closest to Hebrew" comes from word length and the rate of repeated glyphs within a word. Voynich words average 4.4 glyphs, against 4.38 for consonantal Hebrew. It carries no information about the language. The letter-frequency measure calls everything Latin, which is just as uninformative.
+
+**Limits.** I used two of their measures and five reference languages. Their full method also includes a trial-decipherment measure and the whole UDHR corpus. But the point does not depend on the number of languages: a measure that gives the same answer for gibberish and for glyph-shuffled text cannot support the choice of a language. A language identification is evidence only if it fails on meaningless text built to the same statistics.

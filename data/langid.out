@@ -1,0 +1,13 @@
+Voynich                                letter-frequency profile: Latin > Hebrew > Italian | decomposition patterns: Hebrew > German > English
+   pattern distances: Hebrew 0.643, German 0.699, English 0.743, Italian 0.753, Latin 0.960; mean word length 4.44; share of words with a repeated glyph 0.36
+slot self-citation (meaningless)       letter-frequency profile: Latin > German > Italian | decomposition patterns: Hebrew > German > English
+   pattern distances: Hebrew 0.661, German 0.826, English 0.923, Italian 0.925, Latin 0.977; mean word length 5.06; share of words with a repeated glyph 0.46
+word Markov chain (meaningless)        letter-frequency profile: Latin > Hebrew > Italian | decomposition patterns: Hebrew > German > English
+   pattern distances: Hebrew 0.646, German 0.702, English 0.747, Italian 0.758, Latin 0.958; mean word length 4.44; share of words with a repeated glyph 0.37
+Voynich glyphs shuffled across words   letter-frequency profile: Latin > Hebrew > Italian | decomposition patterns: Hebrew > German > English
+   pattern distances: Hebrew 0.629, German 0.690, English 0.716, Italian 0.740, Latin 0.832; mean word length 4.44; share of words with a repeated glyph 0.47
+reference Latin    mean word length 5.85; share with a repeated letter 0.53
+reference Italian  mean word length 4.12; share with a repeated letter 0.32
+reference German   mean word length 4.81; share with a repeated letter 0.31
+reference English  mean word length 4.39; share with a repeated letter 0.27
+reference Hebrew   mean word length 4.38; share with a repeated letter 0.27
