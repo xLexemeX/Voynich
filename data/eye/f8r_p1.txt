@@ -1,0 +1,10 @@
+# f8r, first paragraph, read by eye from beinecke/017_8r.jpg (2660 px wide, the full public resolution), before looking at ZL.
+# EVA, '.' = word break, '?' = unreadable glyph. Left part of each line, then '|' at the stem, then the right part.
+# Line 1 has no right part (the leaf).
+1 pchor.chol.otcheas.choty
+2 tchky.sh.kcheal.sho | cthar.chody.shy.cphodal.shol
+3 chodal.shy.ly | okeeee.do.dchy.dain.ar
+4 qopal.chol.chol.sh? | chodaiin.shokchy.chol.dy
+5 otchey.do.l.cheeey.dy.ky | dchor.sh?ckhd.pcho?.chy.dal
+6 tosh.ckheeey.tortordy | scho.chky.cthodaiin.chotaiin
+7 choto.tchoaiin.chool.daiin | chy.choty.cheeody.sor

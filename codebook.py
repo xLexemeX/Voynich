@@ -25,7 +25,7 @@ if target=='control':
     perm=list(range(K)); random.shuffle(perm); seq=[perm[i] if i<O else O for i in ids(B)][:N]; truth={perm[i]:i for i in range(K)}
 else:
     if target=='voynich':
-        rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P')]
+        rows=[r for r in csv.DictReader(open(__import__('alphabet').CORPUS),delimiter='\t') if r['text'] and r['ltype'].startswith('P')]
         src=[w for r in rows for w in r['text'].split('.') if w]
     else:
         ns={}; exec(open('generators2.py').read().rsplit("stats('VOYNICH',lines)",1)[0],ns); src=[w for l in ns['gen'](len(ns['lines'])) for w in l]

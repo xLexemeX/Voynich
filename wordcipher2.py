@@ -29,7 +29,7 @@ lp=np.log(0.6*p4+0.25*np.tile(p3,A)+0.1*np.tile(p2,A**2)+0.05*np.tile(p1,A**3)).
 lf=c1/c1.sum()
 import os
 SUBSET=os.environ.get('SUBSET','')
-rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P') and (not SUBSET or r['lang']==SUBSET)]
+rows=[r for r in csv.DictReader(open(__import__('alphabet').CORPUS),delimiter='\t') if r['text'] and r['ltype'].startswith('P') and (not SUBSET or r['lang']==SUBSET)]
 voy=[w for r in rows for w in r['text'].split('.') if w]
 vc=collections.Counter(voy); top=[w for w,_ in vc.most_common(K)]; topset=set(top)
 cover=sum(vc[w] for w in top)/len(voy)

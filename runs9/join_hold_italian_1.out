@@ -1,0 +1,10 @@
+  progress 0.5M/4.0M best -16621 (54s)
+  progress 1.0M/4.0M best -16403 (104s)
+  progress 1.5M/4.0M best -16191 (151s)
+  progress 2.0M/4.0M best -16077 (216s)
+  progress 2.5M/4.0M best -15748 (262s)
+  progress 3.0M/4.0M best -15360 (317s)
+  progress 3.5M/4.0M best -14972 (366s)
+[voynich subset=B lang=italian seed=1 N=6660 drop=0.382] LM/char=-2.124 total=-14709 bigram-share=0.95
+  sample: icertromedesicononuicheronesponecomonomalesesalonononuipononperaualesonpalomonononampededestreramedocesesiciontronautrestredietromeconaueciamisononeraledesestreschtrosecesauesononpedesialeralesperonchaloneseserauesuionalononerchestronontris
+  heldout fitted key: in-order -2.3931 shuffled -2.4230 sd 0.0074 gain +0.0299 z 4.0

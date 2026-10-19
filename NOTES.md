@@ -1376,4 +1376,53 @@ So under v101 too, glyphs are far more predictable than letters. Latin-letter pr
 
 The Latin result is at the level of meaningless text. The Italian figure is higher than its v101 Markov control and than EVA. But it is far from the control's 100%, and the output is not Italian ("i en ra arti sesa ret n er se rsea ertii ere…"). Short Italian words are common, so the 4+ letter rate rises with junk like `erti`, `seti` and `reti`. The verdict is unchanged: no substitution into Latin or Italian is found. One run each; more seeds would firm up the Italian comparison.
 
-**Not yet done:** the word-level tests (Naibbe held-out, word→letter, codebook, cross-word syllabary) on the joined-space corpus, the syllabary test on v101, and the page transcribed by eye and compared with ZL.
+**Syllabary, cross-word held-out test (§65, §71), on v101 and on joined spaces** (`runs9/`, `runs9/batch.sh`). `TRI=1`, `NULLK=30`, 400,000 steps, seeds 1 and 2, Voynich input only. The positive controls and generator baselines do not read the Voynich corpus, so they are those of §65 and §71. Under v101 the first 12,000 words already have 69 distinct glyphs, so the "60 units" setting runs with 69 units and becomes homophonic (69→60).
+
+| input | held-out cross-word gain | random-key null, max over 30 keys |
+|---|---|---|
+| Italian, positive control 60→60 (§65) | +0.078 | |
+| Catalan, positive control 100→60 (§71) | +0.029 to +0.077 | |
+| Italian, v101, 69→60 | −0.000, +0.003 | +0.021, +0.030 |
+| Italian, v101, 100→60 | −0.000, −0.000 | +0.010, +0.015 |
+| Catalan, v101, 69→60 | +0.000, +0.000 | +0.029, +0.034 |
+| Catalan, v101, 100→60 | +0.005, +0.002 | +0.013, +0.013 |
+| Italian, ZL joined, 60→60 | +0.001, +0.013 | +0.018, +0.018 |
+| Catalan, ZL joined, 100→60 | +0.003, +0.002 | +0.021, +0.022 |
+
+Every Voynich gain lies inside its random-key null, as in §65 and §71.
+
+**Word-level tests with uncertain spaces joined** (ZL with `,` removed; language B where the original used B):
+
+| test | original (§37, §62, §69, §30–32/§70) | joined spaces |
+|---|---|---|
+| Naibbe held-out word-order gain, Latin (true key on control: +0.43 to +0.47) | +0.026, +0.028, +0.031 | +0.009, +0.018, +0.027 |
+| Naibbe held-out gain, Italian (true key +0.56) | +0.050, +0.071, +0.082 | +0.030, +0.036, +0.047 |
+| codebook, Italian, score per token (true held-out text −3.28) | −4.37, −4.37 | −4.13, −4.11 |
+| codebook, Catalan (true held-out text −3.37) | −4.45, −4.47 | −4.23, −4.23 |
+| word→letter, dictionary coverage, Latin (real Latin 0.90) | 0.165, 0.169 | 0.171, 0.172 |
+| word→letter, Italian (real 0.77) | 0.213, 0.220 | 0.204, 0.222 |
+| word→letter, Catalan (real 0.74) | 0.149, 0.160, 0.168 | 0.132, 0.144 |
+
+Joining the uncertain spaces moves nothing toward a reading. The Naibbe gains get slightly smaller, still at the level of a wrong key and far from the true key's. The codebook scores improve a little because there are fewer, longer words: about 2,500 fewer tokens and 42% out of the 300-word vocabulary instead of 37%. They stay far below the true text's score. The word→letter coverage is unchanged.
+
+**One page read by eye** (`data/eye/f8r_p1.txt`, `compare_eye.py`, `data/eye/f8r_compare.out`). I read the first paragraph of f8r, 7 lines and 56 words, from the Beinecke scan at the full public resolution (2,660 px wide; the Yale IIIF service serves the same size). I did this before looking at the ZL text. Two errors were mine:
+- **Line pairing.** I paired the right-hand column one line too low. In ZL the right part of each line sits level with the left part of the same line.
+- **r and l.** I used `l` and `r` the wrong way round, consistently, nine times. That is a naming error, not a reading difference.
+
+With both corrected, the comparison on the same lines is:
+
+| | words identical | glyph and word-break differences |
+|---|---|---|
+| my reading vs ZL | 32/56 (57%) | 40/252 (16%) |
+| Takahashi (VT) vs ZL | 50/56 (89%) | 7/252 (3%) |
+| reference RF vs ZL | 52/56 (93%) | 4/252 (2%) |
+
+My remaining differences are of a few kinds:
+- **which gallows** it is: `t`/`k`/`p`/`f`, and `cth`/`cph`/`cfh` (7 cases);
+- **plumes:** whether a `ch` carries the plume that makes it `sh`;
+- **runs of `e`:** how many there are, and `eee` against `ch`;
+- **one hard line** (line 4), where I misread several glyphs (`sh?ckhd` for ZL `shesed`).
+
+Word breaks hardly differ: one word more or fewer per 56 words. The expert transcriptions disagree with each other mainly on the same points: `ck` before `cheey` and `ooaiin`, `r`/`s`, `a`/`o`, and one word break (`chof.chy` against `chofchy`).
+
+**Meaning.** At this resolution, reading by eye is less reliable than the published transcriptions, which agree with each other on 89–93% of words. The places where readings honestly disagree are a small set: gallows identity, plumes, `e`-counts and occasional spaces. None of them touches the tests above. The word-level tests do not depend on how glyphs are named. The glyph-level tests were rerun on v101, which groups strokes differently. Uncertain spaces were joined, the largest source of word-break disagreement. **Every exclusion of §37–71 that was retested holds under the v101 alphabet and under joined spaces.**

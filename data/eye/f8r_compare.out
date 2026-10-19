@@ -1,0 +1,29 @@
+1  eye pchor.chol.otcheas.choty.cthar.chody.shy.cphodal.shol
+   ZL  pshol.chor.otshal.chopy.cphol.chody.shy.cfhodar.shor
+   VT  pshol.chor.otshal.chopy.cphol.chody.shy.cfhodar.shor
+2  eye tchky.sh.kcheal.sho.okeeee.do.dchy.dain.ar
+   ZL  tchty.sh.kcheals.sho.okche.do.dchy.dain.al
+   VT  tchty.sh.kcheals.sho.okche.do.dchy.dain.al
+3  eye chodal.shy.ly.chodaiin.shokchy.chol.dy
+   ZL  chodar.shy.sy.chodaiin.shokchy.chor.dy
+   VT  chodar.shy.ry.chodaiin.shokchy.chor.dy
+4  eye qopal.chol.chol.sh?.dchor.sh?ckhd.pcho?.chy.dal
+   ZL  qotor.chor.chor.sheey.dchol.shesed.chof.chy.dam
+   VT  qotor.chor.chor.sheey.dchol.shesed.chofchy.dam
+5  eye otchey.do.l.cheeey.dy.ky.scho.chky.cthodaiin.chotaiin
+   ZL  okchey.do.r.cheeey.dy.ky.scho.chky.ooaiin.chy.taiin
+   VT  okchey.do.r.cheeey.dy.ky.scho.chky.ckooaiin.chy.taiin
+6  eye tosh.ckheeey.tortordy.chy.choty.cheeody.sor
+   ZL  tosh.cheey.koltoldy.shy.choety.cheeody.sol
+   VT  tosh.ckcheey.koltoldy.shy.chocty.cheeody.sol
+7  eye choto.tchoaiin.chool.daiin
+   ZL  choto.kchoan.choor.dain
+   VT  choto.kchoan.choor.dain
+eye vs ZL: words identical 21/56 (38%); glyph+break edit distance 81/252 = 32%; difference in word count 1
+   differences (first reading -> second), most common: l->r x7, r->l x2, t->k x2, ∅->shol., chol.->∅, che->sh, s->l, t->p, cthar->cphol, cph->cfh, k->t, ∅->s, eee->ch, l->s, pal->tor, ∅->chor.sheey.d, ?->esed, d->∅, r.sh?ckhd.pcho?->f, l->m, cth->∅, d->o, o->y., ckhe->ch, ∅->kol
+Takahashi (VT) vs ZL: words identical 50/56 (89%); glyph+break edit distance 7/252 = 3%; difference in word count 1
+   differences (first reading -> second), most common: ck->∅ x2, r->s, ∅->., c->e
+RF vs ZL: words identical 52/56 (93%); glyph+break edit distance 4/252 = 2%; difference in word count 1
+   differences (first reading -> second), most common: a->o, ∅->y., ∅->o
+eye with r/l exchanged vs ZL: words identical 32/56 (57%); glyph+break edit distance 40/252 = 16%; difference in word count 1
+   differences (first reading -> second), most common: t->k x3, ch->sh x2, che->sh, s->l, t->p, ctha->cpho, cph->cfh, k->t, r->ls, eee->ch, r->s, pa->to, ?->eey, ?ckh->ese, p->∅, ?->f, r->m, cth->∅, d->o, o->y., ckhe->ch, ∅->e, ii->∅, i->∅

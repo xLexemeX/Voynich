@@ -1,0 +1,3 @@
+  random-key held-out gain: mean -0.0014 sd 0.0082 max +0.0177 (n=30)
+[voynich italian subset=all seed=2 units=60 signs=60] train score/token -3.8111; held-out cross-word order gain +0.0126 (true text with true signs -2.2770)
+  sample: vovetrade cata te velere luva lunoi manenide i sano luvaso denoi pote noi santone dilere lute vedeni mate matemovendo deintocene susai no care luomo maotei

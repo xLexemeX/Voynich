@@ -30,7 +30,7 @@ lf=c1/c1.sum()
 # chunk inventory: letters + top NB bigrams
 bg=np.argsort(-c2)[:NB]; CH=[(i,-1) for i in range(A)]+[(b//A,b%A) for b in bg]; C=len(CH); CHA=np.array(CH,dtype=np.int64)
 chid={ch:i for i,ch in enumerate(CH)}
-rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P') and (not SUBSET or r['lang']==SUBSET)]
+rows=[r for r in csv.DictReader(open(__import__('alphabet').CORPUS),delimiter='\t') if r['text'] and r['ltype'].startswith('P') and (not SUBSET or r['lang']==SUBSET)]
 voy=[w for r in rows for w in r['text'].split('.') if w]
 vc=collections.Counter(voy); top=[w for w,_ in vc.most_common(K)]; ts=set(top); cover=sum(vc[w] for w in top)/len(voy); DROP=1-cover
 truth=None

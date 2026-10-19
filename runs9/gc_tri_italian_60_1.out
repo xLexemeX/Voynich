@@ -1,0 +1,3 @@
+  random-key held-out gain: mean +0.0020 sd 0.0109 max +0.0210 (n=30)
+[voynich italian subset=all seed=1 units=69 signs=60] train score/token -2.4439; held-out cross-word order gain -0.0000 (true text with true signs -2.2770)
+  sample: iiiii i iii ii iiii iii iii iiiiiii i iii iiiii iiii iii ii i iiii iiii iii iii iii iii iii iiiii iiii ii
