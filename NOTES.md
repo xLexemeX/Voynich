@@ -703,3 +703,21 @@ Hauer & Kondrak (TACL 2016) identified the source language of the Voynich text a
 **Result.** The decomposition-pattern measure calls every one of these inputs Hebrew. It gives the shuffled version, which has no word-internal order at all, an even closer match than the real text. So, on this measure, "closest to Hebrew" comes from word length and the rate of repeated glyphs within a word. Voynich words average 4.4 glyphs, against 4.38 for consonantal Hebrew. It carries no information about the language. The letter-frequency measure calls everything Latin, which is just as uninformative.
 
 **Limits.** I used two of their measures and five reference languages. Their full method also includes a trial-decipherment measure and the whole UDHR corpus. But the point does not depend on the number of languages: a measure that gives the same answer for gibberish and for glyph-shuffled text cannot support the choice of a language. A language identification is evidence only if it fails on meaningless text built to the same statistics.
+
+## 49. A reusable checker for proposed sign tables (`validate_mapping.py`, `mappings/*.json`, `data/validate_mapping.out`)
+
+Any claimed decipherment that assigns sounds to glyphs can be written as a JSON table, EVA unit → letters, and run through two controls in one command:
+
+    python3 validate_mapping.py mappings/<name>.json [draws]
+
+1. **Dictionary hits.** The share of decoded word tokens of three or more letters found in a Latin lexicon (Pliny plus the Vulgate) and an Italian one (Dante). Matching is lenient: e/i and k/c are merged and double letters collapse. The proposed table is compared with reshuffled tables that keep its own vowel/consonant split (§47). Units whose value mixes vowels and consonants stay fixed.
+2. **Word-order gain.** Decode the second half of the text in its real word order and in shuffled order, and score both with a Latin letter 4-gram model. A real reading turns real word order into real letter order, so it should gain far more than reshuffled tables (§37: a true key gains about 0.4–0.6).
+
+Results, 200 reshuffled tables each:
+
+| table | tokens covered | Latin hits (reshuffled mean, p) | Italian hits (p) | order gain (reshuffled mean, p) |
+|---|---|---|---|---|
+| Cheshire 2017 (§47) | 99.2% | 0.127 (0.111, p 0.29) | 0.067 (p 0.71) | +0.085 (+0.072, p 0.34) |
+| Bax 2014, first-choice values | 30.3% | 0.021 (0.024, p 0.43) | 0.039 (p 0.69) | −0.014 (+0.009, p 0.98) |
+
+**Result.** On every measure, both published tables are ordinary members of their own reshuffled families. Bax's values decode only 30% of the text, because many common glyphs (`ch`, `l`, `t`, `p`, `q`) have no value in his table. On that 30% they gain *less* from word order than 98% of reshuffled tables. Future claims can be added to `mappings/` and checked the same way. A table that deserves attention would have to beat its reshuffled family on both measures, and gain something like the 0.4 per letter a real key gains from word order.

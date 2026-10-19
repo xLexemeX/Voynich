@@ -1,0 +1,12 @@
+Cheshire 2017, LingBuzz 003737, Figs 1-27 (EVA reading: see NOTES 47)
+  tokens fully covered by the table: 34765 of 35046 (99.2%); reshuffled within 8 vowel-valued and 10 consonant-valued units; 200 draws
+  sample: quaiat alar as amaus aior aiosa imisit a los aiorna tosa ilias os a lais imaus aias ati imias imias
+  Latin       proposed +0.1270 | reshuffled mean +0.1113 max +0.2632 | p = 0.290
+  Italian     proposed +0.0668 | reshuffled mean +0.0923 max +0.2138 | p = 0.705
+  order gain  proposed +0.0847 | reshuffled mean +0.0718 max +0.1359 | p = 0.340
+Bax 2014, Appendix 1 (p.56); first-choice values; glyphs he did not assign are left unmapped
+  tokens fully covered by the table: 10620 of 35046 (30.3%); reshuffled within 4 vowel-valued and 8 consonant-valued units; 200 draws
+  sample: ar charn n car sarn ar n char aso tar chocn ar ncaur chat taraur sn saur taur acaur ar
+  Latin       proposed +0.0206 | reshuffled mean +0.0235 max +0.1353 | p = 0.430
+  Italian     proposed +0.0390 | reshuffled mean +0.0807 max +0.2791 | p = 0.690
+  order gain  proposed -0.0143 | reshuffled mean +0.0091 max +0.0445 | p = 0.980
