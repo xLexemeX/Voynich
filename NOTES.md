@@ -663,3 +663,28 @@ Stephen Bax's "A proposed partial decoding of the Voynich script" (2014) reads t
 **Caveat.** These identifications are themselves uncertain, often marked "?", and the two sources agree on only a minority of pages. A real signal would have to show through that noise. A 31% vs 9% rate on 13 pages could be such a signal, or could be chance. A third set of identifications made without seeing the text, such as Sherwood's or Janick & Tucker's, would settle it. I did not find a folio-level list of either.
 
 **Third identifier (`sherwood_ids.py`, `data/plantids_sherwood.json`, `data/bax_heldout_sherwood.out`).** Edith Sherwood's site is offline. The Wayback Machine holds 4 of its 14 plant-list pages, which give a Latin name for 27 folios, 19 of them usable herbal pages. /k/-names on `k`-opened pages: **2 of 6** (*Cycas*, *Cynara*); on `p`/`t`/`f` pages: 1 of 13 (*Chelidonium*). One-sided Fisher p = 0.22. Both hits again depend on counting `cy` as /k/. Pooled over the three identifiers: 6 of 31 `k`-pages against 13 of 120 other pages, 19% vs 11%. ELV contradicts the other two, and no single set reaches significance. **Verdict unchanged: not supported.**
+
+## 47. Cheshire's proto-Romance alphabet against reassigned controls (`cheshire_test.py`, `data/cheshire_test.out`)
+
+**Source.** Gerard Cheshire, "Linguistic missing links" (2017, LingBuzz 003737), Figs. 1–27. These figures define the sign values behind his 2019 *Romance Studies* paper. Read against EVA:
+- **Vowels:** `o`→o, `a`→a, `y`→a ("free a"), `e`→e, `ch`→e ("long e"), `sh`→ae, `i`→i, `ii`→u
+- **Consonants:** `q`→d, `d`→n, `l`→r, `r`→s, `s`→t, `n` and `m`→s ("sitting s"), `k`→l, `t`→m, `p`→p, `f`→qu
+- **Bench gallows:** `ckh`→ele, `cth`→eme, `cph`→epe, `cfh`→eque
+
+The EVA correspondences are my reading of his glyph drawings. Two choices are open to argument: `ch` as a single e, and `r`/`s` as standing s / t.
+
+**Test.** Apply the table mechanically to all 34,765 paragraph tokens it covers (99.5%). Then count decoded words of three or more letters found in a Latin lexicon (Pliny plus the Vulgate) or an Italian one (Dante). Matching uses his own allowances: e and i are interchangeable, and double letters collapse. Two nulls, 300 draws each:
+1. the same letter values shuffled across glyphs at random
+2. shuffled only within his vowel glyphs and within his consonant glyphs, which keeps the vowel/consonant skeleton he chose
+
+| lexicon | Cheshire, tokens | random reassignment | p | class-preserving reassignment | p |
+|---|---|---|---|---|---|
+| Latin | 0.127 | 0.054 | 0.02 | 0.108 (max 0.235) | 0.31 |
+| Italian | 0.067 | 0.046 | 0.19 | 0.081 (max 0.201) | 0.62 |
+| Latin or Italian | 0.173 | 0.082 | 0.02 | 0.157 (max 0.310) | 0.36 |
+
+By type, the class-preserving p values are 0.23, 0.28 and 0.21.
+
+**Result: negative.** His table beats a fully random one only because it puts vowels on the vowel-like glyphs, which Sukhotin's algorithm finds without any decipherment (§8). Once that skeleton is kept, his particular choice of letters is unremarkable. A third of the reshuffled tables find more Latin words than his does, and the best find almost twice as many. His commonest readings, `daiin`=*naus*, `chedy`=*eena*, `qokeedy`=*doleena*, `ol`=*or*, are not words in either lexicon, apart from chance hits like *or* and *as*.
+
+**Note on falsifiability.** Cheshire writes that a mechanical rendering is "naive" and that translation requires choosing among Latin, Italian, Portuguese, Catalan and other cognates. That freedom is what lets any table, including the reshuffled ones, yield words. This test removes it. Under fixed rules his values do no better than their own permutations.

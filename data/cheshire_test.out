@@ -1,0 +1,9 @@
+34765 of 34950 paragraph tokens fully covered by the table; 6735 types
+commonest words as read: daiin=naus, ol=or, chedy=eena, aiin=aus, shedy=aeena, chol=eor, or=os, chey=eea, ar=as, s=t, qokeedy=doleena, qokeey=doleea, dar=nas, y=a, qokain=dolais, qokedy=dolena, shey=aeea, qokaiin=dolaus, dy=na, al=ar, dal=nar, dain=nais, chor=eos, okaiin=olaus, qokal=dolar
+Latin    tokens in dictionary 0.127 (random reassignment 0.054, max 0.150, p=0.020); types 0.065 (random 0.022, p=0.000)
+Italian  tokens in dictionary 0.067 (random reassignment 0.046, max 0.148, p=0.193); types 0.051 (random 0.019, p=0.007)
+either   tokens in dictionary 0.173 (random reassignment 0.082, max 0.239, p=0.020); types 0.102 (random 0.034, p=0.007)
+vowel class ['ch', 'sh', 'ii', 'o', 'a', 'y', 'e', 'i'] consonant class ['q', 'n', 'm', 'k', 't', 'p', 'f', 'd', 'l', 'r', 's']
+Latin    class-preserving null: tokens 0.108 max 0.235 p=0.310; types 0.054 max 0.125 p=0.233
+Italian  class-preserving null: tokens 0.081 max 0.201 p=0.617; types 0.042 max 0.099 p=0.283
+either   class-preserving null: tokens 0.157 max 0.310 p=0.357; types 0.082 max 0.178 p=0.213
