@@ -1166,4 +1166,4 @@ This is §64–65's homophonic form with Catalan as target (§67): sign trigram 
 
 Random-key means and sds differ slightly between seeds.
 
-**Result: unchanged.** No subset comes near the control. The best case, B with one-to-one keys, gains about 2 sd over random keys, a seventh of the true key's +0.14. Its training fit is 2.1 nats per token below a real Catalan key. That small excess is the size the B text's own cross-word habits (the `y | qo` junction) give any key, and nothing like a decipherment. Splitting A from B does not rescue the syllabary readings.
+**Result: unchanged.** No subset comes near the control. The best case, B with one-to-one keys, gains about 2 sd over random keys, a seventh of the true key's +0.14. Its training fit is 2.1 nats per token below a real Catalan key. Random keys on B gain nothing, so the excess appears only for fitted keys. It may come from a fitted key exploiting B's own cross-word habits (the `y | qo` junction), but I have not tested that. Either way it is nothing like a decipherment. Splitting A from B does not rescue the syllabary readings.
