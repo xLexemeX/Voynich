@@ -1,0 +1,11 @@
+  progress 1M/10M best/char -2.980
+  progress 2M/10M best/char -2.964
+  progress 3M/10M best/char -2.950
+  progress 4M/10M best/char -2.935
+  progress 5M/10M best/char -2.918
+  progress 6M/10M best/char -2.895
+  progress 7M/10M best/char -2.885
+  progress 8M/10M best/char -2.875
+  progress 9M/10M best/char -2.873
+[voynich subset=B lang=catalan drop=0.0 seed=3 K=300 tokcov=0.66 N=15382] LM/char=-2.799 dict-cov=0.168 | real latin LM/char=-1.879 dict-cov=0.742
+  sample: isnndreiselasueneasdadeetlesesaaiaaefeneelaerdaaererrtunmsenlicalesaenelrandiaesgmallleolenedesuadesesucoenpreneteniseieenoseieesntelalenatraentlalllsoueeaaedasmlfeulelienetrullleeeademaemseoeordeulesaaestenaefuetdousqseuestrnesasnuostenagmeeueouasualrditesnta

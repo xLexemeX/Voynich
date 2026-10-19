@@ -14,6 +14,11 @@ if LANG!='latin':
     import unicodedata
     s0=unicodedata.normalize('NFKD',s0).encode('ascii','ignore').decode().lower().replace('v','u').replace('j','i').replace('k','c').replace('w','u')
     pl=re.findall(r'[a-z]+',s0)
+if LANG=='catalan':   # Tirant lo Blanch (NOTES 67)
+    import unicodedata
+    pg=open('data/ext_cat/tirant.txt',encoding='utf-8').read().split('\n\n')
+    s0=unicodedata.normalize('NFKD','\n'.join(pg[len(pg)//8:])).encode('ascii','ignore').decode().lower().replace('v','u').replace('j','i').replace('k','c').replace('w','u').replace('y','i')
+    pl=re.findall(r'[a-z]+',s0)
 half=len(pl)//2
 t=np.array([aid[c] for c in ''.join(pl[:half]) if c in aid],dtype=np.int64)
 cnt=np.bincount(((t[:-3]*A+t[1:-2])*A+t[2:-1])*A+t[3:],minlength=A**4).astype(float)
@@ -61,7 +66,8 @@ def local(M,ti):
     return lp[((x[starts]*A+x[starts+1])*A+x[starts+2])*A+x[starts+3]].sum(), starts
 M=np.zeros(K,dtype=np.int64)
 freq=np.bincount(S,minlength=K); order=np.argsort(-freq)
-alloc=np.maximum(1,np.round(lf*K)).astype(int); pool=[i for i in range(A) for _ in range(alloc[i])]; random.shuffle(pool)
+alloc=np.where(lf>0,np.maximum(1,np.round(lf*K)),0).astype(int);   # letters absent from the target get no word (else KL is infinite)
+pool=[i for i in range(A) for _ in range(alloc[i])]; random.shuffle(pool)
 for j,ti in enumerate(order): M[ti]=pool[j%len(pool)]
 if truth is not None:
     TM=np.array([truth[w] for w in top]); print(f'  true-mapping LM/char {full(TM)/N:.3f}; init LM/char {full(M)/N:.3f}')
@@ -70,8 +76,9 @@ lc=np.bincount(M[S],minlength=A).astype(float)
 def kl(lc): q=lc/lc.sum(); m=q>0; return float((q[m]*np.log(q[m]/lf[m])).sum())
 cur=full(M)-LAM*N*kl(lc); best=cur; bestM=M.copy(); T0=8.0; T=T0
 active=[k for k in range(K) if k in pos]
+LIVE=[i for i in range(A) if lf[i]>0]
 for it in range(iters):
-    ti=random.choice(active); old=M[ti]; new=random.randrange(A)
+    ti=random.choice(active); old=M[ti]; new=random.choice(LIVE)
     if new==old: continue
     a,_=local(M,ti); k0=kl(lc); n=len(pos[ti]); lc[old]-=n; lc[new]+=n; M[ti]=new; b,_=local(M,ti); d=(b-a)-LAM*N*(kl(lc)-k0)
     if d>=0 or random.random()<math.exp(d/T): cur+=d

@@ -1,0 +1,11 @@
+  true-mapping LM/char -2.639; init LM/char -3.266
+  progress 1M/10M best/char -2.636
+  progress 2M/10M best/char -2.633
+  progress 4M/10M best/char -2.631
+  progress 5M/10M best/char -2.630
+  progress 6M/10M best/char -2.630
+  progress 7M/10M best/char -2.630
+  progress 8M/10M best/char -2.630
+  progress 9M/10M best/char -2.630
+[control subset=B lang=catalan drop=0.336 seed=3 K=300 tokcov=0.66 N=15409] LM/char=-2.615 dict-cov=0.263 | real latin LM/char=-1.879 dict-cov=0.742 | type-acc=0.960 token-acc=0.965
+  sample: ultncaprqusppicamalteaotranoselceiaseqlqeanosatresiaeuiseloiseseesostaenlresriueraolcontetlsotguallotloradahrauealsflaetaprsulunsdgessereposepruloltogesnueiauleuiameneialsstarqueseenreredorsedesesmaorelamsnlocdeleoaulltanaasnseniocomloscaalerstagurenuestlrpode

@@ -1127,3 +1127,17 @@ Same as §62 with *Tirant lo Blanch*. Catalan is less inflected than Latin: its 
 | **Voynich** | 0.37 | **−4.450, −4.470** | |
 
 **Result: negative.** This is the best-powered codebook control so far, recovering 38–39% of the key, better than Italian's 28–33%. The Voynich falls 0.9 nat per token below it, with a slightly higher OOV share. That difference favors the Voynich, because OOV transitions score high (§62). Its best decoding is Catalan words in no syntax: `_ _ en _ feu _ _ mes feren _ _ _ a mes _ _ hon _ voluntat voluntat _ _ hagues a sera…`. A word-for-word codebook into Catalan is excluded at this level of power, as for Italian.
+
+## 70. One word → one letter (homophonic), Catalan target, language B (`wordcipher2.py catalan`, `runs7/summary.out`)
+
+Same as §32: 300 commonest B word types (66% of tokens), with controls dropping 33.6% of tokens to match. Annealing, 10 million steps, 3 seeds; the target is *Tirant lo Blanch*.
+
+**Bug found and fixed first.** In the first Catalan run all six searches stood still at their starting key. `y` is read as i in Catalan, so `y` has zero frequency. But the initial key gave every letter at least one word type, so the letter-frequency penalty (KL against the target frequencies) was infinite. Every step then evaluated to NaN and was rejected. Letters absent from the target are now excluded from the key. Latin and Italian contain every letter of the alphabet used, so the earlier runs (§30–32) were not affected. I checked this.
+
+| input | best score per letter | key recovered |
+|---|---|---|
+| Catalan control, seeds 1 and 3 | −2.605, −2.615 (true key −2.62 to −2.64) | **97%, 96%** of types |
+| Catalan control, seed 2 | −2.719 | 2% (search failed) |
+| **Voynich B** | **−2.793 to −2.807** | |
+
+**Result: negative.** The search recovers the Catalan key in 2 of 3 restarts. All three Voynich restarts end below even the failed control search, 0.19 per letter short of a recovered key. Together with §30–32, a one-word-per-letter homophonic cipher of the 300 commonest words is excluded for Latin, Italian and Catalan.

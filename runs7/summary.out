@@ -1,0 +1,6 @@
+[control subset=B lang=catalan drop=0.336 seed=1 K=300 tokcov=0.66 N=15413] LM/char=-2.605 dict-cov=0.258 | real latin LM/char=-1.879 dict-cov=0.742 | type-acc=0.967 token-acc=0.975
+[control subset=B lang=catalan drop=0.336 seed=2 K=300 tokcov=0.66 N=15391] LM/char=-2.719 dict-cov=0.165 | real latin LM/char=-1.879 dict-cov=0.742 | type-acc=0.023 token-acc=0.021
+[control subset=B lang=catalan drop=0.336 seed=3 K=300 tokcov=0.66 N=15409] LM/char=-2.615 dict-cov=0.263 | real latin LM/char=-1.879 dict-cov=0.742 | type-acc=0.960 token-acc=0.965
+[voynich subset=B lang=catalan drop=0.0 seed=1 K=300 tokcov=0.66 N=15382] LM/char=-2.807 dict-cov=0.160 | real latin LM/char=-1.879 dict-cov=0.742
+[voynich subset=B lang=catalan drop=0.0 seed=2 K=300 tokcov=0.66 N=15382] LM/char=-2.793 dict-cov=0.149 | real latin LM/char=-1.879 dict-cov=0.742
+[voynich subset=B lang=catalan drop=0.0 seed=3 K=300 tokcov=0.66 N=15382] LM/char=-2.799 dict-cov=0.168 | real latin LM/char=-1.879 dict-cov=0.742
