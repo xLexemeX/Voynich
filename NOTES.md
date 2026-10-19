@@ -997,3 +997,9 @@ H5 (codebook / nomenclator) was judged "poor" in §7 from the hapax rate, but ne
 **Not usable, recorded so the mistakes are not repeated:**
 - **Latin.** Pliny's 300 commonest forms cover only 27% of tokens (OOV share 0.73), because Latin is heavily inflected. The score is then dominated by OOV→OOV transitions, and the search beats the true key while recovering 0–3% of types. A Latin codebook test would need lemmatized text.
 - **Generator.** Its top 300 types cover only 32% of its tokens (OOV share 0.68), so its scores are not comparable with the Voynich input's.
+
+**Repair attempts for the codebook test, both failed (`runs6/summary2.out`, `runs6/summary3.out`).**
+1. **Latin cut to 4-letter stems** (`latin4`). The top 300 stems cover 54% of tokens, but the control still beats its true key (−3.05 vs −3.21) while recovering 0–2% of types.
+2. **Scoring only in-vocabulary → in-vocabulary transitions** (`INV=1`). The Italian control now recovers *nothing* (0%, score −5.71 vs true −4.83), and the Latin-stem control again beats its true key without recovering it.
+
+So at this scale, 300 types and about 22,000 tokens, the word-bigram codebook search is underpowered. A sparse word-bigram model has many near-equivalent optima that are not the true key. The only cell with any power is the original Italian run above (28–33% recovered), and that is the only codebook result I count: Voynich about 1 nat per token below it. A properly powered codebook test would need a smoother language model (class-based or neural), or far more text than the Voynich provides.

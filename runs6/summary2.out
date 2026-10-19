@@ -1,0 +1,4 @@
+[control latin4 K=300 seed=1] score/token -3.0498 (true held-out text -3.2122); OOV share 0.56 | top-50 types correct 0.02, all 0.02
+[control latin4 K=300 seed=2] score/token -3.0500 (true held-out text -3.2122); OOV share 0.56 | top-50 types correct 0.00, all 0.01
+[voynich latin4 K=300 seed=1] score/token -4.2647 (true held-out text -3.2122); OOV share 0.37
+[voynich latin4 K=300 seed=2] score/token -4.2631 (true held-out text -3.2122); OOV share 0.37
