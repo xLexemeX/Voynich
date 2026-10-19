@@ -1245,7 +1245,7 @@ The gradient splits into a nearby-line part (b−a) of +0.09 (sd 0.025), a page 
 
 This replaces the conclusion added to §72. The vertical-neighbor effect does not by itself show copy-and-modify. Its line-scale part is ordinary, and nothing in it is tied to position. What remains to explain is the page-scale and section-scale clustering of *forms* (similar, not identical, words). Both a meaningful text, whose spelling of related words or inflections varies by topic, and a page-wise copy-and-modify procedure could produce it. The rule model of §72 produces none of it, because its page favorites are drawn from the global lexicon.
 
-## 74. Can a stem model produce the page clustering of word forms? (`gen4.py`, `gen4_fit.py`, `gen4_tradeoff.py`, `pageshuffle.py`, `data/gen4_*.out`, `data/pageshuffle.out`)
+## 74. Can a stem model produce the page clustering of word forms? (`gen4.py`, `gen4_fit.py`, `gen4_tradeoff.py`, `gen4_mut.py`, `pageshuffle.py`, `data/gen4_*.out`, `data/pageshuffle.out`)
 
 **What carries the clustering in the real text** (`vertical2.py`, 5 runs of 4,000 words). Ignoring words identical to the target leaves most of the gradient: nearby lines +0.074, page +0.119, section +0.143, against +0.088, +0.139 and +0.161 with them. So the clustering is mostly of *near* forms, not repeats. One-shot words take part: their page part is +0.117 (sd 0.023), on a larger any-page distance of 4.89. Recurrent words give +0.122 (sd 0.027).
 
@@ -1263,12 +1263,16 @@ The page-exclusive figure here differs slightly from §72 (0.302) because the dr
 
 | p_kl | page part | section part | page-exclusive | hapax share | h2 |
 |---|---|---|---|---|---|
-| 0 | +0.04, +0.06 | +0.15 | 0.40, 0.45 | 0.72 | 2.08 |
-| 0.5 | +0.11, +0.09 | +0.24, +0.20 | 0.39, 0.36 | 0.73 | 2.02 |
-| 0.75 | +0.15, +0.12 | +0.24, +0.25 | 0.38, 0.38 | 0.74 | 1.99 |
-| 1.0 | +0.19, +0.15 | +0.28, +0.31 | 0.41, 0.41 | 0.74 | 1.97 |
+| 0 | +0.01, +0.03 | +0.14, +0.12 | 0.38, 0.38 | 0.71 | 2.09 |
+| 0.5 | +0.07, +0.08 | +0.22 | 0.38, 0.40 | 0.72 | 2.03 |
+| 0.75 | +0.11, +0.13 | +0.23 | 0.39, 0.37 | 0.73 | 2.00 |
+| 1.0 | +0.16, +0.18 | +0.31, +0.29 | 0.41, 0.45 | 0.74–0.75 | 1.96–1.97 |
 | real | +0.15 (this run) | +0.17 | 0.30 | 0.67 | 2.10 |
 
+(A first run of this table left an older neighbor-pull option, `p_nl`=0.2, switched on. These are the rerun figures with it off. The pattern did not change.)
+
 A random search over all parameters (4 × 40 draws, `data/gen4_fit_*.out`) found no setting that matches everything. The best fits keep page-exclusive near 0.34 but reach only +0.04 to +0.08 on the page part. Pulling the page part up to the real value overshoots the section part, raises the one-shot share and lowers h2. Even the baseline, with group lexicons and no stems, is already too high on page-exclusive and one-shot share.
+
+**A variation step** (`gen4_mut.py`, `data/gen4_mut.out`). One-shot words are made by joining the head of a page stem to the tail of a real one-shot word, cut at random glyph boundaries. This keeps h2 at the real value (2.09) and, with half the one-shot words made this way, the one-shot share as well (0.66). But it yields almost no page clustering: −0.01 to +0.05 across `p_mut` 0–1 and two seeds. Crossover with a random tail destroys most of the resemblance to the stem.
 
 **Meaning.** The real text has two page-level properties at once. Exact repeats concentrate on pages, and so do similar-but-different forms, with 75–85% of the page part remaining when identical words are ignored. Selecting forms that resemble page stems reproduces the second only by distorting the vocabulary statistics. The model draws on the real lexicon at random and then selects, so it is too crude to rule the copy-and-vary family out. It is not a fit either, and the meaningless-text hypothesis still lacks a generator that passes every test. Topical text in a language whose related words share stems, such as inflections or compounds, would produce both properties naturally. That does not show the Voynich text is such a text. It means this statistic does not separate the two hypotheses yet.

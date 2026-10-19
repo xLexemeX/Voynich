@@ -13,7 +13,7 @@ def index(words):
     return ix
 IXH=index(G.HAPAX); IXL=index(G.LEX); FREQ=dict(zip(G.LEX,G.FR))
 def near(ix, s): return set().union(*(ix.get(d,()) for d in dels(s)))-{s}
-def gen(seed, group_lex=False, n_sec=60, n_page=6, p_sec=0.8, p_nh=0.5, p_nl=0.2, topic_p=0.08, topic_n=26, p_q=0.92, p_unq=0.39, p_alt=0.62, p_new=0.22, p_rep=0.006, k_h=1, k_l=1, recent=0, p_kl=1.0, p_recent=1.0, norm=False):
+def gen(seed, group_lex=False, n_sec=60, n_page=6, p_sec=0.8, p_nh=0.5, p_nl=0.2, topic_p=0.08, topic_n=26, p_q=0.92, p_unq=0.39, p_alt=0.62, p_new=0.22, p_rep=0.006, k_h=1, k_l=1, recent=0, p_kl=1.0, p_recent=1.0, norm=False, p_mut=0.0):
     rng=random.Random(seed); pool=G.HAPAX[:]; rng.shuffle(pool); used=set()
     cum=list(__import__('itertools').accumulate(G.FR)); tot=cum[-1]
     gl={}
@@ -30,7 +30,14 @@ def gen(seed, group_lex=False, n_sec=60, n_page=6, p_sec=0.8, p_nh=0.5, p_nl=0.2
     secstems=collections.defaultdict(list)
     def close(w,x): return V.ed(w,x)/max(len(w),len(x)) if norm else V.ed(w,x)
     def best(cands, stems): return min(cands, key=lambda w: min(close(w,x) for x in stems))
+    def glyphs(w): return __import__('scorecard').G.findall(w)
     def new_hapax(stems):
+        if rng.random()<p_mut:                    # variation: the head of a page stem joined to the tail of a real one-shot word
+            pl=gl[cur[0]][2] if group_lex else pool
+            if pl:
+                a=glyphs(rng.choice(stems)); b=glyphs(pl.pop())
+                if len(a)>1 and len(b)>1:
+                    return ''.join(a[:rng.randrange(1,len(a))]+b[rng.randrange(1,len(b)):])
         if k_h>1:                                 # best of k_h unused one-shot words, by closeness to the page stems
             pl=gl[cur[0]][2] if group_lex else pool; c=[]
             while pl and len(c)<k_h:
