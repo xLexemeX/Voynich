@@ -1,0 +1,2 @@
+[generator italian seed=2 units=100 signs=60] train score/token -2.6022; held-out cross-word order gain -0.0011 (true text with true signs -2.2770)
+  sample: ii poi ii viii viii ii viii viii iii poi iii iii viii ii viii ii iii viiiii ii ii viii poii poi ii ii

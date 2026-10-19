@@ -1,0 +1,2 @@
+[generator italian seed=1 units=60 signs=60] train score/token -4.0937; held-out cross-word order gain +0.0005 (true text with true signs -2.2770)
+  sample: litralepete litralepera litralepero sera litralepera maememaro dipilelilare cachilemara tranote litralepetro atto litralepetro litralepetro atramate setramate atro litralepera litralepente litralepe l

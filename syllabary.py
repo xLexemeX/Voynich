@@ -28,6 +28,14 @@ for w in EA:
     s=[K]+w+[K]
     for a,b in zip(s,s[1:]): C2[a,b]+=1
 LP=np.log(C2/C2.sum(1,keepdims=True))
+import os
+TRI=os.environ.get('TRI')=='1'
+if TRI:   # sign trigram over the running sequence: w1 signs, boundary, w2 signs, boundary ...
+    C3=np.full((K+1,K+1,K+1),0.05); flat=[K]
+    for w in EA: flat+=w+[K]
+    flat=np.array(flat)
+    np.add.at(C3,(flat[:-2],flat[1:-1],flat[2:]),1)
+    LP3=np.log(C3/C3.sum(2,keepdims=True))
 # input sequences of units
 exec_ns={}
 def bpe(words,n_units):
@@ -57,7 +65,7 @@ else:
         rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P')]
         src=[w for r in rows for w in r['text'].split('.') if re.fullmatch(r'[a-z]+',w)]
     else:
-        exec(open('generators2.py').read().rsplit("stats('VOYNICH',lines)",1)[0], exec_ns); src=[w for l in exec_ns['gen'](len(exec_ns['lines'])) for w in l]
+        exec(open('generators2.py').read().rsplit("stats('VOYNICH',lines)",1)[0], exec_ns); exec_ns['random'].seed(1000+seed); src=[w for l in exec_ns['gen'](len(exec_ns['lines'])) for w in l]
     bw=bpe(src[:N], NU); units=sorted({u for w in bw for u in w}); ui={u:i for i,u in enumerate(units)}; words=[[ui[u] for u in w] for w in bw]; U=len(units); truth=None
 # fit on the first half of the words, keep the second half for the held-out order test
 TEST=words[len(words)//2:]; words=words[:len(words)//2]
@@ -68,8 +76,13 @@ for w in words:
     for a,b in zip(s,s[1:]): pairs[(a,b)]+=1
 P=np.array([[a,b,c] for (a,b),c in pairs.items()])
 ntok=P[:,2].sum()
+if TRI:
+    fl=[-1]
+    for w in words: fl+=w+[-1]
+    tr=collections.Counter(zip(fl,fl[1:],fl[2:])); P3=np.array([[a,b,c,n] for (a,b,c),n in tr.items()]); n3=P3[:,3].sum()
 def score(M):
     Mx=np.append(M,K)        # unit -> sign, boundary -> K
+    if TRI: return (LP3[Mx[P3[:,0]],Mx[P3[:,1]],Mx[P3[:,2]]]*P3[:,3]).sum()/n3
     return (LP[Mx[P[:,0]],Mx[P[:,1]]]*P[:,2]).sum()/ntok
 # unigram-frequency init, then annealing on single reassignments
 freqU=collections.Counter(u for w in words for u in w); orderU=[u for u,_ in freqU.most_common()]+[u for u in range(U) if u not in freqU]
@@ -93,13 +106,20 @@ def seqscore(M,W):
     for w in W:
         s_=[-1]+w+[-1]; a=Mx[np.array(s_[:-1])]; b=Mx[np.array(s_[1:])]; tot+=LP[a,b].sum(); n+=len(s_)-1
     return tot/n
+def seqscore3(M,W):
+    Mx=np.append(M,K); fl=[-1]
+    for w in W: fl+=w+[-1]
+    f=Mx[np.array(fl)]; return LP3[f[:-2],f[1:-1],f[2:]].mean()
 def gain(M):
-    o=seqscore(M,TEST); sh=[]
-    for _ in range(5): sh.append(seqscore(M,[random.sample(w,len(w)) for w in TEST]))
+    if TRI:   # whole-word shuffle: changes only cross-word trigrams
+        o=seqscore3(M,TEST); sh=[seqscore3(M,random.sample(TEST,len(TEST))) for _ in range(5)]
+    else:
+        o=seqscore(M,TEST); sh=[]
+        for _ in range(5): sh.append(seqscore(M,[random.sample(w,len(w)) for w in TEST]))
     return o-sum(sh)/len(sh)
 G=gain(bestM)
 dec=' '.join(''.join(SIG[bestM[x]] for x in w) for w in words[:25])
 ref=sum(LP[[K]+w,w+[K]].sum() for w in EB[:N])/sum(len(w)+1 for w in EB[:N])
-res=f'[{target} {LANG} seed={seed} units={U} signs={K}] train score/token {best:.4f}; held-out within-word order gain {G:+.4f} (true text with true signs {ref:.4f})'
+res=f'[{target} {LANG} seed={seed} units={U} signs={K}] train score/token {best:.4f}; held-out {'cross-word' if TRI else 'within-word'} order gain {G:+.4f} (true text with true signs {ref:.4f})'
 if truth: TM=np.array([truth[u] for u in range(U)]); res+=f' | units correctly mapped {np.mean([bestM[u]==truth[u] for u in range(U)]):.2f}; true key: train {score(TM):.4f}, held-out gain {gain(TM):+.4f}'
 print(res); print('  sample:',dec[:200])

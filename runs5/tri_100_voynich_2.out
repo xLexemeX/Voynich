@@ -1,0 +1,2 @@
+[voynich italian seed=2 units=100 signs=60] train score/token -2.4392; held-out cross-word order gain +0.0006 (true text with true signs -2.2770)
+  sample: iiii noi i iii e ei noiii i ii ei iii ii i i io iii ii iii noi noi io iiii io i noi

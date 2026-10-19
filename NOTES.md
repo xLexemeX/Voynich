@@ -1027,3 +1027,24 @@ This tests the many-to-one form left open in §61. 100 units map onto 60 Italian
 **Result: the test fails.** Meaningless generator text gains almost as much from within-word order as a true key does, and more than the Voynich. Its words follow the rigid slot grammar (§5), so any key that maps word-initial units to word-initial syllables and word-final units to word-final syllables gains from that order. The search also never finds the true homophonic key (10–13% correct), while its wrong keys again beat the true key on the training score (§33). So the homophonic syllabary stays **untested**: neither the training score nor this held-out gain can tell a real key from a fitted one on text with Voynich-like word structure. A usable test would have to measure dependencies *across* words, and a bigram model with boundary tokens has none.
 
 **Bookkeeping.** The three generator runs are identical because `generators2.py` calls `random.seed(11)` when executed, which overrides the run's seed. The same applies to the generator runs in §61 and §62. The generator text is therefore a single sample in all of them.
+
+## 65. Cross-word held-out test for Italian syllabaries (one-to-one and homophonic): calibrated, and negative (`syllabary.py` with `TRI=1`, `runs5/summary4.out`)
+
+This is the fix for §64. The score is now a sign *trigram* over the running sequence, with the boundary as a sign. That captures (last sign of word 1, boundary, first sign of word 2), so shuffling whole words changes the score. The held-out gain, real word order minus shuffled word order on the second half, then measures dependencies *between* words. Meaningless copying text has almost none (§17). The key is fitted on the first half, by annealing, 400,000 steps, 3 seeds. The generator's seed override (§64) is fixed, so its runs are now independent samples.
+
+| input | units → 60 signs | key recovered | train score per token | held-out cross-word gain |
+|---|---|---|---|---|
+| Italian control, true key | | | −2.148 | **+0.074 to +0.078** |
+| Italian control, one-to-one search | 60 | **100%** ×3 | −2.148 | **+0.078 to +0.079** |
+| Italian control, homophonic search | 100 | 13–19% | −2.215 to −2.245 | +0.002 to +0.007 |
+| **Voynich** | 60 | | −3.70 to −3.74 | **−0.006 to +0.006** |
+| **Voynich** | 100 | | −2.439 to −2.444 | **−0.002 to +0.001** |
+| generator (meaningless) | 60 / 100 | | −4.08 to −4.12 / −2.58 to −2.60 | −0.001 to +0.002 |
+
+**The measure is calibrated.** A true key gains about +0.077 from cross-word order, and wrong keys, including the homophonic control's 13–19%-correct keys, gain essentially nothing. Unlike the within-word gain of §64, the meaningless generator also gains nothing.
+
+**Result: negative for both forms.** The keys fitted to the Voynich text, one-to-one or homophonic, gain nothing from word order on held-out text, the same as wrong keys and gibberish. The Voynich does have cross-word dependencies (the `y | qo` junction, §20), but no fitted key turns them into Italian syllable order across words.
+
+**Limits.** As in §37, this shows the keys found for the Voynich are not real. It does not show that a real homophonic key would be found, since the search misses the true key on the homophonic control. Italian only, 60 signs, frequency-based BPE units.
+
+This closes the gap §61 and §64 left. The homophonic Italian syllabary is now covered by a test that passes its control, and fails on the Voynich.
