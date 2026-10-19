@@ -1,0 +1,8 @@
+line above                                 3.412  (sd over 5 runs 0.020)
+same page, 3+ lines away                   3.501  (sd over 5 runs 0.018)
+other page, same section/language/hand     3.640  (sd over 5 runs 0.013)
+any other page                             3.801  (sd over 5 runs 0.016)
+vertical (b-a)                             +0.088  (sd 0.025)
+page (c-b)                                 +0.139  (sd 0.016)
+section/language/hand (d-c)                +0.161  (sd 0.015)
+line above, same position 3.382 vs 4+ positions away 3.352: difference -0.030 (sd 0.013)

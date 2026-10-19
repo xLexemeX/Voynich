@@ -1214,6 +1214,33 @@ A plug-in word-pair MI check was tried and dropped. At this sparsity it gave the
 | page-exclusive rate | 0.302 | 0.258–0.291 |
 | y→qo junction ratio | 3.875 | 3.65–3.82 |
 
-**Meaning, corrected after a further check (`gen3_vertical.py`, `data/gen3_vertical.out`).** The real text is matched best with no *exact* copying from earlier on the page. I first wrote that this cuts against self-citation. It does not. Timm & Schinner's vertical-neighbour effect (§23) is not on the scorecard. A word's minimum edit distance to the words near the same position in the line above is 3.46, against 3.81 for the same positions on another page, a difference of 0.35. Every rule model shows no such effect: −0.01 with no copying, −0.01 with 3% copying, +0.03 with 15% exact copying.
+**Meaning, corrected after a further check (`gen3_vertical.py`, `data/gen3_vertical.out`; refined again in §73, which supersedes the near-copy reading below).** The real text is matched best with no *exact* copying from earlier on the page. I first wrote that this cuts against self-citation. It does not. Timm & Schinner's vertical-neighbour effect (§23) is not on the scorecard. A word's minimum edit distance to the words near the same position in the line above is 3.46, against 3.81 for the same positions on another page, a difference of 0.35. Every rule model shows no such effect: −0.01 with no copying, −0.01 with 3% copying, +0.03 with 15% exact copying.
 
 So the real text contains **near-copies**, words resembling those just above them, while exact page-specific repetition stays low. That is what copy-*and-modify* predicts, and what neither exact copying nor a plain word stream produces. The two observations fit together if most "new" words are modified versions of nearby ones. That would also explain why the page-specific vocabulary is written only once (§55). A complete model needs a modification step that turns a nearby word into a similar new form. The rule model here borrows its forms from the real lexicon, so it cannot show that. What this section does establish: the junction and line rules are near-deterministic scribal rules, and exact local copying is rare.
+
+## 73. The vertical-neighbour effect, split into its parts (`vertical2.py`, `data/vertical2.out`)
+
+The 0.35 difference in §72 compared the line above with *any other page*, so page and section similarity were counted as "vertical". Here the same measure (minimum edit distance from a word to the words at positions j−1..j+1) is taken against four kinds of line. Each figure is the mean of 5 runs of 4,000 words.
+
+| comparison line | Voynich | sd over runs |
+|---|---|---|
+| (a) the line directly above | 3.412 | 0.020 |
+| (b) same page, 3 or more lines away | 3.501 | 0.018 |
+| (c) another page of the same section, Currier language and hand | 3.640 | 0.013 |
+| (d) any other page | 3.801 | 0.016 |
+
+The gradient splits into a nearby-line part (b−a) of +0.09 (sd 0.025), a page part (c−b) of +0.14 (sd 0.016), and a section, language and hand part (d−c) of +0.16 (sd 0.015).
+
+**Position.** Within the line above, a window at the word's own position is no closer than a window 4 or more positions away: 3.382 against 3.352, a difference of −0.03 (sd 0.013). The slight reversal is a window-edge effect, since a line-initial word has a two-word window. Pliny shows it too (4.98 against 4.88). Nothing here is specific to the word directly above. What exists is a closeness to nearby lines.
+
+**Reference texts**, laid out in order on the Voynich page and line shapes, with the Voynich section labels applied to the resulting consecutive chunks:
+
+| text | (a) | (b) | (c) | (d) | nearby lines | page | section |
+|---|---|---|---|---|---|---|---|
+| Pliny (Latin) | 5.036 | 5.147 | 5.239 | 5.304 | +0.111 (sd 0.020) | +0.092 (sd 0.031) | +0.065 (sd 0.034) |
+| Dante (Italian) | 3.480 | 3.503 | 3.530 | 3.524 | +0.022 | +0.027 | −0.006 |
+| *Tirant* (Catalan) | 3.557 | 3.595 | 3.608 | 3.636 | +0.038 | +0.013 | +0.028 |
+
+**Meaning.** The nearby-line part is the same size in the Voynich (+0.09, about 2.3% of the any-page distance) as in Pliny's topical prose (+0.11, about 2.1%). It needs no copying mechanism. A text that stays on one subject for a few lines produces it. The Voynich differs in the page and section parts. Its total gradient is about 10% of the any-page distance, against 5% for Pliny and 1–2% for Dante and *Tirant*. The section part includes the Currier A/B and hand differences, which are differences of spelling or dialect, not of subject. So the Voynich word forms cluster strongly by page and by section, while exact repetition of page-specific words stays low (§55).
+
+This replaces the conclusion added to §72. The vertical-neighbour effect does not by itself show copy-and-modify. Its line-scale part is ordinary, and nothing in it is tied to position. What remains to explain is the page-scale and section-scale clustering of *forms* (similar, not identical, words). Both a meaningful text, whose spelling of related words or inflections varies by topic, and a page-wise copy-and-modify procedure could produce it. The rule model of §72 produces none of it, because its page favourites are drawn from the global lexicon.
