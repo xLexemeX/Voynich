@@ -982,3 +982,18 @@ Tests the family left open by §58–59: a small syllabary for a European langua
 Scores are per token.
 
 **Result: negative throughout.** The control key is recovered at 93–100% in every cell, so the search works at all three sizes and in both languages. Voynich ends 0.45–1.39 nats per token below the true-key score in every cell. The Latin gaps are smaller than the Italian ones because Latin signs are less predictable to begin with, so the true score is lower. A one-sign-per-unit syllabary of Italian or Latin, at 40–80 signs, does not fit the Voynich units.
+
+## 62. One-to-one codebook, Voynich word → Italian word: negative, with a partly powered control (`codebook.py`, `runs6/`)
+
+H5 (codebook / nomenclator) was judged "poor" in §7 from the hapax rate, but never tested directly. Here the 300 commonest Voynich word types are mapped one-to-one onto the 300 commonest Italian word types (Dante, first half), and all other words count as one out-of-vocabulary (OOV) token. The score is an Italian word-bigram model per token, searched by swap annealing, 1.5 million steps, 2 seeds. 22,000 tokens per input.
+
+| input | OOV share | best score per token | key recovered |
+|---|---|---|---|
+| Italian held-out half, top-300 types relabelled | 0.40 | −3.379, −3.388 (true key −3.283) | 33% and 28% of types; 36% and 18% of the top 50 |
+| **Voynich** | 0.37 | **−4.369, −4.372** | |
+
+**Result: negative for Italian.** With a similar OOV share, the Voynich input ends about 1.0 nat per token below even the partly recovered control, and 1.1 below the true key. The control's own recovery is incomplete: the word-bigram model is sparse, and many swaps of rare words do not change the score. So this test is less sharp than the syllabary test of §61. But a gap of 1 nat per token is far outside the control's range. The best Voynich decoding reads `_ _ mi _ lor _ _ da quelle _ _ _ si da _ _ fia _ tuoi tuoi _ _ valle…`: Italian function words strung together without syntax.
+
+**Not usable, recorded so the mistakes are not repeated:**
+- **Latin.** Pliny's 300 commonest forms cover only 27% of tokens (OOV share 0.73), because Latin is heavily inflected. The score is then dominated by OOV→OOV transitions, and the search beats the true key while recovering 0–3% of types. A Latin codebook test would need lemmatized text.
+- **Generator.** Its top 300 types cover only 32% of its tokens (OOV share 0.68), so its scores are not comparable with the Voynich input's.

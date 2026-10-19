@@ -1,0 +1,1 @@
+[control italian K=300 seed=1] score/token -3.3793 (true held-out text -3.2831); OOV share 0.40 | top-50 types correct 0.36, all 0.33

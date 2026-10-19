@@ -1,0 +1,12 @@
+[control italian K=300 seed=1] score/token -3.3793 (true held-out text -3.2831); OOV share 0.40 | top-50 types correct 0.36, all 0.33
+[control italian K=300 seed=2] score/token -3.3877 (true held-out text -3.2831); OOV share 0.40 | top-50 types correct 0.18, all 0.28
+[control latin K=300 seed=1] score/token -1.9050 (true held-out text -1.9972); OOV share 0.73 | top-50 types correct 0.04, all 0.03
+[control latin K=300 seed=2] score/token -1.9010 (true held-out text -1.9972); OOV share 0.73 | top-50 types correct 0.00, all 0.01
+[generator italian K=300 seed=1] score/token -2.8372 (true held-out text -3.2831); OOV share 0.68
+[generator italian K=300 seed=2] score/token -2.8372 (true held-out text -3.2831); OOV share 0.68
+[generator latin K=300 seed=1] score/token -2.5580 (true held-out text -1.9972); OOV share 0.68
+[generator latin K=300 seed=2] score/token -2.5580 (true held-out text -1.9972); OOV share 0.68
+[voynich italian K=300 seed=1] score/token -4.3694 (true held-out text -3.2831); OOV share 0.37
+[voynich italian K=300 seed=2] score/token -4.3719 (true held-out text -3.2831); OOV share 0.37
+[voynich latin K=300 seed=1] score/token -4.3130 (true held-out text -1.9972); OOV share 0.37
+[voynich latin K=300 seed=2] score/token -4.3168 (true held-out text -1.9972); OOV share 0.37
