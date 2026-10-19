@@ -1,0 +1,4 @@
+real: vertical neighbours 3.46, same positions on another page 3.81, difference 0.35
+rule model, no copying: 3.74 vs 3.73, difference -0.01
+rule model, 3% copying: 3.78 vs 3.77, difference -0.01
+rule model, 15% copying: 3.77 vs 3.80, difference 0.03
