@@ -895,3 +895,23 @@ The dominant late-medieval herbals, *Circa instans* and the illustrated *Tractat
 | Sherwood | 27 | −0.20 | 0.31 | −0.42 (4 quires, few pages) |
 
 **Result: negative.** No identifier shows any alphabetical trend, overall or within quires. The weak negative values are not significant and do not agree across identifiers. Either the herbal does not follow an alphabetical model, or the identifications, or the leaf order, are too unreliable to show it. A Latin-alphabetical source would have shown a clear positive rho if most identifications were right.
+
+## 58. What size of unit makes Voynich look like a natural script? (`bpe_units.py`, `data/bpe_units.out`)
+
+§4 merged a few common digraphs; this does it systematically. Glyphs within words are merged by byte-pair encoding, the most frequent adjacent pair at each step, and the inventory grows from the 25 EVA glyphs. At each inventory size: unigram entropy h1, conditional entropy h2 (next unit given the current one, with the word boundary as a unit), and units per word. The same procedure is run on Latin letters (Pliny).
+
+| units | Voynich h1 / h2 / units per word | Latin h1 / h2 / units per word |
+|---|---|---|
+| 25 (raw EVA) | 3.87 / 2.10 / 4.96 | 4.01 / 3.40 / 6.01 (24 letters) |
+| 30 | 4.14 / 2.40 / 4.00 | 4.26 / 3.58 / 5.48 |
+| 40 | 4.39 / 2.90 / 3.01 | 4.66 / 3.83 / 4.88 |
+| 50 | 4.57 / 3.17 / 2.64 | |
+| **60** | **4.67 / 3.34 / 2.39** | |
+| 80 | 4.85 / 3.55 / 2.14 | |
+| Latin syllables (rough split) | | 6.52 / 4.42 / 2.79, inventory 1,588 |
+
+**Result.**
+- **Units as letters do not work.** Voynich reaches the predictability of Latin *letters* (h2 about 3.4) only at about 60 units. By then a word is 2.4 units long, where Latin averages 6 letters. Read as letters of a European language, those units would give implausibly short words. That holds for any choice of merges, not only the common digraphs of §4. So a verbose cipher of an alphabetic text, with several glyphs per letter, does not fit unless word spaces are not real word boundaries.
+- **Units as syllables almost fit.** About 60 units at 2.4 per word is the profile of a small syllabary, a few dozen signs and two or three per word, like the Japanese kana. The fit is only in size: Latin syllables number about 1,600 types (top 60 cover 63% of tokens) and are far less predictable (h2 4.4). So the Voynich units cannot be one sign per Latin syllable either. A syllabic reading needs a language with a small syllable inventory, or a script that writes only part of each syllable.
+
+This is a constraint, not a reading. It narrows the scripts the Voynich could be, if it is a script at all: not an alphabet with real word spaces; possibly a small syllabary or an abbreviating system.

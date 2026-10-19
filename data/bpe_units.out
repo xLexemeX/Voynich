@@ -1,0 +1,23 @@
+Voynich
+   units  25: h1 3.87  h2 2.10  units/word 4.96
+   units  26: h1 3.89  h2 2.19  units/word 4.67
+   units  28: h1 4.00  h2 2.30  units/word 4.31
+   units  30: h1 4.14  h2 2.40  units/word 4.00
+   units  35: h1 4.27  h2 2.67  units/word 3.42
+   units  40: h1 4.39  h2 2.90  units/word 3.01
+   units  50: h1 4.57  h2 3.17  units/word 2.64
+   units  60: h1 4.67  h2 3.34  units/word 2.39
+   units  80: h1 4.85  h2 3.55  units/word 2.14
+   units 100: h1 4.98  h2 3.69  units/word 2.00
+Latin
+   units  24: h1 4.01  h2 3.40  units/word 6.01
+   units  26: h1 4.12  h2 3.47  units/word 5.81
+   units  28: h1 4.22  h2 3.53  units/word 5.64
+   units  30: h1 4.26  h2 3.58  units/word 5.48
+   units  35: h1 4.45  h2 3.71  units/word 5.16
+   units  40: h1 4.66  h2 3.83  units/word 4.88
+   units  50: h1 4.93  h2 3.99  units/word 4.52
+   units  60: h1 5.10  h2 4.08  units/word 4.29
+   units  80: h1 5.40  h2 4.21  units/word 3.96
+   units 100: h1 5.58  h2 4.29  units/word 3.74
+Latin syllables: inventory 1588, top-60 cover 0.63 of tokens; h1 6.52 h2 4.42; syllables/word 2.79
