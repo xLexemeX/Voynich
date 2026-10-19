@@ -745,3 +745,14 @@ The stars section (quire 20) is a run of short entries, each marked with a star 
 **Result: inconclusive.** A 365-entry calendar is possible if the four lost pages were as sparse as the sparsest surviving ones. The central estimate, about 380, is above 365. The data neither support nor exclude one entry per day.
 
 **Side result.** ZL's paragraph division undercounts the starred entries by 38 overall. Any analysis of the stars section that treats ZL paragraphs as entries (§23's "starred-paragraph first words", for one) works with merged entries on f108v, f111r, f111v and f116r.
+
+## 51. Do herbal pages showing the same plant share vocabulary? (`sameplant.py`, `data/sameplant.out`)
+
+If the herbal text describes the plant drawn beside it, two pages showing the same plant should share more words than two unrelated pages. The plant identifications come from voynich.nu (ELV and ThP) and Sherwood (§46), made from the drawings. Only the name fields are used, with attributions such as "(O'Neill)" removed, and names are matched on their first six letters. Of 106 identified herbal pages, 35 same-language, non-adjacent page pairs share a proposed genus: two *Mentha*, three *Aristolochia*, three borages, two *Primula*, *Nymphaea*, *Helleborus*, *Rumex*, *Veronica* and others. Similarity is the cosine of tf-idf word vectors. The null draws, for each pair, a different-genus pair of the same Currier language at a similar folio distance (in bins of 10 folios), because nearby pages share vocabulary through drift (§8). 5,000 draws.
+
+| pairs | mean cosine |
+|---|---|
+| same proposed genus (35) | 0.0361 |
+| matched different-genus pairs | 0.0387 |
+
+p = 0.77. **Result: negative.** Pages identified as the same plant share no more vocabulary than unrelated pages of the same language and distance. The highest pair, f40v and f50r, both called artichoke by ThP (cosine 0.134), is matched by many unrelated pairs. Together with §35–36 (herbal vs pharmacy copies) and §40 (page-opening words), there is no sign that the herbal text varies with the plant drawn. **Caveat:** the identifications are uncertain, and a wrong identification adds noise. But that noise would weaken a real effect, not reverse it, and here the same-plant pairs come out slightly *below* the null.

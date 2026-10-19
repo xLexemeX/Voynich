@@ -1,0 +1,37 @@
+106 herbal pages with an identification; 3210 same-language pairs; 35 share a proposed genus (non-adjacent folios):
+   f2r    f4r    ['centau']  cos 0.055
+   f2v    f7r    ['nympha']  cos 0.019
+   f3r    f21v   ['crassu', 'salvia']  cos 0.021
+   f4v    f32v   ['convul']  cos 0.032
+   f4v    f49r   ['scammo']  cos 0.015
+   f5r    f15v   ['paris']  cos 0.037
+   f5r    f47r   ['cucumb']  cos 0.028
+   f5v    f25r   ['pariet']  cos 0.052
+   f5v    f36r   ['gerani']  cos 0.013
+   f6r    f52r   ['aristo']  cos 0.009
+   f6r    f56v   ['aristo']  cos 0.013
+   f8r    f45r   ['atripl']  cos 0.041
+   f8r    f96v   ['hastat']  cos 0.010
+   f8v    f11r   ['silene']  cos 0.044
+   f8v    f47v   ['anchus']  cos 0.064
+   f10v   f23r   ['helleb']  cos 0.024
+   f14r   f28r   ['rumex']  cos 0.033
+   f14r   f42r   ['sagitt']  cos 0.049
+   f17v   f49r   ['commun', 'tamus']  cos 0.056
+   f18r   f38r   ['aster']  cos 0.018
+   f18r   f96r   ['calend']  cos 0.012
+   f20r   f25r   ['mentha']  cos 0.012
+   f20r   f32r   ['mentha']  cos 0.052
+   f23r   f45v   ['veroni']  cos 0.077
+   f25r   f32r   ['mentas', 'mentha']  cos 0.017
+   f26r   f43r   ['gnapha']  cos 0.088
+   f30v   f51v   ['boragi']  cos 0.006
+   f30v   f56r   ['boragi']  cos 0.043
+   f32v   f42v   ['ranunc']  cos 0.062
+   f39v   f66v   ['primul']  cos 0.039
+   f40r   f66v   ['primul']  cos 0.045
+   f40v   f50r   ['artich']  cos 0.134
+   f44r   f51r   ['mandra']  cos 0.017
+   f51v   f56r   ['boragi']  cos 0.015
+   f52r   f56v   ['aristo']  cos 0.011
+mean cosine, same-genus pairs 0.0361; matched different-genus pairs 0.0387; p = 0.768
