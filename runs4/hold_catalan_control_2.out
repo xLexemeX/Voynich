@@ -1,0 +1,14 @@
+  true key: LM/char -2.515 total -19256; init total -25346
+/home/ds/Desktop/Voynich/pairchipher.py:82: RuntimeWarning: divide by zero encountered in divide
+  def kl(cnt): q=cnt/cnt.sum(); m=q>0; return float((q[m]*np.log(q[m]/lf[m])).sum())
+  progress 0.5M/4.0M best -18178 (48s)
+  progress 1.0M/4.0M best -17844 (95s)
+  progress 1.5M/4.0M best -17558 (141s)
+  progress 2.0M/4.0M best -17223 (188s)
+  progress 2.5M/4.0M best -16723 (231s)
+  progress 3.0M/4.0M best -16049 (275s)
+  progress 3.5M/4.0M best -15724 (318s)
+[control subset=B lang=catalan seed=2 N=7647 drop=0.336] LM/char=-1.939 total=-15623 bigram-share=0.93 | token-acc=0.012 decoded-letter-match=0.057
+  sample: osesosamesenialieracalosenostraltrquenadenadesalosentriaueneniosostrosostralauesenaltramauestrososquentresalesalenialalenosaltrenadesenosaltreneneniestrenalentramiaualadesguenienesosenenacarenenadenacalesalesalesienqualalesentracosauostraue
+  heldout fitted key: in-order -2.1050 shuffled -2.1825 sd 0.0058 gain +0.0775 z 13.4
+  heldout true key: in-order -2.4782 shuffled -3.1015 sd 0.0110 gain +0.6233 z 56.6

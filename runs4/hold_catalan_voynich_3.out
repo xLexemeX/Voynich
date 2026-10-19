@@ -1,0 +1,12 @@
+/home/ds/Desktop/Voynich/pairchipher.py:82: RuntimeWarning: divide by zero encountered in divide
+  def kl(cnt): q=cnt/cnt.sum(); m=q>0; return float((q[m]*np.log(q[m]/lf[m])).sum())
+  progress 0.5M/4.0M best -17988 (45s)
+  progress 1.0M/4.0M best -17744 (89s)
+  progress 1.5M/4.0M best -17480 (136s)
+  progress 2.0M/4.0M best -17243 (180s)
+  progress 2.5M/4.0M best -16867 (225s)
+  progress 3.0M/4.0M best -16503 (270s)
+  progress 3.5M/4.0M best -16120 (313s)
+[voynich subset=B lang=catalan seed=3 N=7691 drop=0.336] LM/char=-1.965 total=-15898 bigram-share=0.94
+  sample: altrenenacalcalacosenesesenaltralososacosacaualauenalacauacalosiososesialtresauenalalesacalosalalalalalositracesaltrenaliosalesesosalenesalalbenacososalosiaacalososauenguenesenalosesenitralesacorosenalgualtraleraltrauosaltralenaualoraltriac
+  heldout fitted key: in-order -2.2159 shuffled -2.2641 sd 0.0084 gain +0.0481 z 5.7

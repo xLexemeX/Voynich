@@ -14,7 +14,12 @@ def hebrew(path):
     H='אבגדהוזחטיכלמנסעפצקרשת'; F={'ך':'כ','ם':'מ','ן':'נ','ף':'פ','ץ':'צ'}; tr={h:ALPHA[i] for i,h in enumerate(H)}
     s=re.sub(r'&[a-z]+;',' ',open(path,encoding='utf-8').read())
     return [w for w in (''.join(tr.get(F.get(c,c),'') for c in tok) for tok in s.split()) if w]
-pl=hebrew('data/ref/hebrew_genesis.txt') if LANG=='hebrew' else words('data/ref/latin_pliny.txt') if LANG=='latin' else words('data/ref/italian_dante.txt' if LANG=='italian' else 'data/ref/german_faust.txt',True)
+def catalan():
+    pg=open('data/ext_cat/tirant.txt',encoding='utf-8').read().split('\n\n')
+    import unicodedata
+    t=unicodedata.normalize('NFKD','\n'.join(pg[len(pg)//8:]).lower()).encode('ascii','ignore').decode().replace('y','i').replace('j','i').replace('v','u').replace('k','c').replace('w','u')
+    return re.findall(r'[a-z]+',t)
+pl=catalan() if LANG=='catalan' else hebrew('data/ref/hebrew_genesis.txt') if LANG=='hebrew' else words('data/ref/latin_pliny.txt') if LANG=='latin' else words('data/ref/italian_dante.txt' if LANG=='italian' else 'data/ref/german_faust.txt',True)
 half=len(pl)//2
 t=np.array([aid[c] for c in ''.join(pl[:half]) if c in aid],dtype=np.int64)
 c1=np.bincount(t,minlength=A).astype(float); c2=np.bincount(t[:-1]*A+t[1:],minlength=A*A).astype(float)

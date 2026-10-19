@@ -1104,3 +1104,15 @@ So §65's conclusion holds for **Italian only**. Latin syllabaries remain covere
 **Result: negative.** This is the strongest calibration of any target so far: the true key's cross-word gain is about 10 sd above random keys. On the Voynich, the best one-to-one key falls 2.1 nats per token below the true Catalan score, and gains no more from word order than random keys do. A 60-sign onset+vowel syllabary of Catalan, one sign per merged unit, is excluded on both measures.
 
 **Limits** as before: frequency-based BPE units, one syllable model, and the homophonic form not found on its own control (§64–65).
+
+## 68. Letter-or-pair word cipher (Naibbe form), held-out word-order test, Catalan target (`pairchipher.py catalan`, `runs4/summary7.out`)
+
+Same as §37–39 with *Tirant lo Blanch* as plaintext and language model (§67): Language B, 4 million steps, 3 seeds. `y` is read as i, so decodings containing `y` are rejected outright (zero frequency in the target).
+
+| input | key | held-out gain from word order, per letter |
+|---|---|---|
+| Catalan control | true key | +0.604 to +0.628 |
+| Catalan control | fitted, about 99% wrong | +0.047 to +0.078 |
+| **Voynich B** | fitted | **+0.032 to +0.048** |
+
+**Result: negative.** The Voynich keys gain no more from word order than wrong keys fitted to real Catalan ciphertext, and about a fifteenth of a true key. With §37–39, the letter-or-pair word cipher is now excluded by the held-out test for Latin, Italian, German, Hebrew and Catalan.

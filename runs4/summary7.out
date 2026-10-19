@@ -1,0 +1,15 @@
+[control subset=B lang=catalan seed=1 N=7741 drop=0.336] LM/char=-2.003 total=-16248 bigram-share=1.00 | token-acc=0.008 decoded-letter-match=0.056
+  heldout fitted key: in-order -2.1391 shuffled -2.1863 sd 0.0033 gain +0.0472 z 14.3
+  heldout true key: in-order -2.4749 shuffled -3.1032 sd 0.0092 gain +0.6283 z 68.2
+[control subset=B lang=catalan seed=2 N=7647 drop=0.336] LM/char=-1.939 total=-15623 bigram-share=0.93 | token-acc=0.012 decoded-letter-match=0.057
+  heldout fitted key: in-order -2.1050 shuffled -2.1825 sd 0.0058 gain +0.0775 z 13.4
+  heldout true key: in-order -2.4782 shuffled -3.1015 sd 0.0110 gain +0.6233 z 56.6
+[control subset=B lang=catalan seed=3 N=7669 drop=0.336] LM/char=-1.996 total=-16001 bigram-share=1.00 | token-acc=0.011 decoded-letter-match=0.057
+  heldout fitted key: in-order -2.1369 shuffled -2.1957 sd 0.0042 gain +0.0588 z 13.9
+  heldout true key: in-order -2.5055 shuffled -3.1097 sd 0.0080 gain +0.6041 z 75.2
+[voynich subset=B lang=catalan seed=1 N=7691 drop=0.336] LM/char=-1.968 total=-15919 bigram-share=0.94
+  heldout fitted key: in-order -2.1793 shuffled -2.2116 sd 0.0064 gain +0.0323 z 5.1
+[voynich subset=B lang=catalan seed=2 N=7691 drop=0.336] LM/char=-1.960 total=-15855 bigram-share=0.93
+  heldout fitted key: in-order -2.1970 shuffled -2.2406 sd 0.0061 gain +0.0436 z 7.1
+[voynich subset=B lang=catalan seed=3 N=7691 drop=0.336] LM/char=-1.965 total=-15898 bigram-share=0.94
+  heldout fitted key: in-order -2.2159 shuffled -2.2641 sd 0.0084 gain +0.0481 z 5.7
