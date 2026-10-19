@@ -730,7 +730,7 @@ Each Voynich row uses 200 reshuffled tables; the control uses 100.
 
 Future claims can be added to `mappings/` and checked the same way. A table that deserves attention has to beat its reshuffled family on the Voynich text the way the true table does on the control.
 
-## 50. Are the starred paragraphs one per day? (`data/stars_count.out`)
+## 50. Are the starred paragraphs one per day? (`stars_count.py`, `data/stars_count.out`)
 
 The stars section (quire 20) is a run of short paragraphs, each marked with a star in the margin. A calendar of one entry per day would give about 360 or 365 of them. ZL has 285 paragraphs on the 23 surviving pages of quire 20, not counting f58. The bifolio f109–f110, 4 pages, is lost. Full pages carry 12.6 paragraphs on average (sd 2.9, max 18), so the lost pages held about 50, plus or minus 6. That gives about **335 ± 6** in total. Reaching 360 would need 18.8 per lost page, and 365 would need 20. Both are more than any surviving page holds.
 
