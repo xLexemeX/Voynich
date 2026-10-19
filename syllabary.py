@@ -65,8 +65,9 @@ if target=='control':
     words=[[random.choice(homo[x]) for x in w] for w in EB][:N]; U=NU
 else:
     if target=='voynich':
-        rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P') and (not os.environ.get('SUBSET') or r['lang']==os.environ['SUBSET'])]
-        src=[w for r in rows for w in r['text'].split('.') if re.fullmatch(r'[a-z]+',w)]
+        import alphabet as AB
+        rows=[r for r in csv.DictReader(open(AB.CORPUS),delimiter='\t') if r['text'] and r['ltype'].startswith('P') and (not os.environ.get('SUBSET') or r['lang']==os.environ['SUBSET'])]
+        src=[w for r in rows for w in r['text'].split('.') if AB.ok(w)]
     else:
         exec(open('generators2.py').read().rsplit("stats('VOYNICH',lines)",1)[0], exec_ns); exec_ns['random'].seed(1000+seed); src=[w for l in exec_ns['gen'](len(exec_ns['lines'])) for w in l]
     bw=bpe(src[:N], NU); units=sorted({u for w in bw for u in w}); ui={u:i for i,u in enumerate(units)}; words=[[ui[u] for u in w] for w in bw]; U=len(units); truth=None

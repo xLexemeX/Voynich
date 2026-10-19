@@ -1,0 +1,18 @@
+Voynich
+   units  70: h1 4.04  h2 2.56  units/word 3.89
+   units  80: h1 4.49  h2 3.11  units/word 2.89
+   units 100: h1 4.86  h2 3.53  units/word 2.38
+Latin
+   units  24: h1 4.01  h2 3.41  units/word 6.02
+   units  26: h1 4.12  h2 3.47  units/word 5.81
+   units  28: h1 4.22  h2 3.53  units/word 5.64
+   units  30: h1 4.26  h2 3.58  units/word 5.48
+   units  35: h1 4.46  h2 3.72  units/word 5.16
+   units  40: h1 4.66  h2 3.83  units/word 4.88
+   units  50: h1 4.93  h2 4.00  units/word 4.52
+   units  60: h1 5.11  h2 4.09  units/word 4.30
+   units  80: h1 5.39  h2 4.22  units/word 3.97
+   units 100: h1 5.57  h2 4.29  units/word 3.75
+Latin syllables: inventory 1619, top-60 cover 0.63 of tokens; h1 6.53 h2 4.43; syllables/word 2.79
+Maori syllables (36698 of 36698 words parse as CV): inventory 52; h1 4.12 h2 3.10; syllables/word 1.93
+Maori letters: h1 3.44 h2 2.49; letters/word 3.34

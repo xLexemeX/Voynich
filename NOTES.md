@@ -1352,3 +1352,28 @@ This is a job for a palaeographer working on the full-resolution multiband files
 The f116v "faded text" processing in the Lazarus set (`Voynich_116v_…_faded_text_…_as_L_RGB.jpg`) shows faint lines of script across the whole page below the known marginalia. Unmirrored, the glyph shapes look reversed. Mirrored, they read as ordinary Voynichese in the style of f116r: repeated `okeey`- and `qok`-type words and gallows. The lowest clear line reads roughly "…ol cheey qor ar… ol…". That matches f116r line 49, `sysor,shey.qokey.okeolan.chey.qol.or.cheey.qor.arom.ol.lkan`. The text is therefore ink offset from the facing page, f116r, and not lost writing on f116v, so it adds nothing to the transcription.
 
 The other processed images in the set (f8r, f26r, f47r, f70v1, f71r, f93r) were downloaded to `data/ext_msi/`. The f102v1 download returned an HTML page instead of an image. I looked at those six only at overview resolution, about 900 pixels high. They show no marginal writing beyond what the color scans show. f47r shows a second set of leaf outlines overlapping the plant, either offset or underdrawing, but no text. A follow-up looked at the top margins of f26r and f47r at full resolution. They show only stains and offset shapes, plus the folio numbers. f8r and f93r were checked at overview resolution only, and showed no marginal writing beyond the folio numbers. f70v1 and f71r carry the known Latin-script month names. I did not search them further. Of the imaged pages, f1r (Davis 2024: Roman alphabets beside Voynich glyphs, an owner's attempt at decipherment) and f17r (§78) are the ones with marginal writing of interest.
+
+## 80. Do the results depend on the EVA alphabet or on uncertain spaces? First part (`alphabet.py`, `parse_ivtff.py` with `JOIN=1`, `data/corpus_GC.tsv`, `data/corpus_ZLjoin.tsv`, `data/bpe_units_GC.out`, `data/bpe_units_ZLjoin.out`, `runs8/`)
+
+**Corpora.** `data/corpus_GC.tsv` comes from Glen Claston's v101 transliteration (voynich.nu `GC2a-n.txt`, kept in `data/ext_gc/`, not committed). v101 writes one character per glyph and counts several EVA stroke groups as single signs: 68 symbols, of which the top 25 cover 97.9%. `data/corpus_ZLjoin.tsv` is ZL with uncertain spaces (`,`) joined instead of treated as word breaks, which gives 32,593 paragraph words instead of 35,051. Scripts choose a corpus with `CORPUS=…`; `ALPH=chars` treats each character as a glyph.
+
+**Unit-entropy profile (§58).**
+- v101 raw, 70 units: h1 4.04, h2 2.56, 3.89 units per word.
+- v101 at 80 units: h2 3.11, 2.89 per word. At 100 units: h2 3.53, 2.38 per word.
+- Latin letters, 24 units: h2 3.41, 6.02 per word.
+- ZL with uncertain spaces joined is almost unchanged from §58: h2 3.39 at 60 units, 2.57 per word.
+
+So under v101 too, glyphs are far more predictable than letters. Latin-letter predictability comes only with about 2.4–2.9 units per word, the syllabary-sized profile of §58. That conclusion does not depend on EVA's stroke-level splitting.
+
+**Substitution decipherment (§9 Latin, §16 Italian) on v101,** 25,000 annealing steps, seed 1. The 25 commonest v101 glyphs are kept as units and the rest folded into one unit. Figures are decoded words of 4+ letters found in the dictionary.
+
+| | Latin | Italian |
+|---|---|---|
+| positive control (§9, §16) | 93.7% | 100% |
+| Voynich, v101 | 12.2% | 29.6% |
+| Markov text built from v101 (negative control) | 14.9% | 6.0% |
+| Voynich, EVA (§9, §16) | 15.0% | 20.5% |
+
+The Latin result is at the level of meaningless text. The Italian figure is higher than its v101 Markov control and than EVA. But it is far from the control's 100%, and the output is not Italian ("i en ra arti sesa ret n er se rsea ertii ere…"). Short Italian words are common, so the 4+ letter rate rises with junk like `erti`, `seti` and `reti`. The verdict is unchanged: no substitution into Latin or Italian is found. One run each; more seeds would firm up the Italian comparison.
+
+**Not yet done:** the word-level tests (Naibbe held-out, word→letter, codebook, cross-word syllabary) on the joined-space corpus, the syllabary test on v101, and the page transcribed by eye and compared with ZL.

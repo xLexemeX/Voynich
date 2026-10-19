@@ -28,8 +28,9 @@ def bpe(words, steps, report):
         words=nw
         if k in (5,10,20,40): print('   merges so far:',m, flush=True) if False else None
     return out,words
-rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text'] and r['ltype'].startswith('P')]
-voy=[w for r in rows for w in r['text'].split('.') if re.fullmatch(r'[a-z]+',w)]
+import alphabet as AB
+rows=[r for r in csv.DictReader(open(AB.CORPUS),delimiter='\t') if r['text'] and r['ltype'].startswith('P')]
+voy=[w for r in rows for w in r['text'].split('.') if AB.ok(w)]
 lat=[w for w in re.findall(r'[a-z]+',open('data/ref/latin_pliny.txt',encoding='utf-8',errors='replace').read().lower().replace('j','i').replace('v','u')) if not re.fullmatch(r'[ivxlcdm]+',w)][:len(voy)]
 for name,W in [('Voynich',voy),('Latin',lat)]:
     res,final=bpe(W,120,list(range(15,200)))

@@ -15,7 +15,9 @@ def tokenize(w):
             if w.startswith(u,i): out.append(u); i+=len(u); break
         else: i+=1
     return out
-rows=[r for r in csv.DictReader(open('data/corpus.tsv'),delimiter='\t') if r['text']]
+import alphabet as AB
+rows=[r for r in csv.DictReader(open(AB.CORPUS),delimiter='\t') if r['text']]
+if AB.ALPH=='chars': tokenize=AB.rare_folder([w for r in rows for w in r['text'].split('.') if w])
 def latin_words(path):
     return re.findall(r'[a-z]+', open(path,encoding='utf-8',errors='replace').read().lower().replace('v','u').replace('j','i'))
 pli=[w for w in latin_words('data/ref/latin_pliny.txt') if not re.fullmatch(r'[ivxlcdm]+',w) or w in ('mi','di','dum','cum','id','ii','ille','illi')]

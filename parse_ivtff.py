@@ -2,7 +2,8 @@
 Output: data/corpus.tsv  (folio, line, locus_type, quire, page_lang, hand, section, text)
 Bracketed alternatives [a:b] -> first reading. Removes <...> inline tags, {..} comments.
 """
-import re, sys, json
+import re, sys, json, os
+JOIN = os.environ.get('JOIN')=='1'
 src = sys.argv[1] if len(sys.argv)>1 else 'data/ZL3b-n.txt'
 pagemeta = {}
 rows = []
@@ -35,7 +36,7 @@ for raw in open(src, encoding='utf-8', errors='replace'):
     t = re.sub(r'\[([^:\]]*):[^\]]*\]', r'\1', t)  # alternatives -> first
     t = t.replace('@', '')
     t = re.sub(r'[!%]', '', t)
-    t = t.replace(',', '.')               # uncertain space -> space
+    t = t.replace(',', '' if JOIN else '.')   # uncertain space -> space (or, with JOIN=1, -> no space)
     t = re.sub(r'\.+', '.', t).strip('.')
     t = t.replace('?', '')
     pm = pagemeta.get(folio, {})
@@ -49,5 +50,5 @@ with open(out,'w') as f:
     f.write('folio\tline\tltype\tquire\tlang\thand\tsection\tpara\tlip\tpstart\tpend\ttext\n')
     for r in rows:
         f.write('\t'.join(r[k] for k in ['folio','line','ltype','quire','lang','hand','section','para','lip','pstart','pend','text'])+'\n')
-json.dump(pagemeta, open('data/pagemeta.json','w'), indent=1)
+if out=='data/corpus.tsv': json.dump(pagemeta, open('data/pagemeta.json','w'), indent=1)
 print(len(rows),'lines;', len(pagemeta),'pages')
