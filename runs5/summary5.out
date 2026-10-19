@@ -1,0 +1,8 @@
+[control latin seed=1 units=100 signs=60] train score/token -1.6366; held-out cross-word order gain -0.0000 (true text with true signs -2.7767) | units correctly mapped 0.06; true key: train -2.6677, held-out gain +0.0071
+[control latin seed=1 units=60 signs=60] train score/token -2.6677; held-out cross-word order gain +0.0097 (true text with true signs -2.7767) | units correctly mapped 1.00; true key: train -2.6677, held-out gain +0.0090
+[control latin seed=2 units=100 signs=60] train score/token -1.6366; held-out cross-word order gain -0.0000 (true text with true signs -2.7767) | units correctly mapped 0.06; true key: train -2.6677, held-out gain +0.0075
+[control latin seed=2 units=60 signs=60] train score/token -2.6677; held-out cross-word order gain +0.0104 (true text with true signs -2.7767) | units correctly mapped 1.00; true key: train -2.6677, held-out gain +0.0100
+[voynich latin seed=1 units=100 signs=60] train score/token -1.7021; held-out cross-word order gain -0.0000 (true text with true signs -2.7767)
+[voynich latin seed=1 units=60 signs=60] train score/token -3.7296; held-out cross-word order gain +0.0164 (true text with true signs -2.7767)
+[voynich latin seed=2 units=100 signs=60] train score/token -1.7073; held-out cross-word order gain +0.0000 (true text with true signs -2.7767)
+[voynich latin seed=2 units=60 signs=60] train score/token -3.7373; held-out cross-word order gain +0.0071 (true text with true signs -2.7767)

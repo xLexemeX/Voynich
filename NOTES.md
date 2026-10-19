@@ -1048,3 +1048,16 @@ This is the fix for §64. The score is now a sign *trigram* over the running seq
 **Limits.** As in §37, this shows the keys found for the Voynich are not real. It does not show that a real homophonic key would be found, since the search misses the true key on the homophonic control. Italian only, 60 signs, frequency-based BPE units.
 
 This closes the gap §61 and §64 left. The homophonic Italian syllabary is now covered by a test that passes its control, and fails on the Voynich.
+
+**Latin, and the noise level of the cross-word gain (`runs5/summary5.out`, `runs5/nullkeys.out`).** The same test with Latin (Pliny) as target. A null distribution was added: the gain of 30 *random* one-to-one keys on the same input.
+
+| target | true key gain | random keys on the control: mean ± sd | Voynich fitted key gain | random keys on Voynich: mean ± sd (max) |
+|---|---|---|---|---|
+| Italian | +0.078 | +0.006 ± 0.010 | +0.003 (seed 1) | +0.001 ± 0.010 (+0.020) |
+| Latin | +0.010 | +0.001 ± 0.007 | +0.016, +0.007 | +0.001 ± 0.010 (+0.024) |
+
+- **Italian.** The true key's gain is about 7 sd above random keys, so the test has power. The Voynich keys sit inside the random-key range. Negative, as stated above.
+- **Latin.** The true key gains only +0.010, about 1.3 sd above random keys, because Latin word order is free and syllables at word boundaries barely depend on each other. The test has **no power** for Latin. The Voynich value, +0.016, is within the random-key range (max +0.024) and means nothing.
+- **Homophonic Latin (100 units).** The search collapses again: its training score beats the true key's (−1.64 vs −2.67) with zero gain, on the control and on the Voynich alike.
+
+So §65's conclusion holds for **Italian only**. Latin syllabaries remain covered only by the training-score test of §61.

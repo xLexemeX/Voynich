@@ -1,0 +1,2 @@
+[control latin seed=1 units=100 signs=60] train score/token -1.6366; held-out cross-word order gain -0.0000 (true text with true signs -2.7767) | units correctly mapped 0.06; true key: train -2.6677, held-out gain +0.0071
+  sample: iiii i ii iii i i iii ii iii iii iiii ii iii i ii iii ii iiui i iii ii ii ii i iiiii

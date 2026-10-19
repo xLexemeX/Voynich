@@ -1,0 +1,2 @@
+[voynich latin seed=2 units=100 signs=60] train score/token -1.7073; held-out cross-word order gain +0.0000 (true text with true signs -2.7767)
+  sample: iiii ui i iii i ii iiii i ii ii iii ii i i ii iii ii iii ii ii ii iiii ii i ui

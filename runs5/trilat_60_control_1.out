@@ -1,0 +1,2 @@
+[control latin seed=1 units=60 signs=60] train score/token -2.6677; held-out cross-word order gain +0.0097 (true text with true signs -2.7767) | units correctly mapped 1.00; true key: train -2.6677, held-out gain +0.0090
+  sample: cotraria hi done iteru se ne eode quo uelu sidere auido secu maria e qua paribu tame reciproci no diei au au loci se ideoque

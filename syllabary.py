@@ -118,6 +118,13 @@ def gain(M):
         for _ in range(5): sh.append(seqscore(M,[random.sample(w,len(w)) for w in TEST]))
     return o-sum(sh)/len(sh)
 G=gain(bestM)
+NK=int(os.environ.get('NULLK','0'))
+if NK:   # gain of random keys of the same form on the same input
+    ng=[]
+    for _ in range(NK):
+        R=rng.permutation(K)[:U] if U<=K else rng.integers(0,K,U)
+        ng.append(gain(R))
+    print(f'  random-key held-out gain: mean {np.mean(ng):+.4f} sd {np.std(ng):.4f} max {max(ng):+.4f} (n={NK})')
 dec=' '.join(''.join(SIG[bestM[x]] for x in w) for w in words[:25])
 ref=sum(LP[[K]+w,w+[K]].sum() for w in EB[:N])/sum(len(w)+1 for w in EB[:N])
 res=f'[{target} {LANG} seed={seed} units={U} signs={K}] train score/token {best:.4f}; held-out {'cross-word' if TRI else 'within-word'} order gain {G:+.4f} (true text with true signs {ref:.4f})'
