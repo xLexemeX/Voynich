@@ -803,3 +803,25 @@ If f69v and f68r1 both listed the mansions, by name or by their stars, they shou
 **Tools for testing future claims:** `validate_mapping.py` (§49), and the held-out word-order test in `pairchipher.py` (`HOLD=1`, §37).
 
 **Honest summary.** No word or glyph has a meaning that survives a control. Every test that could have tied the text to the pictures came back at chance. That is what meaningless text would give. It is also what a text would give if it named things in a form unrelated to the pictures, or if it were not about the pictures at all. The tests here cannot separate those three.
+
+## 54. Montemurro & Zanette's keyword structure comes from section drift (`mzinfo.py`, `data/mzinfo.out`)
+
+Montemurro & Zanette (PLoS ONE 2013) measured how far words cluster in parts of the text rather than spreading evenly. Their statistic, I(s), is the drop in a word's positional entropy across parts of s words, relative to a shuffled text, in bits per word. They found Voynich keywords that behave like the topical words of a real text. I computed I(s) for the Voynich text, the tuned self-citation generator of §17 (meaningless, with local copying), and Latin (Pliny), all at about 35,000 words.
+
+| s (words per part) | Voynich, whole | generator | Pliny |
+|---|---|---|---|
+| 500 | 0.308 | 0.306 | 0.405 |
+| 1000 | 0.311 | 0.282 | 0.448 |
+| 2000 | 0.297 | 0.241 | 0.499 |
+| 4000 | 0.285 | 0.193 | 0.477 |
+
+On the whole text, Voynich clusters more than the generator at large scales. But the whole text mixes sections and both Currier languages, which use different vocabularies (§2, §8). Within single homogeneous stretches, with the generator retrained on the same stretch:
+
+| stretch | s | Voynich | generator |
+|---|---|---|---|
+| herbal, language A (8,015 words) | 500 / 1000 / 2000 | **0.094 / 0.078 / 0.054** | 0.324 / 0.279 / 0.191 |
+| language B, all sections (23,175 words) | 500 / 1000 / 2000 | 0.235 / 0.221 / 0.193 | 0.306 / 0.274 / 0.231 |
+
+**Result.** The large-scale clustering of the whole text comes from the differences between sections and between A and B. Inside one stretch, the Voynich text is *less* clustered than a meaningless copying generator. Within herbal A it is nearly uniform: 0.05–0.09 bits per word, against 0.4–0.5 for Pliny. A herbal that describes a different plant on every page should be strongly clustered page by page, because each plant's name, parts and uses recur on its own page and nowhere else. Herbal A does not behave like that. This agrees with §40 and §51, where the herbal text did not vary with the plant drawn.
+
+**Limits.** The generator was tuned on the whole text, so its local copying may be too strong for a single stretch. Its higher values do not show that the real text is less meaningful than gibberish. The informative comparison is with Pliny, which is itself an encyclopedia that changes topic. A Latin herbal of matching length would be a better reference, and I do not have one in `data/ref/`.

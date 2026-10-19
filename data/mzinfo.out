@@ -1,0 +1,12 @@
+text sizes 35046 35160 35046
+s=  100  Voynich 0.217  self-citation generator 0.310  Latin (Pliny) 0.287  bits/word
+s=  500  Voynich 0.308  self-citation generator 0.306  Latin (Pliny) 0.405  bits/word
+s= 1000  Voynich 0.311  self-citation generator 0.282  Latin (Pliny) 0.448  bits/word
+s= 2000  Voynich 0.297  self-citation generator 0.241  Latin (Pliny) 0.499  bits/word
+s= 4000  Voynich 0.285  self-citation generator 0.193  Latin (Pliny) 0.477  bits/word
+herbal, language A         s=  500  Voynich 0.094  generator 0.324  (8015 vs 7958 words)
+herbal, language A         s= 1000  Voynich 0.078  generator 0.279  (8015 vs 7958 words)
+herbal, language A         s= 2000  Voynich 0.054  generator 0.191  (8015 vs 7958 words)
+language B, all sections   s=  500  Voynich 0.235  generator 0.306  (23175 vs 23252 words)
+language B, all sections   s= 1000  Voynich 0.221  generator 0.274  (23175 vs 23252 words)
+language B, all sections   s= 2000  Voynich 0.193  generator 0.231  (23175 vs 23252 words)
