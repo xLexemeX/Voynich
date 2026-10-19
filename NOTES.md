@@ -1087,3 +1087,20 @@ So §65's conclusion holds for **Italian only**. Latin syllabaries remain covere
 3. Held-out gains need a random-key null.
 4. Compare at matched page counts, not only matched page lengths (§55).
 5. Check reference files (the empty Vulgate, §49) and generator seeds (§64).
+
+## 67. Catalan syllabary (*Tirant lo Blanch*, 1490): strongest control yet, Voynich negative (`syllabary.py catalan`, `runs5/summary6.out`)
+
+**Why Catalan.** The later-hand month names on the zodiac pages are usually read as Occitan or Catalan. Catalan is a Romance language with fairly simple syllables, and the cross-word test has power for Italian (§65).
+
+**Source.** The Valencian *Tirant lo Blanch* (1490), from Catalan Wikisource page transcriptions of the 1873–1905 edition, about 98,000 words (`data/ext_cat/`, not committed). The page wikitext encodes letters as templates: `{{s}}` for long s, `{{ct}}`, `{{Maj|…}}`. A first fetch that stripped them produced damaged words like "pert" for *expert*, and was redone. The editor's introduction is skipped. `y` is read as i, as in the old orthography.
+
+**Test.** As in §65: 60 onset+vowel signs, 60 Voynich BPE units, one-to-one search, 400,000 steps, 3 seeds. Sign trigram across word boundaries, cross-word held-out gain, and 30 random keys as the null.
+
+| input | train score per token | key recovered | held-out cross-word gain | random keys: mean ± sd |
+|---|---|---|---|---|
+| Catalan control | −1.826 (= true key) | **100%** ×3 | **+0.143 to +0.145** | +0.003 to +0.009 ± 0.012–0.014 |
+| **Voynich** | **−3.904 to −3.912** | | **−0.004 to +0.014** | −0.003 ± 0.008–0.011 |
+
+**Result: negative.** This is the strongest calibration of any target so far: the true key's cross-word gain is about 10 sd above random keys. On the Voynich, the best one-to-one key falls 2.1 nats per token below the true Catalan score, and gains no more from word order than random keys do. A 60-sign onset+vowel syllabary of Catalan, one sign per merged unit, is excluded on both measures.
+
+**Limits** as before: frequency-based BPE units, one syllable model, and the homophonic form not found on its own control (§64–65).

@@ -8,6 +8,9 @@ target, seed, iters = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]); random.se
 LANG=sys.argv[4] if len(sys.argv)>4 else 'italian'; KS=int(sys.argv[5]) if len(sys.argv)>5 else 60; NU=int(sys.argv[6]) if len(sys.argv)>6 else KS
 if LANG=='italian':
     t=unicodedata.normalize('NFKD',open('data/ref/italian_dante.txt',encoding='utf-8').read().lower()).encode('ascii','ignore').decode(); iw=re.findall(r'[a-z]+',t)
+elif LANG=='catalan':   # Tirant lo Blanch (1490), ca.wikisource page transcriptions; skip the editor's introduction
+    pg=open('data/ext_cat/tirant.txt',encoding='utf-8').read().split('\n\n')
+    t=unicodedata.normalize('NFKD','\n'.join(pg[len(pg)//8:]).lower()).encode('ascii','ignore').decode().replace('y','i'); iw=re.findall(r'[a-z]+',t)
 else:
     t=open('data/ref/latin_pliny.txt',encoding='utf-8',errors='replace').read().lower().replace('j','i').replace('v','u'); iw=[w for w in re.findall(r'[a-z]+',t) if not re.fullmatch(r'[ivxlcdm]+',w)]
 V='aeiou'

@@ -1,0 +1,12 @@
+  random-key held-out gain: mean +0.0084 sd 0.0136 max +0.0431 (n=30)
+[control catalan seed=1 units=60 signs=60] train score/token -1.8259; held-out cross-word order gain +0.1436 (true text with true signs -2.0163) | units correctly mapped 1.00; true key: train -1.8259, held-out gain +0.1414
+  random-key held-out gain: mean +0.0030 sd 0.0143 max +0.0435 (n=30)
+[control catalan seed=2 units=60 signs=60] train score/token -1.8259; held-out cross-word order gain +0.1434 (true text with true signs -2.0163) | units correctly mapped 1.00; true key: train -1.8259, held-out gain +0.1439
+  random-key held-out gain: mean +0.0086 sd 0.0119 max +0.0309 (n=30)
+[control catalan seed=3 units=60 signs=60] train score/token -1.8259; held-out cross-word order gain +0.1454 (true text with true signs -2.0163) | units correctly mapped 1.00; true key: train -1.8259, held-out gain +0.1454
+  random-key held-out gain: mean -0.0035 sd 0.0107 max +0.0210 (n=30)
+[voynich catalan seed=1 units=60 signs=60] train score/token -3.9061; held-out cross-word order gain +0.0053 (true text with true signs -2.0163)
+  random-key held-out gain: mean -0.0018 sd 0.0106 max +0.0232 (n=30)
+[voynich catalan seed=2 units=60 signs=60] train score/token -3.9043; held-out cross-word order gain +0.0142 (true text with true signs -2.0163)
+  random-key held-out gain: mean -0.0031 sd 0.0083 max +0.0128 (n=30)
+[voynich catalan seed=3 units=60 signs=60] train score/token -3.9122; held-out cross-word order gain -0.0035 (true text with true signs -2.0163)
