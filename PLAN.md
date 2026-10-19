@@ -1,4 +1,4 @@
-# What would it take to decode it? A plan after NOTES.md §1–71
+# What would it take to decode it? A plan after NOTES.md §1–73
 
 ## Where the evidence points
 
@@ -25,6 +25,7 @@
 - 30 labels per zodiac sign with no shared sequence (§22, §63)
 - labels that never reappear in the nearby text (§28, §56)
 - herbal pages that keep no repeated page-specific name (§55)
+- word forms that cluster by page and by section more strongly than in Latin, Italian or Catalan prose, while exact page-specific repetition stays low (§73)
 
 ## What could still move it forward
 
@@ -35,7 +36,7 @@
 2. **Better language models for the codebook and syllable tests.** The word-level searches (§62, §69) were underpowered because word-bigram models are sparse. A class-based or small neural model of 15th-century Latin, Italian and Catalan would sharpen them. So would lemmatized Latin.
 3. **Unit discovery not driven by frequency.** All syllabary tests used BPE merges chosen by frequency. A joint search over unit segmentation and key, with a held-out cross-word criterion, would test the syllabary family properly. It is computationally heavy, but feasible on a GPU.
 4. **More reference texts of the right kind.** A Latin *prose* herbal (*Circa instans*, *Tractatus de herbis*) for §54–55. Occitan prose of the 15th century, which was not obtainable here. Medieval Hebrew and Judaeo-Romance.
-5. **A generator that passes every statistic.** If a copy-and-vary procedure can reproduce all the facts above, including the junction rule, line alternation and the page-exclusive repetition rate (§55: current generator 0.96 vs real 0.06), the meaningless-text hypothesis becomes concrete and testable. No generator so far does.
+5. **A generator that passes every statistic.** The rule model of §72 already matches the six scorecard statistics. Its ingredients are the real lexicon, one-shot words, a weak page preference, the `y→qo` junction rule and line-initial alternation. Exact local copying is not needed. What it lacks is the page-scale and section-scale clustering of word *forms* (§73): words on one page are closer in spelling than words on other pages of the same section, by about twice Pliny's margin relative to word length. The next model should generate its one-shot words as variants of a page- or section-level stem set. If it then matches §73 as well, the meaningless-text hypothesis is concrete. If no such model fits, that counts against it.
 
 ## Honest expectation
 
