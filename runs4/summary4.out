@@ -1,0 +1,30 @@
+[control subset=A lang=italian seed=1 N=3579 drop=0.363] LM/char=-2.033 total=-7523 bigram-share=0.88 | token-acc=0.014 decoded-letter-match=0.049
+  heldout fitted key: in-order -2.2756 shuffled -2.3016 sd 0.0077 gain +0.0260 z 3.4
+  heldout true key: in-order -2.5969 shuffled -3.1159 sd 0.0141 gain +0.5190 z 36.7
+[control subset=A lang=italian seed=2 N=3615 drop=0.363] LM/char=-2.018 total=-7568 bigram-share=0.88 | token-acc=0.015 decoded-letter-match=0.054
+  heldout fitted key: in-order -2.2936 shuffled -2.2954 sd 0.0061 gain +0.0018 z 0.3
+  heldout true key: in-order -2.6158 shuffled -3.1035 sd 0.0160 gain +0.4878 z 30.5
+[control subset=A lang=italian seed=3 N=3577 drop=0.363] LM/char=-2.020 total=-7495 bigram-share=0.90 | token-acc=0.004 decoded-letter-match=0.052
+  heldout fitted key: in-order -2.2499 shuffled -2.2768 sd 0.0073 gain +0.0270 z 3.7
+  heldout true key: in-order -2.6090 shuffled -3.1066 sd 0.0140 gain +0.4976 z 35.6
+[voynich subset=A lang=italian seed=1 N=3603 drop=0.363] LM/char=-2.102 total=-7817 bigram-share=0.92
+  heldout fitted key: in-order -2.5205 shuffled -2.5330 sd 0.0108 gain +0.0125 z 1.2
+[voynich subset=A lang=italian seed=2 N=3603 drop=0.363] LM/char=-2.093 total=-7800 bigram-share=0.93
+  heldout fitted key: in-order -2.5016 shuffled -2.5058 sd 0.0093 gain +0.0043 z 0.5
+[voynich subset=A lang=italian seed=3 N=3603 drop=0.363] LM/char=-2.093 total=-7807 bigram-share=0.90
+  heldout fitted key: in-order -2.5286 shuffled -2.5311 sd 0.0107 gain +0.0025 z 0.2
+[control subset=A lang=latin seed=1 N=3626 drop=0.363] LM/char=-2.039 total=-7700 bigram-share=0.94 | token-acc=0.000 decoded-letter-match=0.052
+  heldout fitted key: in-order -2.2794 shuffled -2.2982 sd 0.0078 gain +0.0188 z 2.4
+  heldout true key: in-order -2.6882 shuffled -3.1193 sd 0.0152 gain +0.4311 z 28.4
+[control subset=A lang=latin seed=2 N=3617 drop=0.363] LM/char=-2.028 total=-7654 bigram-share=0.95 | token-acc=0.000 decoded-letter-match=0.053
+  heldout fitted key: in-order -2.2639 shuffled -2.2874 sd 0.0068 gain +0.0235 z 3.5
+  heldout true key: in-order -2.6684 shuffled -3.1185 sd 0.0145 gain +0.4501 z 31.0
+[control subset=A lang=latin seed=3 N=3606 drop=0.363] LM/char=-2.038 total=-7661 bigram-share=0.93 | token-acc=0.013 decoded-letter-match=0.056
+  heldout fitted key: in-order -2.3246 shuffled -2.3220 sd 0.0061 gain -0.0026 z -0.4
+  heldout true key: in-order -2.6692 shuffled -3.1183 sd 0.0135 gain +0.4490 z 33.3
+[voynich subset=A lang=latin seed=1 N=3603 drop=0.363] LM/char=-2.065 total=-7736 bigram-share=0.93
+  heldout fitted key: in-order -2.3931 shuffled -2.3989 sd 0.0081 gain +0.0058 z 0.7
+[voynich subset=A lang=latin seed=2 N=3603 drop=0.363] LM/char=-2.055 total=-7709 bigram-share=0.94
+  heldout fitted key: in-order -2.4042 shuffled -2.3896 sd 0.0074 gain -0.0146 z -2.0
+[voynich subset=A lang=latin seed=3 N=3603 drop=0.363] LM/char=-2.057 total=-7717 bigram-share=0.95
+  heldout fitted key: in-order -2.4537 shuffled -2.4608 sd 0.0068 gain +0.0070 z 1.0

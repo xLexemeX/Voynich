@@ -589,3 +589,14 @@ If they were copies of one reference order, such as an alphabet, a cipher wheel 
 | f49v margin column | 26 | 8 | 7.1 | 0.25 |
 
 **Result: negative.** They share glyphs but not their order. Not even the fifth ring on the same page follows the ring-3 order more than a shuffle does. The f57v cycle is the only one of these that repeats exactly, and it is not reused as an ordering anywhere else.
+
+## 43. §37 repeated on Currier language A (`runs4/batch4.sh`, `runs4/summary4.out`)
+
+In case A uses a different key from B. A's paragraph text is shorter: its 300 commonest types cover 63.7% of its tokens, which leaves about 3,600 training tokens. Controls drop 36.3% of tokens to match. Latin and Italian targets, 3 seeds each.
+
+| target | true key on control | key fitted to control (wrong) | **key fitted to Voynich A** |
+|---|---|---|---|
+| Latin | +0.43 to +0.45 | −0.003 to +0.024 | **−0.015 to +0.007** |
+| Italian | +0.49 to +0.52 | +0.002 to +0.027 | **+0.003 to +0.013** |
+
+**Result: negative.** The keys fitted to language A gain nothing from word order on held-out text, the same as wrong keys. A has even less usable word order than B: B's small surplus of 0.02–0.03 over wrong keys, which §39 traced to its `y | qo` junctions, is gone here. That fits language A having about half B's rate of `qo` junctions (§20).

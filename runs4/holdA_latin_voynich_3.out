@@ -1,0 +1,10 @@
+  progress 0.5M/4.0M best -9103 (47s)
+  progress 1.0M/4.0M best -9013 (91s)
+  progress 1.5M/4.0M best -8888 (136s)
+  progress 2.0M/4.0M best -8695 (182s)
+  progress 2.5M/4.0M best -8586 (226s)
+  progress 3.0M/4.0M best -8351 (271s)
+  progress 3.5M/4.0M best -8037 (314s)
+[voynich subset=A lang=latin seed=3 N=3603 drop=0.363] LM/char=-2.057 total=-7717 bigram-share=0.95
+  sample: alerumeritumdicicicositalicinaequinonitumenisheratereterisinisisuminisetisinecasistinfusitisumerisicateresdealinoneraterataterenumatiniteritinumitisalerineritisanonumonisusitquatatateratisatericeteraticeseretatinuminitisuminquicetalonononic
+  heldout fitted key: in-order -2.4537 shuffled -2.4608 sd 0.0068 gain +0.0070 z 1.0
