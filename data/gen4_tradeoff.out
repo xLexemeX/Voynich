@@ -1,0 +1,13 @@
+real: page part +0.150, section part +0.170, page-exclusive 0.302, hapax share 0.674
+k_l=3 p_kl=0.00 seed 7: page part +0.039, section part +0.152, page-exclusive 0.396, hapax share 0.719, h2 2.077
+k_l=3 p_kl=0.00 seed 8: page part +0.062, section part +0.148, page-exclusive 0.454, hapax share 0.723, h2 2.079
+k_l=3 p_kl=0.25 seed 7: page part +0.076, section part +0.171, page-exclusive 0.340, hapax share 0.728, h2 2.041
+k_l=3 p_kl=0.25 seed 8: page part +0.085, section part +0.160, page-exclusive 0.359, hapax share 0.719, h2 2.048
+k_l=3 p_kl=0.50 seed 7: page part +0.111, section part +0.235, page-exclusive 0.392, hapax share 0.733, h2 2.015
+k_l=3 p_kl=0.50 seed 8: page part +0.089, section part +0.198, page-exclusive 0.358, hapax share 0.732, h2 2.028
+k_l=3 p_kl=0.75 seed 7: page part +0.147, section part +0.239, page-exclusive 0.380, hapax share 0.738, h2 1.987
+k_l=3 p_kl=0.75 seed 8: page part +0.121, section part +0.249, page-exclusive 0.381, hapax share 0.741, h2 1.996
+k_l=3 p_kl=1.00 seed 7: page part +0.191, section part +0.278, page-exclusive 0.410, hapax share 0.742, h2 1.981
+k_l=3 p_kl=1.00 seed 8: page part +0.146, section part +0.305, page-exclusive 0.412, hapax share 0.744, h2 1.960
+k_l=5 p_kl=1.00 seed 7: page part +0.345, section part +0.322, page-exclusive 0.470, hapax share 0.770, h2 1.931
+k_l=5 p_kl=1.00 seed 8: page part +0.343, section part +0.342, page-exclusive 0.503, hapax share 0.764, h2 1.932

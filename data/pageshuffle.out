@@ -1,0 +1,4 @@
+real: page-exclusive 0.299, page part +0.121, page part with identical words ignored +0.093
+within-group shuffles (6): page-exclusive mean +0.187, range +0.156 to +0.204
+within-group shuffles (6): page part mean -0.004, range -0.026 to +0.009
+within-group shuffles (6): page part with identical words ignored mean -0.003, range -0.029 to +0.015

@@ -11,19 +11,23 @@ def pages():
             if ws: pg.setdefault(r['folio'],[]).append(ws); meta[r['folio']]=(r['section'],r['lang'],r['hand'])
     return [(meta[f],L) for f,L in pg.items()]
 def window(l,j): return l[max(0,j-1):j+2] or l
-def run(P, rng, n=4000):
+def run(P, rng, n=4000, target=None, near_only=False):
+    """target: optional test on the word; near_only: ignore identical words, so only near forms count."""
     grp=collections.defaultdict(list)
     for i,(m,L) in enumerate(P): grp[m].append(i)
     s=[[],[],[],[]]
     cand=[(i,li) for i,(m,L) in enumerate(P) for li in range(1,len(L)) if len(L)>=6 and len(grp[m])>=2]
     while len(s[0])<n:
         i,li=rng.choice(cand); m,L=P[i]; j=rng.randrange(len(L[li])); w=L[li][j]
+        if target and not target(w): continue
         far=[k for k in range(len(L)) if abs(k-li)>=3]
         if not far: continue
         o=rng.choice([k for k in grp[m] if k!=i]); a=rng.randrange(len(P))
         if a==i: continue
         ls=[L[li-1], L[rng.choice(far)], rng.choice(P[o][1]), rng.choice(P[a][1])]
-        for t,l in enumerate(ls): s[t].append(min(ed(w,x) for x in window(l,j)))
+        ws=[[x for x in window(l,j) if not (near_only and x==w)] for l in ls]
+        if not all(ws): continue
+        for t,l in enumerate(ws): s[t].append(min(ed(w,x) for x in l))
     return [statistics.mean(x) for x in s]
 if __name__=='__main__':
     P=pages(); R=[run(P,random.Random(s)) for s in range(5)]
