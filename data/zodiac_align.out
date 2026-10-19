@@ -1,0 +1,27 @@
+Pisces   Cancer   best aligned similarity 0.321  shuffled best 0.318  p 0.345
+Pisces   Leo      best aligned similarity 0.383  shuffled best 0.369  p 0.145
+Pisces   Virgo    best aligned similarity 0.311  shuffled best 0.311  p 0.470
+Pisces   Libra    best aligned similarity 0.335  shuffled best 0.339  p 0.600
+Pisces   Scorpio  best aligned similarity 0.344  shuffled best 0.342  p 0.375
+Pisces   Sagitt   best aligned similarity 0.299  shuffled best 0.301  p 0.505
+Cancer   Leo      best aligned similarity 0.296  shuffled best 0.300  p 0.655
+Cancer   Virgo    best aligned similarity 0.295  shuffled best 0.277  p 0.070
+Cancer   Libra    best aligned similarity 0.264  shuffled best 0.263  p 0.435
+Cancer   Scorpio  best aligned similarity 0.260  shuffled best 0.259  p 0.445
+Cancer   Sagitt   best aligned similarity 0.259  shuffled best 0.257  p 0.420
+Leo      Virgo    best aligned similarity 0.349  shuffled best 0.344  p 0.315
+Leo      Libra    best aligned similarity 0.386  shuffled best 0.372  p 0.115
+Leo      Scorpio  best aligned similarity 0.371  shuffled best 0.371  p 0.460
+Leo      Sagitt   best aligned similarity 0.327  shuffled best 0.341  p 0.860
+Virgo    Libra    best aligned similarity 0.382  shuffled best 0.376  p 0.235
+Virgo    Scorpio  best aligned similarity 0.410  shuffled best 0.367  p 0.000
+Virgo    Sagitt   best aligned similarity 0.353  shuffled best 0.366  p 0.840
+Libra    Scorpio  best aligned similarity 0.380  shuffled best 0.393  p 0.810
+Libra    Sagitt   best aligned similarity 0.388  shuffled best 0.396  p 0.730
+Scorpio  Sagitt   best aligned similarity 0.378  shuffled best 0.380  p 0.510
+pairs with p<0.05: 1 of 21 (expected by chance 1.1)
+
+Virgo-Scorpio: 0.410; 5000 shuffles: p 0.0108; Bonferroni threshold for 21 pairs 0.0024
+best alignment: forward shift 26
+  air/ar  oshesy/kar  okeary/okeeos  cheoetey/okary  cheoldy/otedy  sheoeky/yteeody  oteodar/otaly  ofchdysd/chockhy  oteoyd/oteedyl  yteody/ykeedy  okeody/okeey  okeoldy/okeedy  ykeeor/ykeeory  opaiinam/oteeosy  cheoldy/shekal  oeedey/oteedyy  oeeodaiin/okedal  okeoram/chdy  oeedy/dalshey  opalg/opaiin  okeeom/okeos  olkar/otey  oeedaly/otaly  cheosy/okeody  ofcheay/okeeody  yteedy/oyteedy  onaiin/oky  okeorar/chefy  okaiin/otal  ockhol/chek
+  exact matches: []

@@ -1003,3 +1003,12 @@ H5 (codebook / nomenclator) was judged "poor" in §7 from the hapax rate, but ne
 2. **Scoring only in-vocabulary → in-vocabulary transitions** (`INV=1`). The Italian control now recovers *nothing* (0%, score −5.71 vs true −4.83), and the Latin-stem control again beats its true key without recovering it.
 
 So at this scale, 300 types and about 22,000 tokens, the word-bigram codebook search is underpowered. A sparse word-bigram model has many near-equivalent optima that are not the true key. The only cell with any power is the original Italian run above (28–33% recovered), and that is the only codebook result I count: Voynich about 1 nat per token below it. A properly powered codebook test would need a smoother language model (class-based or neural), or far more text than the Voynich provides.
+
+## 63. Zodiac labels as 30 ordered entries: no alignment under any rotation or reflection (`zodiac_align.py`, `data/zodiac_align.out`)
+
+§22 compared label *i* of one sign with label *i* of another in ZL's order, and found nothing. But ZL's order depends on where the transcriber began each ring and which way they read. If the 30 labels per sign were degree numbers, day names or decan names in a fixed sequence, *some* rotation or reflection should line them up. For the 7 complete signs (Pisces, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius), each sign's labels were ordered ring by ring and by clock angle within a ring. Then, for every pair, I took the best mean label similarity (1 − normalized edit distance) over all 30 rotations × 2 directions. The same maximum was computed after shuffling one sign's labels, which keeps the multiple-comparison advantage of taking a maximum.
+
+- 21 pairs. 1 has p < 0.05 (chance expects 1.1).
+- That pair, Virgo–Scorpio (similarity 0.410 vs 0.367 for shuffled), has p = 0.011 with 5,000 shuffles, above the Bonferroni threshold of 0.0024 for 21 pairs. Its best alignment has **no** exact label match. The similarity comes from shared `ok-/ot- … -eedy` shapes (`ykeeor/ykeeory`, `yteedy/oyteedy`, `okeody/okeey`). Virgo and Scorpio are both on the `e`-side of the f72 label switch (§24), so they share label style.
+
+**Result: negative.** Under no rotation or direction do the 30 labels of one sign correspond to those of another. A fixed 30-name sequence, the same degree or day names on every wheel, is excluded. It is also excluded for any start point or reading direction.
