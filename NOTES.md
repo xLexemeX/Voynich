@@ -730,8 +730,18 @@ Each Voynich row uses 200 reshuffled tables; the control uses 100.
 
 Future claims can be added to `mappings/` and checked the same way. A table that deserves attention has to beat its reshuffled family on the Voynich text the way the true table does on the control.
 
-## 50. Are the starred paragraphs one per day? (`stars_count.py`, `data/stars_count.out`)
+## 50. Are the starred paragraphs one per day? (`stars_count.py`, `data/stars_visual.tsv`, `data/stars_count.out`)
 
-The stars section (quire 20) is a run of short paragraphs, each marked with a star in the margin. A calendar of one entry per day would give about 360 or 365 of them. ZL has 285 paragraphs on the 23 surviving pages of quire 20, not counting f58. The bifolio f109–f110, 4 pages, is lost. Full pages carry 12.6 paragraphs on average (sd 2.9, max 18), so the lost pages held about 50, plus or minus 6. That gives about **335 ± 6** in total. Reaching 360 would need 18.8 per lost page, and 365 would need 20. Both are more than any surviving page holds.
+The stars section (quire 20) is a run of short entries, each marked with a star in the margin. A calendar of one entry per day would give about 360 or 365 of them. The bifolio f109–f110, 4 pages, is lost.
 
-**Result: a 360- or 365-entry calendar is unlikely.** The count falls short by about 25–30 entries unless all four lost pages were denser than any surviving page. **Caveat:** ZL paragraph boundaries are a transcriber's judgment. A count of the stars themselves, made from the scans, would be the right figure.
+**First attempt, withdrawn.** Counting ZL paragraphs gives 285 on the 23 surviving pages, projecting to 335 ± 6, and I first concluded that 360 or 365 was unlikely. That was wrong, because ZL paragraphs are not the starred entries. On f108v, f111r and f111v, ZL has 7, 6 and 8 paragraphs where the scans show 16, 17 and 19 stars.
+
+**Stars counted on the scans.** I counted the stars by eye from left-margin strips of the Beinecke images (`crops/stars_m*.jpg`, not committed). The counts are probably accurate to about ±1 per page, and they are in `data/stars_visual.tsv`.
+- **Surviving pages:** 323 stars on 23 pages. Full pages hold 14.2 on average (sd 2.4, min 10, max 19).
+- **Lost pages:** if they were average, they held about 57 ± 5, for a total of about **380 ± 5**, before counting error. The counting error adds roughly another ±10.
+- **Reaching 365** needs 10.5 per lost page, at the bottom of the observed range: only f105r and f105v, at 10, are sparser.
+- **Reaching 360** needs 9.2 per lost page, below any surviving page.
+
+**Result: inconclusive.** A 365-entry calendar is possible if the four lost pages were as sparse as the sparsest surviving ones. The central estimate, about 380, is above 365. The data neither support nor exclude one entry per day.
+
+**Side result.** ZL's paragraph division undercounts the starred entries by 38 overall. Any analysis of the stars section that treats ZL paragraphs as entries (§23's "starred-paragraph first words", for one) works with merged entries on f108v, f111r, f111v and f116r.

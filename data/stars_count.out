@@ -2,3 +2,7 @@ quire 20 paragraphs present: 285 on 23 pages; per full page mean 12.6 sd 2.9 max
 missing bifolio f109-f110 = 4 pages: expected 50 +/- 6; total 335 +/- 6
   to reach 360: missing pages would need 75 paragraphs, 18.8 per page (observed max 18)
   to reach 365: missing pages would need 80 paragraphs, 20.0 per page (observed max 18)
+stars counted on scans: 323 on 23 pages; per full page mean 14.2 sd 2.4 min 10 max 19
+  lost bifolio, 4 pages: expected 57 +/- 5; total 380 +/- 5
+  to reach 360: lost pages would hold 37, 9.2 per page (observed min 10)
+  to reach 365: lost pages would hold 42, 10.5 per page (observed min 10)
