@@ -1,0 +1,6 @@
+Cheshire 2017, LingBuzz 003737, Figs 1-27 (EVA reading: see NOTES 47)
+  tokens fully covered by the table: 13793 of 35046 (39.4%); reshuffled within 8 vowel-valued and 10 consonant-valued units; 100 draws
+  sample: it iodim riatino mutininsi statoninsi in uadimonis ad silua di iodim uisitur in non uintis solum sid itiam inpulsai multorum
+  Latin       proposed +0.5873 | reshuffled mean +0.0402 max +0.1366 | p = 0.000
+  Italian     proposed +0.2049 | reshuffled mean +0.0517 max +0.1192 | p = 0.000
+  order gain  proposed +0.0188 | reshuffled mean +0.0052 max +0.0179 | p = 0.000

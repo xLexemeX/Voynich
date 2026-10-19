@@ -673,7 +673,7 @@ Stephen Bax's "A proposed partial decoding of the Voynich script" (2014) reads t
 
 The EVA correspondences are my reading of his glyph drawings. Two choices are open to argument: `ch` as a single e, and `r`/`s` as standing s / t.
 
-**Test.** Apply the table mechanically to all 34,765 paragraph tokens it covers (99.5%). Then count decoded words of three or more letters found in a Latin lexicon (Pliny plus the Vulgate) or an Italian one (Dante). Matching uses his own allowances: e and i are interchangeable, and double letters collapse. Two nulls, 300 draws each:
+**Test.** Apply the table mechanically to all 34,765 paragraph tokens it covers (99.5%). Then count decoded words of three or more letters found in a Latin lexicon (Pliny) or an Italian one (Dante). (An earlier draft said "Pliny plus the Vulgate"; `data/ref/latin_vulgate.txt` turned out to be empty, so the lexicon was Pliny alone. The numbers are unchanged.) Matching uses his own allowances: e and i are interchangeable, and double letters collapse. Two nulls, 300 draws each:
 1. the same letter values shuffled across glyphs at random
 2. shuffled only within his vowel glyphs and within his consonant glyphs, which keeps the vowel/consonant skeleton he chose
 
@@ -704,20 +704,28 @@ Hauer & Kondrak (TACL 2016) identified the source language of the Voynich text a
 
 **Limits.** I used two of their measures and five reference languages. Their full method also includes a trial-decipherment measure and the whole UDHR corpus. But the point does not depend on the number of languages: a measure that gives the same answer for gibberish and for glyph-shuffled text cannot support the choice of a language. A language identification is evidence only if it fails on meaningless text built to the same statistics.
 
-## 49. A reusable checker for proposed sign tables (`validate_mapping.py`, `mappings/*.json`, `data/validate_mapping.out`)
+## 49. A reusable checker for proposed sign tables (`validate_mapping.py`, `mappings/*.json`, `data/validate_mapping*.out`)
 
 Any claimed decipherment that assigns sounds to glyphs can be written as a JSON table, EVA unit → letters, and run through two controls in one command:
 
-    python3 validate_mapping.py mappings/<name>.json [draws]
+    python3 validate_mapping.py mappings/<name>.json [draws]          # on the Voynich text
+    CONTROL=1 python3 validate_mapping.py mappings/<name>.json [draws] # positive control
 
-1. **Dictionary hits.** The share of decoded word tokens of three or more letters found in a Latin lexicon (Pliny plus the Vulgate) and an Italian one (Dante). Matching is lenient: e/i and k/c are merged and double letters collapse. The proposed table is compared with reshuffled tables that keep its own vowel/consonant split (§47). Units whose value mixes vowels and consonants stay fixed.
-2. **Word-order gain.** Decode the second half of the text in its real word order and in shuffled order, and score both with a Latin letter 4-gram model. A real reading turns real word order into real letter order, so it should gain far more than reshuffled tables (§37: a true key gains about 0.4–0.6).
+1. **Dictionary hits.** The share of decoded word tokens of three or more letters found in a Latin lexicon (the first half of Pliny) and an Italian one (Dante). Matching is lenient: e/i and k/c are merged and double letters collapse. The proposed table is compared with reshuffled tables that keep its own vowel/consonant split (§47). Units whose value mixes vowels and consonants stay fixed.
+2. **Word-order gain.** Decode the second half of the text in its real word order and in shuffled word order, and score both with a Latin letter 4-gram model trained on the first half of Pliny. Compare with the reshuffled tables.
 
-Results, 200 reshuffled tables each:
+**Positive control.** `CONTROL=1` replaces the Voynich text with the *second* half of Pliny, encoded into EVA with the inverse of the table. Only letters that have a single-letter value can be encoded, so 39% of tokens survive with Cheshire's table. The checker should then single out the true table.
 
-| table | tokens covered | Latin hits (reshuffled mean, p) | Italian hits (p) | order gain (reshuffled mean, p) |
+| input, table | tokens covered | Latin hits (reshuffled mean, p) | Italian hits (p) | word-order gain (reshuffled mean, p) |
 |---|---|---|---|---|
-| Cheshire 2017 (§47) | 99.2% | 0.127 (0.111, p 0.29) | 0.067 (p 0.71) | +0.085 (+0.072, p 0.34) |
-| Bax 2014, first-choice values | 30.3% | 0.021 (0.024, p 0.43) | 0.039 (p 0.69) | −0.014 (+0.009, p 0.98) |
+| **control**: Pliny encoded with Cheshire's table | 39.4% | **0.587** (0.040, p < 0.01) | 0.205 (p < 0.01) | +0.019 (+0.005, p < 0.01) |
+| Voynich, Cheshire 2017 (§47) | 99.2% | 0.094 (0.083, p 0.28) | 0.067 (p 0.71) | +0.072 (+0.071, p 0.48) |
+| Voynich, Bax 2014 first-choice values | 30.3% | 0.020 (0.015, p 0.20) | 0.039 (p 0.69) | −0.022 (+0.007, p 0.99) |
 
-**Result.** On every measure, both published tables are ordinary members of their own reshuffled families. Bax's values decode only 30% of the text, because many common glyphs (`ch`, `l`, `t`, `p`, `q`) have no value in his table. On that 30% they gain *less* from word order than 98% of reshuffled tables. Future claims can be added to `mappings/` and checked the same way. A table that deserves attention would have to beat its reshuffled family on both measures, and gain something like the 0.4 per letter a real key gains from word order.
+Each Voynich row uses 200 reshuffled tables; the control uses 100.
+
+**Result.** The checker passes its control: on encoded Latin the true table beats every reshuffled table on all three measures. On the Voynich text, both published tables are ordinary members of their own reshuffled families on every measure. Bax's values decode only 30% of the text, because many common glyphs (`ch`, `l`, `t`, `p`, `q`) have no value in his table. On that 30% they gain *less* from word order than 99% of reshuffled tables.
+
+**Scale of the word-order gain.** Shuffling whole words changes only the letter 4-grams that span word boundaries. So the gain is small even for a true table (+0.019 here). It is much smaller than the 0.4–0.6 in §37, where the shuffled units were single letters or letter pairs. What matters is how the gain ranks within the reshuffled family, not its size. The Voynich gain is larger in absolute terms (+0.07) for *every* table, reshuffled ones included. It comes from the text's own repeated word sequences, not from any table.
+
+Future claims can be added to `mappings/` and checked the same way. A table that deserves attention has to beat its reshuffled family on the Voynich text the way the true table does on the control.

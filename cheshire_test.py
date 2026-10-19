@@ -15,7 +15,7 @@ def lex(path,it=False):
     t=open(path,encoding='utf-8',errors='replace').read().lower()
     if it: t=unicodedata.normalize('NFKD',t).encode('ascii','ignore').decode()
     return {norm(w) for w in re.findall(r'[a-z]+',t) if len(w)>=3}
-LEX={'Latin':lex('data/ref/latin_pliny.txt')|lex('data/ref/latin_vulgate.txt'),'Italian':lex('data/ref/italian_dante.txt',True)}
+LEX={'Latin':lex('data/ref/latin_pliny.txt'),'Italian':lex('data/ref/italian_dante.txt',True)}
 LEX['either']=LEX['Latin']|LEX['Italian']
 def cover(M,L):
     hit=n=0; ht=nt=0

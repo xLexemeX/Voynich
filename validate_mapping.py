@@ -12,6 +12,18 @@ seg={}
 for l in lines:
     for w in l:
         if w not in seg: s=RX.findall(w); seg[w]=s if ''.join(s)==w else None
+import os
+if os.environ.get('CONTROL'):   # positive control: Latin (Vulgate) encoded into EVA with the inverse of the table (single-letter values only)
+    inv={}
+    for u,v in MAP.items():
+        if len(v)==1: inv.setdefault(v,u)
+    lw=re.findall(r'[a-z]+',open('data/ref/latin_pliny.txt',encoding='utf-8',errors='replace').read().lower().replace('j','i').replace('v','u'))
+    lw=[w for w in lw[len(lw)//2:] if not re.fullmatch(r'[ivxlcdm]+',w)]   # held-out half of Pliny
+    enc=[''.join(inv[c] for c in w) for w in lw if all(c in inv for c in w)][:35000]
+    lines=[enc[i:i+9] for i in range(0,len(enc),9)]
+    for l in lines:
+        for w in l:
+            if w not in seg: s_=RX.findall(w); seg[w]=s_ if ''.join(s_)==w else None
 lines=[[w for w in l if seg[w]] for l in lines]; toks=[w for l in lines for w in l]
 allt=sum(len([w for w in r['text'].split('.') if w]) for r in rows)
 def norm(s): s=s.replace('e','i').replace('j','i').replace('v','u').replace('y','i').replace('k','c'); return re.sub(r'(.)\1+',r'\1',s)
@@ -19,7 +31,8 @@ def words(path,it=False):
     t=open(path,encoding='utf-8',errors='replace').read().lower()
     if it: t=unicodedata.normalize('NFKD',t).encode('ascii','ignore').decode()
     return re.findall(r'[a-z]+',t)
-lat=words('data/ref/latin_pliny.txt')+words('data/ref/latin_vulgate.txt'); ita=words('data/ref/italian_dante.txt',True)
+lat=words('data/ref/latin_pliny.txt'); lat=lat[:len(lat)//2]   # first half of Pliny: lexicon and letter model
+ita=words('data/ref/italian_dante.txt',True)
 LEX={'Latin':{norm(w) for w in lat if len(w)>=3},'Italian':{norm(w) for w in ita if len(w)>=3}}
 # letter 4-gram LM on normalised Latin (Pliny), alphabet after norm
 A='abcdfghilmnopqrstuxz'; aid={c:i for i,c in enumerate(A)}; K=len(A)
