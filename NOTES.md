@@ -499,3 +499,21 @@ For 11 of the attested herbal–pharmacy picture matches, I compared the herbal 
 - **Permutation p:** 0.96.
 
 **Result: negative.** A recipe beside a copy of a plant uses no more of that plant's herbal-page vocabulary than any other recipe does. Together with §35, there is no detectable textual link between the two drawings of the same plant, in labels or in running text.
+
+## 37. Held-out word-order test for the letter-or-pair cipher (`pairchipher.py` with `HOLD=1`, `runs4/`)
+
+§33 showed that a letter-model score cannot tell a Naibbe-form cipher from gibberish. This is a criterion that can. Fit the key on the first half of the token sequence. Then decode the second half twice: once in its real order, and once with its tokens shuffled (20 shuffles). A real key turns real word order into real letter order, so it should score much better in order than shuffled. A key that only matches letter frequencies gains almost nothing from order. Language B, Latin target, 4 million annealing steps, 3 seeds per input. Score is the Latin 4-gram log-probability per decoded letter on held-out text.
+
+| input | key | in-order gain over shuffled, per letter |
+|---|---|---|
+| Latin control | **true key** | **+0.429, +0.437, +0.474** (z 45 to 48) |
+| Latin control | fitted by search, 0.2–0.9% of tokens correct | +0.021, +0.029, +0.037 |
+| **Voynich B** | fitted | **+0.026, +0.028, +0.031** |
+| meaningless Markov text | fitted | +0.054, +0.073, +0.098 |
+| Voynich B, word order shuffled | fitted | +0.001, +0.004, +0.013 |
+
+**Result: negative.** On held-out text, the keys fitted to Voynich B gain 0.03 per letter from word order. That is the gain of a *wrong* key fitted to real Latin ciphertext, and less than a fifteenth of what the true key gains. The Voynich text's word order does carry some structure: the shuffled version gains nothing, and Markov text built from Voynich word pairs gains a little more than the real text. But no fitted key turns that structure into Latin letter order.
+
+**What this adds.** The fitted key on the control, which is 99% wrong, still scores better on the training half than the true key (−2.07 to −2.09 vs −2.62). The held-out order gain ranks them correctly, by a factor of 15. So this gain is a working pass/fail test for any claimed word-to-chunk key: a proposed decipherment should gain about 0.4 per letter from word order on pages it was not fitted to. None of the 3 Voynich searches comes close.
+
+**Limits.** This uses Latin only, one search length, and 3 seeds. The search never found the true key on the control in this form, so the test checks whether a *found* key is real. It does not show that a real key would be found.

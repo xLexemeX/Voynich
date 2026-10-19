@@ -1,0 +1,12 @@
+  true key: LM/char -2.647 total -20278; init total -24769
+  progress 0.5M/4.0M best -18941 (53s)
+  progress 1.0M/4.0M best -18492 (118s)
+  progress 1.5M/4.0M best -18299 (167s)
+  progress 2.0M/4.0M best -17983 (230s)
+  progress 2.5M/4.0M best -17695 (282s)
+  progress 3.0M/4.0M best -17186 (336s)
+  progress 3.5M/4.0M best -16812 (407s)
+[control subset=B lang=latin seed=2 N=7640 drop=0.336] LM/char=-2.082 total=-16663 bigram-share=0.96 | token-acc=0.009 decoded-letter-match=0.048
+  sample: orgaterquicinferumineratumumingalathatpatonetonicatumderiteronetaterumalicerquoniserisatesalinquinaloniteritinumesquumqualerumonumeruminalitatquerindiconparalisindererumalumumalatorumeralisesicinorisetalgeresinatalisiseratumetonumonaterener
+  heldout fitted key: in-order -2.2234 shuffled -2.2603 sd 0.0049 gain +0.0369 z 7.5
+  heldout true key: in-order -2.6794 shuffled -3.1087 sd 0.0095 gain +0.4293 z 45.2

@@ -1,0 +1,10 @@
+  progress 0.5M/4.0M best -19381 (58s)
+  progress 1.0M/4.0M best -19133 (109s)
+  progress 1.5M/4.0M best -18896 (165s)
+  progress 2.0M/4.0M best -18613 (220s)
+  progress 2.5M/4.0M best -18212 (273s)
+  progress 3.0M/4.0M best -17858 (340s)
+  progress 3.5M/4.0M best -17447 (400s)
+[markov subset=B lang=latin seed=1 N=7763 drop=0.336] LM/char=-2.126 total=-17233 bigram-share=0.98
+  sample: notamisiuesiderererexterecorererecorenonisitalicadetalicacatatamanorenositasiueuematuresiuesisiuerereuenomimalitasitasinouesiuecatasiuedesinuecatusitalicoremaniremininonsiuetudeconecouemasinlitataueliuetanoresinocaturenouereuedesidesitaueco
+  heldout fitted key: in-order -2.2360 shuffled -2.3337 sd 0.0049 gain +0.0977 z 19.8

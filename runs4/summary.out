@@ -1,0 +1,28 @@
+[control subset=B lang=latin seed=1 N=7728 drop=0.336] LM/char=-2.088 total=-16864 bigram-share=0.96 | token-acc=0.006 decoded-letter-match=0.047
+  heldout fitted key: in-order -2.2573 shuffled -2.2785 sd 0.0054 gain +0.0211 z 3.9
+  heldout true key: in-order -2.6324 shuffled -3.1059 sd 0.0099 gain +0.4735 z 47.7
+[control subset=B lang=latin seed=2 N=7640 drop=0.336] LM/char=-2.082 total=-16663 bigram-share=0.96 | token-acc=0.009 decoded-letter-match=0.048
+  heldout fitted key: in-order -2.2234 shuffled -2.2603 sd 0.0049 gain +0.0369 z 7.5
+  heldout true key: in-order -2.6794 shuffled -3.1087 sd 0.0095 gain +0.4293 z 45.2
+[control subset=B lang=latin seed=3 N=7732 drop=0.336] LM/char=-2.073 total=-16809 bigram-share=0.97 | token-acc=0.002 decoded-letter-match=0.050
+  heldout fitted key: in-order -2.2353 shuffled -2.2643 sd 0.0046 gain +0.0290 z 6.3
+  heldout true key: in-order -2.6756 shuffled -3.1130 sd 0.0091 gain +0.4374 z 48.2
+[markov subset=B lang=latin seed=1 N=7763 drop=0.336] LM/char=-2.126 total=-17233 bigram-share=0.98
+  heldout fitted key: in-order -2.2360 shuffled -2.3337 sd 0.0049 gain +0.0977 z 19.8
+[markov subset=B lang=latin seed=2 N=7678 drop=0.336] LM/char=-2.074 total=-16667 bigram-share=0.96
+  heldout fitted key: in-order -2.2167 shuffled -2.2705 sd 0.0047 gain +0.0538 z 11.5
+[markov subset=B lang=latin seed=3 N=7763 drop=0.336] LM/char=-2.142 total=-17327 bigram-share=0.97
+  heldout fitted key: in-order -2.2743 shuffled -2.3475 sd 0.0038 gain +0.0732 z 19.4
+[shuffled subset=B lang=latin seed=1 N=7691 drop=0.336] LM/char=-2.098 total=-16895 bigram-share=0.96
+  heldout fitted key: in-order -2.2412 shuffled -2.2546 sd 0.0048 gain +0.0133 z 2.8
+[shuffled subset=B lang=latin seed=2 N=7691 drop=0.336] LM/char=-2.107 total=-16937 bigram-share=0.96
+  heldout fitted key: in-order -2.2679 shuffled -2.2689 sd 0.0038 gain +0.0010 z 0.3
+[shuffled subset=B lang=latin seed=3 N=7691 drop=0.336] LM/char=-2.105 total=-16923 bigram-share=0.96
+  heldout fitted key: in-order -2.2575 shuffled -2.2617 sd 0.0054 gain +0.0042 z 0.8
+[voynich subset=B lang=latin seed=1 N=7691 drop=0.336] LM/char=-2.093 total=-16812 bigram-share=0.96
+  heldout fitted key: in-order -2.2863 shuffled -2.3124 sd 0.0054 gain +0.0261 z 4.8
+[voynich subset=B lang=latin seed=2 N=7691 drop=0.336] LM/char=-2.076 total=-16722 bigram-share=0.96
+  heldout fitted key: in-order -2.3284 shuffled -2.3592 sd 0.0031 gain +0.0308 z 10.0
+[voynich subset=B lang=latin seed=3 N=7691 drop=0.336] LM/char=-2.083 total=-16742 bigram-share=0.96
+  heldout fitted key: in-order -2.3087 shuffled -2.3369 sd 0.0060 gain +0.0283 z 4.7
+grep: runs4/summary.out: input file is also the output

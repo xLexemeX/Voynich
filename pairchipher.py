@@ -48,7 +48,10 @@ elif target=='control':
     for c in range(C): homo[c]=types[k:k+alloc[c]]; k+=alloc[c]
     seq=[random.choice(homo[c]) for c in chunks]; seq=[w for w in seq if random.random()>=DROP]
     truth={w:c for c in range(C) for w in homo[c]}
-tid={w:i for i,w in enumerate(top)}; S=np.array([tid[w] for w in seq],dtype=np.int64); N=len(S)
+tid={w:i for i,w in enumerate(top)}; S=np.array([tid[w] for w in seq],dtype=np.int64)
+HOLD=os.environ.get('HOLD')=='1'
+if HOLD: SH=S[len(S)//2:]; S=S[:len(S)//2]
+N=len(S)
 pos=collections.defaultdict(list)
 for i,s in enumerate(S): pos[s].append(i)
 pos={k:np.array(v) for k,v in pos.items()}; active=list(pos)
@@ -95,3 +98,10 @@ res=f'[{target} subset={SUBSET} lang={LANG} seed={seed} N={N} drop={DROP:.3f}] L
 if truth is not None:
     res+=f' | token-acc={np.mean([bestM[s]==truth[top[s]] for s in S]):.3f} decoded-letter-match={sum(1 for a,b in zip(dec, "".join(ALPHA[x] for x in CHA[TM[S]].ravel() if x>=0)) if a==b)/max(1,len(dec)):.3f}'
 print(res, flush=True); print('  sample:', dec[:240])
+if HOLD:
+    def lmc(M,X):
+        E=CHA[M[X]].ravel(); E=E[E>=0]; return lp[((E[:-3]*A+E[1:-2])*A+E[2:-1])*A+E[3:]].sum()/len(E)
+    rng=np.random.default_rng(seed); keys=[('fitted',bestM)]+([('true',TM)] if truth is not None else [])
+    for name,KM in keys:
+        o=lmc(KM,SH); sh=[lmc(KM,rng.permutation(SH)) for _ in range(20)]
+        print(f'  heldout {name} key: in-order {o:.4f} shuffled {np.mean(sh):.4f} sd {np.std(sh):.4f} gain {o-np.mean(sh):+.4f} z {(o-np.mean(sh))/np.std(sh):.1f}', flush=True)

@@ -1,0 +1,10 @@
+  progress 0.5M/4.0M best -18792 (54s)
+  progress 1.0M/4.0M best -18532 (121s)
+  progress 1.5M/4.0M best -18314 (179s)
+  progress 2.0M/4.0M best -18116 (235s)
+  progress 2.5M/4.0M best -17837 (294s)
+  progress 3.0M/4.0M best -17588 (360s)
+  progress 3.5M/4.0M best -17181 (435s)
+[shuffled subset=B lang=latin seed=2 N=7691 drop=0.336] LM/char=-2.107 total=-16937 bigram-share=0.96
+  sample: atalatumenoseratinumerquiceratquisoneratinoneratiticinatisaleriseriticumaticericoniciconinesitatumetatquatumonicparonisineratisetquisetalononpicquordeorerqueteraliseteraratinquerisalonesarathonesinerinineserquesitpalitatineratalisitisderera
+  heldout fitted key: in-order -2.2679 shuffled -2.2689 sd 0.0038 gain +0.0010 z 0.3
