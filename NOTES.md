@@ -756,3 +756,23 @@ If the herbal text describes the plant drawn beside it, two pages showing the sa
 | matched different-genus pairs | 0.0387 |
 
 p = 0.77. **Result: negative.** Pages identified as the same plant share no more vocabulary than unrelated pages of the same language and distance. The highest pair, f40v and f50r, both called artichoke by ThP (cosine 0.134), ranks among the top 16 of all 4,961 same-language herbal page pairs. It is the only same-genus pair that stands out. Pairs this high make up 0.3% of all pairs, so among 35 pairs chance gives at least one about 10% of the time. A single striking pair is therefore weak evidence, and the group as a whole is at chance. Together with §35–36 (herbal vs pharmacy copies) and §40 (page-opening words), there is no sign that the herbal text varies with the plant drawn. **Caveat:** the identifications are uncertain, and a wrong identification adds noise. But that noise would weaken a real effect, not reverse it, and here the same-plant pairs come out slightly *below* the null.
+
+## 52. Do the two 28-ish diagrams share names, as two lists of lunar mansions would? (`mansions.py`, `data/mansions.out`)
+
+**Counts.** Several astronomical diagrams have cycle-sized counts in ZL:
+- 12 radial entries on f67r1, 12 star labels on f67r2, 12 labels on f67v1 and 12 outer-ring lines on f68v2
+- **28 radial entries on f69v**, the count voynich.nu links to the 28 lunar mansions
+- **29 star labels on f68r1**, and 24 on f68r2
+
+If f69v and f68r1 both listed the mansions, by name or by their stars, they should share word forms.
+
+**Test.** For each of the 36 label or ring sets with at least 15 distinct words, I measured the share of f69v's 28 radial words that occur in the set, exactly or within one glyph edit.
+
+| set | exact shared | f69v words within 1 edit | rank of 36 |
+|---|---|---|---|
+| fRos labels (139) | 5 | 0.62 | 1 |
+| f72v1 zodiac labels | 2 | 0.48 | 2 |
+| f69r outer ring | 6 | 0.45 | 3 |
+| **f68r1 star labels (28)** | **0** | **0.17** | **25** |
+
+**Result: negative.** The star labels of f68r1 share no word with f69v's 28 entries, and fewer near-matches than most other sets. f69v's words (`okeody`, `okeey`, `oteol`, `ytody`, `sar`…) are closest to the large fRos label set and the zodiac labels, which is just the common `o + gallows + ending` label family (§6, §22). The 28 and 29 counts may still reflect a lunar-mansion scheme, but the two diagrams do not name the same 28 things in the same written form.
