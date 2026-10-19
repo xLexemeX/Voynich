@@ -600,3 +600,25 @@ In case A uses a different key from B. A's paragraph text is shorter: its 300 co
 | Italian | +0.49 to +0.52 | +0.002 to +0.027 | **+0.003 to +0.013** |
 
 **Result: negative.** The keys fitted to language A gain nothing from word order on held-out text, the same as wrong keys. A has even less usable word order than B: B's small surplus of 0.02–0.03 over wrong keys, which §39 traced to its `y | qo` junctions, is gone here. That fits language A having about half B's rate of `qo` junctions (§20).
+
+## 44. Acrostic test: the first glyphs of consecutive lines alternate (`acrostic.py`, `acrostic_lag.py`, `data/acrostic*.out`)
+
+**Question.** Could a message be carried by the first glyph of each line, as in an acrostic? If so, the sequence of line-initial glyphs down a page should have letter-like dependencies. The null shuffles lines within their page or paragraph, which keeps each page's mix of initials. Paragraph-first lines are excluded, because they open with a gallows (§6). Lines interrupted by a drawing are single loci in ZL (`<->` inline), so splitting is not a factor.
+
+**Result.** There is structure, but it is not an acrostic. It is an **alternation**:
+
+| sequence | same initial at lag 1 | lag 2 | lag 3 | lag 4 |
+|---|---|---|---|---|
+| Voynich, within paragraph (shuffle) | **0.086** (0.148) | **0.194** (0.149) | 0.170 (0.152) | 0.180 (0.154) |
+| language A only | **0.055** (0.137) | 0.178 (0.141) | | |
+| language B only | **0.109** (0.158) | 0.205 (0.156) | | |
+| Latin prose, Pliny, 9-word lines | 0.080 (0.077) | 0.077 (0.076) | | |
+| Italian verse, Dante | 0.091 (0.105) | 0.098 (0.105) | | |
+
+All Voynich lag-1 deficits and lag-2 excesses have p < 0.003 against 300 shuffles. Consecutive lines avoid sharing an initial: 42% fewer repeats than chance, and 60% fewer in language A. Lines two apart share one 30% more often. Latin prose shows nothing. Dante's verse has a small lag-1 deficit and no lag-2 excess. By section, the repeat deficit is largest in the herbal section (0.061 vs 0.150) and smallest in the stars section (0.164 vs 0.184).
+
+**What carries it.** The strongest avoided transitions are `q→q` (23 against 89 expected), `o→o` (37 against 89), `ch→ch` and `s→ch`. The strongest favored ones are `q→ch` (56 against 23), `q→sh`, `o→q` (132 against 76) and `d→q`. The excess survives with self-repeats removed (MI over non-repeat pairs 0.327 vs 0.269, p < 0.002). It is not the `y | qo` junction carried across the line break: a line starts with `q` 16.1% of the time after a line ending in `y` and 14.2% otherwise.
+
+**Prior work.** A voynich.ninja summary of Tavi's line-pattern talk (thread 4343) already reports `o→q` lines and the avoidance of `o-o` and `q-q` starts. This section quantifies that observation against a within-paragraph shuffle and plaintext controls, and adds the lag-2 excess and the A/B difference. It is a confirmation, not a discovery.
+
+**Meaning for decipherment.** A line's first glyph depends on the previous line's first glyph, in an ABAB pattern found in neither Latin prose nor Italian verse. That is a layout rule working at the level of the line, like the other line-position effects (§2, §23). It makes an acrostic reading of line initials impossible: an acrostic's letters would follow plaintext letter order, not an alternation. It is also one more piece of evidence that lines were composed as units, with their openings chosen in relation to the line above.

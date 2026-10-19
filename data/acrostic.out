@@ -1,0 +1,34 @@
+line-initial glyph   all lines                      pairs  3910  MI 0.1692  within-page shuffle 0.0576±0.0047  excess +0.1115  p=0.000
+line-initial glyph   without paragraph-first lines  pairs  3177  MI 0.1354  within-page shuffle 0.0634±0.0057  excess +0.0720  p=0.000
+line-final glyph     all lines                      pairs  3911  MI 0.0454  within-page shuffle 0.0420±0.0040  excess +0.0034  p=0.194
+line-final glyph     without paragraph-first lines  pairs  3172  MI 0.0539  within-page shuffle 0.0463±0.0043  excess +0.0076  p=0.046
+reference: adjacent letters in Latin, MI 0.790 over 6000 pairs
+same initial on consecutive lines: 0.103 vs shuffle 0.166
+MI over non-repeat pairs only: 0.3265 vs shuffle 0.2690, excess +0.0576, p=0.000
+  text     pairs  189 repeat 0.111 vs shuffle 0.147
+  herbal   pairs 1229 repeat 0.061 vs shuffle 0.150
+  stars    pairs  845 repeat 0.164 vs shuffle 0.184
+  bio      pairs  640 repeat 0.095 vs shuffle 0.181
+  pharma   pairs  164 repeat 0.098 vs shuffle 0.156
+most under-represented line-initial transitions (obs/exp):
+    s -> ch  obs   2 exp  14.0  0.17
+   ch -> ch  obs   2 exp   9.4  0.25
+    q -> q   obs  23 exp  89.3  0.26
+   ch -> sh  obs   3 exp   9.1  0.36
+    t -> q   obs   9 exp  23.3  0.40
+    q -> t   obs   9 exp  23.1  0.40
+    o -> o   obs  37 exp  88.9  0.42
+    l -> d   obs   5 exp  10.1  0.52
+    t -> t   obs  10 exp  18.8  0.54
+    s -> sh  obs  12 exp  22.1  0.55
+most over-represented:
+    q -> ch  obs  56 exp  22.8  2.42
+    q -> sh  obs  51 exp  26.4  1.91
+    o -> q   obs 132 exp  76.0  1.73
+    d -> l   obs  16 exp   9.8  1.61
+   sh -> t   obs  15 exp   9.2  1.60
+    d -> q   obs 129 exp  85.1  1.51
+    l -> o   obs  14 exp   9.2  1.49
+    d -> t   obs  57 exp  40.2  1.41
+    t -> y   obs  53 exp  39.7  1.33
+    y -> o   obs 124 exp  96.0  1.29

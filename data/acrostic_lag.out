@@ -1,0 +1,7 @@
+within page                    lag1 0.103/0.166 p_low=0.000  lag2 0.191/0.167 p_low=1.000  lag3 0.172/0.168 p_low=0.743  lag4 0.189/0.169 p_low=0.993
+within paragraph               lag1 0.086/0.148 p_low=0.000  lag2 0.194/0.149 p_low=1.000  lag3 0.170/0.152 p_low=0.997  lag4 0.180/0.154 p_low=0.997
+within paragraph, language A   lag1 0.055/0.137 p_low=0.000  lag2 0.178/0.141 p_low=1.000  lag3 0.175/0.145 p_low=0.993  lag4 0.181/0.149 p_low=0.977
+within paragraph, language B   lag1 0.109/0.158 p_low=0.000  lag2 0.205/0.156 p_low=1.000  lag3 0.167/0.157 p_low=0.837  lag4 0.180/0.157 p_low=0.963
+P(line starts q | previous line ends y) 0.161  vs otherwise 0.142
+control Latin (Pliny)                      lag1 0.080/0.077 p_low=0.840  lag2 0.077/0.076 p_low=0.620
+control Italian (Dante, verse lines as is) lag1 0.091/0.105 p_low=0.000  lag2 0.098/0.105 p_low=0.040
